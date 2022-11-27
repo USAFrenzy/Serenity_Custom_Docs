@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Serenity Logger Landing Page</title>
+    <meta name="Serenity Logger Framework Documentation">
+</head>
+
+<body style="background-color:blanchedalmond;">
+    <div style="background-color:#8D203A;">
+        <h1 align="center" style="color:#A8C077;"><strong><em>Welcome To The Landing Page For The Serenity Logging Framework</em></strong></h1>
+        <div style="display: flex; justify-content: center;">
+            <img src="Resources/Placeholder_Icon.png" alt="Placeholder Logo" style="width: 100px; height: 100px;" />
+          </div>
+        <h2 align="center" style="color:#38012a;">What Is This Library All About?</h2>
+        <p align="center" style="color:#A8C077;">Serenity is a learning project of mine that was created for the sole
+            purpose of being a starting point into creating a project that would be considered "complete".
+            This Library takes as inspiration <a href="https://github.com/gabime/spdlog" style="color:azure;">spdlog</a>
+            for its usage of user defined format patterns, its ability to swap out formatting backends,
+            the ability to log to a terminal with and without color (similar to spdlog's ansicolor, wincolor, stdout,
+            stdout_color sinks), the ability to log into a single file (equivalent to spdlog's basic file sink),
+            as well as the ability to log using multiple files in a rotation basis (similar to spdlog's rotation based
+            sinks such as the hourly, daily, and rotating_file sinks).
+        </p>
+        <p align="center" style="color:#A8C077;">
+            Serenity also includes a native formatting backend in the form of <a
+                href="https://github.com/USAFrenzy/ArgFormatter" style="color:azure;">ArgFormatter</a>. ArgFormatter is
+            another project of mine that originally stemmed from this project - it's usage is a limited replacement for
+            <a href="https://github.com/fmtlib/fmt" style="color:azure;">fmtlib</a> and
+            <a href="https://en.cppreference.com/w/cpp/utility/format/format"
+                style="color:azure;"><code>std::format</code></a>
+            and covers all plain old data types, std::tm, as well as the ability to add custom formatting for full
+            compatibility
+            with the aforementioned formatters. In benching timings, "<code>ArgFormatter</code>" provides faster
+            formatting times
+            at the cost of not being as robust as the other two. We'll dive into this more later, but just know that you
+            have the
+            ability to swap this formatting backend out for either "<code>fmtlib</code>" or "<code>< format ></code>" if
+            you so desire.
+        </p>
+        <p align="center" style="color:#A8C077;">
+            Serenity is also fully Unicode supported through its usage of
+            <a href="https://github.com/USAFrenzy/UTF-Utils" style="color:azure;">UTF-Utils</a> (this is another short
+            header-only library
+            I wrote initially specifically for Serenity). What this allows Serenity to do is take an input source from
+            any encoding (barring
+            big endian utf-16/utf-32; little endian is supported) and encodes it into utf-8 for internal usage in
+            processing and formatting.
+            Then, when it's time to actually log the message, Serenity will detect the char set of the container and
+            encode it if need be.
+            The included targets all use utf-8 compatible containers, however, if you the user decided to inherit from
+            <code>TargetBase</code>,
+            you could override the <code>PrintMessage()</code> function to log to almost any container.
+        </p>
+        <h2 style="color:#38012a;">Serenity Requires The Following:</h2>
+        <ul style="color:#A8C077;">
+            <li>C++ 20</li>
+            <ul>
+                <li>lambda closure type</li>
+                <li>lambda parameter pack expansions</li>
+                <li>Aggregate initializations</li>
+                <li>Heavy use of constraints and concepts</li>
+                <li>Light usage of abbreviated function templates</li>
+                <li><code>"< concepts >"</code> header</li>
+                <li><code>"< format >"</code> header if the build option used replaces the native formatter backend</li>
+                <li><code>"< source_location >" header</code></li>
+                <li>Heavy usage of <code>std::remove_cvref_t<></code></li>
+                <li><code>std::jthread</code></li>
+                <li><code>std::stop_token</code></li>
+                <li><code>std::stop_source</code></li>
+            </ul>
+            <li>A formatting backend:</li>
+            <ul>
+                <li><code>"ArgFormatter"</code> is the default backend. It uses build option <em>"USE_NATIVEFMT"</em>
+                </li>
+                <li><code>"fmtlib"</code>. It uses build option <em>"USE_FMTLIB"</em> and defaults to version 9.1.0</li>
+                <li><code>"< format >"</code>. It uses build option <em>"USE_STDFMT"</em></li>
+            </ul>
+            <li><code>Utf-Utils</code> - this project is automatically included and linked in but is a hard requirement
+            </li>
+        </ul>
+
+        </p>
+    </div>
+</body>
+
+</html>
