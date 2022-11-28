@@ -57,7 +57,7 @@
             the CMake configure command from above with the <span style="color:#cbff64;"><code>'-D'</code></span> flag
             and either enabling or disabling the
             option with <span style="color:#cbff64;"><code>'="ON"' or '="OFF"'</code></span>. Options available are:
-        <div style="display: flex; justify-content:right; color:#A8C077;">
+        <div style="display: flex; justify-content:center; color:#A8C077;">
             <ul>
                 <li><em><u><span style="color:#cbff64;">BUILD_SANDBOX</span></u></em> - If this build option is set,
                     then the sandbox sub project will be included in the generation step.</li>
@@ -95,13 +95,13 @@
         <p align="center" style="color:#A8C077;">
             <span style="color:#dbefaa;">- An Example of using the above build options would be:</span><br>
             <span
-                style="color:#cbff64;"><code>'  cmake -B build -S . -DUSE_NATIVEFMT="OFF" -DUSE_NATIVEFMT="ON"  '</code></span>
-            <br>The above line would generate the project files in the build folder 'build' using fmtlib as the
+                style="color:#cbff64;"><code>"  cmake -B build -S . -DUSE_NATIVEFMT="OFF" -DUSE_NATIVEFMT="ON"  "</code></span>
+            <br>The above line would generate the project files in the build folder 'build' using "fmtlib" as the
             formatting backend.<br><span
-                style="color:#cbff64;"><code>'  cmake -B build -S . -DDISABLE_NATIVE_WARNING="ON"  '</code></span>
+                style="color:#cbff64;"><code>"  cmake -B build -S . -DDISABLE_NATIVE_WARNING="ON"  "</code></span>
             <br>The
-            above line would generate the project files in the build folder 'build' using as the formatting backend
-            while disabling the compilation message.
+            above line would generate the project files in the build folder 'build' using "ArgFormatter" as the
+            formatting backend while disabling the compilation message.
         </p>
         <hr />
         <br><br>
