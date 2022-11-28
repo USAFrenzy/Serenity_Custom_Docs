@@ -11,11 +11,13 @@
 
 <body style="background-color:rgb(234, 204, 159);">
     <div style="background-color:#045147;">
+        <hr />
         <h1 align="center" style="color:#A8C077;"><strong><em>Welcome To The Landing Page For The Serenity Logging
                     Framework Documentation</em></strong></h1>
         <div style="display: flex; justify-content: center;">
             <img src="Resources/Placeholder_Icon.png" alt="Placeholder Logo" style="width: 100px; height: 100px;" />
         </div>
+        <hr />
         <div style="display: flex; justify-content:space-evenly;">
             <a href="Building/building_landing.html" style="color:rgb(189, 241, 241);">Building</a>
             <a href="Documentation/documentation_landing.html" style="color:rgb(189, 241, 241);">Documentation</a>
@@ -33,7 +35,7 @@
             stdout_color sinks), the ability to log into a single file (equivalent to spdlog's basic file sink),
             as well as the ability to log using multiple files in a rotation basis (similar to spdlog's rotation based
             sinks such as the hourly, daily, and rotating_file sinks). Serenity targets all have multi-threading support
-            in the form of the inherited base class, <code >"TargetBase"</code>, with the function
+            in the form of the inherited base class, <code>"TargetBase"</code>, with the function
             <code>"EnableMultiThreadingSupport(bool enable)"</code>.
         </p>
         <p align="center" style="color:#A8C077;">
@@ -88,15 +90,20 @@
             </ul>
             <li>A formatting backend:</li>
             <ul>
-                <li><code>"ArgFormatter"</code> is the default backend. It uses the build option <em>"USE_NATIVEFMT"</em>
+                <li><code>"ArgFormatter"</code> is the default backend. It uses the build option
+                    <em>"USE_NATIVEFMT"</em>
                 </li>
-                <li><code>"fmtlib"</code>. It uses the build option <em>"USE_FMTLIB"</em> and defaults to version 9.1.0</li>
+                <li><code>"fmtlib"</code>. It uses the build option <em>"USE_FMTLIB"</em> and defaults to version 9.1.0
+                </li>
                 <li><code>"std::format"</code>. It uses the build option <em>"USE_STDFMT"</em></li>
             </ul>
-            <li><code>"Utf-Utils"</code> - this project is automatically included and linked in but is a hard requirement
+            <li><code>"Utf-Utils"</code> - this project is automatically included and linked in but is a hard
+                requirement
             </li>
         </ul>
         </p>
+        <hr />
+        <br><br>
         <hr />
     </div>
 </body>
