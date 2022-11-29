@@ -1,10 +1,10 @@
 nav#navbar {
 	grid-area: navbar;
-	position:fixed;
+	position: fixed;
 	top: 2%;
 	margin-top: 0.2%;
 	margin-left: 0%;
-	font-size:larger;
+	font-size: larger;
 	text-align: center;
 	background-color: #045147;
 	color: rgb(189, 241, 241);
@@ -22,8 +22,18 @@ nav#navbar a {
 	color: rgb(189, 241, 241);
 }
 
-div.main-body{
-display:inline-block;
-margin-left: 20%;
-margin-right: 20%;
+div.main-body {
+	display: inline-block;
+	background-color: #036b5d;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+div#code_body{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+pre{
+	text-align: left;
 }
