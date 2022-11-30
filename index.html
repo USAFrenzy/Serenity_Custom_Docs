@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <html lang="en">
     <meta charset="utf-8">
@@ -10,51 +9,43 @@
     <script type="text/javascript" src="scripts/code_syntax/sh_main.js"></script>
     <script type="text/javascript" src="scripts/code_syntax/lang/sh_cpp.js"></script>
     <link type="text/css" rel="stylesheet" href="scripts/code_syntax/css/sh_nedit.css">
-    <link rel="stylesheet" href="scripts/layout/main_page.css">
-
+    <link rel="stylesheet" href="scripts/layout/common.css">
 </head>
-
 <body onload="sh_highlightDocument();">
     <div id="outerBorder">
-        <br><br>
-        <div id="mainHeaders">
-            <h1><strong><em>Welcome To The Landing Page For The Serenity Logging
-                        Framework Documentation</em></strong></h1>
-        </div>
         <br>
-        <div style="display: flex; justify-content: center;">
-            <img src="Resources/Placeholder_Icon.png" alt="Placeholder Logo" style="width: 100px; height: 100px;" />
+        <img id="logo" src="Resources/Placeholder_Icon.png" alt="Placeholder Logo" />
+        <br>
+        <div id="mainHeaders">
+            <h1><strong><em>Welcome To The Landing Page For The Serenity Logging Framework Documentation</em></strong>
+            </h1>
         </div>
         <nav id="navbar">
             <header>Page Contents</header>
             <a href="#About Serenity" class="nav-link"> About Serenity</a>
             <a href="#Requirements" class="nav-link"> Requirements </a>
-            <a href="#Basic Overview" class="nav-link">
-                Brief Overview</a>
-            <a href="#Benchmarks" class="nav-link">
-                Benchmarks</a>
+            <a href="#Basic Overview" class="nav-link">Brief Overview</a>
+            <a href="#Benchmarks" class="nav-link">Benchmarks</a>
         </nav>
         <br><br>
         <div class="main-body">
             <hr />
-            <div style="display: flex; justify-content:space-evenly;">
-                <a href="Building/building_landing.html" style="color:rgb(189, 241, 241);">Building</a>
-                <a href="Documentation/documentation_landing.html" style="color:rgb(189, 241, 241);">Documentation</a>
-                <a href="Examples/examples_landing.html" style="color:rgb(189, 241, 241);">Examples</a>
-                <a href="https://github.com/USAFrenzy/Serenity_Logger" style="color:rgb(189, 241, 241);">Source</a>
+            <div id="docLinks">
+                <a href="Building/building_landing.html">Building</a>
+                <a href="Documentation/documentation_landing.html">Documentation</a>
+                <a href="Examples/examples_landing.html">Examples</a>
+                <a href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
             </div>
             <hr />
-
             <!-------------------------------------------- This Section Covers The All About Serenity -------------------------------------------->
             <section id="About Serenity">
                 <div id="sectionHeader">
                     <h2> What Is This Library All About?</h2>
                 </div>
-                <p style="color:#A8C077; text-align:center;">Serenity is a learning project of mine that was created for
-                    the sole purpose of being a starting point into creating a project that would be considered
-                    "complete". This Library takes as inspiration <a href="https://github.com/gabime/spdlog"
-                        style="color:rgb(189, 241, 241);">spdlog</a> for its usage of user defined format patterns, its
-                    ability to swap out formatting backends, the ability to log to a terminal with and without color
+                <p>Serenity is a learning project of mine that was created for the sole purpose of being a starting
+                    point into creating a project that would be considered "complete". This Library takes as inspiration
+                    <a href="https://github.com/gabime/spdlog">spdlog</a> for its usage of user defined format patterns,
+                    its ability to swap out formatting backends, the ability to log to a terminal with and without color
                     (similar to spdlog's ansicolor, wincolor, stdout, stdout_color sinks), the ability to log into a
                     single file (equivalent to spdlog's basic file sink), as well as the ability to log using multiple
                     files in a rotation basis (similar to spdlog's rotation based sinks such as the hourly, daily, and
@@ -62,39 +53,39 @@
                     base class, <code>"TargetBase"</code>, with the function
                     <code>"EnableMultiThreadingSupport(bool enable)"</code>.
                 </p>
-                <p style="color:#A8C077; text-align:center;"> Serenity also includes a native formatting backend in the
-                    form of <a href="https://github.com/USAFrenzy/ArgFormatter"
-                        style="color:rgb(189, 241, 241);">ArgFormatter</a>. ArgFormatter is another project of mine that
-                    originally stemmed from this project - it's usage is a limited replacement for <a
-                        href="https://github.com/fmtlib/fmt" style="color:rgb(189, 241, 241);">fmtlib</a> and <a
-                        href="https://en.cppreference.com/w/cpp/utility/format/format"
-                        style="color:rgb(189, 241, 241);"><code>"&lt;format&gt;"</code></a> and covers all plain old
-                    data types, std::tm, as well as the ability to add custom formatting for full compatibility with the
-                    aforementioned formatters. In benching timings, "<code>ArgFormatter</code>" provides faster
-                    formatting times at the cost of not being as robust as the other two. We'll dive into this more
-                    later, but just know that you have the ability to swap this formatting backend out for either
-                    "<code>fmtlib</code>" or "<code>&lt;format&gt;</code>" if you so desire.
+                <br><br>
+                <p> Serenity also includes a native formatting backend in the form of <a
+                        href="https://github.com/USAFrenzy/ArgFormatter">ArgFormatter</a>. ArgFormatter is another
+                    project of mine that originally stemmed from this project - it's usage is a limited replacement for
+                    <a href="https://github.com/fmtlib/fmt">fmtlib</a> and <a
+                        href="https://en.cppreference.com/w/cpp/utility/format/format"><code>&lt;format&gt;</code></a>
+                    and covers all plain old data types, std::tm, as well as the ability to add custom formatting for
+                    full compatibility with the aforementioned formatters. In benching timings,
+                    "<code>ArgFormatter</code>" provides faster formatting times at the cost of not being as robust as
+                    the other two. We'll dive into this more later, but just know that you have the ability to swap this
+                    formatting backend out for either "<code>fmtlib</code>" or "<code>&lt;format&gt;</code>" if you so
+                    desire.
                 </p>
-                <p style="color:#A8C077; text-align:center;"> Serenity is also fully Unicode supported through its usage
-                    of <a href="https://github.com/USAFrenzy/UTF-Utils" style="color:rgb(189, 241, 241);">UTF-Utils</a>
-                    (this is another short header-only library I wrote initially specifically for Serenity). What this
-                    allows Serenity to do is take an input source from any encoding (barring big endian utf-16/utf-32;
-                    little endian is supported) and encodes it into utf-8 for internal usage in processing and
-                    formatting. Then, when it's time to actually log the message, Serenity will detect the char set of
-                    the container and encode it if need be. The included targets all use utf-8 compatible containers,
-                    however, if you the user decided to inherit from <code>TargetBase</code>, you could override the
-                    <code>PrintMessage()</code> function to log to almost any char-based container type.
-                </p>
+                <br><br>
+                <p> Serenity is also fully Unicode supported through its usage of <a
+                        href="https://github.com/USAFrenzy/UTF-Utils">UTF-Utils</a> (this is another short header-only
+                    library I wrote initially specifically for Serenity). What this allows Serenity to do is take an
+                    input source from any encoding (barring big endian utf-16/utf-32; little endian is supported) and
+                    encodes it into utf-8 for internal usage in processing and formatting. Then, when it's time to
+                    actually log the message, Serenity will detect the char set of the container and encode it if need
+                    be. The included targets all use utf-8 compatible containers, however, if you the user decided to
+                    inherit from <code>TargetBase</code>, you could override the <code>PrintMessage()</code> function to
+                    log to almost any char-based container type. </p>
+                <br><br>
             </section>
             <hr />
-
             <!-------------------------------------------- This Section Covers Serenity's Requirements -------------------------------------------->
             <section id="Requirements">
                 <div id="sectionHeader">
                     <h2> Serenity Requires The Following:</h2>
                 </div>
-                <div style="display: flex; justify-content:center;">
-                    <ul style="color:#A8C077;">
+                <div id="lists">
+                    <ul>
                         <li>C++ 20</li>
                         <ul>
                             <li>Lambda closure type</li>
@@ -128,28 +119,24 @@
                 </div>
             </section>
             <hr />
-
             <!-------------------------------------------- This Section Covers The Basic Usage -------------------------------------------->
             <section id="Basic Overview">
                 <div id="sectionHeader">
                     <h2> Brief Overview Of Usage</h2>
                 </div>
-                <p style="color:#A8C077; text-align:center;"> To start using any of the logging targets, simply
-                    `#include` any of the targets found under `serenity/Targets`.<br> The available targets for
-                    out-of-the-box usage are:
-                <div style="display: flex; justify-content:center;">
-                    <ul style="color:#A8C077;">
+                <p> To start using any of the logging targets, simply `#include` any of the targets found under
+                    `serenity/Targets`. <br> The available targets for out-of-the-box usage are: </p>
+                <div id="lists">
+                    <ul>
                         <li>FileTarget</li>
                         <li>RotatingTarget</li>
                         <li>ColorConsoleTarget</li>
                     </ul>
-                    <br>
                 </div>
-                </p>
-                <p style="color:#A8C077; text-align:center;">
+                <br>
+                <p>
                     NOTE: Despite the naming, `ColorConsoleTarget` does also allow the user to log without color.
-                    <br>
-                    <br>
+                    <br><br>
                     <!-------------------------------------------- This Section Covers The File Target -------------------------------------------->
                     <strong>
                         <em>
@@ -158,26 +145,19 @@
                             </u>
                         </em>
                     </strong>
-                <p style="color:#A8C077; text-align:center;">
-                    There are three total constructors for `FileTarget`:
-                    <br>
-                <div id="code_body">
-                    <pre class="sh_cpp">
-                        <code>
+                <p> There are three total constructors for `FileTarget`: </p>
+                <div id="codeBlock">
+                <pre class="sh_cpp">
 
-                            1.) explicit FileTarget(std::string_view fileName, bool replaceIfExists = false); 
-                            2.) explicit FileTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false);
-                            3.) explicit FileTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false);
-                        </code>
+ 1.) explicit FileTarget(std::string_view fileName, bool replaceIfExists = false);  
+ 2.) explicit FileTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false); 
+ 3.) explicit FileTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false); 
                     </pre>
                 </div>
-                <br>
-                </p>
-                <p style="color:#A8C077; text-align:center;"> The third constructor offers the most control, allowing
-                    you to set the Logger's name that it will be identified by, the format pattern that will be used to
-                    format the log message itself (the user flags for this can be found <a href=""
-                        style="color:rgb(189, 241, 241);">HERE-[PLACE_HOLDER]</a>), the file path for the log file (if
-                    an absolute path isn't provided, then the path created will be relative to the running process's
+                <p> The third constructor offers the most control, allowing you to set the Logger's name that it will be
+                    identified by, the format pattern that will be used to format the log message itself (the user flags
+                    for this can be found <a href="">HERE-[PLACE_HOLDER]</a>), the file path for the log file (if an
+                    absolute path isn't provided, then the path created will be relative to the running process's
                     directory + file path), as well as whether or not to truncate the file on open if the file already
                     exists on disk.
                     <br><br>
@@ -188,12 +168,12 @@
                     <br>
                     <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
                         Platform_Line_Ending." </span>.
-                    <br><br>
-                    For the first constructor, you have the same control over the file name (NOTE: this is not the file
-                    path itself, this is only the file name; the file path will use the running process's directory +
-                    "Logs" + file name ), as well as having control over whether or not the file is truncated on open or
-                    not. The name of a logger using this constructor will default to <span style="color: #cbff64;">
-                        "File_Logger" </span> while the format of the log message will default to the pattern of:
+                    <br><br> For the first constructor, you have the same control over the file name (NOTE: this is not
+                    the file path itself, this is only the file name; the file path will use the running process's
+                    directory + "Logs" + file name ), as well as having control over whether or not the file is
+                    truncated on open or not. The name of a logger using this constructor will default to <span
+                        style="color: #cbff64;"> "File_Logger" </span> while the format of the log message will default
+                    to the pattern of:
                     <br>
                     <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
                         Platform_Line_Ending." </span>.
@@ -207,43 +187,37 @@
                         </u>
                     </em>
                 </strong>
-                <p style="color:#A8C077; text-align:center;">
-                    There are three total constructors for `RotatingTarget`:
-                    <br>
-                </p>
-                <div id="code_body">
-                    <pre class="sh_cpp">
+                <p> There are three total constructors for `RotatingTarget`: </p>
+                <div id="codeBlock">
+                <pre class="sh_cpp">
 
-                            1.) explicit RotatingTarget();
-                            2.) explicit RotatingTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false);
-                            3.) explicit RotatingTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false);
+ 1.) explicit RotatingTarget(); 
+ 2.) explicit RotatingTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false); 
+ 3.) explicit RotatingTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false); 
                     </pre>
                 </div>
-                <br>
-                <p style="color:#A8C077; text-align:center;"> Like with the File Target, the Rotating Target's third
-                    constructor offers the most control, allowing you to set the Logger's name that it will be
-                    identified by, the format pattern that will be used to format the log message itself (the user flags
-                    for this can be found <a href="" style="color:rgb(189, 241, 241);">HERE-[PLACE_HOLDER]</a>), the
-                    file path for the log file (if an absolute path isn't provided, then the path created will be
-                    relative to the running process's directory + file path), as well as whether or not to truncate the
-                    file on open if the file already exists on disk.
+                <p> Like with the File Target, the Rotating Target's third constructor offers the most control, allowing
+                    you to set the Logger's name that it will be identified by, the format pattern that will be used to
+                    format the log message itself (the user flags for this can be found <a
+                        href="">HERE-[PLACE_HOLDER]</a>), the file path for the log file (if an absolute path isn't
+                    provided, then the path created will be relative to the running process's directory + file path), as
+                    well as whether or not to truncate the file on open if the file already exists on disk.
                     <br><br>
                     The second constructor differs from the third only by the format pattern, otherwise this is more or
                     less the same as the third constructor.
                     <br>
                     For the format pattern, it will use the default pattern of:
                     <br>
-                    <span style="color: #cbff64;">
-                        "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message + Platform_Line_Ending." </span>.
-                    <br><br>
-                    For the first constructor, everything will be set to its default values. This means that
+                    <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
+                        Platform_Line_Ending."</span>.
+                    <br><br> For the first constructor, everything will be set to its default values. This means that
                     the file path and file name will be the running process's directory + "Logs/RotatingLog.txt", the
                     file will truncate on open by default, the logger's name will be <span style="color: #cbff64;">
                         "Rotating_Logger" </span> and finally, the format of the log message will default to the pattern
                     of:
                     <br>
-                    <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]:
-                        Log_Message + Platform_Line_Ending." </span>.
+                    <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
+                        Platform_Line_Ending." </span>.
                     <br><br>
                 </p>
                 <!------------------------------------------ This Section Covers The Console Target ------------------------------------------>
@@ -254,29 +228,26 @@
                         </u>
                     </em>
                 </strong>
-                <p style="color:#A8C077; text-align:center;">
-                    There are three total constructors for `ColorConsoleTarget`:
-                    <br>
-                <div id="code_body">
-                    <pre class="sh_cpp">
+                <p> There are three total constructors for `ColorConsoleTarget`: </p>
+                <div id="codeBlock">
+                <pre class="sh_cpp">
 
-                            1.) ColorConsoleTarget();
-                            2.) explicit ColorConsoleTarget(std::string_view name );
-                            3.) explicit ColorConsoleTarget(std::string_view name, std::string_view msgPattern );
+ 1.) ColorConsoleTarget(); 
+ 2.) explicit ColorConsoleTarget(std::string_view name ); 
+ 3.) explicit ColorConsoleTarget(std::string_view name, std::string_view msgPattern ); 
                     </pre>
                 </div>
-                <br>
-                </p>
-                <p style="color:#A8C077; text-align:center;">
-                    For all three constructors, the default console interface set is
-                    <span style="color:#cbff64;">`stdout`</span> - this can be changed via the <span
+                <p>
+                    For all three constructors, the default console interface set is <span
+                        style="color:#cbff64;">`stdout`</span> - this can be changed via the <span
                         style="color:#cbff64;">"SetConsoleInterface(console_interface interface);"</span> function.
-                    <br> The Message colors for all three constructors are also default set, however, these colors can
-                    be changed by calling the
                     <br>
-                    <span style="color:#cbff64;">"SetMsgColor(LoggerLevel lvl,
-                        std::string_view color);"</span> function (where the color is an ansi color code).
+                    The Message colors for all three constructors are also default set, however, these colors can be
+                    changed by calling the
                     <br>
+                    <span style="color:#cbff64;">"SetMsgColor(LoggerLevel lvl, std::string_view color);"</span> function
+                    (where the color is an ansi color code).
+                    <br><br>
                     Note: There is a header, `Color/Color.h`, that is included that can be used to simplify and aid this
                     process as well. The color codes are broken up into the appropriate namespaces to make things clear
                     on the intent.
@@ -284,7 +255,7 @@
                     Like with the previous two Targets though, the ColorConsoleTarget's third constructor offers the
                     most control, allowing you to set the Logger's name that it will be identified by and the format
                     pattern that will be used to format the log message itself (the user flags for this can be found <a
-                        href="" style="color:rgb(189, 241, 241);">HERE-[PLACE_HOLDER]</a>).
+                        href="">HERE-[PLACE_HOLDER]</a>).
                     <br><br> The second constructor only allows setting the Logger's name. The default pattern used will
                     be:
                     <br>
@@ -293,44 +264,39 @@
                     <br><br>
                 </p>
                 <!------------------------------------------ This Section Covers Basic Logging Calls ----------------------------------------->
-                <p style="color:#A8C077; text-align:center;">
-                    Once you decide what logger(s) you would like to use, all that's left to do to start using them
-                    is
-                    to call
-                    their respective log functions:
-                </p>
-                <div id="code_body">
-                    <pre class="sh_cpp">
+                <p> Once you decide what logger(s) you would like to use, all that's left to do to start using them is
+                    to call their respective log functions: </p>
+                    <div id="codeBlock">
+                <pre class="sh_cpp">
 
-                            template &lt;typename... Args&gt; void Trace(MsgWithLoc formatString, Args&&... args);
-                            template &lt;typename... Args&gt; void Info(MsgWithLoc formatString, Args&&... args);
-                            template &lt;typename... Args&gt; void Debug(MsgWithLoc formatString, Args&&... args);
-                            template &lt;typename... Args&gt; void Warn(MsgWithLoc formatString, Args&&... args);
-                            template &lt;typename... Args&gt; void Error(MsgWithLoc formatString, Args&&... args);
-                            template &lt;typename... Args&gt; void Fatal(MsgWithLoc formatString, Args&&... args);
+ template &lt;typename... Args&gt; void Trace(MsgWithLoc formatString, Args&&... args); 
+ template &lt;typename... Args&gt; void Info(MsgWithLoc formatString, Args&&... args); 
+ template &lt;typename... Args&gt; void Debug(MsgWithLoc formatString, Args&&... args); 
+ template &lt;typename... Args&gt; void Warn(MsgWithLoc formatString, Args&&... args); 
+ template &lt;typename... Args&gt; void Error(MsgWithLoc formatString, Args&&... args); 
+ template &lt;typename... Args&gt; void Fatal(MsgWithLoc formatString, Args&&... args); 
                 </pre>
                 </div>
-                <p style="color:#A8C077; text-align:center;"> Where the format string is your message to log. The
-                    loggers use the active backend formatter to format any log message with the arguments provided so
-                    long as there are substitution brackets present in the form of <span
-                        style="color:#cbff64;">"{}"</span>. If unfamiliar with what the message formatting grammar used
-                    is, I would highly recommend checking out the grammar specification outlined <a
-                        href="https://fmt.dev/latest/syntax.html" style="color:rgb(189, 241, 241);">HERE</a>, as
-                    "ArgFormatter" and "&lt;format&gt;" are modeled after "fmtlib" and thus use Victor's grammar spec.
+                <p> Where the format string is your message to log. The loggers use the active backend formatter to
+                    format any log message with the arguments provided so long as there are substitution brackets
+                    present in the form of style="color:#cbff64;">"{}"</span>. If unfamiliar with what the message
+                    formatting grammar is, I would highly recommend checking out the grammar specification outlined
+                    href="https://fmt.dev/latest/syntax.html">HERE</a>, "ArgFormatter" and "&lt;format&gt;" are modeled
+                    after "fmtlib" and thus use Victor's grammar spec.
                     <br><br>
                     <strong><em><span style="color: #cbff64;"> As An Example: </span></em></strong>
-                <div id="code_body">
-                    <pre class="sh_cpp">
+                    <div id="codeBlock">
+                <pre class="sh_cpp">
 
-                #include &lt;serenity/Targets/FileTarget.h&gt;
+ #include &lt;serenity/Targets/FileTarget.h&gt; 
 
-                using namespace serenity::targets;
-                FileTarget basicFileLogger("My_File_Logger", "[%L] %c [%N]: %+", "Sandbox/Logs/My_Log.txt", true);
-                basicFileLogger.Trace("This is how {0} log message might look with an int formatted to hex: [{1:X}]", "a simple", 42);
+ using namespace serenity::targets; 
+ FileTarget basicFileLogger("My_File_Logger", "[%L] %c [%N]: %+", "Sandbox/Logs/My_Log.txt", true); 
+ basicFileLogger.Trace("This is how {0} log message might look with an int formatted to hex: [{1:X}]", "a simple", 42); 
                 </pre>
-                </div>
+                    </div>
                 </p>
-                <p style="color:#A8C077; text-align:center;"> The above constructor call sets the logger name to <span
+                <p> The above constructor call sets the logger name to <span
                         style="color: #cbff64;">"My_File_Logger"</span>, the file path as it is now, would mean the file
                     will be located at the current running process's directory + <span
                         style="color: #cbff64;">"Sandbox/Logs/My_Log.txt"</span>, the file would be truncated on open if
@@ -357,8 +323,8 @@
                 <div id="sectionHeader">
                     <h2> Current Timings (As Of 27Nov22):</h2>
                 </div>
-                <p style="color:#A8C077; text-align:center;"> Benched Using My Laptop with an i7-10750H CPU locked at
-                    4.00 GHz, 16GB DDR4-2933 RAM - Instrumentation Data (Averaged Over 2,000,000 Iterations).
+                <p> Benched Using My Laptop with an i7-10750H CPU locked at 4.00 GHz, 16GB DDR4-2933 RAM -
+                    Instrumentation Data (Averaged Over 2,000,000 Iterations).
                     <br>
                     NOTE: For Serenity's console target and spdlog's console sink, the level was set to 'off'.
                     <br>
@@ -370,147 +336,148 @@
                     defaults).
                     <br>
                 </p>
-                <table align="center" style="color:#A8C077;">
-                    <colgroup>
-                        <col span="6" style="background-color:#A8C077">
-                        <col span="6" style="background-color:#A8C077">
-                        <col span="6" style="background-color:#A8C077">
-                    </colgroup>
-                    <tr>
-                        <th><span style="color:#022d0d;"><em> Logging Sink/Target </em></span></th>
-                        <th><span style="color:#022d0d;"><em> Logging Speed </em></span></th>
-                        <th><span style="color:#022d0d;"><em> Logging Throughput </em></span></th>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Serenity Console Logger </span></td>
-                        <td><span style="color:#022d0d;"> 9.363900 ns </span></td>
-                        <td><span style="color:#022d0d;"> 40738.340 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Spdlog Console Sink </span></td>
-                        <td><span style="color:#022d0d;"> 12.470650 ns </span></td>
-                        <td><span style="color:#022d0d;"> 30589.402 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Serenity File Target </span></td>
-                        <td><span style="color:#022d0d;"> 350.157898 ns </span></td>
-                        <td><span style="color:#022d0d;"> 1089.422 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Spdlog Basic File Sink </span></td>
-                        <td><span style="color:#022d0d;"> 1146.801392 ns </span></td>
-                        <td><span style="color:#022d0d;"> 332.638 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Serenity Rotating Target </span></td>
-                        <td><span style="color:#022d0d;"> 1397.577515 ns </span></td>
-                        <td><span style="color:#022d0d;"> 272.951 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Spdlog Rotating Sink </span></td>
-                        <td><span style="color:#022d0d;"> 2852.143555 ns </span></td>
-                        <td><span style="color:#022d0d;"> 133.748 MB/s </span></td>
-                    </tr>
-                </table>
+                <div id="tables">
+                    <table>
+                        <colgroup>
+                            <col span="6">
+                            <col span="6">
+                            <col span="6">
+                        </colgroup>
+                        <tr>
+                            <th><em> Logging Sink/Target </em></th>
+                            <th><em> Logging Speed </em></th>
+                            <th><em> Logging Throughput </em></th>
+                        </tr>
+                        <tr>
+                            <td> Serenity Console Logger </span></td>
+                            <td> 9.363900 ns </span></td>
+                            <td> 40738.340 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Spdlog Console Sink </span></td>
+                            <td> 12.470650 ns </span></td>
+                            <td> 30589.402 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Serenity File Target </span></td>
+                            <td> 350.157898 ns </span></td>
+                            <td> 1089.422 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Spdlog Basic File Sink </span></td>
+                            <td> 1146.801392 ns </span></td>
+                            <td> 332.638 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Serenity Rotating Target </span></td>
+                            <td> 1397.577515 ns </span></td>
+                            <td> 272.951 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Spdlog Rotating Sink </span></td>
+                            <td> 2852.143555 ns </span></td>
+                            <td> 133.748 MB/s </span></td>
+                        </tr>
+                    </table>
+                </div>
                 <br>
-                <p style="color:#A8C077; text-align:center;">
-                    This table illustrates the timings of Serenity vs. spdlog with both using "fmtlib" v9.1.0
-                    <br>
-                </p>
-                <table align="center" style="color:#A8C077;">
-                    <colgroup>
-                        <col span="6" style="background-color:#A8C077">
-                        <col span="6" style="background-color:#A8C077">
-                        <col span="6" style="background-color:#A8C077">
-                    </colgroup>
-                    <tr>
-                        <th><span style="color:#022d0d;"><em> Logging Sink/Target </em></span></th>
-                        <th><span style="color:#022d0d;"><em> Logging Speed </em></span></th>
-                        <th><span style="color:#022d0d;"><em> Logging Throughput </em></span></th>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Serenity Console Logger </span></td>
-                        <td><span style="color:#022d0d;"> 9.474250 ns </span></td>
-                        <td><span style="color:#022d0d;"> 40263.848 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Spdlog Console Sink </span></td>
-                        <td><span style="color:#022d0d;"> 12.744900 s </span></td>
-                        <td><span style="color:#022d0d;"> 29931.168 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Serenity File Target </span></td>
-                        <td><span style="color:#022d0d;"> 1617.413940 ns </span></td>
-                        <td><span style="color:#022d0d;"> 235.852 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Spdlog Basic File Sink </span></td>
-                        <td><span style="color:#022d0d;"> 1145.900024 ns </span></td>
-                        <td><span style="color:#022d0d;"> 332.900 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Serenity Rotating Target </span></td>
-                        <td><span style="color:#022d0d;"> 2205.758301 ns </span></td>
-                        <td><span style="color:#022d0d;"> 172.943 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Spdlog Rotating Sink </span></td>
-                        <td><span style="color:#022d0d;"> 2677.810059 ns </span></td>
-                        <td><span style="color:#022d0d;"> 142.456 MB/s </span></td>
-                    </tr>
-                </table>
-                <p style="color:#A8C077; text-align:center;">
-                    This table illustrates the timings of Serenity vs. spdlog with spdlog using its bundled "fmtlib"
-                    and
-                    Serenity using "&lt;format&gt;"
-                    <br>
-                </p>
-                <table align="center" style="color:#A8C077;">
-                    <colgroup>
-                        <col span="6" style="background-color:#A8C077">
-                        <col span="6" style="background-color:#A8C077">
-                        <col span="6" style="background-color:#A8C077">
-                    </colgroup>
-                    <tr>
-                        <th><span style="color:#022d0d;"><em> Logging Sink/Target </em></span></th>
-                        <th><span style="color:#022d0d;"><em> Logging Speed </em></span></th>
-                        <th><span style="color:#022d0d;"><em> Logging Throughput </em></span></th>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Serenity Console Logger </span></td>
-                        <td><span style="color:#022d0d;"> 8.513800 ns </span></td>
-                        <td><span style="color:#022d0d;"> 44806.047 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Spdlog Console Sink </span></td>
-                        <td><span style="color:#022d0d;"> 12.736350 s </span></td>
-                        <td><span style="color:#022d0d;"> 29951.260 MB/s</span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Serenity File Target </span></td>
-                        <td><span style="color:#022d0d;"> 2315.973389 ns </span></td>
-                        <td><span style="color:#022d0d;"> 164.712 MB/s</span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Spdlog Basic File Sink </span></td>
-                        <td><span style="color:#022d0d;"> 1027.153320 ns </span></td>
-                        <td><span style="color:#022d0d;"> 371.385 MB/s</span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Serenity Rotating Target </span></td>
-                        <td><span style="color:#022d0d;"> 2857.116699 ns </span></td>
-                        <td><span style="color:#022d0d;"> 133.516 MB/s </span></td>
-                    </tr>
-                    <tr>
-                        <td><span style="color:#022d0d;"> Spdlog Rotating Sink </span></td>
-                        <td><span style="color:#022d0d;"> 2654.131592 ns</span></td>
-                        <td><span style="color:#022d0d;"> 143.727 MB/s </span></td>
-                    </tr>
-                </table>
-                <hr />
-                <br><br>
+                <p> This table illustrates the timings of Serenity vs. spdlog with both using "fmtlib" v9.1.0 </p>
+                <div id="tables">
+                    <table>
+                        <colgroup>
+                            <col span="6">
+                            <col span="6">
+                            <col span="6">
+                        </colgroup>
+                        <tr>
+                            <th><em> Logging Sink/Target </em></th>
+                            <th><em> Logging Speed </em></th>
+                            <th><em> Logging Throughput </em></th>
+                        </tr>
+                        <tr>
+                            <td> Serenity Console Logger </span></td>
+                            <td> 9.474250 ns </span></td>
+                            <td> 40263.848 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Spdlog Console Sink </span></td>
+                            <td> 12.744900 s </span></td>
+                            <td> 29931.168 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Serenity File Target </span></td>
+                            <td> 1617.413940 ns </span></td>
+                            <td> 235.852 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Spdlog Basic File Sink </span></td>
+                            <td> 1145.900024 ns </span></td>
+                            <td> 332.900 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Serenity Rotating Target </span></td>
+                            <td> 2205.758301 ns </span></td>
+                            <td> 172.943 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Spdlog Rotating Sink </span></td>
+                            <td> 2677.810059 ns </span></td>
+                            <td> 142.456 MB/s </span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p> This table illustrates the timings of Serenity vs. spdlog with spdlog using its bundled "fmtlib" and
+                    Serenity using "&lt;format&gt;" </p>
+                <div id="tables">
+                    <table>
+                        <colgroup>
+                            <col span="6">
+                            <col span="6">
+                            <col span="6">
+                        </colgroup>
+                        <tr>
+                            <th><em> Logging Sink/Target </em></th>
+                            <th><em> Logging Speed </em></th>
+                            <th><em> Logging Throughput </em></th>
+                        </tr>
+                        <tr>
+                            <td> Serenity Console Logger </span></td>
+                            <td> 8.513800 ns </span></td>
+                            <td> 44806.047 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Spdlog Console Sink </span></td>
+                            <td> 12.736350 s </span></td>
+                            <td> 29951.260 MB/s</span></td>
+                        </tr>
+                        <tr>
+                            <td> Serenity File Target </span></td>
+                            <td> 2315.973389 ns </span></td>
+                            <td> 164.712 MB/s</span></td>
+                        </tr>
+                        <tr>
+                            <td> Spdlog Basic File Sink </span></td>
+                            <td> 1027.153320 ns </span></td>
+                            <td> 371.385 MB/s</span></td>
+                        </tr>
+                        <tr>
+                            <td> Serenity Rotating Target </span></td>
+                            <td> 2857.116699 ns </span></td>
+                            <td> 133.516 MB/s </span></td>
+                        </tr>
+                        <tr>
+                            <td> Spdlog Rotating Sink </span></td>
+                            <td> 2654.131592 ns</span></td>
+                            <td> 143.727 MB/s </span></td>
+                        </tr>
+                    </table>
             </section>
         </div>
+        <hr />
+        <br><br>
+    </div>
+    </div>
 
 </body>
 </div>

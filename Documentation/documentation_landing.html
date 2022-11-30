@@ -2,24 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <html lang="en">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation</title>
+    <script type="text/javascript" src="../scripts/code_syntax/sh_main.js"></script>
+    <script type="text/javascript" src="../scripts/code_syntax/lang/sh_cpp.js"></script>
+    <link rel="stylesheet" href="../scripts/layout/common.css">
 </head>
 
-<body style="background-color:rgb(234, 204, 159); padding-top: 0.5%; padding-bottom: 0.5%; padding-left: 0.5%; padding-right: 0.5%;">
-    <div style="background-color:#045147; padding-top: 0%; padding-bottom: 0%; padding-left: 5%; padding-right: 5%;">
+<body onload="sh_highlightDocument();">
+    <div id="outerBorder">
         <br><br>
-        <h1 align="center" style="color:#A8C077;"><strong><em>Serenity Documentation</em></strong></h1>
-        <div style="display: flex; justify-content:space-evenly;">
-            <a href="../index.html" style="color:rgb(189, 241, 241);">Home</a>
-            <a href="../Building/building_landing.html" style="color:rgb(189, 241, 241);">Building</a>
-            <a href="../Examples/examples_landing.html" style="color:rgb(189, 241, 241);">Examples</a>
-            <a href="https://github.com/USAFrenzy/Serenity_Logger" style="color:rgb(189, 241, 241);">Source</a>
+        <div id="mainHeaders">
+            <h1 align="center" style="color:#A8C077;"><strong><em>Serenity Documentation</em></strong></h1>
         </div>
-        <hr />
-        <p align="center" style="color:#A8C077;">PLACE_HOLDER</p>
-        <hr />
+        <div class="main-body">
+            <hr />
+            <div id="docLinks">
+                <a href="../index.html">Home</a>
+                <a href="../Building/building_landing.html">Building</a>
+                <a href="../Examples/examples_landing.html">Examples</a>
+                <a href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+            </div>
+            <hr />
+            <p>PLACE_HOLDER</p>
+            <hr />
+        </div>
         <br><br>
     </div>
 </body>

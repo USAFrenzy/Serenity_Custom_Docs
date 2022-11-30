@@ -1,0 +1,112 @@
+nav#navbar {
+	grid-area: navbar;
+	position: fixed;
+	top: 2%;
+	margin-top: 0.2%;
+	margin-left: 0%;
+	font-size: larger;
+	text-align: center;
+	background-color: #045147;
+	color: rgb(189, 241, 241);
+}
+
+nav#navbar a {
+	display: block;
+	border: 1px solid rgb(202, 199, 199);
+	margin-top: 1.25%;
+	margin-bottom: 1.25%;
+	margin-left: 0%;
+	text-decoration: none;
+	font-size: medium;
+	background-color: #045147;
+	color: rgb(189, 241, 241);
+}
+
+img#logo {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+	width: 100px;
+	height: 100px;
+}
+
+div.main-body {
+	background-color: #036b5d;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+div#docLinks {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+div#docLinks a {
+	display: flex;
+	justify-content: space-evenly;
+	color: rgb(189, 241, 241);
+}
+
+div#mainHeaders {
+	border: 4px solid rgb(202, 199, 199);
+	border-style: ridge;
+	text-align: center;
+	margin-left: 10%;
+	margin-right: 10%;
+	color: #A8C077;
+}
+
+div#sectionHeader {
+	text-align: center;
+	color: #4aec9e;
+}
+
+div#outerBorder {
+	background-color: #045147;
+}
+
+div#lists {
+	display: flex;
+	color: #A8C077;
+	justify-content: center;
+	text-align: left;
+}
+
+body {
+	background-color: rgb(234, 204, 159);
+}
+
+div#codeBlock {
+	display: flex;
+	justify-content: center;
+}
+
+.sh_cpp {
+	text-align: left;
+	width: fit-content;
+}
+
+p {
+	color: #A8C077;
+	text-align: center;
+}
+
+a {
+	color: rgb(189, 241, 241);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgb(135, 131, 131);
+}
+
+div#tables {
+	display: table;
+	text-align: center;
+	background-color: #A8C077;
+	color: #022d0d;
+	margin-left: auto;
+	margin-right: auto;
+}
