@@ -17,7 +17,7 @@ nav#navbar a {
 	margin-bottom: 1.25%;
 	margin-left: 0%;
 	text-decoration: none;
-	font-size: larger;
+	font-size: medium;
 	background-color: #045147;
 	color: rgb(189, 241, 241);
 }
@@ -26,14 +26,33 @@ div.main-body {
 	display: inline-block;
 	background-color: #036b5d;
 	margin-left: 10%;
-	margin-right: 10%;
+	margin-right: 15%;
 }
 
-div#code_body{
+div.code_body {
 	margin-left: 5%;
 	margin-right: 5%;
 }
 
-pre{
+div#mainHeaders {
+	color: #A8C077;
+	text-align: center;
+	padding-left: 1%;
+}
+
+div#sectionHeader {
+	text-align: center;
+	color: #4aec9e;
+}
+
+div#outerBorder {
+	background-color: #045147;
+}
+
+body {
+	background-color: rgb(234, 204, 159);
+}
+
+pre {
 	text-align: left;
 }

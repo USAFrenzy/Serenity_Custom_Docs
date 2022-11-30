@@ -14,12 +14,13 @@
 
 </head>
 
-<body onload="sh_highlightDocument();"
-    style="background-color:rgb(234, 204, 159); padding-top: 0.5%; padding-bottom: 0.5%; padding-left: 0.5%; padding-right: 0.5%; ">
-    <div style="background-color:#045147; padding-top: 0%; padding-bottom: 0%; padding-left: 5%; padding-right: 5%;">
+<body onload="sh_highlightDocument();">
+    <div id="outerBorder">
         <br><br>
-        <h1 align="center" style="color:#A8C077;"><strong><em>Welcome To The Landing Page For The Serenity Logging
-                    Framework Documentation</em></strong></h1>
+        <div id="mainHeaders">
+            <h1><strong><em>Welcome To The Landing Page For The Serenity Logging
+                        Framework Documentation</em></strong></h1>
+        </div>
         <br>
         <div style="display: flex; justify-content: center;">
             <img src="Resources/Placeholder_Icon.png" alt="Placeholder Logo" style="width: 100px; height: 100px;" />
@@ -46,7 +47,9 @@
 
             <!-------------------------------------------- This Section Covers The All About Serenity -------------------------------------------->
             <section id="About Serenity">
-                <h2 align="center" style="color:#4aec9e;">What Is This Library All About?</h2>
+                <div id="sectionHeader">
+                    <h2> What Is This Library All About?</h2>
+                </div>
                 <p style="color:#A8C077; text-align:center;">Serenity is a learning project of mine that was created for
                     the sole purpose of being a starting point into creating a project that would be considered
                     "complete". This Library takes as inspiration <a href="https://github.com/gabime/spdlog"
@@ -87,7 +90,9 @@
 
             <!-------------------------------------------- This Section Covers Serenity's Requirements -------------------------------------------->
             <section id="Requirements">
-                <h2 align="center" style="color:#4aec9e;">Serenity Requires The Following:</h2>
+                <div id="sectionHeader">
+                    <h2> Serenity Requires The Following:</h2>
+                </div>
                 <div style="display: flex; justify-content:center;">
                     <ul style="color:#A8C077;">
                         <li>C++ 20</li>
@@ -126,7 +131,9 @@
 
             <!-------------------------------------------- This Section Covers The Basic Usage -------------------------------------------->
             <section id="Basic Overview">
-                <h2 align="center" style="color:#4aec9e;">Brief Overview Of Usage</h2>
+                <div id="sectionHeader">
+                    <h2> Brief Overview Of Usage</h2>
+                </div>
                 <p style="color:#A8C077; text-align:center;"> To start using any of the logging targets, simply
                     `#include` any of the targets found under `serenity/Targets`.<br> The available targets for
                     out-of-the-box usage are:
@@ -347,7 +354,9 @@
             <!-------------------------------------------- This Section Covers The Benchmarks -------------------------------------------->
             <hr />
             <section id="Benchmarks">
-                <h2 align="center" style="color:#4aec9e;">Current Timings (As Of 27Nov22):</h2>
+                <div id="sectionHeader">
+                    <h2> Current Timings (As Of 27Nov22):</h2>
+                </div>
                 <p style="color:#A8C077; text-align:center;"> Benched Using My Laptop with an i7-10750H CPU locked at
                     4.00 GHz, 16GB DDR4-2933 RAM - Instrumentation Data (Averaged Over 2,000,000 Iterations).
                     <br>
