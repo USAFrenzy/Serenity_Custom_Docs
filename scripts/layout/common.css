@@ -2,7 +2,7 @@ nav#navbar {
 	grid-area: navbar;
 	position: fixed;
 	top: 2%;
-	font-size:125%;
+	font-size: 125%;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -23,6 +23,11 @@ nav#navbar a {
 	color: rgb(189, 241, 241);
 }
 
+nav#navbar a:hover {
+	background-color: #A8C077;
+	color: #036b5d;
+}
+
 img#logo {
 	display: flex;
 	margin-left: auto;
@@ -30,6 +35,10 @@ img#logo {
 	justify-content: center;
 	width: 100px;
 	height: 100px;
+}
+
+body {
+	font-family:sans-serif;
 }
 
 div.main-body {
@@ -47,6 +56,11 @@ div#docLinks a {
 	display: flex;
 	justify-content: space-evenly;
 	color: rgb(189, 241, 241);
+}
+
+div#docLinks a:hover {
+	background-color: #A8C077;
+	color: #036b5d;
 }
 
 div#mainHeaders {
@@ -123,4 +137,16 @@ div#subHeaders {
 	color: #cbff64;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.searchBox {
+	display: block;
+	justify-content: right;
+	text-align: center;
+	font-size: medium;
+	margin-left: auto;
+	padding-left: 2%;
+	padding-right: 2%;
+	margin-right: 10%;
+	margin-bottom: 1%;
 }

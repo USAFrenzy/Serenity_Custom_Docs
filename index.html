@@ -16,8 +16,11 @@
 <body onload="sh_highlightDocument();">
     <div id="outerBorder">
         <br>
+        <section id="Top"></section>
         <img id="logo" src="Resources/Placeholder_Icon.png" alt="Placeholder Logo" />
-        <br>
+        <form action="placeholder">
+            <input class="searchBox" type="text" placeholder="Search...">
+        </form>
         <div id="mainHeaders">
             <h1><strong><em>Welcome To The Landing Page For The Serenity Logging Framework Documentation</em></strong>
             </h1>
@@ -28,6 +31,7 @@
             <a href="#Requirements" class="nav-link"> Requirements </a>
             <a href="#Basic Overview" class="nav-link">Brief Overview</a>
             <a href="#Benchmarks" class="nav-link">Benchmarks</a>
+            <a href="#Top" class="nav-link">Go Back To Top</a>
         </nav>
         <br><br>
         <div class="main-body">
@@ -162,6 +166,7 @@
                     The second constructor differs from the third only by the format pattern, otherwise this is more or
                     less the same as the third constructor.
                     For the format pattern, it will use the default pattern of:
+                    <br>
                     <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
                         Platform_Line_Ending." </span>.
                     <br><br>
@@ -202,6 +207,7 @@
                     <br><br>
                     The second constructor differs from the third only by the format pattern, otherwise this is more or
                     less the same as the third constructor. For the format pattern, it will use the default pattern of:
+                    <br>
                     <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
                         Platform_Line_Ending."</span>.
                     <br><br> For the first constructor, everything will be set to its default values. This means that
