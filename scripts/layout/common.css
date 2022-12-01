@@ -2,8 +2,9 @@ nav#navbar {
 	grid-area: navbar;
 	position: fixed;
 	top: 2%;
-	font-size: 200%;
+	font-size:125%;
 	text-align: center;
+	margin-left: auto;
 	margin-right: auto;
 	background-color: #045147;
 	color: rgb(189, 241, 241);
@@ -58,6 +59,7 @@ div#mainHeaders {
 }
 
 div#sectionHeader {
+	border: 2px solid rgb(192, 188, 188);
 	text-align: center;
 	color: #4aec9e;
 }
@@ -88,8 +90,10 @@ div#codeBlock {
 }
 
 p {
-	color: #A8C077;
 	text-align: center;
+	margin-left: 20%;
+	margin-right: 20%;
+	color: #A8C077;
 }
 
 a {
@@ -99,7 +103,7 @@ a {
 table,
 th,
 td {
-	border: 1px solid rgb(135, 131, 131);
+	border: 2px solid rgb(52, 98, 62);
 }
 
 div#tables {
@@ -107,6 +111,16 @@ div#tables {
 	text-align: center;
 	background-color: #A8C077;
 	color: #022d0d;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#subHeaders {
+	border-top: 2px solid rgb(202, 199, 199);
+	padding-left: 1%;
+	padding-right: 1%;
+	text-align: center;
+	color: #cbff64;
 	margin-left: auto;
 	margin-right: auto;
 }

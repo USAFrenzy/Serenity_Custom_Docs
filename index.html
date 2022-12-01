@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <html lang="en">
     <meta charset="utf-8">
@@ -11,6 +12,7 @@
     <link type="text/css" rel="stylesheet" href="scripts/code_syntax/css/sh_nedit.css">
     <link rel="stylesheet" href="scripts/layout/common.css">
 </head>
+
 <body onload="sh_highlightDocument();">
     <div id="outerBorder">
         <br>
@@ -39,6 +41,7 @@
             <hr />
             <!-------------------------------------------- This Section Covers The All About Serenity -------------------------------------------->
             <section id="About Serenity">
+                <br><br>
                 <div id="sectionHeader">
                     <h2> What Is This Library All About?</h2>
                 </div>
@@ -76,7 +79,6 @@
                     log to almost any char-based container type. </p>
                 <br>
             </section>
-            <hr />
             <!-------------------------------------------- This Section Covers Serenity's Requirements -------------------------------------------->
             <section id="Requirements">
                 <div id="sectionHeader">
@@ -116,7 +118,6 @@
                     </ul>
                 </div>
             </section>
-            <hr />
             <!-------------------------------------------- This Section Covers The Basic Usage -------------------------------------------->
             <section id="Basic Overview">
                 <div id="sectionHeader">
@@ -131,21 +132,20 @@
                         <li>ColorConsoleTarget</li>
                     </ul>
                 </div>
-                <br>
                 <p>
                     NOTE: Despite the naming, `ColorConsoleTarget` does also allow the user to log without color.
                     <br><br>
                     <!-------------------------------------------- This Section Covers The File Target -------------------------------------------->
+                <div id="subHeaders">
                     <strong>
                         <em>
-                            <u>
-                                <h3 style="color:#cbff64; text-align: center;">For the FileTarget:</h3>
-                            </u>
+                            <h3> For the FileTarget: </h3>
                         </em>
                     </strong>
+                </div>
                 <p> There are three total constructors for `FileTarget`: </p>
                 <div id="codeBlock">
-                <pre class="sh_cpp">
+                    <pre class="sh_cpp">
 
  1.) explicit FileTarget(std::string_view fileName, bool replaceIfExists = false);  
  2.) explicit FileTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false); 
@@ -161,12 +161,11 @@
                     <br><br>
                     The second constructor differs from the third only by the format pattern, otherwise this is more or
                     less the same as the third constructor.
-                    <br>
                     For the format pattern, it will use the default pattern of:
-                    <br>
                     <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
                         Platform_Line_Ending." </span>.
-                    <br><br> For the first constructor, you have the same control over the file name (NOTE: this is not
+                    <br><br>
+                    For the first constructor, you have the same control over the file name (NOTE: this is not
                     the file path itself, this is only the file name; the file path will use the running process's
                     directory + "Logs" + file name ), as well as having control over whether or not the file is
                     truncated on open or not. The name of a logger using this constructor will default to <span
@@ -178,16 +177,16 @@
                     <br><br>
                 </p>
                 <!------------------------------------------ This Section Covers The Rotating Target ------------------------------------------>
-                <strong>
-                    <em>
-                        <u>
-                            <h3 style="color:#cbff64; text-align: center;">For the RotatingTarget:</h3>
-                        </u>
-                    </em>
-                </strong>
+                <div id="subHeaders">
+                    <strong>
+                        <em>
+                            <h3>For the RotatingTarget:</h3>
+                        </em>
+                    </strong>
+                </div>
                 <p> There are three total constructors for `RotatingTarget`: </p>
                 <div id="codeBlock">
-                <pre class="sh_cpp">
+                    <pre class="sh_cpp">
 
  1.) explicit RotatingTarget(); 
  2.) explicit RotatingTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false); 
@@ -202,10 +201,7 @@
                     well as whether or not to truncate the file on open if the file already exists on disk.
                     <br><br>
                     The second constructor differs from the third only by the format pattern, otherwise this is more or
-                    less the same as the third constructor.
-                    <br>
-                    For the format pattern, it will use the default pattern of:
-                    <br>
+                    less the same as the third constructor. For the format pattern, it will use the default pattern of:
                     <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
                         Platform_Line_Ending."</span>.
                     <br><br> For the first constructor, everything will be set to its default values. This means that
@@ -219,16 +215,16 @@
                     <br><br>
                 </p>
                 <!------------------------------------------ This Section Covers The Console Target ------------------------------------------>
-                <strong>
-                    <em>
-                        <u>
-                            <h3 style="color:#cbff64; text-align: center;">For the ColorConsoleTarget:</h3>
-                        </u>
-                    </em>
-                </strong>
+                <div id="subHeaders">
+                    <strong>
+                        <em>
+                            <h3>For the ColorConsoleTarget:</h3>
+                        </em>
+                    </strong>
+                </div>
                 <p> There are three total constructors for `ColorConsoleTarget`: </p>
                 <div id="codeBlock">
-                <pre class="sh_cpp">
+                    <pre class="sh_cpp">
 
  1.) ColorConsoleTarget(); 
  2.) explicit ColorConsoleTarget(std::string_view name ); 
@@ -262,10 +258,13 @@
                     <br><br>
                 </p>
                 <!------------------------------------------ This Section Covers Basic Logging Calls ----------------------------------------->
+                <div id="subHeaders">
+                    <h3> Making A Log Call </h3>
+                </div>
                 <p> Once you decide what logger(s) you would like to use, all that's left to do to start using them is
                     to call their respective log functions: </p>
-                    <div id="codeBlock">
-                <pre class="sh_cpp">
+                <div id="codeBlock">
+                    <pre class="sh_cpp">
 
  template &lt;typename... Args&gt; void Trace(MsgWithLoc formatString, Args&&... args); 
  template &lt;typename... Args&gt; void Info(MsgWithLoc formatString, Args&&... args); 
@@ -283,8 +282,8 @@
                     after "fmtlib" and thus use Victor's grammar spec.
                     <br><br>
                     <strong><em><span style="color: #cbff64;"> As An Example: </span></em></strong>
-                    <div id="codeBlock">
-                <pre class="sh_cpp">
+                <div id="codeBlock">
+                    <pre class="sh_cpp">
 
  #include &lt;serenity/Targets/FileTarget.h&gt; 
 
@@ -292,7 +291,7 @@
  FileTarget basicFileLogger("My_File_Logger", "[%L] %c [%N]: %+", "Sandbox/Logs/My_Log.txt", true); 
  basicFileLogger.Trace("This is how {0} log message might look with an int formatted to hex: [{1:X}]", "a simple", 42); 
                 </pre>
-                    </div>
+                </div>
                 </p>
                 <p> The above constructor call sets the logger name to <span
                         style="color: #cbff64;">"My_File_Logger"</span>, the file path as it is now, would mean the file
@@ -316,7 +315,6 @@
                 </p>
             </section>
             <!-------------------------------------------- This Section Covers The Benchmarks -------------------------------------------->
-            <hr />
             <section id="Benchmarks">
                 <div id="sectionHeader">
                     <h2> Current Timings (As Of 27Nov22):</h2>
