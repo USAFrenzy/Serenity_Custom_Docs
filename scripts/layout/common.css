@@ -17,18 +17,22 @@ div.main-body {
 	margin-right: 10%;
 }
 
-div#docLinks {
+.docLinks {
 	display: flex;
 	justify-content: space-evenly;
+	border-top: 2px solid rgb(202, 199, 199);
+	border-bottom: 2px solid rgb(202, 199, 199);
 }
 
-div#docLinks a {
+.docLink {
 	display: flex;
 	justify-content: space-evenly;
 	color: rgb(189, 241, 241);
+	margin-top: 1%;
+	margin-bottom: 1%;
 }
 
-div#docLinks a:hover {
+.docLinks a:hover {
 	background-color: #A8C077;
 	color: #036b5d;
 }
@@ -184,7 +188,7 @@ div#subHeaders {
 	margin-left: 5%;
 	margin-right: 5%;
 	text-align: center;
-	text-decoration:none;
+	text-decoration: none;
 	font-size: 95%;
 }
 
@@ -201,7 +205,6 @@ div#subHeaders {
 	display: block;
 }
 
-
 .dropdown-content {
 	display: none;
 	margin-top: 4%;
@@ -215,4 +218,17 @@ div#subHeaders {
 
 .dropdown:hover .dropdown-content {
 	display: block;
+}
+
+@media (max-width:768px) {
+	.docLinks{
+		display: none;
+	}
+	.docLinks a{
+		display: none;
+	}
+	.hamburger_menu{
+		display: block;
+	}
+
 }
