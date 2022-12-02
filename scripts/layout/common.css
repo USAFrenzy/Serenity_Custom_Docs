@@ -38,7 +38,7 @@ img#logo {
 }
 
 body {
-	font-family:sans-serif;
+	font-family: sans-serif;
 }
 
 div.main-body {
@@ -139,14 +139,32 @@ div#subHeaders {
 	margin-right: auto;
 }
 
+.search-bar {
+	display: block;
+	justify-content: right;
+	margin-left: auto;
+}
+
 .searchBox {
 	display: block;
 	justify-content: right;
-	text-align: center;
+	text-align: left;
 	font-size: medium;
 	margin-left: auto;
+	padding-right: 4%;
+	margin-right: 10%;
+}
+
+.search_button {
+	display: block;
+	justify-content: right;
+	background-color: rgb(244, 239, 239);
+	margin-left: auto;
+	margin-right: 10%;
+	position: relative;
 	padding-left: 2%;
 	padding-right: 2%;
-	margin-right: 10%;
-	margin-bottom: 1%;
+	top: -22px;
+	width: 20px;
+	height: 20px;
 }

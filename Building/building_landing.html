@@ -13,14 +13,24 @@
 
 <body>
     <div id="outerBorder">
-        <br><br>
-        <form action="placeholder">
-            <input class="searchBox" type="text" placeholder="Search...">
-        </form>
+        <section id="Top"></section>
+        <br>
+        <div class="search-bar">
+            <form action="placeholder">
+                <input type="text" class="searchBox" placeholder="Enter Search Term Here">
+                <input type="image" class="search_button" src="../Resources/search_icon_clipart.png"></input>
+            </form>
+        </div>
         <div id="mainHeaders">
             <h1 align="center" style="color:#A8C077;"><strong><em>Building Serenity</em></strong></h1>
         </div>
         <br><br>
+        <nav id="navbar">
+            <header>Page Contents</header>
+            <a href="#Build Steps" class="nav-link"> General Build Steps</a>
+            <a href="#Build Options" class="nav-link"> Build Options </a>
+            <a href="#Top" class="nav-link">Go Back To Top</a>
+        </nav>
         <div class="main-body">
             <hr />
             <div id="docLinks">
@@ -32,22 +42,16 @@
             <hr>
             <br><br>
             <div id="sectionHeader">
-            <h2><strong><em>General Build Steps</em></strong></h2>
-        </div>
-            <p> If building Serenity from source, the first thing you'll need
-                installed is CMake,
-                which you can find <a href="https://cmake.org/download/">HERE</a>. CMake
-                is a free to use software that is used for cross-platform project file generation. This project uses
-                CMake
-                version 3.14 as its minimum version for generating the project files. Once you have both CMake installed
-                and
-                Serenity's source code downloaded, you're free to generate the project files from anywhere of your
-                choosing.
-                Just note, that Serenity's root folder is off-limits as a folder to generate the files into, however,
-                you're
-                free to generate the files in another user made folder in Serenity's root folder and everywhere else
-                outside
-                Serenity's root folder.</p>
+                <h2 id="Build Steps"><strong><em>General Build Steps</em></strong></h2>
+            </div>
+            <p> If building Serenity from source, the first thing you'll need installed is CMake, which you can find <a
+                    href="https://cmake.org/download/">HERE</a>. CMake is a free to use software that is used for
+                cross-platform project file generation. This project uses CMake version 3.14 as its minimum version for
+                generating the project files. Once you have both CMake installed and Serenity's source code downloaded,
+                you're free to generate the project files from anywhere of your choosing. Just note, that Serenity's
+                root folder is off-limits as a folder to generate the files into, however, you're free to generate the
+                files in another user made folder in Serenity's root folder and everywhere else outside Serenity's root
+                folder.</p>
             <p>
                 <span style="color:#dbefaa;">
                     For Example: <br>
@@ -55,25 +59,43 @@
                 - If in the root folder of Serenity, you could run<br>
                 <code>
                 <span style="color:#cbff64;">   "cmake -B build -S ." </span><br>
-            </code>
-                This will generate the build files in a folder named "build" inside the Serenity project root
-                folder.<br>
-                If you were to generate the files in any other location, that location will need to be specified
-                after<br>the <span style="color:#cbff64;"><code>'-B'</code></span> flag above as well as the location to
-                Serenity's root folder location after the <span style="color:#cbff64;"><code>'-S'</code></span>
-                flag.<br>
-                <span style="color:#dbefaa;">As an Example: </span><br>
-                - If the folder you would like to generate files into is outside Serenity, you would run something
-                like:<br>
-                <code> <span style="color:#cbff64;"> "cmake -B build -S Serenity"</span><br> </code> OR <br>
-                <code> <span style="color:#cbff64;"> "cmake -B ../build -S ."</span><br> </code> Generally speaking, the
-                flow that users tend to use with CMake is to change directories to the project's root folder and<br> run
-                the
-                first command listed above or to change directories to the project root folder and run<br> <span
-                    style="color:#cbff64;"><code>mkdir build_folder_name<br>cd build_folder_name<br>cmake ..</code></span>
+            </code> This will generate the build files in a folder named "build" inside the Serenity project root
+                folder.
+                <br>
+                If you were to generate the files in any other location, that location will need to be
+                specified after
+                <br>
+                the <span style="color:#cbff64;"><code>'-B'</code></span> flag above as well as the
+                location to Serenity's root folder location after the <span
+                    style="color:#cbff64;"><code>'-S'</code></span> flag.
+                <br>
+                <span style="color:#dbefaa;">As an Example: </span>
+                <br>
+                - If the folder you would like to generate files into is outside Serenity, you would run something like:
+                <br>
+                <code> <span style="color:#cbff64;"> "cmake -B build -S Serenity"</span></code>
+                <br>
+                OR
+                <br>
+                <code> <span style="color:#cbff64;"> "cmake -B ../build -S ."</span></code>
+                <br>
+                Generally speaking, the flow that users tend to use with CMake is to change directories to the project's
+                root folder and
+                <br>
+                run the first command listed above or to change directories to the project root folder and run
+                <br>
+                <span style="color:#cbff64;">
+                    <code>
+                        mkdir build_folder_name
+                        <br>
+                        cd build_folder_name
+                        <br>
+                        cmake ..
+                    </code>
+                </span>
             </p>
             <div id="sectionHeader">
-            <h2><strong><em>Build Options</em></strong></h2>
+                <h2 id="Build Options"><strong><em>Build Options</em></strong></h2>
             </div>
             <p>
                 Generally Speaking, you will be able to find all related build options for Serenity under the folder
