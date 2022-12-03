@@ -196,6 +196,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <br>
                         <li>
                             The second constructor differs from the third only by the format pattern, otherwise this is
                             more or less the same as the third constructor. The second constructor allows you to:
@@ -219,6 +220,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <br>
                         <li> For the first constructor:
                             <ul>
                                 <li>
@@ -290,7 +292,7 @@
                                 </li>
                             </ul>
                         </li>
-
+                        <br>
                         <li> The second constructor differs from the third only by the format pattern, otherwise this is
                             more or less identical to the third constructor.The second constructor allows you to:
                             <ul>
@@ -312,7 +314,7 @@
                                 </li>
                             </ul>
                         </li>
-
+                        <br>
                         <li>For the first constructor, everything will be set to its default values.
                             <ul>
                                 <li> This means that the file path and file name will be the running process's directory
@@ -375,6 +377,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <br>
                         <li>Like with the previous two Targets though, the ColorConsoleTarget's third constructor offers
                             the most control, allowing you to:
                             <ul>
@@ -387,6 +390,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <br>
                         <li>
                             The second constructor only allows setting the Logger's name.
                             <ul>
@@ -400,6 +404,7 @@
                         </li>
                     </ul>
                     </li>
+                    <br>
                     <li> The first constructor applies all the defaults listed in points one and two as well as: </li>
                     <ul>
                         <li>
@@ -453,26 +458,57 @@
  basicFileLogger.Trace("This is how {0} log message might look with an int formatted to hex: [{1:X}]", "a simple", 42); 
                 </pre>
                 </div>
-                <p> The above constructor call sets the logger name to <span
-                        style="color: #cbff64;">"My_File_Logger"</span>, the file path as it is now, would mean the file
-                    will be located at the current running process's directory + <span
-                        style="color: #cbff64;">"Sandbox/Logs/My_Log.txt"</span>, the file would be truncated on open if
-                    the file already exists on disk, and the format pattern would result in the log message format being
-                    output as:
-                    <br>
-                    <span style="color: #cbff64;">[Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY [My_File_Logger]:
-                        Log_Message + Platform_Line_Ending</span>
-                    <br>
-                    thus, at the time of writing this, it would be something like:
-                    <br>
-                    <span style="color: #cbff64;">[Info] Mon Nov 28 20:35:32 2022 [My_File_Logger]: This is how a simple
-                        log message might look with an int formatted to hex: [0X2A] \r\n</span>
-                    <br>
-                    where the line ending used here is assuming a windows environment is being run. For linux, it's
-                    <span style="color: #cbff64;">'\n'</span> and for Mac systems, it's <span
-                        style="color: #cbff64;">'\r'</span>.
-                    <br><br>
-                </p>
+
+                <div class="lists">
+                    <ul>
+                        <li>
+                            The above constructor call:
+                            <ul>
+                                <li>
+                                    Sets the logger name to <span style="color: #cbff64;">"My_File_Logger"</span>
+                                </li>
+                                <li>
+                                    Sets the file path (as is is now) to the current running process's directory + <span
+                                        style="color: #cbff64;">"Sandbox/Logs/My_Log.txt"</span>
+                                </li>
+                                <li>
+                                    Enables truncation on open if the file already exists on disk
+                                </li>
+                                <li>
+                                    Sets the log format to:
+                                    <br>
+                                    <ul>
+                                        <li>
+                                            <span style="color: #cbff64;">[Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY
+                                                [My_File_Logger]: Log_Message + Platform_Line_Ending</span>
+                                        </li>
+                                    </ul>
+                                    which, at the time of writing, would be something like:
+                                    <ul>
+                                        <li>
+                                            <span style="color: #cbff64;">[Info] Mon Nov 28 20:35:32 2022
+                                                [My_File_Logger]: This is how a simple log message might look with an
+                                                int formatted to hex: [0X2A] \r\n</span>
+                                        </li>
+                                    </ul>
+                                    Where the line ending used here is assuming a windows environment is being run.
+                                    <ul>
+                                        <li>
+                                            For linux, the line ending is <span style="color: #cbff64;">'\n'</span>
+                                        </li>
+                                        <li>
+                                            For Mac systems, the line ending is <span
+                                                style="color: #cbff64;">'\r'</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                    </ul>
+                    </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
             </section>
             <!-------------------------------------------- This Section Covers The Benchmarks -------------------------------------------->
             <section id="Benchmarks">
