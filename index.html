@@ -11,47 +11,58 @@
     <script type="text/javascript" src="scripts/code_syntax/lang/sh_cpp.js"></script>
     <link type="text/css" rel="stylesheet" href="scripts/code_syntax/css/sh_nedit.css">
     <link rel="stylesheet" href="scripts/layout/common.css">
+    <script type="text/javascript" src="scripts/layout/layout.js"></script>
 </head>
 
 <body onload="sh_highlightDocument();">
     <div id="outerBorder">
+        <section id="Top"></section>
         <br>
-        <section id="Top"></section>
-        <img id="logo" src="Resources/Placeholder_Icon.png" alt="Placeholder Logo" />
-        <br><br>
-        <section id="Top"></section>
         <div class="search-bar">
             <form action="placeholder">
                 <input type="text" class="searchBox" placeholder="Enter Search Term Here">
                 <input type="image" class="search_button" src="Resources/search_icon_clipart.png"></input>
             </form>
         </div>
-        <div id="mainHeaders">
+        <img id="logo" src="Resources/Placeholder_Icon.png" alt="Placeholder Logo" />
+        <br><br>
+        <div class="mainHeaders">
             <h1><strong><em>Welcome To The Landing Page For The Serenity Logging Framework Documentation</em></strong>
             </h1>
         </div>
-        <nav id="navbar">
-            <header>Page Contents</header>
-            <a href="#About Serenity" class="nav-link"> About Serenity</a>
-            <a href="#Requirements" class="nav-link"> Requirements </a>
-            <a href="#Basic Overview" class="nav-link">Brief Overview</a>
-            <a href="#Benchmarks" class="nav-link">Benchmarks</a>
-            <a href="#Top" class="nav-link">Go Back To Top</a>
-        </nav>
+        <div class="hamburger_menu" onclick="menu_active(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <div class="nav_menu">
+                <a class="nav_link" href="Building/building_landing.html">Building</a>
+                <a class="nav_link" href="Documentation/documentation_landing.html">Documentation</a>
+                <a class="nav_link" href="Examples/examples_landing.html">Examples</a>
+                <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                <a class="nav_link" href="#Top"> Go To Top </a>
+                <div class="dropdown">
+                    <button class="nav_link"> Page Contents </button>
+                    <div class="dropdown-content">
+                        <a class="nav_link" href="#About Serenity" class="nav-link"> About Serenity</a>
+                        <a class="nav_link" href="#Requirements" class="nav-link"> Requirements </a>
+                        <a class="nav_link" href="#Basic Overview" class="nav-link">Brief Overview</a>
+                        <a class="nav_link" href="#Benchmarks" class="nav-link">Benchmarks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <br><br>
         <div class="main-body">
-            <hr />
-            <div id="docLinks">
-                <a href="Building/building_landing.html">Building</a>
-                <a href="Documentation/documentation_landing.html">Documentation</a>
-                <a href="Examples/examples_landing.html">Examples</a>
-                <a href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+            <div class="docLinks">
+                <a class="docLink" href="Building/building_landing.html">Building</a>
+                <a class="docLink" href="Documentation/documentation_landing.html">Documentation</a>
+                <a class="docLink" href="Examples/examples_landing.html">Examples</a>
+                <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
             </div>
-            <hr />
             <!-------------------------------------------- This Section Covers The All About Serenity -------------------------------------------->
             <section id="About Serenity">
                 <br><br>
-                <div id="sectionHeader">
+                <div class="sectionHeader">
                     <h2> What Is This Library All About?</h2>
                 </div>
                 <p>Serenity is a learning project of mine that was created for the sole purpose of being a starting
@@ -90,10 +101,10 @@
             </section>
             <!-------------------------------------------- This Section Covers Serenity's Requirements -------------------------------------------->
             <section id="Requirements">
-                <div id="sectionHeader">
+                <div class="sectionHeader">
                     <h2> Serenity Requires The Following:</h2>
                 </div>
-                <div id="lists">
+                <div class="lists">
                     <ul>
                         <li>C++ 20</li>
                         <ul>
@@ -129,12 +140,12 @@
             </section>
             <!-------------------------------------------- This Section Covers The Basic Usage -------------------------------------------->
             <section id="Basic Overview">
-                <div id="sectionHeader">
+                <div class="sectionHeader">
                     <h2> Brief Overview Of Usage</h2>
                 </div>
                 <p> To start using any of the logging targets, simply `#include` any of the targets found under
-                    `serenity/Targets`. <br> The available targets for out-of-the-box usage are: </p>
-                <div id="lists">
+                    `serenity/Targets`. The available targets for out-of-the-box usage are: </p>
+                <div class="lists">
                     <ul>
                         <li>FileTarget</li>
                         <li>RotatingTarget</li>
@@ -143,17 +154,18 @@
                 </div>
                 <p>
                     NOTE: Despite the naming, `ColorConsoleTarget` does also allow the user to log without color.
-                    <br><br>
-                    <!-------------------------------------------- This Section Covers The File Target -------------------------------------------->
-                <div id="subHeaders">
+                </p>
+                <br>
+                <!-------------------------------------------- This Section Covers The File Target -------------------------------------------->
+                <div class="subHeaders">
                     <strong>
                         <em>
                             <h3> For the FileTarget: </h3>
                         </em>
                     </strong>
                 </div>
-                <p> There are three total constructors for `FileTarget`: </p>
-                <div id="codeBlock">
+                <p style="text-align:center;"> There are three total constructors for `FileTarget`: </p>
+                <div class="codeBlock">
                     <pre class="sh_cpp">
 
  1.) explicit FileTarget(std::string_view fileName, bool replaceIfExists = false);  
@@ -161,41 +173,93 @@
  3.) explicit FileTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false); 
                     </pre>
                 </div>
-                <p> The third constructor offers the most control, allowing you to set the Logger's name that it will be
-                    identified by, the format pattern that will be used to format the log message itself (the user flags
-                    for this can be found <a href="">HERE-[PLACE_HOLDER]</a>), the file path for the log file (if an
-                    absolute path isn't provided, then the path created will be relative to the running process's
-                    directory + file path), as well as whether or not to truncate the file on open if the file already
-                    exists on disk.
-                    <br><br>
-                    The second constructor differs from the third only by the format pattern, otherwise this is more or
-                    less the same as the third constructor.
-                    For the format pattern, it will use the default pattern of:
-                    <br>
-                    <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
-                        Platform_Line_Ending." </span>.
-                    <br><br>
-                    For the first constructor, you have the same control over the file name (NOTE: this is not
-                    the file path itself, this is only the file name; the file path will use the running process's
-                    directory + "Logs" + file name ), as well as having control over whether or not the file is
-                    truncated on open or not. The name of a logger using this constructor will default to <span
-                        style="color: #cbff64;"> "File_Logger" </span> while the format of the log message will default
-                    to the pattern of:
-                    <br>
-                    <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
-                        Platform_Line_Ending." </span>.
-                    <br><br>
-                </p>
+
+                <div class="lists">
+                    <ul>
+                        <li>
+                            The third constructor offers the most control, allowing you to:
+                            <ul>
+                                <li>
+                                    Set the Logger's name that it will be identified by
+                                </li>
+                                <li>
+                                    Set the format pattern that will be used to format the log message itself (the user
+                                    flags for this can be found <a href="">HERE-[PLACE_HOLDER]</a>)
+                                </li>
+                                <li>
+                                    Set the file path for the log file (if an absolute path isn't provided, then the
+                                    path created will be relative to the running process's directory + file path)
+                                </li>
+                                <li>
+                                    As well as set whether or not the file should be truncated on open if the file
+                                    already exists on disk.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            The second constructor differs from the third only by the format pattern, otherwise this is
+                            more or less the same as the third constructor. The second constructor allows you to:
+                            <ul>
+                                <li>
+                                    Set the Logger's name that it will be identified by
+                                </li>
+                                <li>
+                                    Set the file path for the log file (if an absolute path isn't provided, then the
+                                    path created will be relative to the running process's directory + file path)
+                                </li>
+                                <li>
+                                    As well as set whether or not the file should be truncated on open if the file
+                                    already exists on disk.
+                                </li>
+                                <li>
+                                    For the format pattern, it will use the default pattern of:
+                                    <br>
+                                    <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]:
+                                        Log_Message + Platform_Line_Ending." </span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li> For the first constructor:
+                            <ul>
+                                <li>
+                                    The name will use the default name of <span style="color: #cbff64;"> "File_Logger"
+                                    </span>
+                                </li>
+                                <li> For the format pattern, it will use the default pattern of:
+                                    <br>
+                                    <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS
+                                        [Logger_Name]: Log_Message + Platform_Line_Ending."</span>
+                                </li>
+                                <li>
+                                    You have the same control over the file name as you do with the other two
+                                    constructors
+                                    <ul>
+                                        <li>
+                                            NOTE: this is not the file path itself, this is only the file name; the file
+                                            path will use the running process's directory + "Logs" + file name
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    You also have control over whether or not the file should be truncated on open if
+                                    the file already exists on disk.
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+                <br>
                 <!------------------------------------------ This Section Covers The Rotating Target ------------------------------------------>
-                <div id="subHeaders">
+                <div class="subHeaders">
                     <strong>
                         <em>
                             <h3>For the RotatingTarget:</h3>
                         </em>
                     </strong>
                 </div>
-                <p> There are three total constructors for `RotatingTarget`: </p>
-                <div id="codeBlock">
+                <p style="text-align:center;"> There are three total constructors for `RotatingTarget`: </p>
+                <div class="codeBlock">
                     <pre class="sh_cpp">
 
  1.) explicit RotatingTarget(); 
@@ -203,38 +267,81 @@
  3.) explicit RotatingTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false); 
                     </pre>
                 </div>
-                <p> Like with the File Target, the Rotating Target's third constructor offers the most control, allowing
-                    you to set the Logger's name that it will be identified by, the format pattern that will be used to
-                    format the log message itself (the user flags for this can be found <a
-                        href="">HERE-[PLACE_HOLDER]</a>), the file path for the log file (if an absolute path isn't
-                    provided, then the path created will be relative to the running process's directory + file path), as
-                    well as whether or not to truncate the file on open if the file already exists on disk.
-                    <br><br>
-                    The second constructor differs from the third only by the format pattern, otherwise this is more or
-                    less the same as the third constructor. For the format pattern, it will use the default pattern of:
-                    <br>
-                    <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
-                        Platform_Line_Ending."</span>.
-                    <br><br> For the first constructor, everything will be set to its default values. This means that
-                    the file path and file name will be the running process's directory + "Logs/RotatingLog.txt", the
-                    file will truncate on open by default, the logger's name will be <span style="color: #cbff64;">
-                        "Rotating_Logger" </span> and finally, the format of the log message will default to the pattern
-                    of:
-                    <br>
-                    <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
-                        Platform_Line_Ending." </span>.
-                    <br><br>
-                </p>
-                <!------------------------------------------ This Section Covers The Console Target ------------------------------------------>
-                <div id="subHeaders">
-                    <strong>
-                        <em>
-                            <h3>For the ColorConsoleTarget:</h3>
-                        </em>
-                    </strong>
+                <div class="lists">
+                    <ul>
+                        <li>
+                            Like with the File Target, the Rotating Target's third constructor offers the most control,
+                            allowing you to:
+                            <ul>
+                                <li>
+                                    Set the Logger's name that it will be identified by
+                                </li>
+                                <li>
+                                    Set the format pattern that will be used to format the log message itself (the user
+                                    flags for this can be found <a href="">HERE-[PLACE_HOLDER]</a>)
+                                </li>
+                                <li>
+                                    Set the file path for the log file (if an absolute path isn't provided, then the
+                                    path created will be relative to the running process's directory + file path)
+                                </li>
+                                <li>
+                                    And finally, set whether or not to truncate the file on open if the file already
+                                    exists on disk.
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li> The second constructor differs from the third only by the format pattern, otherwise this is
+                            more or less identical to the third constructor.The second constructor allows you to:
+                            <ul>
+                                <li>
+                                    Set the Logger's name that it will be identified by
+                                </li>
+                                <li>
+                                    Set the file path for the log file (if an absolute path isn't provided, then the
+                                    path created will be relative to the running process's directory + file path)
+                                </li>
+                                <li>
+                                    And finally, set whether or not to truncate the file on open if the file already
+                                    exists on disk.
+                                </li>
+                                <li> For the format pattern, it will use the default pattern of:
+                                    <br>
+                                    <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS
+                                        [Logger_Name]: Log_Message + Platform_Line_Ending."</span>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>For the first constructor, everything will be set to its default values.
+                            <ul>
+                                <li> This means that the file path and file name will be the running process's directory
+                                    + "Logs/RotatingLog.txt"
+                                </li>
+                                <li>
+                                    The file will truncate on open by default
+                                </li>
+                                <li> The logger's name will be <span style="color: #cbff64;">"Rotating_Logger" </span>
+                                    by default
+                                </li>
+                                <li>
+                                    For the format pattern, it will use the default pattern of:
+                                    <br>
+                                    <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS
+                                        [Logger_Name]: Log_Message + Platform_Line_Ending."</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                <p> There are three total constructors for `ColorConsoleTarget`: </p>
-                <div id="codeBlock">
+
+                <br><br>
+                <!------------------------------------------ This Section Covers The Console Target ------------------------------------------>
+                <div class="subHeaders">
+                    <h3>For the ColorConsoleTarget:</h3>
+                </div>
+                <p style="text-align:center;"> There are three total constructors for `ColorConsoleTarget`: </p>
+                <div class="codeBlock">
                     <pre class="sh_cpp">
 
  1.) ColorConsoleTarget(); 
@@ -242,58 +349,101 @@
  3.) explicit ColorConsoleTarget(std::string_view name, std::string_view msgPattern ); 
                     </pre>
                 </div>
-                <p>
-                    For all three constructors, the default console interface set is <span
-                        style="color:#cbff64;">`stdout`</span> - this can be changed via the <span
-                        style="color:#cbff64;">"SetConsoleInterface(console_interface interface);"</span> function.
-                    <br>
-                    The Message colors for all three constructors are also default set, however, these colors can be
-                    changed by calling the
-                    <br>
-                    <span style="color:#cbff64;">"SetMsgColor(LoggerLevel lvl, std::string_view color);"</span> function
-                    (where the color is an ansi color code).
-                    <br><br>
-                    Note: There is a header, `Color/Color.h`, that is included that can be used to simplify and aid this
-                    process as well. The color codes are broken up into the appropriate namespaces to make things clear
-                    on the intent.
-                    <br><br>
-                    Like with the previous two Targets though, the ColorConsoleTarget's third constructor offers the
-                    most control, allowing you to set the Logger's name that it will be identified by and the format
-                    pattern that will be used to format the log message itself (the user flags for this can be found <a
-                        href="">HERE-[PLACE_HOLDER]</a>).
-                    <br><br> The second constructor only allows setting the Logger's name. The default pattern used will
-                    be:
-                    <br>
-                    <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]:
-                        Log_Message + Platform_Line_Ending." </span>.
-                    <br><br>
-                </p>
+                <div class="lists">
+                    <ul>
+                        <li>
+                            For all three constructors, the default console interface set is <span
+                                style="color:#cbff64;">`stdout`</span>
+                            <ul>
+                                <li> this can be changed via the <span
+                                        style="color:#cbff64;">"SetConsoleInterface(console_interface
+                                        interface);"</span> function.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>The Message colors for all three constructors are also default set
+                            <ul>
+                                <li>
+                                    These colors can be changed by calling the <span
+                                        style="color:#cbff64;">"SetMsgColor(LoggerLevel lvl, std::string_view
+                                        color);"</span> function (where the color is an ansi color code).
+                                </li>
+                                <li> Note: There is a header, <span style="color:#cbff64;">`Color/Color.h`</span>, that
+                                    is included that can be used to simplify and aid this process as well. The color
+                                    codes are broken up into the appropriate namespaces to make things clear on the
+                                    intent.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Like with the previous two Targets though, the ColorConsoleTarget's third constructor offers
+                            the most control, allowing you to:
+                            <ul>
+                                <li>
+                                    Set the Logger's name that it will be identified by
+                                </li>
+                                <li>
+                                    Set the format pattern that will be used to format the log message itself (the user
+                                    flags for this can be found <a href="">HERE-[PLACE_HOLDER]</a>).
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            The second constructor only allows setting the Logger's name.
+                            <ul>
+                                <li>
+                                    The default pattern used will be:
+                                    <br>
+                                    <span style="color: #cbff64;"> "[Short_Level]
+                                        DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message + Platform_Line_Ending."
+                                    </span>
+                                <li> The above listed defaults apply here as well</li>
+                        </li>
+                    </ul>
+                    </li>
+                    <li> The first constructor applies all the defaults listed in points one and two as well as: </li>
+                    <ul>
+                        <li>
+                            The default name used will be <span style="color: #cbff64;">"Console_Logger</span>
+                        </li>
+                        <li>
+                            The default pattern used will be:
+                            <br>
+                            <span style="color: #cbff64;"> "[Short_Level]
+                                DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message + Platform_Line_Ending."
+                            </span>
+                        </li>
+                    </ul>
+                    </ul>
+                </div>
                 <!------------------------------------------ This Section Covers Basic Logging Calls ----------------------------------------->
-                <div id="subHeaders">
-                    <h3> Making A Log Call </h3>
+                <div class="subHeaders">
+                    <strong>Making A Log Call</strong>
                 </div>
                 <p> Once you decide what logger(s) you would like to use, all that's left to do to start using them is
                     to call their respective log functions: </p>
-                <div id="codeBlock">
-                    <pre class="sh_cpp">
+                <div class="codeBlock">
+                    <pre class="sh_cpp" style="text-align: center;">
 
- template &lt;typename... Args&gt; void Trace(MsgWithLoc formatString, Args&&... args); 
+  template &lt;typename... Args&gt; void Trace(MsgWithLoc formatString, Args&&... args); 
  template &lt;typename... Args&gt; void Info(MsgWithLoc formatString, Args&&... args); 
- template &lt;typename... Args&gt; void Debug(MsgWithLoc formatString, Args&&... args); 
+  template &lt;typename... Args&gt; void Debug(MsgWithLoc formatString, Args&&... args); 
  template &lt;typename... Args&gt; void Warn(MsgWithLoc formatString, Args&&... args); 
- template &lt;typename... Args&gt; void Error(MsgWithLoc formatString, Args&&... args); 
- template &lt;typename... Args&gt; void Fatal(MsgWithLoc formatString, Args&&... args); 
+  template &lt;typename... Args&gt; void Error(MsgWithLoc formatString, Args&&... args); 
+  template &lt;typename... Args&gt; void Fatal(MsgWithLoc formatString, Args&&... args); 
                 </pre>
                 </div>
                 <p> Where the format string is your message to log. The loggers use the active backend formatter to
                     format any log message with the arguments provided so long as there are substitution brackets
-                    present in the form of style="color:#cbff64;">"{}"</span>. If unfamiliar with what the message
+                    present in the form of <span style="color:#cbff64;">"{}"</span>. If unfamiliar with what the message
                     formatting grammar is, I would highly recommend checking out the grammar specification outlined
-                    href="https://fmt.dev/latest/syntax.html">HERE</a>, "ArgFormatter" and "&lt;format&gt;" are modeled
-                    after "fmtlib" and thus use Victor's grammar spec.
+                    <a href="https://fmt.dev/latest/syntax.html">HERE</a>. "ArgFormatter" and "&lt;format&gt;" are
+                    modeled after "fmtlib" and thus use Victor's grammar spec.
                     <br><br>
-                    <strong><em><span style="color: #cbff64;"> As An Example: </span></em></strong>
-                <div id="codeBlock">
+                <div class="subHeaders" style="border:none;">
+                    <em><span style="color: #cbff64;"> As An Example: </span></em>
+                </div>
+                </p>
+                <div class="codeBlock">
                     <pre class="sh_cpp">
 
  #include &lt;serenity/Targets/FileTarget.h&gt; 
@@ -303,7 +453,6 @@
  basicFileLogger.Trace("This is how {0} log message might look with an int formatted to hex: [{1:X}]", "a simple", 42); 
                 </pre>
                 </div>
-                </p>
                 <p> The above constructor call sets the logger name to <span
                         style="color: #cbff64;">"My_File_Logger"</span>, the file path as it is now, would mean the file
                     will be located at the current running process's directory + <span
@@ -327,7 +476,7 @@
             </section>
             <!-------------------------------------------- This Section Covers The Benchmarks -------------------------------------------->
             <section id="Benchmarks">
-                <div id="sectionHeader">
+                <div class="sectionHeader">
                     <h2> Current Timings (As Of 27Nov22):</h2>
                 </div>
                 <p> Benched Using My Laptop with an i7-10750H CPU locked at 4.00 GHz, 16GB DDR4-2933 RAM -

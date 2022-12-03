@@ -37,7 +37,7 @@ div.main-body {
 	color: #036b5d;
 }
 
-div#mainHeaders {
+.mainHeaders {
 	border: 4px solid rgb(202, 199, 199);
 	border-style: ridge;
 	text-align: center;
@@ -46,7 +46,7 @@ div#mainHeaders {
 	color: #A8C077;
 }
 
-div#sectionHeader {
+.sectionHeader {
 	border: 2px solid rgb(192, 188, 188);
 	text-align: center;
 	color: #4aec9e;
@@ -56,29 +56,35 @@ div#outerBorder {
 	background-color: #045147;
 }
 
-div#lists {
+.lists {
 	display: flex;
-	color: #A8C077;
 	justify-content: center;
+	color: #A8C077;
 	text-align: left;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
 body {
 	background-color: rgb(234, 204, 159);
 }
 
-div#codeBlock {
+.codeBlock {
 	display: flex;
 	justify-content: center;
 }
 
 .sh_cpp {
 	text-align: left;
-	width: fit-content;
+	width: 750px;
+	overflow-x: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 p {
-	text-align: center;
+	justify-content: center;
+	text-align: left;
 	margin-left: 20%;
 	margin-right: 20%;
 	color: #A8C077;
@@ -103,10 +109,12 @@ div#tables {
 	margin-right: auto;
 }
 
-div#subHeaders {
+.subHeaders {
+	font-size: 120%;
 	border-top: 2px solid rgb(202, 199, 199);
 	padding-left: 1%;
 	padding-right: 1%;
+	padding-top: 1%;
 	text-align: center;
 	color: #cbff64;
 	margin-left: auto;
@@ -221,14 +229,58 @@ div#subHeaders {
 }
 
 @media (max-width:768px) {
-	.docLinks{
+	.docLinks {
 		display: none;
 	}
-	.docLinks a{
+
+	.docLinks a {
 		display: none;
 	}
-	.hamburger_menu{
+
+	.hamburger_menu {
 		display: block;
 	}
 
+	.lists {
+		margin-left: 0%;
+		margin-right: 0%;
+	}
+
+	p {
+		margin-left: 0%;
+		margin-right: 0%;
+	}
+
+	.sh_cpp {
+		width: 375px;
+		overflow-x: scroll;
+	}
+
+	.search-bar {
+		padding-right: 0%;
+		margin-right: 20%;
+	}
+
+	.search-bar {
+		margin-right: 20%;
+	}
+
+	.search_button {
+		padding-left: 2%;
+		padding-right: 2%;
+	}
+}
+
+@media (min-width:769px) {
+	.docLinks {
+		display: flex;
+	}
+
+	.docLinks a {
+		display: flex;
+	}
+
+	.hamburger_menu {
+		display: none;
+	}
 }
