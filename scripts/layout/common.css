@@ -52,7 +52,7 @@ div.main-body {
 	color: #4aec9e;
 }
 
-div#outerBorder {
+.outerBorder {
 	background-color: #045147;
 }
 
@@ -100,7 +100,7 @@ td {
 	border: 2px solid rgb(52, 98, 62);
 }
 
-div#tables {
+.tables {
 	display: table;
 	text-align: center;
 	background-color: #A8C077;
