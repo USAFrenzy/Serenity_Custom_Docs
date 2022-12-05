@@ -46,67 +46,74 @@
             </div>
         </div>
         <div class="main-body">
-            <div class="docLinks">
-                <a class="docLink" href="../index.html">Home</a>
-                <a class="docLink" href="../Documentation/documentation_landing.html">Documentation</a>
-                <a class="docLink" href="../Examples/examples_landing.html">Examples</a>
-                <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+            <div class="sticky_content">
+                <div class="docLinks">
+                    <div class="dropdown">
+                        <button class="dropdown"> Page Contents </button>
+                        <div class="dropdown-content">
+                            <a class="nav_link" href="#Build Steps"> General Build Steps </a>
+                            <a class="nav_link" href="#Build Options"> Build Options </a>
+                            <a class="nav_link" href="#Top"> Go To Top </a>
+                        </div>
+                    </div>
+                    <a class="docLink" href="../index.html">Home</a>
+                    <a class="docLink" href="../Documentation/documentation_landing.html">Documentation</a>
+                    <a class="docLink" href="../Examples/examples_landing.html">Examples</a>
+                    <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                </div>
             </div>
             <br><br>
             <div class="sectionHeader">
                 <h2 id="Build Steps"><strong><em>General Build Steps</em></strong></h2>
             </div>
-            <p> If building Serenity from source, the first thing you'll need installed is CMake, which you can find <a
-                    href="https://cmake.org/download/">HERE</a>. CMake is a free to use software that is used for
-                cross-platform project file generation. This project uses CMake version 3.14 as its minimum version for
-                generating the project files. Once you have both CMake installed and Serenity's source code downloaded,
-                you're free to generate the project files from anywhere of your choosing. Just note, that Serenity's
-                root folder is off-limits as a folder to generate the files into, however, you're free to generate the
-                files in another user made folder in Serenity's root folder and everywhere else outside Serenity's root
-                folder.</p>
-            <div class="subHeaders" style="border: none;"> For Example: </div>
-            <div class="lists">
-                <ul>
-                    <li style="text-align: center;">
-                        If in the root folder of Serenity, you could run
-                        <br>
-                        <span style="color:#cbff64;"> " cmake -B build -S . " </span>
-                    </li>
-                </ul>
+            <br>
+            <div class="center_text">
+                <p>
+                    If building Serenity from source, the first thing you'll need installed is CMake, which you can find
+                    <a href="https://cmake.org/download/">HERE</a>. CMake is a free to use software that is used for
+                    cross-platform project file generation. This project uses CMake version 3.14 as its minimum version
+                    for
+                    generating the project files. Once you have both CMake installed and Serenity's source code
+                    downloaded,
+                    you're free to generate the project files from anywhere of your choosing. Just note, that Serenity's
+                    root folder is off-limits as a folder to generate the files into, however, you're free to generate
+                    the
+                    files in another user made folder in Serenity's root folder and everywhere else outside Serenity's
+                    root
+                    folder.
+                </p>
+                <div class="subHeaders" style="border: none;"> For Example: </div>
+                <br>
+                If in the root folder of Serenity, you could run
+                <br><br>
+                <span style="color:#cbff64;"> " cmake -B build -S . " </span>
+                <div class="lists">
+                    <ul>
+                        <li>
+                            This will generate the build files in a folder named <span
+                                style="color:#cbff64;">"build"</span> inside the Serenity project root folder.
+                        </li>
+                    </ul>
+                </div>
+                <p>
+                    If you were to generate the files in any other location, that location will need to be
+                    specified after the <span style="color:#cbff64;"><code>'-B'</code></span> flag above as well as the
+                    location to Serenity's root folder location after the <span
+                        style="color:#cbff64;"><code>'-S'</code></span> flag. Such as:
+                </p>
+                <span style="color:#cbff64;"> " cmake -B build -S Serenity "</span>
+                <br>
+                OR
+                <br>
+                <span style="color:#cbff64;"> " cmake -B ../build -S . "</span>
+                <br>
+                <p>
+                    Generally speaking, the flow that users tend to use with CMake is to change directories to the
+                    project's root folder and run the first command listed above or to change directories to the project
+                    root folder and run
+                </p>
             </div>
-            <p>
-                This will generate the build files in a folder named <span style="color:#cbff64;">"build"</span> inside
-                the Serenity project root folder.
-                <br>
-                If you were to generate the files in any other location, that location will need to be
-                specified after
-                <br>
-                the <span style="color:#cbff64;"><code>'-B'</code></span> flag above as well as the
-                location to Serenity's root folder location after the <span
-                    style="color:#cbff64;"><code>'-S'</code></span>
-                flag.
-                <br>
-            <div class="subHeaders" style="border: none;"> As Another Example: </div>
-            <div class="lists">
-                <ul>
-                    <li style="text-align: center;">
-                        If the folder you would like to generate files into is outside Serenity, you would run something
-                        like:
-                        <br>
-                        <span style="color:#cbff64;"> " cmake -B build -S Serenity "</span>
-                        <br>
-                        OR
-                        <br>
-                        <span style="color:#cbff64;"> " cmake -B ../build -S . "</span>
-                    </li>
-                </ul>
-            </div>
-            <p>
-                Generally speaking, the flow that users tend to use with CMake is to change directories to the project's
-                root folder and run the first command listed above or to change directories to the project root folder
-                and run
-            </p>
-            <p style="text-align: center;">
+            <div class="center_text">
                 <span style="color:#cbff64;">
                     " mkdir build_folder_name "
                     <br>
@@ -114,19 +121,21 @@
                     <br>
                     " cmake .. "
                 </span>
-            </p>
+            </div>
+            <br>
             <div class="sectionHeader">
                 <h2 id="Build Options"><strong><em>Build Options</em></strong></h2>
             </div>
             <p>
                 Generally Speaking, you will be able to find all related build options for Serenity under the folder
-                named 'cmake' in the file named 'Options.cmake'. How you tack on build options is by adding the build
-                option to the CMake configure command from above with the <span
+                named 'cmake' in the file named 'Options.cmake'. How you tack on build options is by adding the
+                build option to the CMake configure command from above with the <span
                     style="color:#cbff64;"><code>'-D'</code></span> flag and either enabling or disabling the option
                 with <span style="color:#cbff64;"><code>'="ON"' or '="OFF"'</code></span>.
                 <br>
             </p>
-            <p style="text-align: center;"> Options available are: </p>
+            <div class="center_text"> Options available are: </div>
+            <br>
             <div class="lists">
                 <ul>
                     <li><em><u><span style="color:#cbff64;">BUILD_SANDBOX</span></u></em> - If this build option is set,
@@ -162,28 +171,35 @@
                 </ul>
             </div>
             <div class="subHeaders" style="border: none;">An Example of using the above build options would be: </div>
-            <p style="text-align: center;">
-                <span style="color:#cbff64;">
-                    " cmake -B build -S . -DUSE_NATIVEFMT="OFF" -DUSE_NATIVEFMT="ON" "
-                </span>
-            </p>
-            <p>
-                The above line would generate the project files in the build folder 'build' using "fmtlib" as the
-                formatting backend.
-            </p>
-            <p style="text-align:center ;">
-                <span style="color:#cbff64;">
-                    " cmake -B build -S . -DDISABLE_NATIVE_WARNING="ON" "
-                </span>
-            </p>
-            <p>
-                The above line would generate the project files in the build folder 'build' using "ArgFormatter" as the
-                formatting backend while disabling the compilation message.
-            </p>
-            <br>
-            <hr />
+            <div class="lists">
+                <ol>
+                    <li>
+                        <span style="color:#cbff64;">" cmake -B build -S . -DUSE_NATIVEFMT="OFF" -DUSE_NATIVEFMT="ON"
+                            "</span>
+                        <ul>
+                            <li>
+                                The above line would generate the project files in the build folder 'build' using
+                                "fmtlib" as the formatting backend.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span style="color:#cbff64;">" cmake -B build -S . -DDISABLE_NATIVE_WARNING="ON" "</span>
+                        <ul>
+                            <li>
+                                The above line would generate the project files in the build folder 'build' using
+                                "ArgFormatter" as the formatting backend while disabling the compilation message.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
         </div>
-        <br><br>
+        <br>
+        <hr />
+    </div>
+    <br><br>
 </body>
 
 </html>
