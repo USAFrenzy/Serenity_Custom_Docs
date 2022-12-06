@@ -23,7 +23,7 @@
                 <input type="text" class="searchBox" placeholder="Enter Search Term Here">
                 <input type="image" class="search_button" src="Resources/search_icon_clipart.png"></input>
             </form>
-            <img id="logo" src="Resources/serenity_logo.png" alt="Placeholder Logo" />
+            <img id="logo" src="Resources/Serenity_Logo_01.png" alt="Placeholder Logo" />
         </div>
         <br><br>
         <div class="mainHeaders">
@@ -429,6 +429,67 @@
                 </ul>
                 </ul>
             </div>
+            <div class="center_text">
+                <br>
+                The default colors that are set are:
+            </div>
+            <div class="tables">
+                <table>
+                    <colgroup>
+                        <col span="6">
+                        <col span="6">
+                        <col span="6">
+                    </colgroup>
+                    <tr>
+                        <th><em> Level </em></th>
+                        <th><em> Color </em></th>
+                    </tr>
+                    <tr>
+                        <td>Trace</td>
+                        <td>Bright White</td>
+                    </tr>
+                    <tr>
+                        <td>Info</td>
+                        <td>Bright Green</td>
+                    </tr>
+                    <tr>
+                        <td>Debug</td>
+                        <td>Bright Cyan</td>
+
+                    </tr>
+                    <tr>
+                        <td>Warning</td>
+                        <td>Bright Yellow</td>
+
+                    </tr>
+                    <tr>
+                        <td>Error</td>
+                        <td>Basic Red</td>
+
+                    </tr>
+                    <tr>
+                        <td>Fatal</td>
+                        <td>Bright Yellow On Red</td>
+
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <div class="subHeaders" style="border:none;">
+                As An Example Of Changing Colors Using The Helper Header `Color.h`:
+            </div>
+
+            <pre class="sh_cpp">
+
+  #include &lt;serenity/Color/Color.h&gt;
+  
+  namespace color = serenity::se_colors::bright_colors;
+  namespace target = serenity::targets;
+  // Create the console target with default format pattern and user-defined name
+  target::ConsoleTarget example("Example_Logger"); 
+  // Set the message level to any ansi-supported code (using helper header here)
+  example.SetMsgColor(LoggerLevel::trace, color::foreground::grey); 
+                </pre>
             <!------------------------------------------ This Section Covers Basic Logging Calls ----------------------------------------->
             <div class="subHeaders">
                 <strong>Making A Log Call</strong>
@@ -646,34 +707,34 @@
                         <th><em> Logging Throughput </em></th>
                     </tr>
                     <tr>
-                        <td> Serenity Console Logger </span></td>
-                        <td> 8.51 ns </span></td>
-                        <td> 44806.05 MB/s </span></td>
+                        <td> Serenity Console Logger</td>
+                        <td> 8.51 ns</td>
+                        <td> 44806.05 MB/s</td>
                     </tr>
                     <tr>
                         <td> Spdlog Console Sink </span></td>
-                        <td> 12.74 ns </span></td>
-                        <td> 29951.26 MB/s</span></td>
+                        <td> 12.74 ns</td>
+                        <td> 29951.26 MB/</td>
                     </tr>
                     <tr>
                         <td> Serenity File Target </span></td>
-                        <td> 2315.97 ns </span></td>
-                        <td> 164.71 MB/s</span></td>
+                        <td> 2315.97 ns</td>
+                        <td> 164.71 MB/</td>
                     </tr>
                     <tr>
                         <td> Spdlog Basic File Sink </span></td>
-                        <td> 1027.15 ns </span></td>
-                        <td> 371.39 MB/s</span></td>
+                        <td> 1027.15 ns</td>
+                        <td> 371.39 MB/</td>
                     </tr>
                     <tr>
                         <td> Serenity Rotating Target </span></td>
-                        <td> 2857.12 ns </span></td>
-                        <td> 133.52 MB/s </span></td>
+                        <td> 2857.12 ns</td>
+                        <td> 133.52 MB/s</td>
                     </tr>
                     <tr>
-                        <td> Spdlog Rotating Sink </span></td>
-                        <td> 2654.13 ns</span></td>
-                        <td> 143.73 MB/s </span></td>
+                        <td> Spdlog Rotating Sink</td>
+                        <td> 2654.13 n</td>
+                        <td> 143.73 MB/s</td>
                     </tr>
                 </table>
             </div>

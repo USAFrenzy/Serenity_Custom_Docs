@@ -36,7 +36,7 @@ pre.sh_sourceCode .sh_specialchar {
 }
 
 pre.sh_sourceCode .sh_comment {
-  color: #4aec9e;
+  color: #006233;
   font-weight: normal;
   font-style: italic;
 }
