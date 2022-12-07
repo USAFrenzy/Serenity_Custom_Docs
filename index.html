@@ -15,20 +15,15 @@
 </head>
 
 <body onload="sh_highlightDocument();">
+    <section id="Top"></section>
+    <img id="logo" src="Resources/Serenity_Logo_02.png" alt="Placeholder Logo" />
     <div class="outerBorder">
-        <section id="Top"></section>
         <br>
-        <div class="search-bar">
+        <div class="search-bar" style="margin-bottom: -35px;">
             <form action="placeholder">
                 <input type="text" class="searchBox" placeholder="Enter Search Term Here">
                 <input type="image" class="search_button" src="Resources/search_icon_clipart.png"></input>
             </form>
-            <img id="logo" src="Resources/Serenity_Logo_01.png" alt="Placeholder Logo" />
-        </div>
-        <br><br>
-        <div class="mainHeaders">
-            <h1><strong><em>Welcome To The Landing Page For The Serenity Logging Framework Documentation</em></strong>
-            </h1>
         </div>
         <div class="hamburger_menu" onclick="menu_active(this)">
             <div class="bar1"></div>
@@ -45,14 +40,22 @@
                     <div class="dropdown-content">
                         <a class="nav_link" href="#About Serenity">About</a>
                         <a class="nav_link" href="#Requirements">Requirements</a>
-                        <a class="nav_link" href="#Basic Overview">Quick Start</a>
                         <a class="nav_link" href="#Benchmarks">Benchmarks</a>
+                        <div class="dropdown_nested">
+                            <a class="nav_link" href="#Quick Start">Quick Start</a>
+                            <div class="dropdown_content_nested">
+                                <a class="nav_link" href="#FileTarget">File Logger</a>
+                                <a class="nav_link" href="#RotatingTarget">Rotating Logger</a>
+                                <a class="nav_link" href="#ConsoleTarget">Console Logger</a>
+                                <a class="nav_link" href="#LoggingCalls">Log Calls</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <br><br>
-        <div class="main-body">
+        <div id="main-body">
             <div class="sticky_content">
                 <div class="docLinks">
                     <div class="dropdown">
@@ -60,9 +63,17 @@
                         <div class="dropdown-content">
                             <a class="nav_link" href="#About Serenity">About</a>
                             <a class="nav_link" href="#Requirements">Requirements</a>
-                            <a class="nav_link" href="#Basic Overview">Quick Start</a>
                             <a class="nav_link" href="#Benchmarks">Benchmarks</a>
                             <a class="nav_link" href="#Top"> Go To Top </a>
+                            <div class="dropdown_nested">
+                                <a class="nav_link" href="#Quick Start">Quick Start</a>
+                                <div class="dropdown_content_nested">
+                                    <a class="nav_link" href="#FileTarget">File Logger</a>
+                                    <a class="nav_link" href="#RotatingTarget">Rotating Logger</a>
+                                    <a class="nav_link" href="#ConsoleTarget">Console Logger</a>
+                                    <a class="nav_link" href="#LoggingCalls">Log Calls</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <a class="docLink" href="Building/building_landing.html">Building</a>
@@ -91,7 +102,7 @@
                 formatter can be swapped between any three of these without any issues.
             </p>
             <p>
-                What sets Serenity apart is that this library offers very fast single threaded synchronous log calls
+                What sets Serenity apart is that this library offers very fast single threaded log calls
                 alongside Unicode support via <a href="https://github.com/USAFrenzy/UTF-Utils">UTF-Utils</a>, which
                 allows the input paths for files and any string-type argument provided to a log call to be
                 automatically decoded and encoded so that you don't have to worry so much about the headache of text
@@ -147,13 +158,13 @@
                 </ul>
             </div>
             <!-------------------------------------------- This Section Covers The Basic Usage -------------------------------------------->
-            <section id="Basic Overview"> </section>
+            <section id="Quick Start"> </section>
             <div class="sectionHeader">
-                <h2> Brief Overview Of Usage</h2>
+                <h2> Quick Start </h2>
             </div>
             <p style="text-align: center;">
-                To start using any of the logging targets, simply `#include` any of the targets found under
-                `serenity/Targets`.
+                To start using any of the logging targets, simply <span style="color: #cbff64;">`#include`</span> any of
+                the targets found under <span style="color: #cbff64;">`serenity/Targets`</span>.
                 <br>
                 The available targets for out-of-the-box usage are:
             </p>
@@ -166,6 +177,7 @@
             </div>
             <br>
             <!-------------------------------------------- This Section Covers The File Target -------------------------------------------->
+            <section id="FileTarget"> </section>
             <div class="subHeaders">
                 <strong>
                     <em>
@@ -262,6 +274,7 @@
             </div>
             <br>
             <!------------------------------------------ This Section Covers The Rotating Target ------------------------------------------>
+            <section id="RotatingTarget"> </section>
             <div class="subHeaders">
                 <strong>
                     <em>
@@ -348,6 +361,7 @@
 
             <br><br>
             <!------------------------------------------ This Section Covers The Console Target ------------------------------------------>
+            <section id="ConsoleTarget"> </section>
             <div class="subHeaders">
                 <h3>For the ColorConsoleTarget:</h3>
             </div>
@@ -386,7 +400,73 @@
                             </li>
                         </ul>
                     </li>
+                </ul>
+            </div>
+            <div class="center_text">
+                <div class="center_text">
                     <br>
+                    The default colors that are set are:
+                </div>
+                <div class="tables">
+                    <table>
+                        <colgroup>
+                            <col span="6">
+                            <col span="6">
+                            <col span="6">
+                        </colgroup>
+                        <tr>
+                            <th><em> Level </em></th>
+                            <th><em> Color </em></th>
+                        </tr>
+                        <tr>
+                            <td>Trace</td>
+                            <td>Bright White</td>
+                        </tr>
+                        <tr>
+                            <td>Info</td>
+                            <td>Bright Green</td>
+                        </tr>
+                        <tr>
+                            <td>Debug</td>
+                            <td>Bright Cyan</td>
+
+                        </tr>
+                        <tr>
+                            <td>Warning</td>
+                            <td>Bright Yellow</td>
+
+                        </tr>
+                        <tr>
+                            <td>Error</td>
+                            <td>Basic Red</td>
+
+                        </tr>
+                        <tr>
+                            <td>Fatal</td>
+                            <td>Bright Yellow On Red</td>
+
+                        </tr>
+                    </table>
+                </div>
+                <div class="subHeaders" style="border:none;">
+                    As An Example Of Changing Colors Using The Helper Header `Color.h`:
+                </div>
+
+                <pre class="sh_cpp">
+
+      #include &lt;serenity/Color/Color.h&gt;
+      
+      namespace color = serenity::se_colors::bright_colors;
+      namespace target = serenity::targets;
+      // Create the console target with default format pattern and user-defined name
+      target::ConsoleTarget example("Example_Logger"); 
+      // Set the message level to any ansi-supported code (using helper header here)
+      example.SetMsgColor(LoggerLevel::trace, color::foreground::grey); 
+                    </pre>
+
+            </div>
+            <div class="lists">
+                <ul>
                     <li>Like with the previous two Targets though, the ConsoleTarget's third constructor offers
                         the most control, allowing you to:
                         <ul>
@@ -429,68 +509,8 @@
                 </ul>
                 </ul>
             </div>
-            <div class="center_text">
-                <br>
-                The default colors that are set are:
-            </div>
-            <div class="tables">
-                <table>
-                    <colgroup>
-                        <col span="6">
-                        <col span="6">
-                        <col span="6">
-                    </colgroup>
-                    <tr>
-                        <th><em> Level </em></th>
-                        <th><em> Color </em></th>
-                    </tr>
-                    <tr>
-                        <td>Trace</td>
-                        <td>Bright White</td>
-                    </tr>
-                    <tr>
-                        <td>Info</td>
-                        <td>Bright Green</td>
-                    </tr>
-                    <tr>
-                        <td>Debug</td>
-                        <td>Bright Cyan</td>
-
-                    </tr>
-                    <tr>
-                        <td>Warning</td>
-                        <td>Bright Yellow</td>
-
-                    </tr>
-                    <tr>
-                        <td>Error</td>
-                        <td>Basic Red</td>
-
-                    </tr>
-                    <tr>
-                        <td>Fatal</td>
-                        <td>Bright Yellow On Red</td>
-
-                    </tr>
-                </table>
-            </div>
-            <br>
-            <div class="subHeaders" style="border:none;">
-                As An Example Of Changing Colors Using The Helper Header `Color.h`:
-            </div>
-
-            <pre class="sh_cpp">
-
-  #include &lt;serenity/Color/Color.h&gt;
-  
-  namespace color = serenity::se_colors::bright_colors;
-  namespace target = serenity::targets;
-  // Create the console target with default format pattern and user-defined name
-  target::ConsoleTarget example("Example_Logger"); 
-  // Set the message level to any ansi-supported code (using helper header here)
-  example.SetMsgColor(LoggerLevel::trace, color::foreground::grey); 
-                </pre>
             <!------------------------------------------ This Section Covers Basic Logging Calls ----------------------------------------->
+            <section id="LoggingCalls"> </section>
             <div class="subHeaders">
                 <strong>Making A Log Call</strong>
             </div>
@@ -513,7 +533,6 @@
                 formatting grammar is, I would highly recommend checking out the grammar specification outlined
                 <a href="https://fmt.dev/latest/syntax.html">HERE</a>. "ArgFormatter" and "&lt;format&gt;" are
                 modeled after "fmtlib" and thus use Victor's grammar spec.
-                <br><br>
             <div class="subHeaders" style="border:none;">
                 <em><span style="color: #cbff64;"> As An Example: </span></em>
             </div>
@@ -525,10 +544,9 @@
 
  using namespace serenity::targets; 
  FileTarget basicFileLogger("My_File_Logger", "[%L] %c [%N]: %+", "Sandbox/Logs/My_Log.txt", true); 
- basicFileLogger.Trace("This is how {0} log message might look with an int formatted to hex: [{1:X}]", "a simple", 42); 
+ basicFileLogger.Trace("This is how {0} log message might look with an integer formatted to hex: [{1:X}]", "a simple", 42); 
                 </pre>
             </div>
-
             <div class="lists">
                 <ul>
                     <li>
@@ -547,20 +565,15 @@
                             <li>
                                 Sets the log format to:
                                 <br>
-                                <ul>
-                                    <li>
-                                        <span style="color: #cbff64;">[Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY
-                                            [My_File_Logger]: Log_Message + Platform_Line_Ending</span>
-                                    </li>
-                                </ul>
+                                <pre class="sh_cpp">
+
+    [Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY [My_File_Logger]: Log_Message + Platform_Line_Ending
+                                            </pre>
                                 which, at the time of writing, would be something like:
-                                <ul>
-                                    <li>
-                                        <span style="color: #cbff64;">[Info] Mon Nov 28 20:35:32 2022
-                                            [My_File_Logger]: This is how a simple log message might look with an
-                                            int formatted to hex: [0X2A] \r\n</span>
-                                    </li>
-                                </ul>
+                                <pre class="sh_cpp">
+
+    [Info] Mon Nov 28 20:35:32 2022 [My_File_Logger]: This is how a simple log message might look with an integer formatted to hex: [0X2A] \r\n
+                                </pre>
                                 Where the line ending used here is assuming a windows environment is being run.
                                 <ul>
                                     <li>
