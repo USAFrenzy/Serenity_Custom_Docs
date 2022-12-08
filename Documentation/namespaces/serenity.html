@@ -114,23 +114,96 @@
                     <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
                 </div>
             </div>
-
+            <br>
             <div class="center_text">
-                This namespace is the top-level all encompassing namespace of the library itself. This namespace
-                contains the following namespaces:
+                This namespace is the top-level all encompassing namespace of the library itself.
+                <br><br>
+                This namespace contains the following classes:
+            </div>
+            <div class="lists">
+                <ul>
+                    <li><a href="../serenity_classes/flush_policy.html">Flush_Policy</a></li>
+                    <li><a href="../serenity_classes/msg_with_loc.html">MsgWithLoc</a></li>
+                    <li><a href="../serenity_classes/periodic_settings.html">PeriodicSettings</a></li>
+                    <li><a href="../serenity_classes/rotate_limits.html">RotateLimits</a></li>
+                    <li><a href="../serenity_classes/rotate_settings.html">RotateSettings</a></li>
+                </ul>
+
+            </div>
+            <div class="center_text">
+                This namespace contains the following namespaces:
             </div>
             <div class="lists">
                 <ul>
                     <li>
                         <a href="../namespaces/targets.html">targets</a> - this namespace contains the in-house logging
                         targets
+                        <ul>
+                            <li> <a href="../targets/TargetBase.html">TargetBase</a> - Base class all targets inherit
+                                from </li>
+                            <li> <a href="../targets/ConsoleTarget.html">ConsoleTarget</a> - Class that handles terminal
+                                logging </li>
+                            <li> <a href="../targets/FileTarget.html">FileTarget</a> - Class that handles logging to a
+                                singular file </li>
+                            <li> <a href="../targets/RotatingTarget.html">RotatingTarget</a>- Class that handles logging
+                                to multiple files and under conditions based on user settings</li>
+                            <li> <a href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a> - Class that
+                                handles updating the background thread that runs when a time setting is used with
+                                RotatingTarget</li>
+                        </ul>
                     </li>
                     <br>
-                    <li> <a href="#">PLACEHOLDER</a> </li>
+                    <li> <a href="../namespaces/custom_flag_error.html">CustomFlagError</a> - this namespace handles
+                        error
+                        reporting for the custom template specializations for LoggerLevel and std::tm
+                        <ul>
+                            <li> <a href="../customflagerror/custom_error_handler.html">format_error</a> - compatible
+                                class for fmt::format_error and std::format_error </li>
+                            <li> <a href="../customflagerror/custom_error_handler.html">custom_error_messages</a> - The
+                                actual messages to report</li>
+                            <li> <a href="../customflagerror/custom_error_handler.html">enum CustomErrors</a> -
+                                Enumerated values to map to error message</li>
+                            <li> <a href="../customflagerror/custom_error_handler.html">constexpr void ReportCustomError
+                                    (CustomErrors err)</a> - This function handles the actual reporting of errors</li>
+                        </ul>
+
+                    </li>
                     <br>
-                    <li> <a href="#">PLACEHOLDER</a> </li>
+                    <li> <a href="../namespaces/msg_details.html">msg_details</a> - This namespace holds the classes
+                        that comprise mostly everything about a log message
+                        <ul>
+                            <li><a href="../msg_details/custom_flags.html">custom_flags</a> - This nested namespace
+                                holds the classes involved with the custom formatter specializations
+                                <ul>
+                                    <li><a href="../msg_details/format_src_loc.html">Format_Source_Loc</a> - This class
+                                        is a helper class used in formatting source location data </li>
+                                    <li> <a href="../msg_details/format_thread_id.html">format_thread_id</a> - This
+                                        class is a helper class used in formatting thread ID and its length</li>
+                                </ul>
+                            </li>
+                            <li> <a href="../msg_details/message_formatter.html">Message_Formatter</a> - This class
+                                controls the storage of the log output format and the locale used </li>
+                            <li> <a href="../msg_details/message_info.html.html">Message_Info</a> - This class contains
+                                functions and values relevant to the payload of the log message, such as a time
+                                reference, logger name, etc</li>
+                            <li> <a href="../msg_details/message_time.html">Message_Time</a> - This class
+                                controls caching and updating time-related info used in the log message</li>
+                            <li><a href="../msg_details/zone_thread.html">ZoneThread</a> - This class controls how the
+                                background
+                                thread checks for daylight savings and notifies whether or not the cached time values
+                                needs to be updated to reflect any changes</li>
+                        </ul>
+                    </li>
                     <br>
-                    <li> <a href="#">PLACEHOLDER</a> </li>
+                    <li> <a href="../serenity_luts.html">SERENITY_LUTS</a> - This namespace holds all the lookup tables
+                        used in this library
+                        <ul>
+                            <li><a href="#">line_ending</a> - Maps the platform detected to the end-of-line value that
+                                should be appended to the end of each log message</li>
+                            <li><a href="#"> daysPerMonth</a> - Maps how many days are in each month for the
+                                RotatingTarget</li>
+                        </ul>
+                    </li>
                     <br>
                     <li> <a href="#">PLACEHOLDER</a> </li>
                 </ul>
