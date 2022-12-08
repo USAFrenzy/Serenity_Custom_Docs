@@ -1,64 +1,155 @@
- .side_doc_tree {
-     display: block;
-     margin-bottom: 0.7%;
-     padding-top: 2.5%;
-     height: 100%;
-     width: 0;
-     position: fixed;
-     z-index: 1;
-     top: 0;
-     left: 0;
-     background-color: rgb(3, 139, 100);
-     color: rgb(189, 241, 241);
-     overflow-x: hidden;
-     transition: 0.6s;
-     font-size: 20px;
- }
+.namespace_link {
+    display: none;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    color: rgb(189, 241, 241);
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 90%;
+}
 
- .side_doc_link {
-     display: block;
-     justify-content: center;
-     text-decoration: none;
-     color: #818181;
-     margin-top: 1%;
-     margin-bottom: 1%;
-     margin-left: auto;
-     margin-right: auto;
-     font-size: 25px;
-     transition: 0.3s;
- }
+.structs_link {
+    display: none;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    color: rgb(189, 241, 241);
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 90%;
+}
 
- .side_doc_tree .side_doc_link:hover {
-     color: #f1f1f1;
- }
 
- .side_doc_tree .close_doc_tree {
-     position: absolute;
-     top: 0;
-     right: 5px;
-     font-size: 36px;
-     margin-left: 50px;
- }
+.classes_link {
+    display: none;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    color: rgb(189, 241, 241);
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 90%;
+}
 
- @media screen and (max-height: 650px) {
-     .side_doc_tree {
-         padding-top: 15px;
-     }
+.namespace_link:hover,
+.classes_link:hover,
+.structs_link:hover {
+    background-color: #A8C077;
+    color: #036b5d;
+}
 
-     .side_doc_tree .side_doc_link {
-         font-size: 18px;
-     }
- }
+.side_doc_tree {
+    display: block;
+    margin-bottom: 0.7%;
+    padding-top: 2.5%;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(3, 139, 100);
+    color: rgb(189, 241, 241);
+    overflow-x: hidden;
+    transition: 0.6s;
+    font-size: 20px;
+    overflow-y: hidden;
+}
 
- .doc_button {
-     font-size: 97%;
-     border: none;
-     color: rgb(189, 241, 241);
-     background-color: transparent;
-     border-bottom: 1px solid rgb(189, 241, 241);
- }
+.side_doc_link {
+    justify-content: left;
+    text-align: left;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
 
- .doc_button:hover {
-     background-color: #A8C077;
-     color: #036b5d;
- }
+.side_doc_link:hover {
+    color: #f1f1f1;
+}
+
+.side_doc_tree .close_doc_tree {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.doc_button {
+    border: none;
+    font-size: 100%;
+    background-color: rgb(3, 107, 93);
+    color: rgb(189, 241, 241);
+
+}
+
+.doc_button:hover {
+    background-color: #A8C077;
+    color: #036b5d;
+}
+
+.contents {
+    border: none;
+    font-size: 100%;
+    background-color: rgb(3, 107, 93);
+    color: rgb(189, 241, 241);
+}
+
+.contents:hover {
+    background-color: #A8C077;
+    color: #036b5d;
+}
+
+
+@media screen and (max-height: 650px) {
+    .side_doc_tree {
+        padding-top: 15px;
+        margin-top: 0.5%;
+        margin-bottom: 0.5%;
+        overflow-y:scroll;
+    }
+
+    .side_doc_tree .side_doc_link {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .doc_button {
+        display: block;
+        background-color: #045147;
+        color: rgb(189, 241, 241);
+        border: 1px solid rgb(202, 199, 199);
+        margin-top: 4%;
+        margin-bottom: 1.25%;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+        text-decoration: none;
+        font-size: 95%;
+    }
+
+    .contents {
+        display: block;
+        justify-content: center;
+        background-color: #045147;
+        color: rgb(189, 241, 241);
+        border: 1px solid rgb(202, 199, 199);
+        margin-top: 4%;
+        margin-bottom: 1.25%;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-left: 20%;
+        padding-right: 20%;
+        text-decoration: none;
+        text-align: center;
+        font-size: 95%;
+    }
+}

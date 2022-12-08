@@ -17,6 +17,55 @@
 <body onload="sh_highlightDocument();">
     <section id="Top"></section>
     <div class="outerBorder">
+
+        <!-- Honestly, this is pretty error prone due to all the copy-pasta that will occur between the files... Need to find
+        a way to implement the data once and just reference it everywhere it's needed -->
+        <div id="doc_tree" class="side_doc_tree">
+            <a href="javascript:void(0)" class="close_doc_tree" onclick="CloseDocTree()">&times;</a>
+            <div class="dropdown" onmouseleave="CollapseAllLinks()">
+                <a class="side_doc_link" href="documentation_landing.html" onmouseenter="CollapseAllLinks()">Doc Home
+                    Page</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
+                <a class="namespace_link" href="namespaces/serenity.html">serenity</a>
+                <a class="namespace_link" href="namespaces/targets.html">targets</a>
+                <a class="namespace_link" href="#">se_colors</a>
+                <a class="namespace_link" href="#">msg_details</a>
+                <a class="namespace_link" href="#">helpers</a>
+                <a class="namespace_link" href="#">globals</a>
+                <a class="namespace_link" href="#">SERENITY_LUTS</a>
+                <a class="namespace_link" href="#">custom_flags</a>
+                <a class="namespace_link" href="#">CustomFlagError</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleClassLinks()">Classes</a>
+                <a class="classes_link" href="">Flush_Policy</a>
+                <a class="classes_link" href="">Message_Formatter</a>
+                <a class="classes_link" href="">Message_Info</a>
+                <a class="classes_link" href="">ZoneThread</a>
+                <a class="classes_link" href="">Message_Time</a>
+                <a class="classes_link" href="">ConsoleTarget</a>
+                <a class="classes_link" href="">FileTarget</a>
+                <a class="classes_link" href="">RotatingTarget</a>
+                <a class="classes_link" href="">RotateSettings</a>
+                <a class="classes_link" href="">TargetBase</a>
+                <a class="classes_link" href="">FileHelper</a>
+                <a class="classes_link" href="">FileCache</a>
+                <a class="classes_link" href="">BaseTargetHelper</a>
+                <a class="classes_link" href="">Format_Source_Loc</a>
+                <a class="classes_link" href="">format_error</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleStructLinks()">Structs</a>
+                <a class="structs_link" href="">CustomFormatter&lt;LoggerLevel&gt;</a>
+                <a class="structs_link" href="">CustomFormatter&lt;std::tm&gt;</a>
+                <a class="structs_link" href="">PeriodicSettings</a>
+                <a class="structs_link" href="">RotateLimits</a>
+                <a class="structs_link" href="">RotatingDaylightCache</a>
+                <a class="structs_link" href="">BackgroundThread</a>
+                <a class="structs_link" href="">MsgWithLoc</a>
+                <a class="structs_link" href="">custom_error_handler</a>
+            </div>
+        </div>
+
         <br>
         <div class="search-bar">
             <form action="placeholder">
@@ -32,19 +81,18 @@
             <div class="bar2"></div>
             <div class="bar3"></div>
             <div class="nav_menu">
+                <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
                 <a class="nav_link" href="../index.html">Home</a>
                 <a class="nav_link" href="../Building/building_landing.html">Building</a>
                 <a class="nav_link" href="../Examples/examples_landing.html">Examples</a>
                 <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
                 <a class="nav_link" href="#Top"> Go To Top </a>
                 <div class="dropdown">
-                    <button class="nav_link"> Doc Tree </button>
+                    <button class="contents"> Page Contents </button>
                     <div class="dropdown-content">
-                        <a class="nav_link" href="#"> Placeholder</a>
-                        <a class="nav_link" href="#"> Placeholder</a>
-                        <a class="nav_link" href="#"> Placeholder </a>
-                        <a class="nav_link" href="#"> Placeholder </a>
-                        <a class="nav_link" href="#Top"> Go To Top </a>
+                        <a class="nav_link" href="#">Placeholder</a>
+                        <a class="nav_link" href="#">Placeholder</a>
+                        <a class="nav_link" href="#">Placeholder</a>
                     </div>
                 </div>
             </div>
@@ -53,20 +101,15 @@
         <div id="main-body">
             <div class="sticky_content">
                 <div class="docLinks">
-                    <div id="doc_tree" class="side_doc_tree">
-                        <a href="javascript:void(0)" class="close_doc_tree" onclick="CloseDocTree()">&times;</a>
-                        <div class="dropdown">
-                            <a href="#">Namespaces</a>
-                            <div class="dropdown-content">
-                                <a class="side_doc_link" href="#">Placeholder</a>
-                                <a class="side_doc_link" href="#">Placeholder</a>
-                                <a class="side_doc_link" href="#">Placeholder</a>
-                                <a class="side_doc_link" href="#">Placeholder</a>
-                            </div>
+                    <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
+                    <div class="dropdown">
+                        <button class="contents"> Page Contents </button>
+                        <div class="dropdown-content">
+                            <a class="nav_link" href="#">Placeholder</a>
+                            <a class="nav_link" href="#">Placeholder</a>
+                            <a class="nav_link" href="#">Placeholder</a>
                         </div>
-                        <a href="#">Classes</a>
                     </div>
-                    <button class="doc_button" onclick="OpenDocTree()"> Doc Tree </button>
                     <a class="docLink" href="../index.html">Home</a>
                     <a class="docLink" href="../Building/building_landing.html">Building</a>
                     <a class="docLink" href="../Examples/examples_landing.html">Examples</a>
@@ -83,7 +126,7 @@
                     quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper. Maecenas varius
                     venenatis
                     volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a facilisis.
-                    <br>
+                    <br><br>
                     Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
                     sed
                     nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
@@ -94,7 +137,7 @@
                     molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In accumsan ultricies
                     sem
                     a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi fringilla vulputate.
-                    <br>
+                    <br><br>
                     Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
                     rutrum
                     sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim ut.
@@ -104,13 +147,13 @@
                     blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim. Integer maximus
                     ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec lobortis ante
                     convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros. Suspendisse potenti.
-                    <br>
+                    <br><br>
                     Duis lacinia enim vitae ex suscipit, eget commodo lectus hendrerit. Phasellus condimentum suscipit
                     felis
                     a vulputate. Praesent convallis a diam bibendum blandit. Nullam consectetur diam vitae odio rutrum
                     efficitur. Duis quis odio bibendum, ullamcorper arcu vel, maximus libero. Curabitur sit amet massa
                     justo. Quisque ornare mauris sit amet nibh tincidunt mattis.
-                    <br>
+                    <br><br>
                     Donec imperdiet feugiat auctor. Curabitur risus turpis, pellentesque sed elit vitae, aliquet
                     sagittis
                     nisl. Curabitur tristique ipsum ut dictum auctor. Ut venenatis felis quis risus aliquet ornare.
@@ -118,7 +161,7 @@
                     imperdiet
                     at. Nulla lacinia ligula eu placerat semper. Pellentesque laoreet commodo lorem eu pretium. Proin ac
                     nulla id mi eleifend scelerisque. Phasellus elementum dapibus bibendum. Sed iaculis ultrices cursus.
-                    <br>
+                    <br><br>
                     Pellentesque sollicitudin felis at diam lobortis, vel fringilla quam aliquet. In hac habitasse
                     platea
                     dictumst. Nunc iaculis orci id vehicula posuere. Morbi mollis pharetra lacus, non venenatis libero
@@ -131,7 +174,7 @@
                     orci
                     in imperdiet. Aenean vitae feugiat est. Aliquam erat nulla, porttitor ullamcorper gravida eget,
                     venenatis id erat.
-                    <br>
+                    <br><br>
                     Donec quis malesuada felis, a ornare augue. Sed lorem risus, tempus nec est et, scelerisque pretium
                     turpis. Nam enim nunc, sagittis in ullamcorper sit amet, congue ac nunc. Duis bibendum tellus et
                     commodo
@@ -140,7 +183,7 @@
                     per
                     conubia nostra, per inceptos himenaeos. Integer vel tincidunt orci, id semper turpis. Etiam at velit
                     molestie, tincidunt ante id, venenatis turpis.
-                    <br>
+                    <br><br>
                     Aenean nec mattis ante, fringilla gravida turpis. Vivamus placerat auctor arcu, in bibendum dui
                     dictum
                     ac. Nulla eu lorem rutrum, pellentesque urna in, sagittis massa. Maecenas posuere imperdiet
@@ -151,7 +194,7 @@
                     Suspendisse eu pellentesque sapien, sit amet feugiat eros. Mauris dui urna, elementum a ultricies
                     ac,
                     volutpat eget risus.
-                    <br>
+                    <br><br>
                     Duis a ante vitae purus tempor mattis quis et lectus. Cras ullamcorper posuere hendrerit.
                     Pellentesque
                     vestibulum nec dolor at scelerisque. Ut tempor vel diam ut sagittis. Nulla vitae ex lacinia,
@@ -163,7 +206,7 @@
                     maximus tellus, vitae dictum enim erat nec sapien. Nam in orci ante. Quisque ut ornare metus. Aenean
                     nec
                     mattis risus.
-                    <br>
+                    <br><br>
                     Proin sapien enim, maximus vitae vestibulum eget, pulvinar a ante. Fusce sit amet arcu eget purus
                     tempor
                     tempus id nec massa. Sed efficitur sollicitudin quam. Fusce hendrerit felis in leo cursus convallis.
@@ -173,7 +216,7 @@
                     diam libero, varius porta neque et, accumsan ultrices arcu. Donec commodo lectus nec ipsum elementum
                     ornare. Duis neque ipsum, mollis in faucibus vel, semper non elit. Praesent eget urna vitae nisl
                     facilisis auctor non a ipsum.
-                    <br>
+                    <br><br>
                     Cras maximus accumsan commodo. Phasellus finibus interdum purus, nec laoreet leo semper quis. Mauris
                     eget eleifend elit. Praesent ut diam in ligula aliquet lobortis. Donec tristique diam a lectus
                     lobortis,
@@ -182,7 +225,7 @@
                     ac lobortis sapien, vitae posuere turpis. Sed eu tincidunt mi, id volutpat est. In fringilla sed
                     diam
                     pretium porta.
-                    <br>
+                    <br><br>
                     Mauris venenatis, magna quis ullamcorper convallis, turpis mauris rutrum erat, quis ullamcorper eros
                     diam a sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                     himenaeos. Sed porttitor nec turpis quis posuere. Integer magna nibh, tristique sodales est eu,
@@ -193,7 +236,7 @@
                     semper sed diam ullamcorper, dapibus commodo massa. Sed eu feugiat tellus, ut dictum magna. Nulla
                     facilisis ut purus a aliquam. Pellentesque vitae diam vel ligula accumsan condimentum interdum vitae
                     nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-                    <br>
+                    <br><br>
                     Quisque nibh arcu, venenatis ac nisi quis, laoreet pulvinar eros. Vestibulum tempus, nunc vitae
                     tincidunt posuere, felis sapien dapibus velit, sodales hendrerit massa enim non ante. Curabitur nibh
                     massa, sagittis quis felis at, pellentesque mattis ipsum. Cras nec tincidunt justo. Nulla egestas in

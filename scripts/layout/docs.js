@@ -1,13 +1,52 @@
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+
 function OpenDocTree() {
-    document.getElementById("doc_tree").style.width = "250px";
-    document.getElementById("main-body").style.marginLeft = "250px";
-    document.getElementById("doc_tree").style.paddingLeft = "1%";
+  document.getElementById("doc_tree").style.width = "300px";
+  document.getElementById("doc_tree").style.paddingLeft = "1%";
+  document.getElementById("main-body").style.marginLeft = "300px";
+}
+
+function CloseDocTree() {
+  document.getElementById("doc_tree").style.width = "0";
+  document.getElementById("doc_tree").style.paddingLeft = "0";
+  document.getElementById("main-body").style.marginLeft = "10%";
+}
+
+function ToggleNSLinks() {
+  CollapseAllLinks();
+  var div = document.getElementsByClassName("namespace_link");
+  for (let i = 0; i < div.length; i++) {
+    div[i].style.display = 'block';
   }
-  
-  /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-  function CloseDocTree() {
-    document.getElementById("doc_tree").style.width = "0";
-    document.getElementById("doc_tree").style.paddingLeft = "0";
-    document.getElementById("main-body").style.marginLeft = "10%";
+}
+
+function ToggleClassLinks() {
+  CollapseAllLinks();
+  var div = document.getElementsByClassName("classes_link");
+  for (let i = 0; i < div.length; i++) {
+    div[i].style.display = 'block';
   }
+}
+
+function ToggleStructLinks() {
+  CollapseAllLinks();
+  var div = document.getElementsByClassName("structs_link");
+  for (let i = 0; i < div.length; i++) {
+    div[i].style.display = 'block';
+  }
+}
+
+
+function CollapseAllLinks() {
+  var div = document.getElementsByClassName("classes_link");
+  for (let i = 0; i < div.length; i++) {
+    div[i].style.display = 'none';
+  }
+  div = document.getElementsByClassName("namespace_link");
+  for (let i = 0; i < div.length; i++) {
+    div[i].style.display = 'none';
+  }
+  div = document.getElementsByClassName("structs_link");
+  for (let i = 0; i < div.length; i++) {
+    div[i].style.display = 'none';
+  }
+}

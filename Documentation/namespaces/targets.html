@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <script type="text/javascript" src="../../scripts/code_syntax/sh_main.js"></script>
+    <script type="text/javascript" src="../../scripts/code_syntax/lang/sh_cpp.js"></script>
+    <script type="text/javascript" src="../../scripts/layout/layout.js"></script>
+    <script type="text/javascript" src="../../scripts/layout/docs.js"></script>
+    <link rel="stylesheet" href="../../scripts/layout/common.css">
+    <link rel="stylesheet" href="../../scripts/layout/docs.css">
+</head>
+
+<body onload="sh_highlightDocument();">
+    <section id="Top"></section>
+    <div class="outerBorder">
+
+        <div id="doc_tree" class="side_doc_tree">
+            <a href="javascript:void(0)" class="close_doc_tree" onclick="CloseDocTree()">&times;</a>
+            <div class="dropdown" onmouseleave="CollapseAllLinks()">
+                <a class="side_doc_link" href="../../Documentation/documentation_landing.html"
+                    onmouseenter="CollapseAllLinks()">Doc Home Page</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
+                <a class="namespace_link" href="../namespaces/serenity.html">serenity</a>
+                <a class="namespace_link" href="">targets</a>
+                <a class="namespace_link" href="#">se_colors</a>
+                <a class="namespace_link" href="#">msg_details</a>
+                <a class="namespace_link" href="#">helpers</a>
+                <a class="namespace_link" href="#">globals</a>
+                <a class="namespace_link" href="#">SERENITY_LUTS</a>
+                <a class="namespace_link" href="#">custom_flags</a>
+                <a class="namespace_link" href="#">CustomFlagError</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleClassLinks()">Classes</a>
+                <a class="classes_link" href="">Flush_Policy</a>
+                <a class="classes_link" href="">Message_Formatter</a>
+                <a class="classes_link" href="">Message_Info</a>
+                <a class="classes_link" href="">ZoneThread</a>
+                <a class="classes_link" href="">Message_Time</a>
+                <a class="classes_link" href="">ConsoleTarget</a>
+                <a class="classes_link" href="">FileTarget</a>
+                <a class="classes_link" href="">RotatingTarget</a>
+                <a class="classes_link" href="">RotateSettings</a>
+                <a class="classes_link" href="">TargetBase</a>
+                <a class="classes_link" href="">FileHelper</a>
+                <a class="classes_link" href="">FileCache</a>
+                <a class="classes_link" href="">BaseTargetHelper</a>
+                <a class="classes_link" href="">Format_Source_Loc</a>
+                <a class="classes_link" href="">format_error</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleStructLinks()">Structs</a>
+                <a class="structs_link" href="">CustomFormatter&lt;LoggerLevel&gt;</a>
+                <a class="structs_link" href="">CustomFormatter&lt;std::tm&gt;</a>
+                <a class="structs_link" href="">PeriodicSettings</a>
+                <a class="structs_link" href="">RotateLimits</a>
+                <a class="structs_link" href="">RotatingDaylightCache</a>
+                <a class="structs_link" href="">BackgroundThread</a>
+                <a class="structs_link" href="">MsgWithLoc</a>
+                <a class="structs_link" href="">custom_error_handler</a>
+            </div>
+        </div>
+
+        <br>
+        <div class="search-bar">
+            <form action="placeholder">
+                <input type="text" class="searchBox" placeholder="Enter Search Term Here">
+                <input type="image" class="search_button" src="../../Resources/search_icon_clipart.png"></input>
+            </form>
+        </div>
+        <div id="mainHeaders">
+            <h1 align="center" style="color:#A8C077;"><strong><em>The Targets Namespace</em></strong></h1>
+        </div>
+        <div class="hamburger_menu" onclick="menu_active(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <div class="nav_menu">
+                <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
+                <a class="nav_link" href="../../index.html">Home</a>
+                <a class="nav_link" href="../../Building/building_landing.html">Building</a>
+                <a class="nav_link" href="../../Examples/examples_landing.html">Examples</a>
+                <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                <a class="nav_link" href="#Top"> Go To Top </a>
+                <div class="dropdown">
+                    <button class="contents"> Page Contents </button>
+                    <div class="dropdown-content">
+                        <a class="nav_link" href="#">Placeholder</a>
+                        <a class="nav_link" href="#">Placeholder</a>
+                        <a class="nav_link" href="#">Placeholder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div id="main-body">
+            <div class="sticky_content">
+                <div class="docLinks">
+                    <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
+                    <div class="dropdown">
+                        <button class="contents"> Page Contents </button>
+                        <div class="dropdown-content">
+                            <a class="nav_link" href="#">Placeholder</a>
+                            <a class="nav_link" href="#">Placeholder</a>
+                            <a class="nav_link" href="#">Placeholder</a>
+                        </div>
+                    </div>
+                    <a class="docLink" href="../../index.html">Home</a>
+                    <a class="docLink" href="../../Building/building_landing.html">Building</a>
+                    <a class="docLink" href="../../Examples/examples_landing.html">Examples</a>
+                    <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                </div>
+            </div>
+
+            <div class="center_text">
+                This namespace contains everything related to the logging targets. In the namespace `targets`, you
+                will
+                find:
+            </div>
+            <div class="lists">
+                <ul>
+                    <li>
+                        <a href="#">PLACEHOLDER</a>
+                    </li>
+                    <br>
+                    <li> <a href="#">PLACEHOLDER</a> </li>
+                    <br>
+                    <li> <a href="#">PLACEHOLDER</a> </li>
+                    <br>
+                    <li> <a href="#">PLACEHOLDER</a> </li>
+                    <br>
+                    <li> <a href="#">PLACEHOLDER</a> </li>
+                </ul>
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
