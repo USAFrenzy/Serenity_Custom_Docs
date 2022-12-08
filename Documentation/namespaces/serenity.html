@@ -26,41 +26,41 @@
                 <br><br>
                 <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
                 <a class="namespace_link" href="../namespaces/serenity.html">serenity</a>
-                <a class="namespace_link" href="">targets</a>
+                <a class="namespace_link" href="../namespaces/targets.html">targets</a>
                 <a class="namespace_link" href="#">se_colors</a>
-                <a class="namespace_link" href="#">msg_details</a>
+                <a class="namespace_link" href="../namespaces/msg_details.html">msg_details</a>
                 <a class="namespace_link" href="#">helpers</a>
                 <a class="namespace_link" href="#">globals</a>
-                <a class="namespace_link" href="#">SERENITY_LUTS</a>
+                <a class="namespace_link" href="../serenity_luts.html">SERENITY_LUTS</a>
                 <a class="namespace_link" href="#">custom_flags</a>
-                <a class="namespace_link" href="#">CustomFlagError</a>
+                <a class="namespace_link" href="../namespaces/custom_flag_error.html">CustomFlagError</a>
                 <br><br>
                 <a class="side_doc_link" href="#" onmouseenter="ToggleClassLinks()">Classes</a>
-                <a class="classes_link" href="">Flush_Policy</a>
-                <a class="classes_link" href="">Message_Formatter</a>
-                <a class="classes_link" href="">Message_Info</a>
-                <a class="classes_link" href="">ZoneThread</a>
-                <a class="classes_link" href="">Message_Time</a>
-                <a class="classes_link" href="">ConsoleTarget</a>
-                <a class="classes_link" href="">FileTarget</a>
-                <a class="classes_link" href="">RotatingTarget</a>
-                <a class="classes_link" href="">RotateSettings</a>
-                <a class="classes_link" href="">TargetBase</a>
-                <a class="classes_link" href="">FileHelper</a>
-                <a class="classes_link" href="">FileCache</a>
-                <a class="classes_link" href="">BaseTargetHelper</a>
-                <a class="classes_link" href="">Format_Source_Loc</a>
-                <a class="classes_link" href="">format_error</a>
+                <a class="classes_link" href="../serenity_classes/flush_policy.html">Flush_Policy</a>
+                <a class="classes_link" href="../msg_details/message_formatter.html">Message_Formatter</a>
+                <a class="classes_link" href="../msg_details/message_info.html">Message_Info</a>
+                <a class="classes_link" href="../msg_details/zone_thread.html">ZoneThread</a>
+                <a class="classes_link" href="../msg_details/message_time.html">Message_Time</a>
+                <a class="classes_link" href="../targets/ConsoleTarget.html">ConsoleTarget</a>
+                <a class="classes_link" href="../targets/FileTarget.html">FileTarget</a>
+                <a class="classes_link" href="../targets/RotatingTarget.html">RotatingTarget</a>
+                <a class="classes_link" href="../serenity_classes/rotate_settings.html">RotateSettings</a>
+                <a class="classes_link" href="../targets/TargetBase.html">TargetBase</a>
+                <a class="classes_link" href="#">FileHelper</a>
+                <a class="classes_link" href="#">FileCache</a>
+                <a class="classes_link" href="#">BaseTargetHelper</a>
+                <a class="classes_link" href="#">Format_Source_Loc</a>
+                <a class="classes_link" href="#">format_error</a>
                 <br><br>
                 <a class="side_doc_link" href="#" onmouseenter="ToggleStructLinks()">Structs</a>
-                <a class="structs_link" href="">CustomFormatter&lt;LoggerLevel&gt;</a>
-                <a class="structs_link" href="">CustomFormatter&lt;std::tm&gt;</a>
-                <a class="structs_link" href="">PeriodicSettings</a>
-                <a class="structs_link" href="">RotateLimits</a>
-                <a class="structs_link" href="">RotatingDaylightCache</a>
-                <a class="structs_link" href="">BackgroundThread</a>
-                <a class="structs_link" href="">MsgWithLoc</a>
-                <a class="structs_link" href="">custom_error_handler</a>
+                <a class="structs_link" href="#">CustomFormatter&lt;LoggerLevel&gt;</a>
+                <a class="structs_link" href="#">CustomFormatter&lt;std::tm&gt;</a>
+                <a class="structs_link" href="../serenity_classes/periodic_settings.html">PeriodicSettings</a>
+                <a class="structs_link" href="../serenity_classes/rotate_limits.html">RotateLimits</a>
+                <a class="structs_link" href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
+                <a class="structs_link" href="#">BackgroundThread</a>
+                <a class="structs_link" href="#">MsgWithLoc</a>
+                <a class="structs_link" href="../customflagerror/custom_error_handler.html">custom_error_handler</a>
             </div>
         </div>
 
@@ -118,96 +118,246 @@
             <div class="center_text">
                 This namespace is the top-level all encompassing namespace of the library itself.
                 <br><br>
-                This namespace contains the following classes:
+                This namespace contains the following:
+            </div>
+            <div class="subHeaders">
+                Classes/Structs:
             </div>
             <div class="lists">
                 <ul>
-                    <li><a href="../serenity_classes/flush_policy.html">Flush_Policy</a></li>
-                    <li><a href="../serenity_classes/msg_with_loc.html">MsgWithLoc</a></li>
-                    <li><a href="../serenity_classes/periodic_settings.html">PeriodicSettings</a></li>
-                    <li><a href="../serenity_classes/rotate_limits.html">RotateLimits</a></li>
-                    <li><a href="../serenity_classes/rotate_settings.html">RotateSettings</a></li>
+                    <li><a href="../serenity_classes/msg_with_loc.html">MsgWithLoc</a>
+                        <br>
+                        - This struct is used to capture source location information at a log call site as well as
+                        implicitly convert text encodings into UTF-8 by default to be used internally
+                    </li>
+                    <li><a href="../serenity_classes/flush_policy.html">Flush_Policy</a>
+                        <br>
+                        - This class controls whether the logger should flush on a specified interval, always, or never
+                    </li>
+                    <li><a href="../serenity_classes/periodic_settings.html">PeriodicSettings</a>
+                        <br>
+                        - This class specifies the options for Flush_Policy (options being time-based interval, always,
+                        or never)
+                    </li>
+                    <li><a href="../serenity_classes/rotate_limits.html">RotateLimits</a>
+                        <br>
+                        - This class holds the options used to specify the RotatingTarget behavior
+                    </li>
+                    <li><a href="../serenity_classes/rotate_settings.html">RotateSettings</a>
+                        <br>
+                        - This class encapsulates RotateLimits and FileHelper into one class that RotatingTarget
+                        inherits from for their functionalities
+                    </li>
                 </ul>
-
             </div>
-            <div class="center_text">
-                This namespace contains the following namespaces:
+            <div class="subHeaders">
+                Enums:
             </div>
             <div class="lists">
                 <ul>
                     <li>
-                        <a href="../namespaces/targets.html">targets</a> - this namespace contains the in-house logging
-                        targets
+                        <a href="../serenity_enums/common_enums.html">LineEnd</a>
+                        <br>
+                        - This enum is what maps the line ending applied to the log message based off the platform
+                    </li>
+                    <li><a href="../serenity_enums/common_enums.html">LoggerLevel</a>
+                        <br>
+                        - LoggerLevel is what is applied to both the log message and the logger level threshold
+                    </li>
+                    <li><a href="../serenity_enums/common_enums.html">source_flag</a>
+                        <br>
+                        - This enum is used as a bit flag of sorts for source location formatting
+                    </li>
+                    <li><a href="../serenity_enums/common_enums.html">message_time_mode</a>
+                        <br>
+                        - Controls whether time is displayed as local time or UTC time
+                    </li>
+                    <li><a href="../serenity_enums/common_enums.html">CustomErrors</a>
+                        <br>
+                        - This enum is what maps the custom_error_messages in ReportCustomError
+                    </li>
+                </ul>
+            </div>
+            <div class="subHeaders">
+                Free Functions:
+            </div>
+            <div class="lists">
+                <ul>
+                    <li> <a href="../serenity_free_functions.html">static std::string_view LevelToShortView(const
+                            LoggerLevel &level);</a>
+                        <br>
+                        - Converts LoggerLevel to short string representation
+                    </li>
+                    <li> <a href="../serenity_free_functions.html">static std::string_view LevelToLongView(const
+                            LoggerLevel &level);</a>
+                        <br>
+                        - Converts LoggerLevel to long string representation
+
+                    </li>
+                    <li> <a href="../serenity_free_functions.html">static constexpr bool IsDigit(const char&ch);</a>
+                        <br>
+                        - Slightly faster version of std::isdigit
+                    </li>
+                    <li> <a href="../serenity_free_functions.html">static constexpr bool IsAlpha(const char& ch);</a>
+                        <br>
+                        - Slightly faster version of std::isalpha
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="subHeaders">
+                Nested Namespaces:
+            </div>
+            <div class="lists">
+                <ul>
+                    <li>
+                        <a href="../namespaces/targets.html">targets</a>
+                        <br>
+                        - This namespace contains the in-house logging targets
                         <ul>
-                            <li> <a href="../targets/TargetBase.html">TargetBase</a> - Base class all targets inherit
-                                from </li>
-                            <li> <a href="../targets/ConsoleTarget.html">ConsoleTarget</a> - Class that handles terminal
-                                logging </li>
-                            <li> <a href="../targets/FileTarget.html">FileTarget</a> - Class that handles logging to a
-                                singular file </li>
-                            <li> <a href="../targets/RotatingTarget.html">RotatingTarget</a>- Class that handles logging
-                                to multiple files and under conditions based on user settings</li>
-                            <li> <a href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a> - Class that
-                                handles updating the background thread that runs when a time setting is used with
-                                RotatingTarget</li>
+                            <li> <a href="../targets/TargetBase.html">TargetBase</a>
+                                <br>
+                                - Base class all targets inherit from
+                            </li>
+                            <li> <a href="../targets/ConsoleTarget.html">ConsoleTarget</a>
+                                <br>
+                                - Class that handles terminal logging
+                            </li>
+                            <li> <a href="../targets/FileTarget.html">FileTarget</a>
+                                <br>
+                                - Class that handles logging to a singular file
+                            </li>
+                            <li> <a href="../targets/RotatingTarget.html">RotatingTarget</a>
+                                <br>
+                                - Class that handles logging to multiple files and under conditions based on user
+                                settings
+                            </li>
+                            <li> <a href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
+                                <br>
+                                - Class that handles updating the background thread that runs when a time setting is
+                                used
+                                with RotatingTarget
+                            </li>
                         </ul>
                     </li>
                     <br>
-                    <li> <a href="../namespaces/custom_flag_error.html">CustomFlagError</a> - this namespace handles
-                        error
-                        reporting for the custom template specializations for LoggerLevel and std::tm
+                    <li> <a href="../namespaces/custom_flag_error.html">CustomFlagError</a>
+                        <br>
+                        - This namespace handles error reporting for the custom template specializations for LoggerLevel
+                        and std::tm
                         <ul>
-                            <li> <a href="../customflagerror/custom_error_handler.html">format_error</a> - compatible
-                                class for fmt::format_error and std::format_error </li>
-                            <li> <a href="../customflagerror/custom_error_handler.html">custom_error_messages</a> - The
-                                actual messages to report</li>
-                            <li> <a href="../customflagerror/custom_error_handler.html">enum CustomErrors</a> -
-                                Enumerated values to map to error message</li>
+                            <li> <a href="../customflagerror/custom_error_handler.html">format_error</a>
+                                <br>
+                                - compatible class for fmt::format_error and std::format_error
+                            </li>
+                            <li> <a href="../customflagerror/custom_error_handler.html">custom_error_messages</a>
+                                <br>
+                                - The actual messages to report
+                            </li>
+                            <li> <a href="../customflagerror/custom_error_handler.html">enum CustomErrors</a>
+                                <br>
+                                - Enumerated values to map to error message
+                            </li>
                             <li> <a href="../customflagerror/custom_error_handler.html">constexpr void ReportCustomError
-                                    (CustomErrors err)</a> - This function handles the actual reporting of errors</li>
+                                    (CustomErrors err)</a>
+                                <br>
+                                - This function handles the actual reporting of errors
+                            </li>
                         </ul>
 
                     </li>
                     <br>
-                    <li> <a href="../namespaces/msg_details.html">msg_details</a> - This namespace holds the classes
-                        that comprise mostly everything about a log message
+                    <li> <a href="../namespaces/msg_details.html">msg_details</a>
+                        <br>
+                        - This namespace holds the classes that comprise mostly everything about a log message
                         <ul>
-                            <li><a href="../msg_details/custom_flags.html">custom_flags</a> - This nested namespace
-                                holds the classes involved with the custom formatter specializations
+                            <li><a href="../msg_details/custom_flags.html">custom_flags</a>
+                                <br>
+                                - This nested namespace holds the classes involved with the custom formatter
+                                specializations
                                 <ul>
-                                    <li><a href="../msg_details/format_src_loc.html">Format_Source_Loc</a> - This class
-                                        is a helper class used in formatting source location data </li>
-                                    <li> <a href="../msg_details/format_thread_id.html">format_thread_id</a> - This
-                                        class is a helper class used in formatting thread ID and its length</li>
+                                    <li><a href="../msg_details/format_src_loc.html">Format_Source_Loc</a>
+                                        <br>
+                                        - This class is a helper class used in formatting source location data
+                                    </li>
+                                    <li> <a href="../msg_details/format_thread_id.html">format_thread_id</a>
+                                        <br>
+                                        - This class is a helper class used in formatting thread ID and its length
+                                    </li>
                                 </ul>
                             </li>
-                            <li> <a href="../msg_details/message_formatter.html">Message_Formatter</a> - This class
-                                controls the storage of the log output format and the locale used </li>
-                            <li> <a href="../msg_details/message_info.html.html">Message_Info</a> - This class contains
-                                functions and values relevant to the payload of the log message, such as a time
-                                reference, logger name, etc</li>
-                            <li> <a href="../msg_details/message_time.html">Message_Time</a> - This class
-                                controls caching and updating time-related info used in the log message</li>
-                            <li><a href="../msg_details/zone_thread.html">ZoneThread</a> - This class controls how the
-                                background
-                                thread checks for daylight savings and notifies whether or not the cached time values
-                                needs to be updated to reflect any changes</li>
+                            <li> <a href="../msg_details/message_formatter.html">Message_Formatter</a>
+                                <br>
+                                - This class controls the storage of the log output format and the locale used
+                            </li>
+                            <li> <a href="../msg_details/message_info.html.html">Message_Info</a>
+                                <br>
+                                - This class contains functions and values relevant to the payload of the log message,
+                                such as a time reference, logger name, etc
+                            </li>
+                            <li> <a href="../msg_details/message_time.html">Message_Time</a>
+                                <br>
+                                - This class controls caching and updating time-related info used in the log message
+                            </li>
+                            <li><a href="../msg_details/zone_thread.html">ZoneThread</a>
+                                <br>
+                                - This class controls how the background thread checks for daylight savings and notifies
+                                whether or not the cached time values needs to be updated to reflect any changes
+                            </li>
                         </ul>
                     </li>
                     <br>
-                    <li> <a href="../serenity_luts.html">SERENITY_LUTS</a> - This namespace holds all the lookup tables
-                        used in this library
+                    <li> <a href="../serenity_luts.html">SERENITY_LUTS</a>
+                        <br>
+                        - This namespace holds all the lookup tables used in this library
                         <ul>
-                            <li><a href="#">line_ending</a> - Maps the platform detected to the end-of-line value that
-                                should be appended to the end of each log message</li>
-                            <li><a href="#"> daysPerMonth</a> - Maps how many days are in each month for the
-                                RotatingTarget</li>
+                            <li><a href="#">line_ending</a>
+                                <br>
+                                - Maps the platform detected to the end-of-line value that should be appended to the end
+                                of each log message
+                            </li>
+                            <li><a href="#"> daysPerMonth</a>
+                                <br>
+                                - Maps how many days are in each month for the RotatingTarget
+                            </li>
+                            <li> This namespace also holds these constexpr variables used in the daysPerMonth lookup
+                                table: </li>
+                            <ul>
+                                <li><span style="color:rgb(189, 241, 241);"> JANUARY </span>= <span
+                                        style="color: rgb(133, 206, 255);">0</span>
+                                </li>
+                                <li><span style="color:rgb(189, 241, 241);"> FEBRUARY </span>= <span
+                                        style="color: rgb(133, 206, 255);">1</span>
+                                </li>
+                                <li><span style="color:rgb(189, 241, 241);"> MARCH </span>= <span
+                                        style="color: rgb(133, 206, 255);">2</span></li>
+                                <li><span style="color:rgb(189, 241, 241);"> APRIL </span>= <span
+                                        style="color: rgb(133, 206, 255);">3</span></li>
+                                <li><span style="color:rgb(189, 241, 241);"> MAY </span>= <span
+                                        style="color: rgb(133, 206, 255);">4</span></li>
+                                <li><span style="color:rgb(189, 241, 241);"> JUNE </span>= <span
+                                        style="color: rgb(133, 206, 255);">5</span></li>
+                                <li><span style="color:rgb(189, 241, 241);"> JULY </span>= <span
+                                        style="color: rgb(133, 206, 255);">6</span></li>
+                                <li><span style="color:rgb(189, 241, 241);"> AUGUST </span>= <span
+                                        style="color: rgb(133, 206, 255);">7</span></li>
+                                <li><span style="color:rgb(189, 241, 241);"> SEPTEMBER </span>= <span
+                                        style="color: rgb(133, 206, 255);">8</span>
+                                </li>
+                                <li><span style="color:rgb(189, 241, 241);"> OCTOBER </span>= <span
+                                        style="color: rgb(133, 206, 255);">9</span>
+                                </li>
+                                <li><span style="color:rgb(189, 241, 241);"> NOVEMBER </span>= <span
+                                        style="color: rgb(133, 206, 255);">10</span>
+                                </li>
+                                <li><span style="color:rgb(189, 241, 241);"> DECEMBER </span>= <span
+                                        style="color: rgb(133, 206, 255);">11</span>
+                                </li>
+                            </ul>
                         </ul>
                     </li>
-                    <br>
-                    <li> <a href="#">PLACEHOLDER</a> </li>
                 </ul>
-
             </div>
 
 
