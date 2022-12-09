@@ -317,6 +317,13 @@ td {
 	.lists,
 	.center_text {
 		font-size: 85%;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+	#main-body {
+		margin-left: 4%;
+		margin-right: 4%;
 	}
 }
 
