@@ -80,7 +80,7 @@ body {
 
 .sh_cpp {
 	text-align: left;
-	width: 750px;
+	width: 650px;
 	overflow-x: auto;
 	margin-left: auto;
 	margin-right: auto;
@@ -314,11 +314,16 @@ td {
 	p,
 	.mainHeaders,
 	.subHeaders,
-	.lists,
 	.center_text {
 		font-size: 85%;
 		margin-left: 2%;
 		margin-right: 2%;
+	}
+
+	.lists .sh_cpp {
+		font-size: 85%;
+		margin-left: 5%;
+		margin-right: 5%;
 	}
 
 	#main-body {
