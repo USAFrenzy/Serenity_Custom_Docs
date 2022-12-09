@@ -313,6 +313,7 @@ td {
 
 	p,
 	.mainHeaders,
+	.sh_cpp,
 	.subHeaders,
 	.center_text {
 		font-size: 85%;
@@ -323,11 +324,6 @@ td {
 	li {
 		font-size: 90%;
 		margin-right: 2%;
-	}
-
-	li .sh_cpp{
-		font-size: 85%;
-		margin-right: 6%;
 	}
 
 	#main-body {

@@ -562,29 +562,29 @@
                             <li>
                                 Enables truncation on open if the file already exists on disk
                             </li>
+
                             <li style="justify-content: left;">
                                 Sets the log format to:
-                                <br>
-                                <pre class="sh_cpp">
-
-    [Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY [My_File_Logger]: Log_Message + Platform_Line_Ending
-                                            </pre>
-                                which, at the time of writing, would be something like:
-                                <pre class="sh_cpp">
-
-    [Info] Mon Nov 28 20:35:32 2022 [My_File_Logger]: This is how a simple log message might look with an integer formatted to hex: [0X2A] \r\n
-                                </pre>
-                                Where the line ending used here is assuming a windows environment is being run.
-                                <ul>
-                                    <li>
-                                        For linux, the line ending is <span style="color: #cbff64;">'\n'</span>
-                                    </li>
-                                    <li>
-                                        For Mac systems, the line ending is <span style="color: #cbff64;">'\r'</span>
-                                    </li>
-                                </ul>
                             </li>
-                        </ul>
+                    </li>
+                </ul>
+                <pre class="sh_cpp">
+
+   [Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY [My_File_Logger]: Log_Message + Platform_Line_Ending  
+                                            </pre>
+                which, at the time of writing, would be something like:
+                <pre class="sh_cpp">
+
+   [Info] Mon Nov 28 20:35:32 2022 [My_File_Logger]: This is how a simple log message might look with an integer formatted to hex: [0X2A] \r\n  
+                                </pre>
+                Where the line ending used here is assuming a windows environment is being run.
+                <ul>
+                    <li>
+                        For linux, the line ending is <span style="color: #cbff64;">'\n'</span>
+                    </li>
+                    <li>
+                        For Mac systems, the line ending is <span style="color: #cbff64;">'\r'</span>
+                    </li>
                 </ul>
                 </li>
                 </ul>
