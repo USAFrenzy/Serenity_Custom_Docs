@@ -312,23 +312,19 @@ td {
 	}
 
 	p,
+	.lists,
+	.sh_cpp,
 	.mainHeaders,
 	.subHeaders,
 	.center_text {
 		font-size: 85%;
 		margin-left: 2%;
-		margin-right: 2%;
-	}
-
-	.lists .sh_cpp {
-		font-size: 85%;
-		margin-left: 5%;
-		margin-right: 5%;
+		margin-right: 3%;
 	}
 
 	#main-body {
-		margin-left: 4%;
-		margin-right: 4%;
+		margin-left: 3.5%;
+		margin-right: 3.5%;
 	}
 }
 
