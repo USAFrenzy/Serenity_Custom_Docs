@@ -292,7 +292,7 @@ td {
 	}
 
 	.sh_cpp {
-		width: 275px;
+		width: 350px;
 		overflow-x: scroll;
 	}
 
@@ -312,14 +312,22 @@ td {
 	}
 
 	p,
-	.lists,
-	.sh_cpp,
 	.mainHeaders,
 	.subHeaders,
 	.center_text {
 		font-size: 85%;
 		margin-left: 2%;
 		margin-right: 3%;
+	}
+
+	li {
+		font-size: 90%;
+		margin-right: 2%;
+	}
+
+	li .sh_cpp{
+		font-size: 85%;
+		margin-right: 6%;
 	}
 
 	#main-body {
