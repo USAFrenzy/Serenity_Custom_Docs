@@ -18,7 +18,7 @@ body {
 	background-color: rgb(3, 107, 93);
 	margin-left: 10%;
 	margin-right: 10%;
-    transition: margin-left .5s;
+	transition: margin-left .5s;
 }
 
 .docLinks {
@@ -261,7 +261,7 @@ td {
 	color: rgb(168, 192, 119);
 }
 
-.doc_tree{
+.doc_tree {
 	display: block;
 	justify-content: left;
 	text-align: center;
@@ -292,7 +292,7 @@ td {
 	}
 
 	.sh_cpp {
-		width: 375px;
+		width: 275px;
 		overflow-x: scroll;
 	}
 
@@ -309,6 +309,14 @@ td {
 	ol {
 		margin-left: 0%;
 		margin-right: 0%;
+	}
+
+	p,
+	.mainHeaders,
+	.subHeaders,
+	.lists,
+	.center_text {
+		font-size: 85%;
 	}
 }
 

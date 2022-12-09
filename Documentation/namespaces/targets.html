@@ -32,7 +32,7 @@
                 <a class="namespace_link" href="../namespaces/msg_details.html">msg_details</a>
                 <a class="namespace_link" href="#">helpers</a>
                 <a class="namespace_link" href="#">globals</a>
-                <a class="namespace_link" href="../serenity_luts.html">SERENITY_LUTS</a>
+                <a class="namespace_link" href="../namespaces/serenity_luts.html">SERENITY_LUTS</a>
                 <a class="namespace_link" href="#">custom_flags</a>
                 <a class="namespace_link" href="../namespaces/custom_flag_error.html">CustomFlagError</a>
                 <br><br>
@@ -86,14 +86,6 @@
                 <a class="nav_link" href="../../Examples/examples_landing.html">Examples</a>
                 <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
                 <a class="nav_link" href="#Top"> Go To Top </a>
-                <div class="dropdown">
-                    <button class="contents"> Page Contents </button>
-                    <div class="dropdown-content">
-                        <a class="nav_link" href="#">Placeholder</a>
-                        <a class="nav_link" href="#">Placeholder</a>
-                        <a class="nav_link" href="#">Placeholder</a>
-                    </div>
-                </div>
             </div>
         </div>
         <br><br>
@@ -101,14 +93,6 @@
             <div class="sticky_content">
                 <div class="docLinks">
                     <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
-                    <div class="dropdown">
-                        <button class="contents"> Page Contents </button>
-                        <div class="dropdown-content">
-                            <a class="nav_link" href="#">Placeholder</a>
-                            <a class="nav_link" href="#">Placeholder</a>
-                            <a class="nav_link" href="#">Placeholder</a>
-                        </div>
-                    </div>
                     <a class="docLink" href="../../index.html">Home</a>
                     <a class="docLink" href="../../Building/building_landing.html">Building</a>
                     <a class="docLink" href="../../Examples/examples_landing.html">Examples</a>
@@ -117,23 +101,34 @@
             </div>
 
             <div class="center_text">
-                This namespace contains everything related to the logging targets. In the namespace `targets`, you
-                will
+                This namespace contains everything related to the logging targets. In the namespace `targets`, you will
                 find:
             </div>
             <div class="lists">
                 <ul>
-                    <li>
-                        <a href="#">PLACEHOLDER</a>
+                    <li> <a href="../targets/TargetBase.html">TargetBase</a>
+                        <br>
+                        - Base class all targets inherit from
                     </li>
-                    <br>
-                    <li> <a href="#">PLACEHOLDER</a> </li>
-                    <br>
-                    <li> <a href="#">PLACEHOLDER</a> </li>
-                    <br>
-                    <li> <a href="#">PLACEHOLDER</a> </li>
-                    <br>
-                    <li> <a href="#">PLACEHOLDER</a> </li>
+                    <li> <a href="../targets/ConsoleTarget.html">ConsoleTarget</a>
+                        <br>
+                        - Class that handles terminal logging
+                    </li>
+                    <li> <a href="../targets/FileTarget.html">FileTarget</a>
+                        <br>
+                        - Class that handles logging to a singular file
+                    </li>
+                    <li> <a href="../targets/RotatingTarget.html">RotatingTarget</a>
+                        <br>
+                        - Class that handles logging to multiple files and under conditions based on user
+                        settings
+                    </li>
+                    <li> <a href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
+                        <br>
+                        - Class that handles updating the background thread that runs when a time setting is
+                        used
+                        with RotatingTarget
+                    </li>
                 </ul>
 
             </div>
