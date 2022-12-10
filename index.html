@@ -451,7 +451,7 @@
                 <div class="subHeaders" style="border:none;">
                     As An Example Of Changing Colors Using The Helper Header `Color.h`:
                 </div>
-
+                <div class="codeBlock">
                 <pre class="sh_cpp">
 
       #include &lt;serenity/Color/Color.h&gt;
@@ -463,7 +463,7 @@
       // Set the message level to any ansi-supported code (using helper header here)
       example.SetMsgColor(LoggerLevel::trace, color::foreground::grey); 
                     </pre>
-
+                </div>
             </div>
             <div class="lists">
                 <ul>
@@ -568,15 +568,19 @@
                             </li>
                     </li>
                 </ul>
+                <div class="codeBlock">
                 <pre class="sh_cpp">
 
    [Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY [My_File_Logger]: Log_Message + Platform_Line_Ending  
                                             </pre>
+                                        </div>
                 which, at the time of writing, would be something like:
+                <div class="codeBlock">
                 <pre class="sh_cpp">
 
    [Info] Mon Nov 28 20:35:32 2022 [My_File_Logger]: This is how a simple log message might look with an integer formatted to hex: [0X2A] \r\n  
                                 </pre>
+                </div>
                 Where the line ending used here is assuming a windows environment is being run.
                 <ul>
                     <li>

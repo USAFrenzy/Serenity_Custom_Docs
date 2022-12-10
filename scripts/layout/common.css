@@ -74,13 +74,15 @@ body {
 }
 
 .codeBlock {
-	display: flex;
+	display: block;
 	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .sh_cpp {
 	text-align: left;
-	width: 650px;
+	width: 625px;
 	overflow-x: auto;
 	margin-left: auto;
 	margin-right: auto;
@@ -268,6 +270,7 @@ td {
 	margin: auto;
 }
 
+
 @media screen and (max-width:768px) {
 	.docLinks {
 		display: none;
@@ -292,8 +295,10 @@ td {
 	}
 
 	.sh_cpp {
-		width: 350px;
+		width: 275px;
 		overflow-x: scroll;
+		margin-left: 2%;
+		margin-right: 4%;
 	}
 
 	.search-bar {
@@ -313,7 +318,6 @@ td {
 
 	p,
 	.mainHeaders,
-	.sh_cpp,
 	.subHeaders,
 	.center_text {
 		font-size: 85%;
@@ -323,13 +327,18 @@ td {
 
 	li {
 		font-size: 90%;
-		margin-right: 2%;
+		margin-left: 2%;
+		margin-right: 3%;
 	}
 
 	#main-body {
 		margin-left: 3.5%;
 		margin-right: 3.5%;
 	}
+	.outerBorder{
+		margin-top: 4%;
+	}
+
 }
 
 @media screen and (min-width:769px) {
