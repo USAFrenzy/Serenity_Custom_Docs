@@ -247,8 +247,12 @@
                             <li>
                                 For the format pattern, it will use the default pattern of:
                                 <br>
-                                <span style="color: #cbff64;"> "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]:
-                                    Log_Message + Platform_Line_Ending." </span>
+                                <div class="scroll_div" style="color: #cbff64;">
+                                    <br>
+                                    "[Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
+                                    Platform_Line_Ending."
+                                </div>
+                                <br>
                             </li>
                         </ul>
                     </li>
@@ -261,18 +265,17 @@
                             </li>
                             <li> For the format pattern, it will use the default pattern of:
                                 <br>
-                                <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS
-                                    [Logger_Name]: Log_Message + Platform_Line_Ending."</span>
+                                <div class="scroll_div" style="color: #cbff64;">
+                                    <br>
+                                    " [Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
+                                    Platform_Line_Ending. "
+                                </div>
+                                <br>
                             </li>
                             <li>
                                 You have the same control over the file name as you do with the other two
-                                constructors
-                                <ul>
-                                    <li>
-                                        NOTE: this is not the file path itself, this is only the file name; the file
-                                        path will use the running process's directory + "Logs" + file name
-                                    </li>
-                                </ul>
+                                constructors however, this is only the file name, not the file path. The file path
+                                itself will be the running process's location + "Logs" + the file name you passed in
                             </li>
                             <li>
                                 You also have control over whether or not the file should be truncated on open if
@@ -342,8 +345,12 @@
                             </li>
                             <li> For the format pattern, it will use the default pattern of:
                                 <br>
-                                <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS
-                                    [Logger_Name]: Log_Message + Platform_Line_Ending."</span>
+                                <div class="scroll_div" style="color: #cbff64;">
+                                    <br>
+                                    " [Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
+                                    Platform_Line_Ending. "
+                                </div>
+                                <br>
                             </li>
                         </ul>
                     </li>
@@ -362,8 +369,12 @@
                             <li>
                                 For the format pattern, it will use the default pattern of:
                                 <br>
-                                <span style="color: #cbff64;">"[Short_Level] DDD ddmmmyy HH:MM:SS
-                                    [Logger_Name]: Log_Message + Platform_Line_Ending."</span>
+                                <div class="scroll_div" style="color: #cbff64;">
+                                    <br>
+                                    " [Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
+                                    Platform_Line_Ending. "
+                                </div>
+                                <br>
                             </li>
                         </ul>
                     </li>
@@ -400,64 +411,67 @@
                     <li>The Message colors for all three constructors are also default set
                         <ul>
                             <li>
-                                These colors can be changed by calling the <span
-                                    style="color:#cbff64;">"SetMsgColor(LoggerLevel lvl, std::string_view
-                                    color);"</span> function (where the color is an ansi color code).
+                                These colors can be changed by calling the
+                                <span style="color:#cbff64;">"SetMsgColor(LoggerLevel lvl, std::string_view
+                                    color);"</span> function
                             </li>
-                            <li> Note: There is a header, <span style="color:#cbff64;">`Color/Color.h`</span>, that
-                                is included that can be used to simplify and aid this process as well. The color
-                                codes are broken up into the appropriate namespaces to make things clear on the
-                                intent.
-                            </li>
+                            <li> Where the color is an ansi color code. </li>
                         </ul>
+                        <br>
+                    <li>
+                        Note: There is a header, <span style="color:#cbff64;">`Color/Color.h`</span>, that
+                        is included that can be used to simplify and aid this process as well. The color
+                        codes are broken up into the appropriate namespaces to make things clear on the
+                        intent.
+                    </li>
                     </li>
                 </ul>
             </div>
-                <div class="center_text">
-                    The default colors that are set are:
-                </div>
-                <div class="tables">
-                    <table>
-                        <colgroup>
-                            <col span="6">
-                            <col span="6">
-                            <col span="6">
-                        </colgroup>
-                        <tr>
-                            <th><em> Level </em></th>
-                            <th><em> Color </em></th>
-                        </tr>
-                        <tr>
-                            <td>Trace</td>
-                            <td>Bright White</td>
-                        </tr>
-                        <tr>
-                            <td>Info</td>
-                            <td>Bright Green</td>
-                        </tr>
-                        <tr>
-                            <td>Debug</td>
-                            <td>Bright Cyan</td>
+            <div class="center_text">
+                The default colors that are set are:
+            </div>
+            <div class="tables">
+                <table>
+                    <colgroup>
+                        <col span="6">
+                        <col span="6">
+                        <col span="6">
+                    </colgroup>
+                    <tr>
+                        <th><em> Level </em></th>
+                        <th><em> Color </em></th>
+                    </tr>
+                    <tr>
+                        <td>Trace</td>
+                        <td>Bright White</td>
+                    </tr>
+                    <tr>
+                        <td>Info</td>
+                        <td>Bright Green</td>
+                    </tr>
+                    <tr>
+                        <td>Debug</td>
+                        <td>Bright Cyan</td>
 
-                        </tr>
-                        <tr>
-                            <td>Warning</td>
-                            <td>Bright Yellow</td>
+                    </tr>
+                    <tr>
+                        <td>Warning</td>
+                        <td>Bright Yellow</td>
 
-                        </tr>
-                        <tr>
-                            <td>Error</td>
-                            <td>Basic Red</td>
+                    </tr>
+                    <tr>
+                        <td>Error</td>
+                        <td>Basic Red</td>
 
-                        </tr>
-                        <tr>
-                            <td>Fatal</td>
-                            <td>Bright Yellow On Red</td>
+                    </tr>
+                    <tr>
+                        <td>Fatal</td>
+                        <td>Bright Yellow On Red</td>
 
-                        </tr>
-                    </table>
-                </div>
-                <br>
+                    </tr>
+                </table>
+            </div>
+            <br>
             <div class="subHeaders" style="border:none;">
                 As An Example Of Changing Colors Using The Helper Header `Color.h`:
             </div>
@@ -495,9 +509,12 @@
                             <li>
                                 The default pattern used will be:
                                 <br>
-                                <span style="color: #cbff64;"> "[Short_Level]
-                                    DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message + Platform_Line_Ending."
-                                </span>
+                                <div class="scroll_div" style="color: #cbff64;">
+                                    <br>
+                                    " [Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
+                                    Platform_Line_Ending. "
+                                </div>
+                                <br>
                             <li> The above listed defaults apply here as well</li>
                     </li>
                 </ul>
@@ -511,9 +528,12 @@
                     <li>
                         The default pattern used will be:
                         <br>
-                        <span style="color: #cbff64;"> "[Short_Level]
-                            DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message + Platform_Line_Ending."
-                        </span>
+                        <div class="scroll_div" style="color: #cbff64;">
+                            <br>
+                            " [Short_Level] DDD ddmmmyy HH:MM:SS [Logger_Name]: Log_Message +
+                            Platform_Line_Ending. "
+                        </div>
+                        <br>
                     </li>
                 </ul>
                 </ul>
@@ -616,18 +636,17 @@
                 <h2> Current Timings (As Of 27Nov22):</h2>
             </div>
             <br>
-            <div class="center_text">
-                Benched Environment (Averaged Over 2,000,000 Iterations):
-            </div>
-            <div class="lists">
+            <div class="center_text"><u>Benched Environment</u></div>
+            <div class="lists" style="margin-left:4%; margin-right:4%;">
                 <ul>
-                    <li>Benched with an i7-10750H CPU locked at 4.00 GHz, 16GB DDR4-2933 RAM</li>
-                    <li>NOTE: For Serenity's console target and spdlog's console sink, the level was set to 'off'.</li>
-                    <li>The argument passed into each log call was a 400 byte c-style string.</li>
+                    <li>Benched with an i7-10750H CPU locked at 4.00 GHz</li>
+                    <li>Each log call used a 400 byte c-style string.</li>
                     <li>Benched against spdlog version 1.11.0 with Serenity.</li>
+                    <li>All timings were averaged Over 2,000,000 Iterations</li>
+                    <li>NOTE: For Serenity's console target and spdlog's console sink, the level was set to 'off'.</li>
                 </ul>
             </div>
-            <br><br>
+            <br>
             <div class="center_text">
                 Serenity is using `ArgFormatter` and spdlog is using its bundled `fmtlib` (the respective project
                 defaults).
@@ -770,9 +789,10 @@
                     </tr>
                 </table>
             </div>
+            <br>
             <hr />
-            <br><br>
         </div>
+        <br>
     </div>
 
 </body>
