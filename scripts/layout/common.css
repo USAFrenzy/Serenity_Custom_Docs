@@ -333,7 +333,7 @@ td {
 
 	.sh_cpp {
 		width: auto;
-		overflow-x: scroll;
+		overflow-x: auto;
 	}
 
 	.search-bar {
@@ -369,16 +369,14 @@ td {
 
 	p,
 	.lists,
+	.tables,
 	.sh_cpp,
 	.center_text {
-		padding-left: 2%;
 		font-size: 85%;
-		margin-left: auto;
-		margin-right: auto;
 	}
 
-	.tables {
-		font-size: 85%;
+	.sh_cpp{
+		padding-left: 2%;
 	}
 
 	.mainHeaders,
@@ -387,8 +385,8 @@ td {
 	}
 
 	#main-body {
-		margin-left: 5%;
-		margin-right: 5%;
+		margin-left: 4.0%;
+		margin-right: 4.0%;
 		margin-top: -40px;
 	}
 
