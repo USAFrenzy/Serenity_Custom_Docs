@@ -18,53 +18,29 @@
     <section id="Top"></section>
     <img id="logo" src="Resources/Serenity_Logo_02.png" alt="Placeholder Logo" />
     <div class="outerBorder">
-        <br>
-        <div class="search-bar" style="margin-bottom: -35px;">
-            <form action="placeholder">
-                <input type="text" class="searchBox" placeholder="Enter Search Term Here">
-                <input type="image" class="search_button" src="Resources/search_icon_clipart.png"></input>
-            </form>
-        </div>
-        <div class="hamburger_menu" onclick="menu_active(this)">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-            <div class="nav_menu">
-                <a class="nav_link" href="Building/building_landing.html">Building</a>
-                <a class="nav_link" href="Documentation/documentation_landing.html">Documentation</a>
-                <a class="nav_link" href="Examples/examples_landing.html">Examples</a>
-                <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
-                <a class="nav_link" href="#Top"> Go To Top </a>
-                <div class="dropdown">
-                    <button class="nav_link"> Page Contents </button>
-                    <div class="dropdown-content">
-                        <a class="nav_link" href="#About Serenity">About</a>
-                        <a class="nav_link" href="#Requirements">Requirements</a>
-                        <a class="nav_link" href="#Benchmarks">Benchmarks</a>
-                        <div class="dropdown_nested">
-                            <a class="nav_link" href="#Quick Start">Quick Start</a>
-                            <div class="dropdown_content_nested">
-                                <a class="nav_link" href="#FileTarget">File Logger</a>
-                                <a class="nav_link" href="#RotatingTarget">Rotating Logger</a>
-                                <a class="nav_link" href="#ConsoleTarget">Console Logger</a>
-                                <a class="nav_link" href="#LoggingCalls">Log Calls</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="sticky_content" style="background-color: #045147;" onclick="menu_active(this)">
+            <div class="mobile_search-bar">
+                <form action="placeholder">
+                    <input type="text" class="mobile_searchBox" placeholder="Enter Search Term Here">
+                    <input type="image" class="mobile_search_button" src="Resources/search_icon_clipart.png"></input>
+                </form>
             </div>
-        </div>
-        <br><br>
-        <div id="main-body">
-            <div class="sticky_content">
-                <div class="docLinks">
+            <div class="hamburger_menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="nav_menu">
+                    <a class="nav_link" href="Building/building_landing.html">Building</a>
+                    <a class="nav_link" href="Documentation/documentation_landing.html">Documentation</a>
+                    <a class="nav_link" href="Examples/examples_landing.html">Examples</a>
+                    <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                    <a class="nav_link" href="#Top"> Go To Top </a>
                     <div class="dropdown">
-                        <button class="dropdown"> Page Contents </button>
+                        <button class="nav_link"> Page Contents </button>
                         <div class="dropdown-content">
                             <a class="nav_link" href="#About Serenity">About</a>
                             <a class="nav_link" href="#Requirements">Requirements</a>
                             <a class="nav_link" href="#Benchmarks">Benchmarks</a>
-                            <a class="nav_link" href="#Top"> Go To Top </a>
                             <div class="dropdown_nested">
                                 <a class="nav_link" href="#Quick Start">Quick Start</a>
                                 <div class="dropdown_content_nested">
@@ -76,19 +52,54 @@
                             </div>
                         </div>
                     </div>
-                    <a class="docLink" href="Building/building_landing.html">Building</a>
-                    <a class="docLink" href="Documentation/documentation_landing.html">Documentation</a>
-                    <a class="docLink" href="Examples/examples_landing.html">Examples</a>
-                    <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
                 </div>
             </div>
+        </div>
+        <div class="sticky_content">
+            <div class="docLinks">
+                <div class="dropdown">
+                    <button class="dropdown"> Page Contents </button>
+                    <div class="dropdown-content">
+                        <a class="nav_link" href="#About Serenity">About</a>
+                        <a class="nav_link" href="#Requirements">Requirements</a>
+                        <a class="nav_link" href="#Benchmarks">Benchmarks</a>
+                        <a class="nav_link" href="#Top"> Go To Top </a>
+                        <div class="dropdown_nested">
+                            <a class="nav_link" href="#Quick Start">Quick Start</a>
+                            <div class="dropdown_content_nested">
+                                <a class="nav_link" href="#FileTarget">File Logger</a>
+                                <a class="nav_link" href="#RotatingTarget">Rotating Logger</a>
+                                <a class="nav_link" href="#ConsoleTarget">Console Logger</a>
+                                <a class="nav_link" href="#LoggingCalls">Log Calls</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="docLink" href="Building/building_landing.html">Building</a>
+                <a class="docLink" href="Documentation/documentation_landing.html">Documentation</a>
+                <a class="docLink" href="Examples/examples_landing.html">Examples</a>
+                <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                <div class="docLink">
+                    <form action="placeholder">
+                        <input type="text" class="desktop_searchBox" placeholder="Enter Search Term Here">
+                        <input type="image" class="desktop_search_button"
+                            src="Resources/search_icon_clipart.png"></input>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="mainHeaders">
+            <h1 align="center" style="color:#A8C077;"><strong><em>Serenity API</em></strong></h1>
+        </div>
+        <br><br><br>
+        <div id="main-body">
             <!-------------------------------------------- This Section Covers The All About Serenity -------------------------------------------->
+
             <section id="About Serenity"></section>
-            <br><br>
             <div class="sectionHeader">
                 <h2> What Is This Library All About?</h2>
             </div>
-
             <p>Serenity is a C++20 logging framework library that takes inspiration from
                 <a href="https://github.com/gabime/spdlog">spdlog</a> for its user customizable aspect in logging
                 and
@@ -448,10 +459,12 @@
                         </tr>
                     </table>
                 </div>
+                <br>
                 <div class="subHeaders" style="border:none;">
                     As An Example Of Changing Colors Using The Helper Header `Color.h`:
                 </div>
-                <div class="codeBlock">
+            </div>
+            <div class="codeBlock">
                 <pre class="sh_cpp">
 
       #include &lt;serenity/Color/Color.h&gt;
@@ -463,7 +476,6 @@
       // Set the message level to any ansi-supported code (using helper header here)
       example.SetMsgColor(LoggerLevel::trace, color::foreground::grey); 
                     </pre>
-                </div>
             </div>
             <div class="lists">
                 <ul>
@@ -568,20 +580,26 @@
                             </li>
                     </li>
                 </ul>
-                <div class="codeBlock">
+            </div>
+            <div class="codeBlock">
                 <pre class="sh_cpp">
 
-   [Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY [My_File_Logger]: Log_Message + Platform_Line_Ending  
+[Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY [My_File_Logger]: Log_Message + Platform_Line_Ending  
                                             </pre>
-                                        </div>
+            </div>
+            <div class="center_text">
                 which, at the time of writing, would be something like:
-                <div class="codeBlock">
+            </div>
+            <div class="codeBlock">
                 <pre class="sh_cpp">
 
-   [Info] Mon Nov 28 20:35:32 2022 [My_File_Logger]: This is how a simple log message might look with an integer formatted to hex: [0X2A] \r\n  
+[Info] Mon Nov 28 20:35:32 2022 [My_File_Logger]: This is how a simple log message might look with an integer formatted to hex: [0X2A] \r\n  
                                 </pre>
-                </div>
+            </div>
+            <div class="center_text">
                 Where the line ending used here is assuming a windows environment is being run.
+            </div>
+            <div class="lists">
                 <ul>
                     <li>
                         For linux, the line ending is <span style="color: #cbff64;">'\n'</span>

@@ -32,8 +32,7 @@ body {
 	display: flex;
 	justify-content: space-evenly;
 	color: rgb(189, 241, 241);
-	margin-top: 1%;
-	margin-bottom: 1%;
+	margin-top: 1.2%;
 }
 
 .docLinks a:hover {
@@ -127,28 +126,22 @@ td {
 	margin-right: auto;
 }
 
-.search-bar {
-	display: block;
-	justify-content: right;
-	margin-left: auto;
-}
-
-.searchBox {
-	display: block;
+.desktop_searchBox {
+	display: none;
 	justify-content: right;
 	text-align: left;
 	font-size: medium;
 	margin-left: auto;
-	padding-right: 4%;
+	padding-right: 6%;
 	margin-right: 10%;
 }
 
-.search_button {
-	display: block;
+.desktop_search_button {
+	display: none;
 	justify-content: right;
 	background-color: rgb(244, 239, 239);
 	margin-left: auto;
-	margin-right: 10%;
+	margin-right: -10px;
 	position: relative;
 	padding-left: 2%;
 	padding-right: 2%;
@@ -157,11 +150,48 @@ td {
 	height: 20px;
 }
 
+.mobile_search-bar {
+	display: none;
+	justify-content: right;
+	margin-left: auto;
+	padding-right: 0%;
+	margin-right: 0%;
+	padding-top: 20px;
+	margin-bottom: -35px;
+	margin-top: -40px;
+}
+
+.mobile_searchBox {
+	display: none;
+	justify-content: right;
+	text-align: left;
+	font-size: medium;
+	margin-left: auto;
+	padding-right: 4%;
+	margin-right: 5%;
+}
+
+.mobile_search_button {
+	display: none;
+	justify-content: right;
+	background-color: rgb(244, 239, 239);
+	margin-left: auto;
+	position: relative;
+	padding-left: 2%;
+	padding-right: 2%;
+	margin-right: 5%;
+	top: -22px;
+	width: 20px;
+	height: 20px;
+}
+
 .hamburger_menu {
 	display: block;
 	cursor: pointer;
-	position: fixed;
-	top: 2%;
+	justify-content: left;
+	width: fit-content;
+	padding-top: 2%;
+	padding-bottom: 2%;
 	margin-left: 1%;
 	margin-right: auto;
 }
@@ -281,6 +311,7 @@ td {
 	}
 
 	.hamburger_menu {
+		margin-top: -60px;
 		display: block;
 	}
 
@@ -295,21 +326,29 @@ td {
 	}
 
 	.sh_cpp {
-		width: 275px;
+		width: 400px;
 		overflow-x: scroll;
-		margin-left: 2%;
-		margin-right: 4%;
 	}
 
 	.search-bar {
 		padding-right: 0%;
-		margin-right: 20%;
+		margin-right: 0%;
+		padding-top: 20px;
+		margin-bottom: -35px;
+		margin-top: -40px;
 	}
 
-	.search_button {
-		padding-left: 2%;
-		padding-right: 2%;
+	.mobile_search-bar,
+	.mobile_search_button,
+	.mobile_searchBox {
+		display: block;
 	}
+
+	.desktop_search_button,
+	.desktop_searchBox {
+		display: none;
+	}
+
 
 	ol {
 		margin-left: 0%;
@@ -317,27 +356,34 @@ td {
 	}
 
 	p,
-	.mainHeaders,
-	.subHeaders,
+	.lists,
+	.sh_cpp,
 	.center_text {
+		padding-left: 2%;
 		font-size: 85%;
-		margin-left: 2%;
-		margin-right: 3%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
-	li {
+	.tables {
+		font-size: 85%;
+	}
+
+	.mainHeaders,
+	.subHeaders {
 		font-size: 90%;
-		margin-left: 2%;
-		margin-right: 3%;
 	}
 
 	#main-body {
-		margin-left: 3.5%;
-		margin-right: 3.5%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: -40px;
 	}
-	.outerBorder{
+
+	.outerBorder {
 		margin-top: 4%;
 	}
+
 
 }
 
@@ -352,6 +398,17 @@ td {
 
 	.hamburger_menu {
 		display: none;
+	}
+
+	.mobile_search-bar,
+	.mobile_search_button,
+	.mobile_searchBox {
+		display: none;
+	}
+
+	.desktop_search_button,
+	.desktop_searchBox {
+		display: block;
 	}
 
 	.dropdown {

@@ -65,17 +65,14 @@
             </div>
         </div>
 
-        <br>
-        <div class="search-bar">
-            <form action="placeholder">
-                <input type="text" class="searchBox" placeholder="Enter Search Term Here">
-                <input type="image" class="search_button" src="../../Resources/search_icon_clipart.png"></input>
-            </form>
-        </div>
-        <div id="mainHeaders">
-            <h1 align="center" style="color:#A8C077;"><strong><em>The msg_details Namespace</em></strong></h1>
-        </div>
-        <div class="hamburger_menu" onclick="menu_active(this)">
+        <div class="sticky_content" style="background-color: #045147;" onclick="menu_active(this)">
+            <div class="mobile_search-bar">
+                <form action="placeholder">
+                    <input type="text" class="mobile_searchBox" placeholder="Enter Search Term Here">
+                    <input type="image" class="mobile_search_button" src="../../Resources/search_icon_clipart.png"></input>
+                </form>
+            </div>
+        <div class="hamburger_menu">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
@@ -88,7 +85,12 @@
                 <a class="nav_link" href="#Top"> Go To Top </a>
             </div>
         </div>
-        <br><br>
+    </div>
+        <br>
+        <div class="mainHeaders">
+            <h1 align="center" style="color:#A8C077;"><strong><em>The msg_details Namespace</em></strong></h1>
+        </div>
+        <br><br><br>
         <div id="main-body">
             <div class="sticky_content">
                 <div class="docLinks">
@@ -97,9 +99,14 @@
                     <a class="docLink" href="../../Building/building_landing.html">Building</a>
                     <a class="docLink" href="../../Examples/examples_landing.html">Examples</a>
                     <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                    <div class="docLink">
+                        <form action="placeholder">
+                            <input type="text" class="desktop_searchBox" placeholder="Enter Search Term Here">
+                            <input type="image" class="desktop_search_button" src="../../Resources/search_icon_clipart.png"></input>
+                        </form>
+                    </div>
                 </div>
             </div>
-
             <div class="center_text">
                 This namespace holds the classes that comprises everything about a log message such as storing values
                 and formatting those values based on the user-defined pattern and log message input.
@@ -144,8 +151,9 @@
             </div>
 
 
+            <hr />
         </div>
-    </div>
+        <br><br>
 </body>
 
 </html>
