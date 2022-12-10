@@ -302,6 +302,12 @@ td {
 
 
 @media screen and (max-width:768px) {
+
+	.outerBorder {
+		margin-left: 0.2%;
+		margin-right: 0.2%;
+	}
+
 	.docLinks {
 		display: none;
 	}
@@ -326,7 +332,7 @@ td {
 	}
 
 	.sh_cpp {
-		width: 400px;
+		width: auto;
 		overflow-x: scroll;
 	}
 
@@ -349,6 +355,12 @@ td {
 		display: none;
 	}
 
+	.codeBlock {
+		display: block;
+		justify-content: center;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
 
 	ol {
 		margin-left: 0%;
