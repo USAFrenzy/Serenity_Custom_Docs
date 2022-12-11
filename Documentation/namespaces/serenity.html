@@ -20,7 +20,7 @@
         <div id="doc_tree" class="side_doc_tree">
             <a href="javascript:void(0)" class="close_doc_tree" onclick="CloseDocTree()">&times;</a>
             <div class="dropdown" onmouseleave="CollapseAllLinks()">
-                <a class="side_doc_link" href="../../Documentation/documentation_landing.html"
+                <a class="side_doc_link" href="../documentation_landing.html"
                     onmouseenter="CollapseAllLinks()">Doc Home Page</a>
                 <br><br>
                 <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
@@ -31,7 +31,7 @@
                 <a class="namespace_link" href="../namespaces/helpers.html">helpers</a>
                 <a class="namespace_link" href="../namespaces/globals.html">globals</a>
                 <a class="namespace_link" href="../namespaces/serenity_luts.html">SERENITY_LUTS</a>
-                <a class="namespace_link" href="../namespaces/custom_flags,html">custom_flags</a>
+                <a class="namespace_link" href="../namespaces/custom_flags.html">custom_flags</a>
                 <a class="namespace_link" href="../namespaces/custom_flag_error.html">CustomFlagError</a>
                 <br><br>
                 <a class="side_doc_link" href="#" onmouseenter="ToggleClassLinks()">Classes</a>
@@ -45,20 +45,24 @@
                 <a class="classes_link" href="../targets/RotatingTarget.html">RotatingTarget</a>
                 <a class="classes_link" href="../serenity_classes/rotate_settings.html">RotateSettings</a>
                 <a class="classes_link" href="../targets/TargetBase.html">TargetBase</a>
-                <a class="classes_link" href="#">FileHelper</a>
-                <a class="classes_link" href="#">FileCache</a>
-                <a class="classes_link" href="#">BaseTargetHelper</a>
-                <a class="classes_link" href="#">Format_Source_Loc</a>
-                <a class="classes_link" href="#">format_error</a>
+                <a class="classes_link" href="../helpers/file_helper.html">FileHelper</a>
+                <a class="classes_link" href="../helpers/file_cache.html">FileCache</a>
+                <a class="classes_link" href="../helpers/base_target_helper.html">BaseTargetHelper</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_source_loc">Format_Source_Loc</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_thread_id">Format_Thread_ID</a>
+                <a class="classes_link"
+                    href="../customflagerror/custom_error_handler.html#format_error">format_error</a>
                 <br><br>
                 <a class="side_doc_link" href="#" onmouseenter="ToggleStructLinks()">Structs</a>
-                <a class="structs_link" href="#">CustomFormatter&lt;LoggerLevel&gt;</a>
-                <a class="structs_link" href="#">CustomFormatter&lt;std::tm&gt;</a>
+                <a class="structs_link"
+                    href="../helpers/formatter_specializations.html#logger_lvl">CustomFormatter&lt;LoggerLevel&gt;</a>
+                <a class="structs_link"
+                    href="../helpers/formatter_specializations.html#std_tm">CustomFormatter&lt;std::tm&gt;</a>
                 <a class="structs_link" href="../serenity_classes/periodic_settings.html">PeriodicSettings</a>
                 <a class="structs_link" href="../serenity_classes/rotate_limits.html">RotateLimits</a>
                 <a class="structs_link" href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
-                <a class="structs_link" href="#">BackgroundThread</a>
-                <a class="structs_link" href="#">MsgWithLoc</a>
+                <a class="structs_link" href="../helpers/background_thread.html">BackgroundThread</a>
+                <a class="structs_link" href="../helpers/msg_with_loc.html">MsgWithLoc</a>
                 <a class="structs_link" href="../customflagerror/custom_error_handler.html">custom_error_handler</a>
             </div>
         </div>
@@ -174,22 +178,22 @@
             </div>
             <div class="lists">
                 <ul>
-                    <li> <a href="../serenity_free_functions.html">static std::string_view LevelToShortView(const
+                    <li> <a href="../helpers/serenity_free_functions.html">static std::string_view LevelToShortView(const
                             LoggerLevel &level);</a>
                         <br>
                         - Converts LoggerLevel to short string representation
                     </li>
-                    <li> <a href="../serenity_free_functions.html">static std::string_view LevelToLongView(const
+                    <li> <a href="../helpers/serenity_free_functions.html">static std::string_view LevelToLongView(const
                             LoggerLevel &level);</a>
                         <br>
                         - Converts LoggerLevel to long string representation
 
                     </li>
-                    <li> <a href="../serenity_free_functions.html">static constexpr bool IsDigit(const char&ch);</a>
+                    <li> <a href="../helpers/serenity_free_functions.html">static constexpr bool IsDigit(const char&ch);</a>
                         <br>
                         - Slightly faster version of std::isdigit
                     </li>
-                    <li> <a href="../serenity_free_functions.html">static constexpr bool IsAlpha(const char& ch);</a>
+                    <li> <a href="../helpers/serenity_free_functions.html">static constexpr bool IsAlpha(const char& ch);</a>
                         <br>
                         - Slightly faster version of std::isalpha
                     </li>
@@ -268,11 +272,11 @@
                                 - This nested namespace holds the classes involved with the custom formatter
                                 specializations
                                 <ul>
-                                    <li><a href="../msg_details/format_src_loc.html">Format_Source_Loc</a>
+                                    <li><a href="../msg_details/custom_flags.html#format_source_loc">Format_Source_Loc</a>
                                         <br>
                                         - This class is a helper class used in formatting source location data
                                     </li>
-                                    <li> <a href="../msg_details/format_thread_id.html">format_thread_id</a>
+                                    <li> <a href="../msg_details/custom_flags.html#format_thread_id">format_thread_id</a>
                                         <br>
                                         - This class is a helper class used in formatting thread ID and its length
                                     </li>
@@ -299,7 +303,7 @@
                         </ul>
                     </li>
                     <br>
-                    <li> <a href="../serenity_luts.html">SERENITY_LUTS</a>
+                    <li> <a href="../helpers/serenity_luts.html">SERENITY_LUTS</a>
                         <br>
                         - This namespace holds all the lookup tables used in this library
                         <ul>

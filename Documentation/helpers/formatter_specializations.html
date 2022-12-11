@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation</title>
-    <script type="text/javascript" src="../../scripts/code_syntax/sh_main.js"></script>
-    <script type="text/javascript" src="../../scripts/code_syntax/lang/sh_cpp.js"></script>
-    <script type="text/javascript" src="../../scripts/layout/layout.js"></script>
-    <script type="text/javascript" src="../../scripts/layout/docs.js"></script>
-    <link rel="stylesheet" href="../../scripts/layout/common.css">
-    <link rel="stylesheet" href="../../scripts/layout/docs.css">
+    <script type="text/javascript" src="../scripts/code_syntax/sh_main.js"></script>
+    <script type="text/javascript" src="../scripts/code_syntax/lang/sh_cpp.js"></script>
+    <script type="text/javascript" src="../scripts/layout/layout.js"></script>
+    <script type="text/javascript" src="../scripts/layout/docs.js"></script>
+    <link rel="stylesheet" href="../scripts/layout/common.css">
+    <link rel="stylesheet" href="../scripts/layout/docs.css">
 </head>
 
 <body onload="sh_highlightDocument();">
@@ -27,7 +27,7 @@
                 <a class="side_doc_link" href="../../Documentation/documentation_landing.html"
                     onmouseenter="CollapseAllLinks()">Doc Home Page</a>
                 <br><br>
-                <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
+                 <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
                 <a class="namespace_link" href="../namespaces/serenity.html">serenity</a>
                 <a class="namespace_link" href="../namespaces/targets.html">targets</a>
                 <a class="namespace_link" href="../namespaces/se_colors.html">se_colors</a>
@@ -52,16 +52,16 @@
                 <a class="classes_link" href="../helpers/file_helper.html">FileHelper</a>
                 <a class="classes_link" href="../helpers/file_cache.html">FileCache</a>
                 <a class="classes_link" href="../helpers/base_target_helper.html">BaseTargetHelper</a>
-                <a class="classes_link" href="#format_source_loc">Format_Source_Loc</a>
-                <a class="classes_link" href="#format_thread_id">Format_Thread_ID</a>
+                <a class="classes_link" href="../helpers/custom_flags.html#format_source_loc">Format_Source_Loc</a>
+                <a class="classes_link" href="../helpers/custom_flags.html#format_thread_id">Format_Thread_ID</a>
                 <a class="classes_link"
                     href="../customflagerror/custom_error_handler.html#format_error">format_error</a>
                 <br><br>
                 <a class="side_doc_link" href="#" onmouseenter="ToggleStructLinks()">Structs</a>
                 <a class="structs_link"
-                    href="../Documentation/formatter_specializations.html#logger_lvl">CustomFormatter&lt;LoggerLevel&gt;</a>
+                    href="#logger_lvl">CustomFormatter&lt;LoggerLevel&gt;</a>
                 <a class="structs_link"
-                    href="../Documentation/formatter_specializations.html#std_tm">CustomFormatter&lt;std::tm&gt;</a>
+                    href="#std_tm">CustomFormatter&lt;std::tm&gt;</a>
                 <a class="structs_link" href="serenity_classes/periodic_settings.html">PeriodicSettings</a>
                 <a class="structs_link" href="serenity_classes/rotate_limits.html">RotateLimits</a>
                 <a class="structs_link" href="targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
@@ -91,8 +91,8 @@
                     <div class="dropdown">
                         <button class="contents"> Page Contents </button>
                         <div class="dropdown-content">
-                            <a class="nav_link" href="#format_source_loc">Format_Source_Loc</a>
-                            <a class="nav_link" href="#format_thread_id">Format_Thread_ID</a>
+                            <a class="nav_link" href="#logger_lvl">LoggerLevel</a>
+                            <a class="nav_link" href="#std_tm">std::tm</a>
                         </div>
                     </div>
                 </div>
@@ -104,8 +104,8 @@
                 <div class="dropdown">
                     <button class="contents"> Page Contents </button>
                     <div class="dropdown-content">
-                        <a class="nav_link" href="#format_source_loc">Format_Source_Loc</a>
-                        <a class="nav_link" href="#format_thread_id">Format_Thread_ID</a>
+                        <a class="nav_link" href="#logger_lvl">LoggerLevel</a>
+                        <a class="nav_link" href="#std_tm">std::tm</a>
                     </div>
                 </div>
                 <a class="docLink" href="../index.html">Home</a>
@@ -127,242 +127,6 @@
         </div>
         <br><br><br>
         <div id="main-body">
-            <section id="format_source_loc"></section>
-            <div class="center_text">
-                <div class="subHeaders"> Format_Source_Loc </div>
-                <p style="text-align: center;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                    pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                    tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                    Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                    facilisis.
-                    <br><br>
-                    Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                    sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                    congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                    finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                    libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                    accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                    fringilla vulputate.
-                    <br><br>
-                    Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                    rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                    ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                    ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                    Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                    lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                    Suspendisse potenti.
-                    <br><br>
-                    Duis lacinia enim vitae ex suscipit, eget commodo lectus hendrerit. Phasellus condimentum suscipit
-                    felis a vulputate. Praesent convallis a diam bibendum blandit. Nullam consectetur diam vitae odio
-                    rutrum efficitur. Duis quis odio bibendum, ullamcorper arcu vel, maximus libero. Curabitur sit amet
-                    massa justo. Quisque ornare mauris sit amet nibh tincidunt mattis.
-                    <br><br>
-                    Donec imperdiet feugiat auctor. Curabitur risus turpis, pellentesque sed elit vitae,
-                    aliquet sagittis nisl. Curabitur tristique ipsum ut dictum auctor. Ut venenatis felis quis risus
-                    aliquet ornare. Suspendisse pharetra maximus lorem eu luctus. Sed tincidunt nisl neque, vel
-                    tristique turpis imperdiet at. Nulla lacinia ligula eu placerat semper. Pellentesque laoreet commodo
-                    lorem eu pretium. Proin ac nulla id mi eleifend scelerisque. Phasellus elementum dapibu
-                    <br><br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                    pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                    tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                    Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                    facilisis.
-                    <br><br>
-                    Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                    sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                    congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                    finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                    libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                    accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                    fringilla vulputate.
-                    <br><br>
-                    Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                    rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                    ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                    ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                    Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                    lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                    Suspendisse potenti.
-                    <br> <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                    pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                    tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                    Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                    facilisis.
-                    <br><br>
-                    Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                    sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                    congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                    finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                    libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                    accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                    fringilla vulputate.
-                    <br><br>
-                    Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                    rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                    ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                    ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                    Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                    lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                    Suspendisse potenti.
-                    <br><br>
-                    Duis lacinia enim vitae ex suscipit, eget commodo lectus hendrerit. Phasellus condimentum suscipit
-                    felis a vulputate. Praesent convallis a diam bibendum blandit. Nullam consectetur diam vitae odio
-                    rutrum efficitur. Duis quis odio bibendum, ullamcorper arcu vel, maximus libero. Curabitur sit amet
-                    massa justo. Quisque ornare mauris sit amet nibh tincidunt mattis.
-                    <br><br>
-                    Donec imperdiet feugiat auctor. Curabitur risus turpis, pellentesque sed elit vitae,
-                    aliquet sagittis nisl. Curabitur tristique ipsum ut dictum auctor. Ut venenatis felis quis risus
-                    aliquet ornare. Suspendisse pharetra maximus lorem eu luctus. Sed tincidunt nisl neque, vel
-                    tristique turpis imperdiet at. Nulla lacinia ligula eu placerat semper. Pellentesque laoreet commodo
-                    lorem eu pretium. Proin ac nulla id mi eleifend scelerisque. Phasellus elementum dapibu
-                    <br><br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                    pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                    tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                    Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                    facilisis.
-                    <br><br>
-                    Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                    sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                    congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                    finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                    libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                    accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                    fringilla vulputate.
-                    <br><br>
-                    Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                    rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                    ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                    ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                    Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                    lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                    Suspendisse potenti.
-                </p>
-                <section id="format_thread_id"></section>
-                <div class="subHeaders"> Format_Thread_ID </div>
-                <p style="text-align: center;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                    pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                    tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                    Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                    facilisis.
-                    <br><br>
-                    Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                    sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                    congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                    finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                    libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                    accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                    fringilla vulputate.
-                    <br><br>
-                    Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                    rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                    ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                    ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                    Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                    lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                    Suspendisse potenti.
-                    <br><br>
-                    Duis lacinia enim vitae ex suscipit, eget commodo lectus hendrerit. Phasellus condimentum suscipit
-                    felis a vulputate. Praesent convallis a diam bibendum blandit. Nullam consectetur diam vitae odio
-                    rutrum efficitur. Duis quis odio bibendum, ullamcorper arcu vel, maximus libero. Curabitur sit amet
-                    massa justo. Quisque ornare mauris sit amet nibh tincidunt mattis.
-                    <br><br>
-                    Donec imperdiet feugiat auctor. Curabitur risus turpis, pellentesque sed elit vitae,
-                    aliquet sagittis nisl. Curabitur tristique ipsum ut dictum auctor. Ut venenatis felis quis risus
-                    aliquet ornare. Suspendisse pharetra maximus lorem eu luctus. Sed tincidunt nisl neque, vel
-                    tristique turpis imperdiet at. Nulla lacinia ligula eu placerat semper. Pellentesque laoreet commodo
-                    lorem eu pretium. Proin ac nulla id mi eleifend scelerisque. Phasellus elementum dapibu
-                    <br><br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                    pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                    tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                    Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                    facilisis.
-                    <br><br>
-                    Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                    sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                    congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                    finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                    libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                    accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                    fringilla vulputate.
-                    <br><br>
-                    Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                    rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                    ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                    ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                    Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                    lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                    Suspendisse potenti.
-                    <br> <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                    pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                    tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                    Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                    facilisis.
-                    <br><br>
-                    Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                    sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                    congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                    finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                    libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                    accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                    fringilla vulputate.
-                    <br><br>
-                    Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                    rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                    ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                    ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                    Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                    lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                    Suspendisse potenti.
-                    <br><br>
-                    Duis lacinia enim vitae ex suscipit, eget commodo lectus hendrerit. Phasellus condimentum suscipit
-                    felis a vulputate. Praesent convallis a diam bibendum blandit. Nullam consectetur diam vitae odio
-                    rutrum efficitur. Duis quis odio bibendum, ullamcorper arcu vel, maximus libero. Curabitur sit amet
-                    massa justo. Quisque ornare mauris sit amet nibh tincidunt mattis.
-                    <br><br>
-                    Donec imperdiet feugiat auctor. Curabitur risus turpis, pellentesque sed elit vitae,
-                    aliquet sagittis nisl. Curabitur tristique ipsum ut dictum auctor. Ut venenatis felis quis risus
-                    aliquet ornare. Suspendisse pharetra maximus lorem eu luctus. Sed tincidunt nisl neque, vel
-                    tristique turpis imperdiet at. Nulla lacinia ligula eu placerat semper. Pellentesque laoreet commodo
-                    lorem eu pretium. Proin ac nulla id mi eleifend scelerisque. Phasellus elementum dapibu
-                    <br><br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                    pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                    tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                    Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                    facilisis.
-                    <br><br>
-                    Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                    sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                    congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                    finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                    libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                    accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                    fringilla vulputate.
-                    <br><br>
-                    Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                    rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                    ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                    ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                    Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                    lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                    Suspendisse potenti.
-                </p>
-
                 <section id="logger_lvl"></section>
                 <div class="subHeaders"> LoggerLevel </div>
                 <p style="text-align: center;">
