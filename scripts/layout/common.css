@@ -115,13 +115,12 @@ td {
 }
 
 .flag_table {
-	display: block;
-	justify-content: center;
+	display: table;
 	text-align: center;
 	background-color: #A8C077;
 	color: #022d0d;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .subHeaders {
@@ -397,9 +396,14 @@ td {
 	}
 
 	/* separated form above so as to only affect the font_size */
-	.tables,
+	.tables {
+		font-size: 85%;
+	}
+
 	.flag_table {
 		font-size: 85%;
+		margin-left: 5%;
+		margin-right: 5%;
 	}
 
 	.mainHeaders,
