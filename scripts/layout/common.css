@@ -367,19 +367,12 @@ td {
 	}
 
 	.scroll_div {
-		white-space: nowrap;
-		width: 175px;
-		overflow-x: scroll;
-		margin-left: 1.25%;
-		margin-right: 1.25%;
+		text-align: left;
+		width: 100px;
 	}
 
 	.lists .scroll_div {
-		white-space: nowrap;
-		width: 300px;
-		overflow-x: scroll;
-		margin-left: 1.25%;
-		margin-right: 1.25%;
+		width: 250px;
 	}
 
 	p,
@@ -387,8 +380,17 @@ td {
 	.sh_cpp,
 	.center_text {
 		font-size: 85%;
-		margin-left: auto;
-		margin-right: auto;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+	.scroll_div,
+	.lists .scroll_div {
+		white-space: nowrap;
+		overflow-x: scroll;
+		font-size: 85%;
+		margin-left: 5%;
+		margin-right: 5%;
 	}
 
 	/* separated from above so as not to mess with margins */
