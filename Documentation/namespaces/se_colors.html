@@ -28,11 +28,11 @@
                 <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
                 <a class="namespace_link" href="../namespaces/serenity.html">serenity</a>
                 <a class="namespace_link" href="../namespaces/targets.html">targets</a>
-                <a class="namespace_link" href="../namespaces/se_colors.html">se_colors</a>
+                <a class="namespace_link" href="">se_colors</a>
                 <a class="namespace_link" href="../namespaces/msg_details.html">msg_details</a>
                 <a class="namespace_link" href="../namespaces/helpers.html">helpers</a>
                 <a class="namespace_link" href="../namespaces/globals.html">globals</a>
-                <a class="namespace_link" href="">SERENITY_LUTS</a>
+                <a class="namespace_link" href="../namespaces/serenity_luts.html">SERENITY_LUTS</a>
                 <a class="namespace_link" href="../namespaces/custom_flags,html">custom_flags</a>
                 <a class="namespace_link" href="../namespaces/custom_flag_error.html">CustomFlagError</a>
                 <br><br>
@@ -102,66 +102,82 @@
                 </div>
             </div>
         </div>
+
         <br><br>
         <div class="mainHeaders">
-            <h1 align="center" style="color:#A8C077;"><strong><em>The SERENITY_LUTS Namespace</em></strong></h1>
+            <h1 align="center" style="color:#A8C077;"><strong><em>The se_colors Namespace</em></strong></h1>
         </div>
         <br><br><br>
         <div id="main-body">
             <div class="center_text">
-                This namespace holds all the lookup tables used in this library
+                This namespace contains everything related to the ansi color codes packed in nested namespaces for
+                readability and use.
+                The nested namespaces that are used in this class to organize the colors are:
             </div>
             <div class="lists">
                 <ul>
-                    <li><a href="#">line_ending</a>
+                    <li> <a href="../color.html#formats">formats</a>
                         <br>
-                        - Maps the platform detected to the end-of-line value that should be appended to the end
-                        of each log message
+                        - This namespace holds format codes such as bold or dim
                     </li>
-                    <li><a href="#"> daysPerMonth</a>
+                    <li> <a href="../color.html#basic_colors">basic_colors</a>
                         <br>
-                        - Maps how many days are in each month for the RotatingTarget
+                        - This namespace holds the ansi codes for the non-bold/bright variants of colors
+                        <ul>
+                            <li>
+                                <a href="../color.html#basic_fg">foreground</a>
+                                <br>
+                                - This nested namespace holds the color codes that only deal with the foreground colors
+                                for basic colors
+                            </li>
+                            <li>
+                                <a href="../color.html#basic_bg">background</a>
+                                <br>
+                                - This nested namespace holds the color codes that only deal with the background colors
+                                for basic colors
+                            </li>
+                            <li>
+                                <a href="../color.html#basic_combos">combos</a>
+                                <br>
+                                - This nested namespace holds the color codes that only deal with the color combinations
+                                for all the basic variants of color codes for both foreground and background.
+                            </li>
+                        </ul>
                     </li>
-                    <li> This namespace also holds these constexpr variables used in the daysPerMonth lookup
-                        table: </li>
-                    <ul>
-                        <li><span style="color:rgb(189, 241, 241);"> JANUARY </span>= <span
-                                style="color: rgb(133, 206, 255);">0</span>
-                        </li>
-                        <li><span style="color:rgb(189, 241, 241);"> FEBRUARY </span>= <span
-                                style="color: rgb(133, 206, 255);">1</span>
-                        </li>
-                        <li><span style="color:rgb(189, 241, 241);"> MARCH </span>= <span
-                                style="color: rgb(133, 206, 255);">2</span></li>
-                        <li><span style="color:rgb(189, 241, 241);"> APRIL </span>= <span
-                                style="color: rgb(133, 206, 255);">3</span></li>
-                        <li><span style="color:rgb(189, 241, 241);"> MAY </span>= <span
-                                style="color: rgb(133, 206, 255);">4</span></li>
-                        <li><span style="color:rgb(189, 241, 241);"> JUNE </span>= <span
-                                style="color: rgb(133, 206, 255);">5</span></li>
-                        <li><span style="color:rgb(189, 241, 241);"> JULY </span>= <span
-                                style="color: rgb(133, 206, 255);">6</span></li>
-                        <li><span style="color:rgb(189, 241, 241);"> AUGUST </span>= <span
-                                style="color: rgb(133, 206, 255);">7</span></li>
-                        <li><span style="color:rgb(189, 241, 241);"> SEPTEMBER </span>= <span
-                                style="color: rgb(133, 206, 255);">8</span>
-                        </li>
-                        <li><span style="color:rgb(189, 241, 241);"> OCTOBER </span>= <span
-                                style="color: rgb(133, 206, 255);">9</span>
-                        </li>
-                        <li><span style="color:rgb(189, 241, 241);"> NOVEMBER </span>= <span
-                                style="color: rgb(133, 206, 255);">10</span>
-                        </li>
-                        <li><span style="color:rgb(189, 241, 241);"> DECEMBER </span>= <span
-                                style="color: rgb(133, 206, 255);">11</span>
-                        </li>
-                    </ul>
+                    <li> <a a href="../color.html#bright_colors">bright_colors</a>
+                        <br>
+                        - This namespace holds the ansi codes for the bold/bright variants of colors
+                        <ul>
+                            <li>
+                                <a href="../color.html#bright_fg">foreground</a>
+                                <br>
+                                - This nested namespace holds the color codes that only deal with the foreground colors
+                                for bright colors
+                            </li>
+                            <li>
+                                <a href="../color.html#bright_bg">background</a>
+                                <br>
+                                - This nested namespace holds the color codes that only deal with the background colors
+                                for bright colors
+                            </li>
+                            <li>
+                                <a href="../color.html#bright_combos">combos</a>
+                                <br>
+                                - This nested namespace holds the color codes that only deal with the color combinations
+                                for all the bright variants of color codes for both foreground and background.
+                            </li>
+                        </ul>
+                    </li>
+                    <li> <a href="../color.html#Tag">Tag</a>
+                        <br>
+                        - This namespace holds functions that wrap a message or word(s) in the specified color,
+                        beginning with the color code before the input and ending with the ansi reset code
+                    </li>
                 </ul>
             </div>
             <hr />
         </div>
         <br><br>
-    </div>
 </body>
 
 </html>
