@@ -115,7 +115,8 @@ td {
 }
 
 .flag_table {
-	display: table;
+	display: block;
+	justify-content: center;
 	text-align: center;
 	background-color: #A8C077;
 	color: #022d0d;
@@ -309,6 +310,7 @@ td {
 	margin: auto;
 }
 
+
 @media screen and (max-width:768px) {
 
 	.outerBorder {
@@ -375,36 +377,29 @@ td {
 		margin-right: 0%;
 	}
 
-	.flag_table .scroll_div {
-		width:25vw;
-	}
-
 	.lists .scroll_div {
+		display: block;
+		justify-content: center;
+		text-align: center;
+		white-space: nowrap;
+		overflow-x: scroll;
 		width: 250px;
 	}
 
 	p,
 	.lists,
 	.sh_cpp,
-	.center_text {
+	.center_text,
+	.lists .scroll_div {
 		font-size: 85%;
-		margin-left: 3%;
-		margin-right: 3%;
+		margin-left: 4%;
+		margin-right: 4%;
 	}
 
 	/* separated form above so as to only affect the font_size */
 	.tables,
 	.flag_table {
 		font-size: 85%;
-	}
-
-	.scroll_div,
-	.lists .scroll_div {
-		white-space: nowrap;
-		overflow-x: scroll;
-		font-size: 85%;
-		margin-left: 3%;
-		margin-right: 3%;
 	}
 
 	.mainHeaders,
