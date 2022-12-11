@@ -251,24 +251,24 @@ td {
 
 .dropdown-content {
 	display: none;
+	font-size: 80%;
 	margin-top: 4%;
 	margin-bottom: 1.25%;
-	padding-left: 15%;
 	text-decoration: none;
-	font-size: 90%;
 	background-color: #045147;
 	color: rgb(189, 241, 241);
 }
 
 .dropdown_content_nested {
 	display: none;
+	font-size: 80%;
+	padding-left: 10%;
 	justify-content: center;
 	text-align: center;
 	margin-top: 4%;
 	margin-bottom: 1.25%;
-	padding-left: 15%;
 	text-decoration: none;
-	font-size: 90%;
+	font-size: 80%;
 	color: rgb(189, 241, 241);
 }
 
@@ -366,6 +366,12 @@ td {
 		margin-right: 0%;
 	}
 
+	.scroll_div {
+		white-space: nowrap;
+		width: 200px;
+		overflow-x: scroll;
+	}
+
 	.lists .scroll_div {
 		white-space: nowrap;
 		width: 300px;
@@ -399,11 +405,6 @@ td {
 
 	.outerBorder {
 		margin-top: 4%;
-	}
-
-	.dropdown-content{
-		font-size: 80%;
-		padding-left: 10%;
 	}
 
 }

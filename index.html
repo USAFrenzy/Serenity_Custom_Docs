@@ -38,8 +38,10 @@
                     <div class="dropdown">
                         <button class="nav_link"> Page Contents </button>
                         <div class="dropdown-content">
+                            <a class="nav_link" href="#Top"> Go To Top </a>
                             <a class="nav_link" href="#About Serenity">About</a>
                             <a class="nav_link" href="#Requirements">Requirements</a>
+                            <a class="nav_link" href="#UserPattern">Log Pattern</a>
                             <a class="nav_link" href="#Benchmarks">Benchmarks</a>
                             <div class="dropdown_nested">
                                 <a class="nav_link" href="#Quick Start">Quick Start</a>
@@ -60,10 +62,11 @@
                 <div class="dropdown">
                     <button class="dropdown"> Page Contents </button>
                     <div class="dropdown-content">
+                        <a class="nav_link" href="#Top"> Go To Top </a>
                         <a class="nav_link" href="#About Serenity">About</a>
                         <a class="nav_link" href="#Requirements">Requirements</a>
+                        <a class="nav_link" href="#UserPattern">Log Pattern</a>
                         <a class="nav_link" href="#Benchmarks">Benchmarks</a>
-                        <a class="nav_link" href="#Top"> Go To Top </a>
                         <div class="dropdown_nested">
                             <a class="nav_link" href="#Quick Start">Quick Start</a>
                             <div class="dropdown_content_nested">
@@ -538,6 +541,140 @@
                 </ul>
                 </ul>
             </div>
+
+            <!----------------------------------------- This Section Covers User Defined Patterns ---------------------------------------->
+            <section id="UserPattern"></section>
+            <div class="subHeaders">
+                <strong>Setting A User Defined Log Output Pattern</strong>
+            </div>
+            <br>
+            <div class="center_text">
+                If you created a default logger object from one of the targets listed <a href="#Quick Start">in the
+                    section above</a>, then you will need to call that object's <span
+                    style="color: #cbff64;">SetPattern(std::string_view pattern)</span> function.
+                <br><br>
+                In either case, whether you're using the <span style="color: #cbff64;">SetPattern(std::string_view
+                    pattern)</span> function or if you're using a target constructor that takes in a format pattern
+                parameter, the format string itself can include any of the flags listed below, any strftime flag (with
+                or without modifiers), as well as any additional characters you may want to add (these will be printed
+                as-is).
+                <br><br>
+                <span style="color: #e7fd1c; font-size: 125%;">IMPORTANT NOTE:</span> In Order To See Your Log Message
+                In The Final Log Output, You Must Include '%+' Somewhere In Your User Pattern
+            </div>
+            <br>
+            <div class="center_text">
+                The Below Table Lists The Flags Available For Use. For Time Related Flags, Please Refer To The
+                'strftime' Flags And Modifiers <a href="https://en.cppreference.com/w/cpp/chrono/c/strftime">HERE</a>.
+                <br>
+                With The Exception Of '%T' Due To The Added Sub-Second Precision Field, All 'strftime' Flags Have The
+                Same Behavior In Serenity.
+            </div>
+            <div class="center_text">
+                <div class="tables">
+                    <table>
+                        <colgroup>
+                            <col span="6">
+                            <col span="6">
+                            <col span="6">
+                        </colgroup>
+                        <tr>
+                            <th><em> Flag </em></th>
+                            <th><em> Flag Function </em></th>
+                            <th><em> Flag Modifiers </em></th>
+                            <th><em> Example </em></th>
+                        </tr>
+                        <tr>
+                            <td> %l </td>
+                            <td> Prints the message level as a short string representation </td>
+                            <td> None </td>
+                            <td> Trace = 'T', Info = 'I'
+                                <br>
+                                Debug = 'D', Warning = 'W'
+                                <br>
+                                Error 'E', Fatal = 'F'
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> %L</span></td>
+                            <td> Prints the message level as a long string representation </td>
+                            <td> None </td>
+                            <td> Trace = 'Trace', Info = 'Info'
+                                <br>
+                                Debug = 'Debug', Warning = 'Warn'
+                                <br>
+                                Error 'Error', Fatal = 'Fatal'
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> %s</span></td>
+                            <td> Formats the source location of the log site </td>
+                            <td> ' : ' and any combination of 'a', 'c', 'f', 'l', 'F' </td>
+                            <td>
+                                <ul style="justify-content:left; text-align:left;">
+                                    <li>%s:c => output the column number of the log site</li>
+                                    <li>%s:f => output the file of where the log site is </li>
+                                    <li>%s:l => output the line number of the log site</li>
+                                    <li>%s:F => output the function name of where the log site is called</li>
+                                    <li> %s:a => format source location containing all fields </li>
+                                    <li> %s => same as %s:a</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> %t</span></td>
+                            <td> Formats the current thread ID of the logger </td>
+                            <td> ' : ' and any digit between 0-10<br> default length is 10 digits </td>
+                            <td>
+                                If thread ID was 123456789123456789:
+                                <br>
+                                %t:6 => 123456
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> %N</span></td>
+                            <td> Prints the Logger's Name </td>
+                            <td> None </td>
+                            <td>
+                                If logger's name was 'Critical_Logger', prints 'Critical_Logger'
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> %+</span></td>
+                            <td> Prints the actual log message itself, formatted with any supplied arguments using one
+                                of
+                                the formatting backends</td>
+                            <td> None </td>
+                            <td>
+                                If you called:
+                                <br>
+                                <div class="scroll_div" style="font-size: 100%;">
+                                    <span style="color:#0000ad">someLogger</span>.<span
+                                    style="color: #044300;">Trace</span>(<span style="color: #069606;">"This Is A Log
+                                        Message With Value: {}"</span>, <span style="color: #27408b;">42</span>);
+                                    </div>
+                                Then this flag would output:
+                                <br>
+                                "This Is A Log Message With Value: 42"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> %T</td>
+                            <td> Prints the 24 hour time format as HH:MM:SS</td>
+                            <td> ' : ' and any digits for sub-second precision of time</td>
+                            <td>
+                                If the time was 6:30 PM and the flag used was
+                                <br>
+                                '%T:3'
+                                <br>
+                                then a possible output might be:
+                                18:30:24.345
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br><br>
             <!------------------------------------------ This Section Covers Basic Logging Calls ----------------------------------------->
             <section id="LoggingCalls"> </section>
             <div class="subHeaders">
