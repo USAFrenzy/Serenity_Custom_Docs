@@ -439,7 +439,9 @@ td {
 	}
 
 	.lists .scroll_div {
-		font-size: 85%;
+		font-size: 90%;
+		margin-top: 1%;
+		margin-bottom: 1%;
 		margin-left: 2%;
 		margin-right: 2%;
 	}
