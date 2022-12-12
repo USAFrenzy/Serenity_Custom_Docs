@@ -378,11 +378,9 @@ td {
 
 	.lists .scroll_div {
 		display: block;
-		justify-content: center;
-		text-align: center;
 		white-space: nowrap;
 		overflow-x: scroll;
-		width: 250px;
+		width: 200px;
 	}
 
 	p,
@@ -401,9 +399,8 @@ td {
 	}
 
 	.flag_table {
-		font-size: 85%;
-		margin-left: 5%;
-		margin-right: 5%;
+		font-size: 75%;
+		width:400px;
 	}
 
 	.mainHeaders,

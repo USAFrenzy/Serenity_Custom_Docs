@@ -570,106 +570,108 @@
                 With The Exception Of '%T' Due To The Added Sub-Second Precision Field, All 'strftime' Flags Have The
                 Same Behavior In Serenity.
             </div>
-                <div class="flag_table">
-                    <table>
-                        <colgroup>
-                            <col span="8">
-                            <col span="8">
-                            <col span="8">
-                            <col span="8">
-                        </colgroup>
-                        <tr>
-                            <th><em> Flag </em></th>
-                            <th><em> Flag Function </em></th>
-                            <th><em> Flag Modifiers </em></th>
-                            <th><em> Example </em></th>
-                        </tr>
-                        <tr>
-                            <td> %l </td>
-                            <td> Prints the message level as a short string representation </td>
-                            <td> None </td>
-                            <td> Trace = 'T', Info = 'I'
-                                <br>
-                                Debug = 'D', Warning = 'W'
-                                <br>
-                                Error 'E', Fatal = 'F'
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> %L</span></td>
-                            <td> Prints the message level as a long string representation </td>
-                            <td> None </td>
-                            <td> Trace = 'Trace', Info = 'Info'
-                                <br>
-                                Debug = 'Debug', Warning = 'Warn'
-                                <br>
-                                Error 'Error', Fatal = 'Fatal'
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> %s</span></td>
-                            <td> Formats the source location of the log site </td>
-                            <td> ' : ' and any combination of 'a', 'c', 'f', 'l', 'F' </td>
-                            <td>
-                                <ul style="justify-content:left; text-align:left;">
-                                    <li>%s:c => output the column number of the log site</li>
-                                    <li>%s:f => output the file of where the log site is </li>
-                                    <li>%s:l => output the line number of the log site</li>
-                                    <li>%s:F => output the function name of where the log site is called</li>
-                                    <li> %s:a => format source location containing all fields </li>
-                                    <li> %s => same as %s:a</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> %t</span></td>
-                            <td> Formats the current thread ID of the logger </td>
-                            <td> ' : ' and any digit between 0-10<br> default length is 10 digits </td>
-                            <td>
-                                If thread ID was 123456789123456789:
-                                <br>
-                                %t:6 => 123456
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> %N</span></td>
-                            <td> Prints the Logger's Name </td>
-                            <td> None </td>
-                            <td>
-                                If logger's name was 'Critical_Logger', prints 'Critical_Logger'
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> %+</span></td>
-                            <td> Prints the actual log message itself
-                            <td> None </td>
-                            <td>
-                                If you called:
-                                <br><br>
-                                    <span style="color:#0000ad">someLogger</span>.<span
-                                    style="color: #044300;">Trace</span>(<span style="color: #069606;">"This Is A Log
-                                        Message With Value: {}"</span>, <span style="color: #27408b;">42</span>);
-                                        <br><br>
-                                Then this flag would output:
-                                <br><br>
-                                "This Is A Log Message With Value: 42"
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> %T</td>
-                            <td> Prints the 24 hour time format as HH:MM:SS</td>
-                            <td> ' : ' and any digits for sub-second precision of time</td>
-                            <td>
-                                If the time was 6:30 PM and the flag used was
-                                <br>
-                                '%T:3'
-                                <br>
-                                then a possible output might be:
-                                18:30:24.345
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+            <table class="flag_table">
+                <tr>
+                    <th><em> Flag </em></th>
+                    <th><em> Flag Function </em></th>
+                    <th><em> Flag Modifiers </em></th>
+                    <th><em> Example </em></th>
+                </tr>
+                <tr>
+                    <td> %l </td>
+                    <td> Prints the message level as a short string representation </td>
+                    <td> None </td>
+                    <td> Trace = 'T', Info = 'I'
+                        <br>
+                        Debug = 'D', Warning = 'W'
+                        <br>
+                        Error 'E', Fatal = 'F'
+                    </td>
+                </tr>
+                <tr>
+                    <td> %L</span></td>
+                    <td> Prints the message level as a long string representation </td>
+                    <td> None </td>
+                    <td> Trace = 'Trace', Info = 'Info'
+                        <br>
+                        Debug = 'Debug', Warning = 'Warn'
+                        <br>
+                        Error 'Error', Fatal = 'Fatal'
+                    </td>
+                </tr>
+                <tr>
+                    <td> %s</span></td>
+                    <td> Formats the source location of the log site </td>
+                    <td> ' : ' and any combination of 'a', 'c', 'f', 'l', 'F' </td>
+                    <td>
+                        <u>%s:c</u> =>
+                        output the column number of the log site
+                        <br><br>
+                        <u>%s:f </u> =>
+                        output the file of where the log site is
+                        <br><br>
+                        <u>%s:l </u> =>
+                        output the line number of the log site
+                        <br><br>
+                        <u>%s:F</u> =>
+                        output the function name of where the log site is called
+                        <br><br>
+                        <u> %s:a</u> =>
+                        format source location containing all fields
+                        <br><br>
+                        <u> %s</u> =>
+                        same as %s:a
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td> %t</span></td>
+                    <td> Formats the current thread ID of the logger </td>
+                    <td> ' : ' and any digit between 0-10<br> default length is 10 digits </td>
+                    <td>
+                        If thread ID was 123456789123456789:
+                        <br>
+                        %t:6 => 123456
+                    </td>
+                </tr>
+                <tr>
+                    <td> %N</span></td>
+                    <td> Prints the Logger's Name </td>
+                    <td> None </td>
+                    <td>
+                        If logger's name was 'Critical_Logger', prints 'Critical_Logger'
+                    </td>
+                </tr>
+                <tr>
+                    <td> %+</span></td>
+                    <td> Prints the actual log message itself
+                    <td> None </td>
+                    <td>
+                        If you called:
+                        <br><br>
+                        <span style="color:#0000ad">someLogger</span>.<span style="color: #044300;">Trace</span>(<span
+                            style="color: #069606;">"This Is A Log
+                            Message With Value: {}"</span>, <span style="color: #27408b;">42</span>);
+                        <br><br>
+                        Then this flag would output:
+                        <br><br>
+                        "This Is A Log Message With Value: 42"
+                    </td>
+                </tr>
+                <tr>
+                    <td> %T</td>
+                    <td> Prints the 24 hour time format as HH:MM:SS</td>
+                    <td> ' : ' and any digits for sub-second precision of time</td>
+                    <td>
+                        If the time was 6:30 PM and the flag used was
+                        <br>
+                        '%T:3'
+                        <br>
+                        then a possible output might be:
+                        18:30:24.345
+                    </td>
+                </tr>
+            </table>
             <br><br>
             <!------------------------------------------ This Section Covers Basic Logging Calls ----------------------------------------->
             <section id="LoggingCalls"> </section>
