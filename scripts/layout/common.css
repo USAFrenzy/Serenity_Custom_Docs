@@ -432,13 +432,17 @@ td {
 	p,
 	.lists,
 	.sh_cpp,
-	.center_text,
-	.lists .scroll_div {
+	.center_text {
 		font-size: 80%;
 		margin-left: 2%;
 		margin-right: 2%;
 	}
 
+	.lists .scroll_div {
+		font-size: 85%;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
 	/* separated form above so as to only affect the font_size */
 	.tables {
 		font-size: 85%;
