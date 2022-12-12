@@ -426,7 +426,7 @@ td {
 		display: block;
 		white-space: nowrap;
 		overflow-x: scroll;
-		width: 300px;
+		width: 275px;
 	}
 
 	p,
@@ -434,7 +434,7 @@ td {
 	.sh_cpp,
 	.center_text,
 	.lists .scroll_div {
-		font-size: 85%;
+		font-size: 80%;
 		margin-left: 2%;
 		margin-right: 2%;
 	}
