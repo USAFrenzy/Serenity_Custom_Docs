@@ -426,7 +426,7 @@ td {
 		display: block;
 		white-space: nowrap;
 		overflow-x: scroll;
-		width: 200px;
+		width: 275px;
 	}
 
 	p,
@@ -434,19 +434,19 @@ td {
 	.sh_cpp,
 	.center_text,
 	.lists .scroll_div {
-		font-size: 80%;
+		font-size: 85%;
 		margin-left: 2%;
 		margin-right: 2%;
 	}
 
 	/* separated form above so as to only affect the font_size */
 	.tables {
-		font-size: 80%;
+		font-size: 85%;
 	}
 
 	.flag_table {
 		font-size: 80%;
-		width:150px;
+		width:125px;
 	}
 }
 
