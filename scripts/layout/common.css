@@ -319,7 +319,6 @@ td {
 	}
 
 	p,
-	.lists,
 	.sh_cpp,
 	.center_text {
 		font-size: 80%;
@@ -334,14 +333,16 @@ td {
 		margin-left: 2%;
 		margin-right: 2%;
 	}
+
 	/* separated form above so as to only affect the font_size */
+	.lists,
 	.tables {
 		font-size: 85%;
 	}
 
 	.flag_table {
 		font-size: 75%;
-		width:120px;
+		width: 120px;
 	}
 }
 
@@ -364,11 +365,6 @@ td {
 	.hamburger_menu {
 		margin-top: -60px;
 		display: block;
-	}
-
-	.lists {
-		margin-left: 0%;
-		margin-right: 0%;
 	}
 
 	p {
@@ -420,7 +416,6 @@ td {
 	}
 
 	p,
-	.lists,
 	.sh_cpp,
 	.center_text,
 	.lists .scroll_div {
@@ -430,13 +425,14 @@ td {
 	}
 
 	/* separated form above so as to only affect the font_size */
+	.lists,
 	.tables {
 		font-size: 85%;
 	}
 
 	.flag_table {
 		font-size: 75%;
-		width:600px;
+		width: 600px;
 	}
 
 	.mainHeaders,
@@ -460,7 +456,7 @@ td {
 @media screen and (max-width:600px) {
 	.flag_table {
 		font-size: 75%;
-		width:400px;
+		width: 400px;
 	}
 }
 
@@ -490,7 +486,7 @@ td {
 		display: block;
 	}
 
-	.sh_cpp{
+	.sh_cpp {
 		display: block;
 		justify-content: center;
 		text-align: left;
@@ -539,9 +535,9 @@ td {
 		justify-content: center;
 	}
 
-.flag_table{
-	width:1100px;
-}
+	.flag_table {
+		width: 1100px;
+	}
 
 	ol {
 		margin-left: 20%;
