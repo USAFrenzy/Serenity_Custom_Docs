@@ -309,40 +309,90 @@ td {
 	margin: auto;
 }
 
-/* Mobile screens */
-@media screen and (max-width:480px) {
-	.lists .scroll_div {
+
+
+
+/* Roughly Full-sized++ desktop window */
+@media screen and (min-width:769px) {
+	.docLinks {
+		display: flex;
+	}
+
+	.docLinks a {
+		display: flex;
+	}
+
+	.hamburger_menu {
+		display: none;
+	}
+
+	.mobile_search-bar,
+	.mobile_search_button,
+	.mobile_searchBox {
+		display: none;
+	}
+
+	.desktop_search_button,
+	.desktop_searchBox {
 		display: block;
-		white-space: nowrap;
-		overflow-x: scroll;
-		width: 175px;
 	}
 
-	p,
-	.sh_cpp,
-	.center_text {
-		font-size: 80%;
-		margin-left: 2%;
-		margin-right: 2%;
+	.sh_cpp {
+		display: block;
+		justify-content: center;
+		text-align: left;
+		width: 650px;
+		overflow-x: auto;
 	}
 
-	.lists .scroll_div {
-		font-size: 80%;
-		padding-top: 1%;
-		padding-bottom: 1%;
-		margin-left: 2%;
-		margin-right: 2%;
+	.dropdown {
+		margin-top: 1%;
+		margin-bottom: 1%;
+		background-color: transparent;
+		color: rgb(189, 241, 241);
+		border: none;
+		font-size: 100%;
 	}
 
-	/* separated form above so as to only affect the font_size */
-	.lists,
-	.tables {
-		font-size: 85%;
+	.dropdown-content {
+		text-decoration: none;
+		background-color: transparent;
+		color: rgb(189, 241, 241);
+		justify-content: center;
+		margin: auto;
+		padding: 0%;
+		box-shadow: gray;
+	}
+
+	.dropdown-content_nested {
+		text-decoration: none;
+		background-color: transparent;
+		color: rgb(189, 241, 241);
+		justify-content: center;
+		margin: auto;
+		padding: 0%;
+		box-shadow: gray;
+	}
+
+	.dropdown:hover .dropdown-content .nav_link {
+		display: block;
+		text-align: center;
+		justify-content: center;
+	}
+
+	.dropdown-content:hover .dropdown-content_nested .nav_link {
+		display: block;
+		text-align: center;
+		justify-content: center;
 	}
 
 	.flag_table {
-		font-size: 75%;
-		width: 120px;
+		width: 1100px;
+	}
+
+	ol {
+		margin-left: 20%;
+		margin-right: 20%;
 	}
 }
 
@@ -455,92 +505,49 @@ td {
 /* quarter-sized desktop window */
 @media screen and (max-width:600px) {
 	.flag_table {
-		font-size: 75%;
+		font-size: 70%;
 		width: 400px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
 
-/* Roughly Full-sized++ desktop window */
-@media screen and (min-width:769px) {
-	.docLinks {
-		display: flex;
-	}
-
-	.docLinks a {
-		display: flex;
-	}
-
-	.hamburger_menu {
-		display: none;
-	}
-
-	.mobile_search-bar,
-	.mobile_search_button,
-	.mobile_searchBox {
-		display: none;
-	}
-
-	.desktop_search_button,
-	.desktop_searchBox {
+/* Mobile screens */
+@media screen and (max-width:480px) {
+	.lists .scroll_div {
 		display: block;
+		white-space: nowrap;
+		overflow-x: scroll;
+		width: 175px;
 	}
 
-	.sh_cpp {
-		display: block;
-		justify-content: center;
-		text-align: left;
-		width: 650px;
-		overflow-x: auto;
+	p,
+	.sh_cpp,
+	.center_text {
+		font-size: 80%;
+		margin-left: 2%;
+		margin-right: 2%;
 	}
 
-	.dropdown {
-		margin-top: 1%;
-		margin-bottom: 1%;
-		background-color: transparent;
-		color: rgb(189, 241, 241);
-		border: none;
-		font-size: 100%;
+	.lists .scroll_div {
+		font-size: 80%;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		margin-left: 2%;
+		margin-right: 2%;
 	}
 
-	.dropdown-content {
-		text-decoration: none;
-		background-color: transparent;
-		color: rgb(189, 241, 241);
-		justify-content: center;
-		margin: auto;
-		padding: 0%;
-		box-shadow: gray;
-	}
-
-	.dropdown-content_nested {
-		text-decoration: none;
-		background-color: transparent;
-		color: rgb(189, 241, 241);
-		justify-content: center;
-		margin: auto;
-		padding: 0%;
-		box-shadow: gray;
-	}
-
-	.dropdown:hover .dropdown-content .nav_link {
-		display: block;
-		text-align: center;
-		justify-content: center;
-	}
-
-	.dropdown-content:hover .dropdown-content_nested .nav_link {
-		display: block;
-		text-align: center;
-		justify-content: center;
+	/* separated form above so as to only affect the font_size */
+	.lists,
+	.tables {
+		font-size: 85%;
 	}
 
 	.flag_table {
-		width: 1100px;
-	}
-
-	ol {
-		margin-left: 20%;
-		margin-right: 20%;
+		font-size: 70%;
+		width: 100px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
