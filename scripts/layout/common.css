@@ -309,6 +309,20 @@ td {
 	margin: auto;
 }
 
+.scroll_div{
+	display: block;
+	white-space: nowrap;
+	color: rgb(4, 67, 0);
+	background-color: rgb(168, 192, 119);
+}
+
+.lists .scroll_div {
+	display: block;
+	white-space: nowrap;
+	color: rgb(4, 67, 0);
+	background-color: rgb(168, 192, 119);
+}
+
 /* Roughly Full-sized++ desktop window */
 @media screen and (min-width:769px) {
 	.docLinks {
@@ -456,11 +470,7 @@ td {
 	}
 
 	.lists .scroll_div {
-		display: block;
-		white-space: nowrap;
 		overflow-x: scroll;
-		color: rgb(4, 67, 0);
-		background-color: rgb(168, 192, 119);
 		width: 300px;
 	}
 
@@ -515,10 +525,6 @@ td {
 /* Mobile screens */
 @media screen and (max-width:480px) {
 	.lists .scroll_div {
-		color: rgb(4, 67, 0);
-		background-color: rgb(168, 192, 119);
-		display: block;
-		white-space: nowrap;
 		overflow-x: scroll;
 		font-size: 80%;
 		margin-left: 2%;
