@@ -315,7 +315,7 @@ td {
 		display: block;
 		white-space: nowrap;
 		overflow-x: scroll;
-		width: 200px;
+		width: 175px;
 	}
 
 	p,
@@ -328,9 +328,9 @@ td {
 	}
 
 	.lists .scroll_div {
-		font-size: 90%;
-		margin-top: 1%;
-		margin-bottom: 1%;
+		font-size: 80%;
+		padding-top: 1%;
+		padding-bottom: 1%;
 		margin-left: 2%;
 		margin-right: 2%;
 	}
