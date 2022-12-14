@@ -319,6 +319,7 @@ td {
 .lists .scroll_div {
 	display: block;
 	white-space: nowrap;
+	width: fit-content;
 	color: rgb(4, 67, 0);
 	background-color: rgb(168, 192, 119);
 	padding-top: 3%;
