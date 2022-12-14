@@ -48,8 +48,8 @@
                 <a class="classes_link" href="../helpers/file_helper.html">FileHelper</a>
                 <a class="classes_link" href="../helpers/file_cache.html">FileCache</a>
                 <a class="classes_link" href="../helpers/base_target_helper.html">BaseTargetHelper</a>
-                <a class="classes_link" href="../helpers/custom_flags.html#format_source_loc">Format_Source_Loc</a>
-                <a class="classes_link" href="../helpers/custom_flags.html#format_thread_id">Format_Thread_ID</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_source_loc">Format_Source_Loc</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_thread_id">Format_Thread_ID</a>
                 <a class="classes_link"
                     href="../customflagerror/custom_error_handler.html#format_error">format_error</a>
                 <br><br>
@@ -172,13 +172,45 @@ static constexpr std::array<const char*, 5> custom_error_messages = {
             <section id="custom_err_enum"></section>
             <div class="subHeaders"> enum CustomErrors </div>
             <p style="text-align: center;">
-                PLACE_HOLDER
+                This enum is what is used specifically for `ReportCustomError()` as well as what is used to map the
+                error messages to the actual error.
             </p>
+            <div class="codeBlock">
+                <pre class="sh_cpp"
+                    style="justify-content: center; margin-left: auto; margin-right: auto; background-color: #A8C077; width: fit-content; padding-left: 2%; padding-right: 2%;">
+
+enum class CustomErrors
+{
+    missing_enclosing_bracket,
+    missing_flag_specifier,
+    unknown_flag,
+    token_with_no_flag,
+    no_flag_mods,
+};
+                </pre>
+            </div>
             <section id="report_cust_err"></section>
-            <div class="subHeaders"> constexpr void ReportCustomError(CustomErrors err) </div>
+            <div class="subHeaders"> ReportCustomError() </div>
             <p style="text-align: center;">
-                PLACE_HOLDER
+                This function is essentially a wrapper that uses a `CustomErrors` enum value in order to index into the
+                `custom_error_messages` array for error reporting.
             </p>
+            <div class="codeBlock">
+                <pre class="sh_cpp" style="background-color: #A8C077;">
+
+[[noreturn]] constexpr void ReportCustomError(CustomErrors err) {
+    using enum CustomErrors;
+    switch( err ) {
+            case missing_flag_specifier: throw format_error(custom_error_messages[ 1 ]); break;
+            case missing_enclosing_bracket: throw format_error(custom_error_messages[ 2 ]); break;
+            case unknown_flag: throw format_error(custom_error_messages[ 3 ]); break;
+            case token_with_no_flag: throw format_error(custom_error_messages[ 4 ]); break;
+            case no_flag_mods: throw format_error(custom_error_messages[ 5 ]); break;
+            default: throw format_error(custom_error_messages[ 0 ]); break;
+        }
+}
+                    </pre>
+            </div>
             <hr />
         </div>
         <br><br>

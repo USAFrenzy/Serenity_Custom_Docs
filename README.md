@@ -1,5 +1,5 @@
 
-<p style="text-align:center; margin-bottom: -5%; margin-top: -5%;">
+<p style="text-align:center; margin-bottom: -20px; margin-top: -20px;">
   <img alt="Serenity Logo" src="Resources/Serenity_Logo_02.png" width="250" height="150" title="hover text">
 </p>
 <hr>
