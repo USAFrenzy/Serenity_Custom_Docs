@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <script type="text/javascript" src="../../scripts/code_syntax/sh_main.js"></script>
+    <script type="text/javascript" src="../../scripts/code_syntax/lang/sh_cpp.js"></script>
+    <script type="text/javascript" src="../../scripts/layout/layout.js"></script>
+    <script type="text/javascript" src="../../scripts/layout/docs.js"></script>
+    <link rel="stylesheet" href="../../scripts/layout/common.css">
+    <link rel="stylesheet" href="../../scripts/layout/docs.css">
+</head>
+
+<body onload="sh_highlightDocument();">
+    <section id="Top"></section>
+    <div class="outerBorder">
+        <div id="doc_tree" class="side_doc_tree">
+            <a href="javascript:void(0)" class="close_doc_tree" onclick="CloseDocTree()">&times;</a>
+            <div class="dropdown" onmouseleave="CollapseAllLinks()">
+                <a class="side_doc_link" href="../documentation_landing.html" onmouseenter="CollapseAllLinks()">Doc Home
+                    Page</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
+                <a class="namespace_link" href="../namespaces/serenity.html">serenity</a>
+                <a class="namespace_link" href="../namespaces/targets.html">targets</a>
+                <a class="namespace_link" href="../namespaces/se_colors.html">se_colors</a>
+                <a class="namespace_link" href="../namespaces/msg_details.html">msg_details</a>
+                <a class="namespace_link" href="../namespaces/helpers.html">helpers</a>
+                <a class="namespace_link" href="../namespaces/globals.html">globals</a>
+                <a class="namespace_link" href="../namespaces/serenity_luts.html">SERENITY_LUTS</a>
+                <a class="namespace_link" href="../namespaces/custom_flags.html">custom_flags</a>
+                <a class="namespace_link" href="../namespaces/custom_flag_error.html">CustomFlagError</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleClassLinks()">Classes</a>
+                <a class="classes_link" href="../serenity_classes/flush_policy.html">Flush_Policy</a>
+                <a class="classes_link" href="../msg_details/message_formatter.html">Message_Formatter</a>
+                <a class="classes_link" href="../msg_details/message_info.html">Message_Info</a>
+                <a class="classes_link" href="../msg_details/zone_thread.html">ZoneThread</a>
+                <a class="classes_link" href="../msg_details/message_time.html">Message_Time</a>
+                <a class="classes_link" href="../targets/ConsoleTarget.html">ConsoleTarget</a>
+                <a class="classes_link" href="../targets/FileTarget.html">FileTarget</a>
+                <a class="classes_link" href="../targets/RotatingTarget.html">RotatingTarget</a>
+                <a class="classes_link" href="../serenity_classes/rotate_settings.html">RotateSettings</a>
+                <a class="classes_link" href="../targets/TargetBase.html">TargetBase</a>
+                <a class="classes_link" href="../helpers/file_helper.html">FileHelper</a>
+                <a class="classes_link" href="../helpers/file_cache.html">FileCache</a>
+                <a class="classes_link" href="../helpers/base_target_helper.html">BaseTargetHelper</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_source_loc">Format_Source_Loc</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_thread_id">Format_Thread_ID</a>
+                <a class="classes_link"
+                    href="../customflagerror/custom_error_handler.html#format_error">format_error</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleStructLinks()">Structs</a>
+                <a class="structs_link"
+                    href="../helpers/formatter_specializations.html#logger_lvl">CustomFormatter&lt;LoggerLevel&gt;</a>
+                <a class="structs_link"
+                    href="../helpers/formatter_specializations.html#std_tm">CustomFormatter&lt;std::tm&gt;</a>
+                <a class="structs_link" href="serenity_classes/periodic_settings.html">PeriodicSettings</a>
+                <a class="structs_link" href="serenity_classes/rotate_limits.html">RotateLimits</a>
+                <a class="structs_link" href="targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
+                <a class="structs_link" href="#background_thread">BackgroundThread</a>
+                <a class="structs_link" href="../helpers/msg_with_loc.html">MsgWithLoc</a>
+                <a class="structs_link" href="customflagerror/custom_error_handler.html">custom_error_handler</a>
+            </div>
+        </div>
+        <div class="sticky_content" style="background-color: #045147;" onclick="menu_active(this)">
+            <div class="mobile_search-bar">
+                <form action="placeholder">
+                    <input type="text" class="mobile_searchBox" placeholder="Enter Search Term Here">
+                    <input type="image" class="mobile_search_button"
+                        src="../../Resources/search_icon_clipart.png"></input>
+                </form>
+            </div>
+            <div class="hamburger_menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="nav_menu">
+                    <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
+                    <a class="nav_link" href="../index.html">Home</a>
+                    <a class="nav_link" href="../Building/building_landing.html">Building</a>
+                    <a class="nav_link" href="../Examples/examples_landing.html">Examples</a>
+                    <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                    <a class="nav_link" href="#Top"> Go To Top </a>
+                </div>
+            </div>
+        </div>
+        <div class="sticky_content">
+            <div class="docLinks">
+                <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
+                <a class="docLink" href="../index.html">Home</a>
+                <a class="docLink" href="../Building/building_landing.html">Building</a>
+                <a class="docLink" href="../Examples/examples_landing.html">Examples</a>
+                <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                <div class="docLink">
+                    <form action="placeholder">
+                        <input type="text" class="desktop_searchBox" placeholder="Enter Search Term Here">
+                        <input type="image" class="desktop_search_button"
+                            src="../../Resources/search_icon_clipart.png"></input>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="mainHeaders">
+            <h1 align="center" style="color:#A8C077;"><strong><em>Custom Formatters</em></strong></h1>
+        </div>
+        <br><br><br>
+        <div id="main-body">
+            <div class="subHeaders"> BackgroundThread </div>
+            <div class="center_text">
+                This struct simply helps the file based targets check for the ability to write to or flush to a file
+                before attempting to lock a mutex for those operations. The goal of this struct is to eliminate thread
+                contention for the file based targets when multi-threading support is enabled.
+            </div>
+            <br> <br>
+
+            <div class="codeBlock">
+                <pre class="sh_cpp"
+                    style="justify-content: center; margin-left: auto; margin-right: auto; background-color: #A8C077; width: fit-content; padding-left: 2%; padding-right: 2%;">
+<br>
+struct BackgroundThread
+{
+	std::jthread flushThread;
+	std::stop_token interruptThread {};
+	std::atomic<bool> cleanUpThreads { false };
+	std::atomic<bool> flushThreadEnabled { false };
+	std::atomic<bool> flushComplete { true };
+	std::atomic<bool> threadWriting { false };
+	std::atomic<bool> pauseThread { false };
+};
+<br>
+</pre>
+            </div>
+            <br>
+            <div class="subHeaders"> More Information About BackgroundThread </div>
+            <br><br>
+
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th><em>std::jthread flushThread</em></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            - This thread object handles background flushing of contents to the file and is the same
+                            thread
+                            that the other variables in this struct are primarily referencing in Serenity for
+                            communication
+                            between the logging thread(s) and the actual flushing of those logs to the file(s).
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th><em> std::stop_token interruptThread</em></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            - This stop token object is used, as the name implies, to interrupt the background flushing
+                            thread as well as effectively terminates the flushing thread gracefully. This is used
+                            specifically in the clean-up process on logger target destruction if the flushing thread was
+                            created.
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th><em> std::atomic&lt;bool&gt; cleanUpThreads</em></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            - This atomic variable is used to initiate, check, and notify the background flushing thread
+                            when the main thread requests this thread to be destroyed; this is used in tandem with the
+                            stop_token `interruptThread` during logger destruction.
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th><em> std::atomic&lt;bool&gt; flushThreadEnabled</em></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            - This atomic variable is set to `true` when the background flushing thread is instantiated
+                            and is used in checks from the file logging thread(s) when writing to the file buffer.
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th><em> std::atomic&lt;bool&gt; flushComplete</em></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            - This atomic variable is used to notify the file logging thread(s) when a flush operation
+                            has been completed and when it is safe to claim a light-weight ownership over the resource
+                            for continued logging before locking the mutex to aid in avoiding thread contention.
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th><em> std::atomic&lt;bool&gt; threadWriting</em></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            - This atomic variable is used to notify the background flushing thread when a logging
+                            operation has been completed and when it is safe to claim a light-weight ownership over the
+                            resource for continued flushing before locking the mutex to aid in avoiding thread
+                            contention.
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th><em> std::atomic&lt;bool&gt; pauseThread</em></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            - This atomic variable is used to notify the background flushing thread to temporarily halt
+                            any flushing operations without destroying the thread itself. This is used more so with the
+                            RotatingTarget based logger(s) when a file is currently in the process of being rotated
+                            based on setting thresholds that have been met or in the case that the flush policies for
+                            certain logger(s) has changed or if the period for flushing hasn't elapsed.
+                            <br><br>
+                            For Example:
+                            <div class="lists" style="color: black;">
+                                <ol>
+                                    <li>Flush policy was changed from FlushSetting::always to FlushSetting::never
+                                        <ul>
+                                            <li>
+                                                In this case, the thread will be put to sleep indefinitely or until the
+                                                logger is destroyed by setting this atomic to `true` and bypassing flush
+                                                operations.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Flush policy is set to FlushSetting::periodically with
+                                        PeriodicSettings::logLevelBased and a log level of Fatal
+                                        <ul>
+                                            <li>
+                                                In this case, this thread will effectively be put to sleep until a Fatal
+                                                log message has been
+                                                written by setting this atomic to `true` and then immediately wake up
+                                                and flush the file buffer to disk by setting this atomic to `false` once
+                                                the condition has been met, allowing for flush operations to continue.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <hr />
+        </div>
+        <br><br>
+    </div>
+</body>
+
+</html>
