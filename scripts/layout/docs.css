@@ -107,8 +107,23 @@
     color: #036b5d;
 }
 
-.tables{
-    text-align: left;
+.doc_table_head {
+    font-size: 115%;
+    color: rgb(125, 45, 45);
+}
+
+.doc_table_break {
+    border: none;
+    background-color: rgb(3, 107, 93);
+}
+
+.tables {
+    text-align: center;
+    color: rgb(4, 81, 71);
+}
+
+li {
+    color: rgb(4, 81, 71);
 }
 
 .tables .lists {
@@ -122,7 +137,7 @@
         padding-top: 15px;
         margin-top: 0.5%;
         margin-bottom: 0.5%;
-        overflow-y:scroll;
+        overflow-y: scroll;
     }
 
     .side_doc_tree .side_doc_link {
@@ -133,7 +148,7 @@
 @media screen and (max-width:768px) {
     .doc_button {
         display: block;
-        background-color: #045147;
+        background-color: rgb(4, 81, 71);
         color: rgb(189, 241, 241);
         border: 1px solid rgb(202, 199, 199);
         margin-top: 4%;
@@ -161,4 +176,39 @@
         text-align: center;
         font-size: 95%;
     }
+}
+
+/* Larger desktop screen window */
+@media screen and (min-width:1000px) {
+    .doc_table_head{
+        font-size: 115%;
+    }
+}
+
+/* Roughly Full-sized desktop window */
+@media screen and (min-width:769px) and (max-width:1000px) {
+    .doc_table_head{
+        font-size: 110%;
+    }
+}
+
+/* Half-sized desktop window */
+@media screen and (max-width:768px) {
+    .doc_table_head{
+        font-size: 105%;
+    }
+}
+
+/* quarter-sized desktop window */
+@media screen and (max-width:600px) {
+    .doc_table_head{
+        font-size: 100%;
+    }
+}
+
+/* Mobile screens */
+@media screen and (max-width:480px) {
+.doc_table_head{
+    font-size: 95%;
+}
 }

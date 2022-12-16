@@ -106,15 +106,14 @@
         </div>
         <br><br>
         <div class="mainHeaders">
-            <h1 align="center" style="color:#A8C077;"><strong><em>Custom Formatters</em></strong></h1>
+            <h1 align="center" style="color:#A8C077;"><strong><em>BackgroundThread </em></strong></h1>
         </div>
         <br><br><br>
         <div id="main-body">
-            <div class="subHeaders"> BackgroundThread </div>
             <br>
             <div class="center_text">
                 This struct simply helps the file based targets check for the ability to write to or flush to a file
-                before attempting to lock a mutex for those operations. The goal of this struct is to eliminate thread
+                before attempting to lock a mutex for those operations. The goal of this struct is to minimize thread
                 contention for the file based targets when multi-threading support is enabled.
             </div>
             <br>
@@ -142,10 +141,10 @@ struct BackgroundThread
             <div class="tables">
                 <table>
                     <tr>
-                        <th style="text-align: center;"><em>std::jthread flushThread</em></th>
+                        <th class="doc_table_head"><em>std::jthread flushThread</em></th>
                     </tr>
                     <tr>
-                        <th>
+                        <th style="border-top: 0;">
                             This thread object handles background flushing of contents to the file and is the same
                             thread
                             that the other variables in this struct are primarily referencing in Serenity for
@@ -153,100 +152,84 @@ struct BackgroundThread
                             between the logging thread(s) and the actual flushing of those logs to the file(s).
                         </th>
                     </tr>
-                </table>
-            </div>
-            <br><br>
-            <div class="tables">
-                <table>
+                    <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th style="text-align: center;"><em> std::stop_token interruptThread</em></th>
+                        <th class="doc_table_head"><em> std::stop_token interruptThread</em>
+                        </th>
                     </tr>
                     <tr>
-                        <th>
+                        <th style="border-top: 0;">
                             This stop token object is used, as the name implies, to interrupt the background flushing
                             thread as well as effectively terminates the flushing thread gracefully. This is used
                             specifically in the clean-up process on logger target destruction if the flushing thread was
                             created.
                         </th>
                     </tr>
-                </table>
-            </div>
-            <br><br>
-            <div class="tables">
-                <table>
+                    <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; cleanUpThreads</em></th>
+                        <th class="doc_table_head"><em> std::atomic&lt;bool&gt;
+                                cleanUpThreads</em></th>
                     </tr>
                     <tr>
-                        <th>
+                        <th style="border-top: 0;">
                             This atomic variable is used to initiate, check, and notify the background flushing thread
                             when the main thread requests this thread to be destroyed; this is used in tandem with the
                             stop_token `interruptThread` during logger destruction.
                         </th>
                     </tr>
-                </table>
-            </div>
-            <br><br>
-            <div class="tables">
-                <table>
+                    <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; flushThreadEnabled</em></th>
+                        <th class="doc_table_head"><em> std::atomic&lt;bool&gt;
+                                flushThreadEnabled</em></th>
                     </tr>
                     <tr>
-                        <th>
+                        <th style="border-top: 0;">
                             This atomic variable is set to `true` when the background flushing thread is instantiated
                             and is used in checks from the file logging thread(s) when writing to the file buffer.
                         </th>
                     </tr>
-                </table>
-            </div>
-            <br><br>
-            <div class="tables">
-                <table>
+                    <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; flushComplete</em></th>
+                        <th class="doc_table_head"><em> std::atomic&lt;bool&gt;
+                                flushComplete</em></th>
                     </tr>
                     <tr>
-                        <th>
+                        <th style="border-top: 0;">
                             This atomic variable is used to notify the file logging thread(s) when a flush operation has
                             been completed and when it is safe to claim a light-weight ownership over the resource for
                             continued logging before locking the mutex to aid in avoiding thread contention.
                         </th>
                     </tr>
-                </table>
-            </div>
-            <br><br>
-            <div class="tables">
-                <table>
+                    <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; threadWriting</em></th>
+                        <th class="doc_table_head"><em> std::atomic&lt;bool&gt;
+                                threadWriting</em></th>
                     </tr>
                     <tr>
-                        <th>
+                        <th style="border-top: 0;">
                             This atomic variable is used to notify the background flushing thread when a logging
                             operation has been completed and when it is safe to claim a light-weight ownership over the
                             resource for continued flushing before locking the mutex to aid in avoiding thread
                             contention.
                         </th>
                     </tr>
-                </table>
-            </div>
-            <br><br>
-            <div class="tables">
-                <table>
+                    <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; pauseThread</em></th>
+                        <th class="doc_table_head"><em> std::atomic&lt;bool&gt;
+                                pauseThread</em></th>
                     </tr>
                     <tr>
-                        <th>
+                        <th style="border-top: 0;">
                             This atomic variable is used to notify the background flushing thread to temporarily halt
                             any flushing operations without destroying the thread itself. This is used more so with the
                             RotatingTarget based logger(s) when a file is currently in the process of being rotated
                             based on setting thresholds that have been met or in the case that the flush policies for
                             certain logger(s) has changed or if the period for flushing hasn't elapsed.
                             <br><br>
-                            <div class="center_text" style="color: black;"> For Example: </div>
-                            <div class="lists" style="color: black;">
+                            <div class="center_text" style="font-size: 110%; color: black;">
+                                <em><u> For Example:</u></em>
+                            </div>
+                            <div class="lists">
                                 <ol>
                                     <li>Flush policy was changed from FlushSetting::always to FlushSetting::never
                                         <ul>
@@ -278,9 +261,11 @@ struct BackgroundThread
                     </tr>
                 </table>
             </div>
+            <br>
             <hr />
         </div>
         <br><br>
     </div>
 </body>
+
 </html>
