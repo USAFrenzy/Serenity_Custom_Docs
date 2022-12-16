@@ -199,8 +199,7 @@
         margin-left: 13%;
         margin-right: 13%;
     }
-    .doc_table_body,
-    .doc_table_body li {
+    .doc_table_body{
         font-size: 105%;
     }
 
@@ -217,8 +216,7 @@
 	margin-right: 9%;
 }
 
-    .doc_table_body,
-    .doc_table_body li {
+    .doc_table_body{
         font-size: 100%;
     }
 
@@ -234,8 +232,7 @@
         margin-left: 7%;
         margin-right: 7%;
     }
-    .doc_table_body,
-    .doc_table_body li {
+    .doc_table_body{
         font-size: 100%;
     }
 
@@ -252,8 +249,7 @@
         margin-right: 0%;
     }
 
-    .doc_table_body,
-    .doc_table_body li {
+    .doc_table_body{
         font-size: 100%;
     }
 
@@ -270,8 +266,7 @@
         margin-right: 0%;
     }
 
-    .doc_table_body,
-    .doc_table_body li {
+    .doc_table_body{
         font-size: 93%;
     }
 
