@@ -107,6 +107,15 @@
     color: #036b5d;
 }
 
+.tables{
+    text-align: left;
+}
+
+.tables .lists {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 @media screen and (max-height: 650px) {
     .side_doc_tree {

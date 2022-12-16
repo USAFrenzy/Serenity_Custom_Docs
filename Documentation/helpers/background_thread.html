@@ -80,9 +80,9 @@
                 <div class="bar3"></div>
                 <div class="nav_menu">
                     <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
-                    <a class="nav_link" href="../index.html">Home</a>
-                    <a class="nav_link" href="../Building/building_landing.html">Building</a>
-                    <a class="nav_link" href="../Examples/examples_landing.html">Examples</a>
+                    <a class="nav_link" href="../../index.html">Home</a>
+                    <a class="nav_link" href="../../Building/building_landing.html">Building</a>
+                    <a class="nav_link" href="../../Examples/examples_landing.html">Examples</a>
                     <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
                     <a class="nav_link" href="#Top"> Go To Top </a>
                 </div>
@@ -91,9 +91,9 @@
         <div class="sticky_content">
             <div class="docLinks">
                 <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
-                <a class="docLink" href="../index.html">Home</a>
-                <a class="docLink" href="../Building/building_landing.html">Building</a>
-                <a class="docLink" href="../Examples/examples_landing.html">Examples</a>
+                <a class="docLink" href="../../index.html">Home</a>
+                <a class="docLink" href="../../Building/building_landing.html">Building</a>
+                <a class="docLink" href="../../Examples/examples_landing.html">Examples</a>
                 <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
                 <div class="docLink">
                     <form action="placeholder">
@@ -111,13 +111,13 @@
         <br><br><br>
         <div id="main-body">
             <div class="subHeaders"> BackgroundThread </div>
+            <br>
             <div class="center_text">
                 This struct simply helps the file based targets check for the ability to write to or flush to a file
                 before attempting to lock a mutex for those operations. The goal of this struct is to eliminate thread
                 contention for the file based targets when multi-threading support is enabled.
             </div>
-            <br> <br>
-
+            <br>
             <div class="codeBlock">
                 <pre class="sh_cpp"
                     style="justify-content: center; margin-left: auto; margin-right: auto; background-color: #A8C077; width: fit-content; padding-left: 2%; padding-right: 2%;">
@@ -142,11 +142,11 @@ struct BackgroundThread
             <div class="tables">
                 <table>
                     <tr>
-                        <th><em>std::jthread flushThread</em></th>
+                        <th style="text-align: center;"><em>std::jthread flushThread</em></th>
                     </tr>
                     <tr>
                         <th>
-                            - This thread object handles background flushing of contents to the file and is the same
+                            This thread object handles background flushing of contents to the file and is the same
                             thread
                             that the other variables in this struct are primarily referencing in Serenity for
                             communication
@@ -159,11 +159,11 @@ struct BackgroundThread
             <div class="tables">
                 <table>
                     <tr>
-                        <th><em> std::stop_token interruptThread</em></th>
+                        <th style="text-align: center;"><em> std::stop_token interruptThread</em></th>
                     </tr>
                     <tr>
                         <th>
-                            - This stop token object is used, as the name implies, to interrupt the background flushing
+                            This stop token object is used, as the name implies, to interrupt the background flushing
                             thread as well as effectively terminates the flushing thread gracefully. This is used
                             specifically in the clean-up process on logger target destruction if the flushing thread was
                             created.
@@ -175,11 +175,11 @@ struct BackgroundThread
             <div class="tables">
                 <table>
                     <tr>
-                        <th><em> std::atomic&lt;bool&gt; cleanUpThreads</em></th>
+                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; cleanUpThreads</em></th>
                     </tr>
                     <tr>
                         <th>
-                            - This atomic variable is used to initiate, check, and notify the background flushing thread
+                            This atomic variable is used to initiate, check, and notify the background flushing thread
                             when the main thread requests this thread to be destroyed; this is used in tandem with the
                             stop_token `interruptThread` during logger destruction.
                         </th>
@@ -190,11 +190,11 @@ struct BackgroundThread
             <div class="tables">
                 <table>
                     <tr>
-                        <th><em> std::atomic&lt;bool&gt; flushThreadEnabled</em></th>
+                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; flushThreadEnabled</em></th>
                     </tr>
                     <tr>
                         <th>
-                            - This atomic variable is set to `true` when the background flushing thread is instantiated
+                            This atomic variable is set to `true` when the background flushing thread is instantiated
                             and is used in checks from the file logging thread(s) when writing to the file buffer.
                         </th>
                     </tr>
@@ -204,13 +204,13 @@ struct BackgroundThread
             <div class="tables">
                 <table>
                     <tr>
-                        <th><em> std::atomic&lt;bool&gt; flushComplete</em></th>
+                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; flushComplete</em></th>
                     </tr>
                     <tr>
                         <th>
-                            - This atomic variable is used to notify the file logging thread(s) when a flush operation
-                            has been completed and when it is safe to claim a light-weight ownership over the resource
-                            for continued logging before locking the mutex to aid in avoiding thread contention.
+                            This atomic variable is used to notify the file logging thread(s) when a flush operation has
+                            been completed and when it is safe to claim a light-weight ownership over the resource for
+                            continued logging before locking the mutex to aid in avoiding thread contention.
                         </th>
                     </tr>
                 </table>
@@ -219,11 +219,11 @@ struct BackgroundThread
             <div class="tables">
                 <table>
                     <tr>
-                        <th><em> std::atomic&lt;bool&gt; threadWriting</em></th>
+                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; threadWriting</em></th>
                     </tr>
                     <tr>
                         <th>
-                            - This atomic variable is used to notify the background flushing thread when a logging
+                            This atomic variable is used to notify the background flushing thread when a logging
                             operation has been completed and when it is safe to claim a light-weight ownership over the
                             resource for continued flushing before locking the mutex to aid in avoiding thread
                             contention.
@@ -235,17 +235,17 @@ struct BackgroundThread
             <div class="tables">
                 <table>
                     <tr>
-                        <th><em> std::atomic&lt;bool&gt; pauseThread</em></th>
+                        <th style="text-align: center;"><em> std::atomic&lt;bool&gt; pauseThread</em></th>
                     </tr>
                     <tr>
                         <th>
-                            - This atomic variable is used to notify the background flushing thread to temporarily halt
+                            This atomic variable is used to notify the background flushing thread to temporarily halt
                             any flushing operations without destroying the thread itself. This is used more so with the
                             RotatingTarget based logger(s) when a file is currently in the process of being rotated
                             based on setting thresholds that have been met or in the case that the flush policies for
                             certain logger(s) has changed or if the period for flushing hasn't elapsed.
                             <br><br>
-                            For Example:
+                            <div class="center_text" style="color: black;"> For Example: </div>
                             <div class="lists" style="color: black;">
                                 <ol>
                                     <li>Flush policy was changed from FlushSetting::always to FlushSetting::never
@@ -263,10 +263,12 @@ struct BackgroundThread
                                         <ul>
                                             <li>
                                                 In this case, this thread will effectively be put to sleep until a Fatal
-                                                log message has been
-                                                written by setting this atomic to `true` and then immediately wake up
-                                                and flush the file buffer to disk by setting this atomic to `false` once
-                                                the condition has been met, allowing for flush operations to continue.
+                                                log message has been written. This scenario sets this atomic to `true`
+                                                and then immediately wakes up and flushes the file buffer to disk by
+                                                setting this atomic to `false` once the condition (a fatal message) has
+                                                been met. Then, once all contents have been flushed, this atomic will be
+                                                reset back to `true`; pausing the background thread from executing
+                                                again.
                                             </li>
                                         </ul>
                                     </li>
@@ -281,5 +283,4 @@ struct BackgroundThread
         <br><br>
     </div>
 </body>
-
 </html>
