@@ -108,8 +108,17 @@
 }
 
 .doc_table_head {
+    text-align: center;
     font-size: 115%;
+    font-style: italic;
     color: rgb(125, 45, 45);
+}
+
+.doc_table_body {
+    background-color: #a4b97a;
+    font-weight:500;
+    color: rgb(8, 105, 92);
+    border-top: 0;
 }
 
 .doc_table_break {
@@ -117,16 +126,22 @@
     background-color: rgb(3, 107, 93);
 }
 
-.tables {
-    text-align: center;
-    color: rgb(4, 81, 71);
+.doc_table_body .lists li {
+    color: rgb(8, 105, 92);
+    justify-content: left;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-li {
+
+.tables {
+    text-align: left;
     color: rgb(4, 81, 71);
 }
 
 .tables .lists {
+    justify-content: left;
     text-align: left;
     margin-left: auto;
     margin-right: auto;
@@ -180,35 +195,87 @@ li {
 
 /* Larger desktop screen window */
 @media screen and (min-width:1000px) {
-    .doc_table_head{
+    .lists{
+        margin-left: 13%;
+        margin-right: 13%;
+    }
+    .doc_table_body,
+    .doc_table_body li {
+        font-size: 105%;
+    }
+
+    .doc_table_head {
         font-size: 115%;
     }
 }
 
 /* Roughly Full-sized desktop window */
 @media screen and (min-width:769px) and (max-width:1000px) {
-    .doc_table_head{
+
+.lists{
+    margin-left: 9%;
+	margin-right: 9%;
+}
+
+    .doc_table_body,
+    .doc_table_body li {
+        font-size: 100%;
+    }
+
+    .doc_table_head {
         font-size: 110%;
     }
 }
 
 /* Half-sized desktop window */
 @media screen and (max-width:768px) {
-    .doc_table_head{
+
+    .lists{
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+    .doc_table_body,
+    .doc_table_body li {
+        font-size: 100%;
+    }
+
+    .doc_table_head {
         font-size: 105%;
     }
 }
 
 /* quarter-sized desktop window */
 @media screen and (max-width:600px) {
-    .doc_table_head{
+
+    .lists{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .doc_table_body,
+    .doc_table_body li {
         font-size: 100%;
+    }
+
+    .doc_table_head {
+        font-size: 98%;
     }
 }
 
 /* Mobile screens */
 @media screen and (max-width:480px) {
-.doc_table_head{
-    font-size: 95%;
-}
+
+    .lists{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .doc_table_body,
+    .doc_table_body li {
+        font-size: 90%;
+    }
+
+    .doc_table_head {
+        font-size: 95%;
+    }
 }

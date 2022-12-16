@@ -106,7 +106,7 @@
         </div>
         <br><br>
         <div class="mainHeaders">
-            <h1 align="center" style="color:#A8C077;"><strong><em>BaseTargetHelper</em></strong></h1>
+            <h1 align="center" style="color:#A8C077;"><strong>BaseTargetHelper</strong></h1>
         </div>
         <br><br><br>
         <div id="main-body">
@@ -149,13 +149,26 @@ class BaseTargetHelper
             <div class="tables">
                 <table>
                     <tr>
-                        <th class="doc_table_head"><em>explicit BaseTargetHelper();</em></th>
+                        <th class="doc_table_head">explicit BaseTargetHelper();</th>
                     </tr>
                     <tr>
-                        <th style="border-top: 0;">
-                            This is the only constructor available for this class. By default, it sets multi-threading
-                            support to false (disabled) and sets the policy by using FlushSetting::never (effectively
-                            never flush).
+                        <th class="doc_table_body">
+                            This is the only constructor available for this class. By default, it sets:
+                            <div class="lists">
+                                <ul>
+                                    <li>multi-threading support to false
+                                        <ul>
+                                            <li>multi-threading support is disabled</li>
+                                        </ul>
+                                    </li>
+                                    <li>policy to FlushSetting::never
+                                        <ul>
+                                            <li>effectively never flushes until explicitly told to flush from the logger
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </th>
                     </tr>
                     <tr>
@@ -163,11 +176,11 @@ class BaseTargetHelper
                     </tr>
                     <tr>
                         <th class="doc_table_head">
-                            <em> BaseTargetHelper&operator=(BaseTargetHelper&);</em>
+                            BaseTargetHelper&operator=(BaseTargetHelper&);
                         </th>
                     </tr>
                     <tr>
-                        <th style="border-top: 0;">
+                        <th class="doc_table_body">
                             This copy operator copies the multi-threading support option and the flush policy currently
                             in place.
                         </th>
@@ -177,24 +190,29 @@ class BaseTargetHelper
                     </tr>
                     <tr>
                         <th class="doc_table_head">
-                            <em>void EnableMultiThreadingSupport(bool enableMultiThreading =true);</em>
+                            void EnableMultiThreadingSupport(bool enableMultiThreading =true);
                         </th>
                     </tr>
                     <tr>
-                        <th style="border-top: 0;">
+                        <th class="doc_table_body">
                             This function uses a boolean value to simply toggle whether or not multi-threading support
-                            is enabled. Set `enableMultiThreading` to `false` to disable support and set it to `true` to
-                            enable support (default value is `true`).
+                            is enabled.
+                            <div class="lists">
+                                <ul>
+                                    <li>Set `enableMultiThreading=false` to disable support </li>
+                                    <li>Set `enableMultiThreading=true` to enable support</li>
+                                </ul>
+                            </div>
                         </th>
                     </tr>
                     <tr>
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head"><em>bool isMTSupportEnabled();</em></th>
+                        <th class="doc_table_head">bool isMTSupportEnabled();</th>
                     </tr>
                     <tr>
-                        <th style="border-top: 0;">
+                        <th class="doc_table_body">
                             Simply returns true or false based on the current state of multi-threading support.
                             <br>
                             <div class="lists">
@@ -210,11 +228,11 @@ class BaseTargetHelper
                     </tr>
                     <tr>
                         <th class="doc_table_head">
-                            <em>void SetFlushPolicy(const Flush_Policy& fPolicy);</em>
+                            void SetFlushPolicy(const Flush_Policy& fPolicy);
                         </th>
                     </tr>
                     <tr>
-                        <th style="border-top: 0;">
+                        <th class="doc_table_body">
                             [PLACE_HOLDER]
                         </th>
                     </tr>
@@ -223,11 +241,11 @@ class BaseTargetHelper
                     </tr>
                     <tr>
                         <th class="doc_table_head">
-                            <em> const std::unique_ptr&lt;Flush_Policy&gt;&Policy() const;</em>
+                            const std::unique_ptr&lt;Flush_Policy&gt;&Policy() const;
                         </th>
                     </tr>
                     <tr>
-                        <th style="border-top: 0;">
+                        <th class="doc_table_body">
                             [PLACE_HOLDER]
                         </th>
                     </tr>
