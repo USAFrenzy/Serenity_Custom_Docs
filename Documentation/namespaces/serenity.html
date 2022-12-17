@@ -20,8 +20,8 @@
         <div id="doc_tree" class="side_doc_tree">
             <a href="javascript:void(0)" class="close_doc_tree" onclick="CloseDocTree()">&times;</a>
             <div class="dropdown" onmouseleave="CollapseAllLinks()">
-                <a class="side_doc_link" href="../documentation_landing.html"
-                    onmouseenter="CollapseAllLinks()">Doc Home Page</a>
+                <a class="side_doc_link" href="../documentation_landing.html" onmouseenter="CollapseAllLinks()">Doc Home
+                    Page</a>
                 <br><br>
                 <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
                 <a class="namespace_link" href="">serenity</a>
@@ -125,9 +125,19 @@
                         - This struct is used to capture source location information at a log call site as well as
                         implicitly convert text encodings into UTF-8 by default to be used internally
                     </li>
+                    <li>
+                        <a href="../helpers/background_thread.html">BackgroundThread</a>
+                        - This class allows Serenity's targets to flush the contents of the buffer being
+                        used independently of the logging thread(s) in a thread-safe manner.
+                    </li>
                     <li><a href="../serenity_classes/flush_policy.html">Flush_Policy</a>
                         <br>
                         - This class controls whether the logger should flush on a specified interval, always, or never
+                    </li>
+                    <li><a href="../helpers/file_cache.html">FileCache</a>
+                        <br>
+                        - This class aids in caching the current log file, including its absolute path, directory, file
+                        name, and file extension.
                     </li>
                     <li><a href="../serenity_classes/periodic_settings.html">PeriodicSettings</a>
                         <br>
@@ -178,7 +188,8 @@
             </div>
             <div class="lists">
                 <ul>
-                    <li> <a href="../helpers/serenity_free_functions.html">static std::string_view LevelToShortView(const
+                    <li> <a href="../helpers/serenity_free_functions.html">static std::string_view
+                            LevelToShortView(const
                             LoggerLevel &level);</a>
                         <br>
                         - Converts LoggerLevel to short string representation
@@ -189,11 +200,13 @@
                         - Converts LoggerLevel to long string representation
 
                     </li>
-                    <li> <a href="../helpers/serenity_free_functions.html">static constexpr bool IsDigit(const char&ch);</a>
+                    <li> <a href="../helpers/serenity_free_functions.html">static constexpr bool IsDigit(const
+                            char&ch);</a>
                         <br>
                         - Slightly faster version of std::isdigit
                     </li>
-                    <li> <a href="../helpers/serenity_free_functions.html">static constexpr bool IsAlpha(const char& ch);</a>
+                    <li> <a href="../helpers/serenity_free_functions.html">static constexpr bool IsAlpha(const char&
+                            ch);</a>
                         <br>
                         - Slightly faster version of std::isalpha
                     </li>
@@ -211,28 +224,93 @@
                         <br>
                         - This namespace contains the in-house logging targets
                         <ul>
+                            <li><a href="../targets/terget_helper.html">namespace helpers</a>
+                                <br>
+                                - This nested namespace includes the following helpers used for all in-house targets:
+                                <ul>
+                                    <li>
+                                        <a href="../helpers/base_target_helper.html">BaseTargetHelper</a>
+                                        - This class contains the multi-threading support functions and flush policy
+                                        options that Serenity's targets use and is composed from
+                                        (<strong><em>NOT</em></strong> inherits from) the following classes:
+                                        <ul>
+                                            <li><a href="../helpers/background_thread.html">BackgroundThread</a></li>
+                                            <li><a href="../serenity_classes/flush_policy.html">Flush_Policy</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="../helpers/file_helper.html">FileHelper</a>
+                                        <br>
+                                        - This class aids Serenity's targets in file related operations. This includes
+                                        things such as:
+                                        <ul>
+                                            <li>Opening and closing the file</li>
+                                            <li>Writing to the buffer</li>
+                                            <li>Setting the file buffer size</li>
+                                            <li>Flushing the buffer to the file</li>
+                                            <li>Controlling the background thread worker in charge of flushing the
+                                                buffer</li>
+                                            <li>Renaming the log file</li>
+                                        </ul>
+                                        This class is composed from (<strong><em>NOT</em></strong> inherits from) the
+                                        following classes:
+                                        <ul>
+                                            <li><a href="../helpers/file_cache.html">FileCache</a></li>
+                                            <li><a href="../helpers/base_target_helper.html">BaseTargetHelper</a></li>
+                                            <li><a href="../helpers/background_thread.html">BackgroundThread</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                             <li> <a href="../targets/TargetBase.html">TargetBase</a>
                                 <br>
-                                - Base class all targets inherit from
+                                - Base class all targets inherit from. This class is composed
+                                from (<strong><em>NOT</em></strong> inherits from) the following classes:
+                                <ul>
+                                    <li><a href="../helpers/base_target_helper.html">BaseTargetHelper</a></li>
+                                    <li><a href="../msg_details/message_formatter.html">Message_Formatter</a></li>
+                                    <li><a href="../msg_details/message_info.html">Message_Info</a></li>
+                                </ul>
                             </li>
                             <li> <a href="../targets/ConsoleTarget.html">ConsoleTarget</a>
                                 <br>
-                                - Class that handles terminal logging
+                                - Class that handles terminal logging. This class inherits from the following:
+                                <ul>
+                                    <li><a href="../targets/TargetBase.html">TargetBase</a></li>
+                                </ul>
+                                and is composed from the following:
+                                <ul>
+                                    <li><a href="../targets/ConsoleTarget.html#console_interface">console_interface</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li> <a href="../targets/FileTarget.html">FileTarget</a>
                                 <br>
-                                - Class that handles logging to a singular file
+                                - Class that handles logging to a singular file. This class inherits from the following:
+                                <ul>
+                                    <li><a href="../targets/TargetBase.html">TargetBase</a></li>
+                                    <li><a href="../helpers/file_helper.html">FileHelper</a></li>
+                                </ul>
                             </li>
                             <li> <a href="../targets/RotatingTarget.html">RotatingTarget</a>
                                 <br>
                                 - Class that handles logging to multiple files and under conditions based on user
-                                settings
+                                settings.
+                                This class inherits from the following:
+                                <ul>
+                                    <li><a href="../targets/TargetBase.html">TargetBase</a></li>
+                                    <li><a href="../serenity_classes/rotate_settings.html">RotateSettings</a> </li>
+                                </ul>
+                                and is composed of the following:
+                                <ul>
+                                    <li><a href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a></li>
+                                    <li><a href="../targets/RotatingTarget.html#interval_mode">IntervalMode</a></li>
+                                </ul>
                             </li>
                             <li> <a href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
                                 <br>
                                 - Class that handles updating the background thread that runs when a time setting is
-                                used
-                                with RotatingTarget
+                                used with RotatingTarget
                             </li>
                         </ul>
                     </li>
@@ -272,11 +350,13 @@
                                 - This nested namespace holds the classes involved with the custom formatter
                                 specializations
                                 <ul>
-                                    <li><a href="../msg_details/custom_flags.html#format_source_loc">Format_Source_Loc</a>
+                                    <li><a
+                                            href="../msg_details/custom_flags.html#format_source_loc">Format_Source_Loc</a>
                                         <br>
                                         - This class is a helper class used in formatting source location data
                                     </li>
-                                    <li> <a href="../msg_details/custom_flags.html#format_thread_id">format_thread_id</a>
+                                    <li> <a
+                                            href="../msg_details/custom_flags.html#format_thread_id">format_thread_id</a>
                                         <br>
                                         - This class is a helper class used in formatting thread ID and its length
                                     </li>

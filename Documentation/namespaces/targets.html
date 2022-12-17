@@ -119,28 +119,93 @@
             </div>
             <div class="lists">
                 <ul>
+                    <li><a href="../targets/terget_helper.html">namespace helpers</a>
+                        <br>
+                        - This nested namespace includes the following helpers used for all in-house targets:
+                        <ul>
+                            <li>
+                                <a href="../helpers/base_target_helper.html">BaseTargetHelper</a>
+                                - This class contains the multi-threading support functions and flush policy
+                                options that Serenity's targets use and is composed from
+                                (<strong><em>NOT</em></strong> inherits from) the following classes:
+                                <ul>
+                                    <li><a href="../helpers/background_thread.html">BackgroundThread</a></li>
+                                    <li><a href="../serenity_classes/flush_policy.html">Flush_Policy</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="../helpers/file_helper.html">FileHelper</a>
+                                <br>
+                                - This class aids Serenity's targets in file related operations. This includes
+                                things such as:
+                                <ul>
+                                    <li>Opening and closing the file</li>
+                                    <li>Writing to the buffer</li>
+                                    <li>Setting the file buffer size</li>
+                                    <li>Flushing the buffer to the file</li>
+                                    <li>Controlling the background thread worker in charge of flushing the
+                                        buffer</li>
+                                    <li>Renaming the log file</li>
+                                </ul>
+                                This class is composed from (<strong><em>NOT</em></strong> inherits from) the
+                                following classes:
+                                <ul>
+                                    <li><a href="../helpers/file_cache.html">FileCache</a></li>
+                                    <li><a href="../helpers/base_target_helper.html">BaseTargetHelper</a></li>
+                                    <li><a href="../helpers/background_thread.html">BackgroundThread</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                     <li> <a href="../targets/TargetBase.html">TargetBase</a>
                         <br>
-                        - Base class all targets inherit from
+                        - Base class all targets inherit from. This class is composed
+                        from (<strong><em>NOT</em></strong> inherits from) the following classes:
+                        <ul>
+                            <li><a href="../helpers/base_target_helper.html">BaseTargetHelper</a></li>
+                            <li><a href="../msg_details/message_formatter.html">Message_Formatter</a></li>
+                            <li><a href="../msg_details/message_info.html">Message_Info</a></li>
+                        </ul>
                     </li>
                     <li> <a href="../targets/ConsoleTarget.html">ConsoleTarget</a>
                         <br>
-                        - Class that handles terminal logging
+                        - Class that handles terminal logging. This class inherits from the following:
+                        <ul>
+                            <li><a href="../targets/TargetBase.html">TargetBase</a></li>
+                        </ul>
+                        and is composed from the following:
+                        <ul>
+                            <li><a href="../targets/ConsoleTarget.html#console_interface">console_interface</a>
+                            </li>
+                        </ul>
                     </li>
                     <li> <a href="../targets/FileTarget.html">FileTarget</a>
                         <br>
-                        - Class that handles logging to a singular file
+                        - Class that handles logging to a singular file. This class inherits from the following:
+                        <ul>
+                            <li><a href="../targets/TargetBase.html">TargetBase</a></li>
+                            <li><a href="../helpers/file_helper.html">FileHelper</a></li>
+                        </ul>
                     </li>
                     <li> <a href="../targets/RotatingTarget.html">RotatingTarget</a>
                         <br>
                         - Class that handles logging to multiple files and under conditions based on user
-                        settings
+                        settings.
+                        This class inherits from the following:
+                        <ul>
+                            <li><a href="../targets/TargetBase.html">TargetBase</a></li>
+                            <li><a href="../serenity_classes/rotate_settings.html">RotateSettings</a> </li>
+                        </ul>
+                        and is composed of the following:
+                        <ul>
+                            <li><a href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a></li>
+                            <li><a href="../targets/RotatingTarget.html#interval_mode">IntervalMode</a></li>
+                        </ul>
                     </li>
                     <li> <a href="../targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
                         <br>
                         - Class that handles updating the background thread that runs when a time setting is
-                        used
-                        with RotatingTarget
+                        used with RotatingTarget
                     </li>
                 </ul>
 

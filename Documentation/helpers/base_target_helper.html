@@ -233,7 +233,77 @@ class BaseTargetHelper
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER]
+                            This function takes a reference to a <a class="doc_table_link"
+                                href="../serenity_classes/flush_policy.html">Flush_Policy</a> class object as its
+                            parameter. Flush_Policy is thread-safe and covers the following options:
+                            <div class="lists">
+                                <ul>
+                                    <li>A <a class="doc_table_link"
+                                            href="../serenity_classes/flush_policy.html#flush_setting">FlushSetting</a>
+                                        <br>
+                                        - This can be one of three choices:
+                                        <ul>
+                                            <li>
+                                                <em><u>always</u></em> - Always flushes the buffer after each log
+                                                message
+                                            </li>
+                                            <li><em><u>periodically</u></em> - As it implies, periodically flush the
+                                                buffer. This is contingent on either a time based or a log level based
+                                                sub-option
+                                            </li>
+                                            <li>
+                                                <em><u>never</u></em> - Never flush the buffer contents to disk; this
+                                                means you must call the Flush() function manually
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>A <a class="doc_table_link"
+                                            href="../serenity_classes/flush_policy.html#periodic_option">PeriodicOptions</a>
+                                        <br>
+                                        - The below options are only used when FlushSetting::periodically is set.
+                                        <br>
+                                        This can be one of three choices:
+                                        <ul>
+                                            <li><em><u>timeBased</u></em> - This option will launch a background thread,
+                                                if the flush worker thread hasn't already been launched before, that
+                                                will flush the contents of the buffer to disk once the specified time
+                                                has elapsed.
+                                            </li>
+                                            <li>
+                                                <em><u> logLevelBased</u></em> - This option will launch a background
+                                                thread, if the flush worker thread hasn't already been launched before,
+                                                that will flush the contents of the buffer to disk once a message with
+                                                the specified log level has been written to the buffer.
+                                            </li>
+                                            <li>
+                                                <em><u>undef</u></em> - this option is used and set only when
+                                                FlushSetting::periodically is not set
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>A <a class="doc_table_link"
+                                            href="../serenity_classes/flush_policy.html#periodic_setting">PeriodicSettings</a>
+                                        <br>
+                                        - The below options are only used when FlushSetting::periodically is set and
+                                        PeriodicOptions::undef is not set.
+                                        <br>
+                                        This can be one of two choices:
+                                        <ul>
+                                            <li>
+                                                <em><u>flushEvery</u></em> - This option is the value you set, in
+                                                milliseconds, if FlushSetting::periodically and
+                                                PeriodicOptions::timeBased are both set.
+                                            </li>
+                                            <li>
+                                                <em><u>flushOn</u></em> - This option is the value you set, as a log
+                                                level value, if FlushSetting::periodically and
+                                                PeriodicOptions::logLevelBased are both set.
+                                            </li>
+                                        </ul>
+
+                                    </li>
+                                </ul>
+                            </div>
                         </th>
                     </tr>
                     <tr>
@@ -246,7 +316,7 @@ class BaseTargetHelper
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER]
+                            This function simply returns a const pointer to the policy currently in place.
                         </th>
                     </tr>
                 </table>
