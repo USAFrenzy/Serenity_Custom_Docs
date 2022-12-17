@@ -127,7 +127,7 @@
 }
 
 .doc_table_body .lists li {
-    color: rgb(12, 78, 125);
+    color: rgb(3, 107, 93)rgb(3, 107, 93);
     justify-content: left;
     text-align: left;
     margin-left: auto;
@@ -135,7 +135,7 @@
 }
 
 .doc_table_link{
-    color :rgb(2, 63, 21) ;
+    color :rgb(12, 78, 125) ;
 }
 
 .doc_table_link:hover{
