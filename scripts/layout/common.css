@@ -309,7 +309,7 @@ td {
 	margin: auto;
 }
 
-.scroll_div{
+.scroll_div {
 	display: block;
 	white-space: nowrap;
 	color: rgb(4, 67, 0);
@@ -496,7 +496,7 @@ td {
 		overflow-x: scroll;
 		width: 600px;
 	}
-	
+
 	ol {
 		margin-left: 20%;
 		margin-right: 20%;
@@ -605,6 +605,15 @@ td {
 		margin-top: 4%;
 	}
 
+	.dropdown-content {
+		overflow-x: auto;
+		margin-right: 3%;
+	}
+
+	.dropdown-content_nested {
+		overflow-x: auto;
+		margin-right: 3%;
+	}
 }
 
 /* quarter-sized desktop window */
@@ -642,7 +651,7 @@ td {
 		font-size: 85%;
 	}
 
-	.lists{
+	.lists {
 		margin-left: 1%;
 		margin-right: 1%;
 	}
