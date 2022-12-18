@@ -24,7 +24,6 @@
                     Page</a>
                 <br><br>
                 <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
-                <a class="namespace_link" href="../namespaces/serenity.html">serenity</a>
                 <a class="namespace_link" href="../namespaces/targets.html">targets</a>
                 <a class="namespace_link" href="../namespaces/se_colors.html">se_colors</a>
                 <a class="namespace_link" href="../namespaces/msg_details.html">msg_details</a>
@@ -106,7 +105,7 @@
         </div>
         <br><br>
         <div class="mainHeaders">
-            <h1 align="center" style="color:#A8C077;"><strong>Ansi Color Helper</strong></h1>
+            <h1 align="center" style="color:#A8C077;"><strong>Ansi Color Helper (Color.h)</strong></h1>
         </div>
         <br><br><br>
         <div id="main-body">
@@ -121,10 +120,11 @@
             <div class="lists">
                 <ul>
                     <li>
-                        <span style="color: rgb(189, 241, 241);"><u>formats</u></span>
+                        <span style="color: #cbff64;">namespace formats</span>
                         <span style="color: #A8C077;">- This namespace holds format codes such as bold or dim</span>
-                        <div class="dropdown" style="width: fit-content;" onmouseleave="ResetTriangle(0)">
-                            <div class="right-facing-arrow" onmouseenter="RotateTriangle(0)"></div>
+                        <div class="dropdown" style="width: fit-content;"  onmouseleave="ResetTriangle(0)">
+                            <div class="right-facing-arrow" onmouseenter="RotateTriangle(0), ToggleContent('dropdown', 1)">
+                            </div>
                             <div class="dropdown-content">
                                 <ul>
                                     <li>reset</li>
@@ -147,7 +147,7 @@
                     </li>
                     <br>
                     <li>
-                        <span style="color: rgb(189, 241, 241);"><u>basic_colors</u></span>
+                        <span style="color: #cbff64;">namespace basic_colors</span>
                         <span style="color: #A8C077;"> - This namespace holds the ansi codes for the non-bold/bright
                             variants of colors</span>
                         <div class="dropdown" style="width: fit-content;" onmouseleave="ResetTriangle(1)">
@@ -155,7 +155,7 @@
                             <div class="dropdown-content">
                                 <ul>
                                     <li>
-                                        <span style="color: rgb(189, 241, 241);"><u>foreground</u></span>
+                                        <span style="color: #cbff64;">namespace foreground</span>
                                         <span style="color: #A8C077;">- This nested namespace holds the color codes that
                                             only deal with the foreground colors for basic colors</span>
                                         <ul>
@@ -172,7 +172,7 @@
                                     </li>
                                     <br>
                                     <li>
-                                        <span style="color: rgb(189, 241, 241);"><u>background</u></span>
+                                        <span style="color: #cbff64;">namespace background</span>
                                         <span style="color: #A8C077;">- This nested namespace holds the color codes that
                                             only deal with the background colors for basic colors</span>
                                         <ul>
@@ -189,7 +189,7 @@
                                     </li>
                                     <br>
                                     <li>
-                                        <span style="color: rgb(189, 241, 241);"><u>combos</u></span>
+                                        <span style="color: #cbff64;">namespace combos</span>
                                         <span style="color: #A8C077;">- This nested namespace holds the color codes that
                                             only deal with the color combinations for all the basic variants of color
                                             codes for both foreground and background.</span>
@@ -364,7 +364,7 @@
                     </li>
                     <br>
                     <li>
-                        <span style="color: rgb(189, 241, 241);"><u>bright_colors</u></span>
+                        <span style="color: #cbff64;">namespace bright_colors</span>
                         <span style="color: #A8C077;"> - This namespace holds the ansi codes for the bold/bright
                             variants of colors</span>
                         <div class="dropdown" style="width: fit-content;" onmouseleave="ResetTriangle(2)">
@@ -372,7 +372,7 @@
                             <div class="dropdown-content">
                                 <ul>
                                     <li>
-                                        <span style="color: rgb(189, 241, 241);"><u>foreground</u></span>
+                                        <span style="color: #cbff64;">namespace foreground</span>
                                         <span style="color: #A8C077;">- This nested namespace holds the color codes that
                                             only deal with the foreground colors for bright colors</span>
                                         <ul>
@@ -389,7 +389,7 @@
                                     </li>
                                     <br>
                                     <li>
-                                        <span style="color: rgb(189, 241, 241);"><u>background</u></span>
+                                        <span style="color: #cbff64;">namespace background</span>
                                         <span style="color: #A8C077;">- This nested namespace holds the color codes that
                                             only deal with the background colors for bright colors</span>
                                         <ul>
@@ -406,7 +406,7 @@
                                     </li>
                                     <br>
                                     <li>
-                                        <span style="color: rgb(189, 241, 241);"><u>combos</u></span>
+                                        <span style="color: #cbff64;">namespace combos</span>
                                         <span style="color: #A8C077;">- This nested namespace holds the color codes that
                                             only deal with the color combinations for all the bright variants of color
                                             codes for both foreground and background.</span>
@@ -581,7 +581,7 @@
                     </li>
                     <br>
                     <li>
-                        <span style="color: rgb(189, 241, 241);"><u>Tag</u></span>
+                        <span style="color: #cbff64;">namespace Tag</span>
                         <span style="color: #A8C077;">- For this namespace, everything listed above in regards to only
                             foreground, only background, as well as all the color combinations are wrapped in the same
                             naming scheme in function form. The functions in this namespace return a std::string. The
@@ -609,296 +609,296 @@
                         <div class="dropdown" onmouseleave="ResetTriangle(3)">
                             <div class="right-facing-arrow" onmouseenter="RotateTriangle(3)"></div>
                             <div class="dropdown-content">
-                                <ul>
+                                <ul style="color: #A8C077;">
                                     <li>Reset();
-                                    <li>Black(std::string_view s);</li>
-                                    <li>Red(std::string_view s);</li>
-                                    <li>Green(std::string_view s);</li>
-                                    <li>Yellow(std::string_view s);</li>
-                                    <li>Blue(std::string_view s);</li>
-                                    <li>Magenta(std::string_view s);</li>
-                                    <li>Cyan(std::string_view s);</li>
-                                    <li>White(std::string_view s);</li>
-                                    <li>On_Black(std::string_view s);</li>
-                                    <li>On_Red(std::string_view s);</li>
-                                    <li>On_Green(std::string_view s);</li>
-                                    <li>On_Yellow(std::string_view s);</li>
-                                    <li>On_Blue(std::string_view s);</li>
-                                    <li>On_Magenta(std::string_view s);</li>
-                                    <li>On_Cyan(std::string_view s);</li>
-                                    <li>On_White(std::string_view s);</li>
-                                    <li>Black_On_Black(std::string_view s);</li>
-                                    <li>Black_On_Red(std::string_view s);</li>
-                                    <li>Black_On_Green(std::string_view s);</li>
-                                    <li>Black_On_Yellow(std::string_view s);</li>
-                                    <li>Black_On_Blue(std::string_view s);</li>
-                                    <li>Black_On_Magenta(std::string_view s);</li>
-                                    <li>Black_On_Cyan(std::string_view s);</li>
-                                    <li>Black_On_White(std::string_view s);</li>
-                                    <li>Black_On_Grey(std::string_view s);</li>
-                                    <li>Black_On_Bright_Red(std::string_view s);</li>
-                                    <li>Black_On_Bright_Green(std::string_view s);</li>
-                                    <li>Black_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Black_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Black_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Black_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Black_On_Bright_White(std::string_view s);</li>
-                                    <li>Red_On_Black(std::string_view s);</li>
-                                    <li>Red_On_Red(std::string_view s);</li>
-                                    <li>Red_On_Green(std::string_view s);</li>
-                                    <li>Red_On_Yellow(std::string_view s);</li>
-                                    <li>Red_On_Blue(std::string_view s);</li>
-                                    <li>Red_On_Magenta(std::string_view s);</li>
-                                    <li>Red_On_Cyan(std::string_view s);</li>
-                                    <li>Red_On_White(std::string_view s);</li>
-                                    <li>Red_On_Grey(std::string_view s);</li>
-                                    <li>Red_On_Bright_Red(std::string_view s);</li>
-                                    <li>Red_On_Bright_Green(std::string_view s);</li>
-                                    <li>Red_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Red_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Red_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Red_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Red_On_Bright_White(std::string_view s);</li>
-                                    <li>Green_On_Black(std::string_view s);</li>
-                                    <li>Green_On_Red(std::string_view s);</li>
-                                    <li>Green_On_Green(std::string_view s);</li>
-                                    <li>Green_On_Yellow(std::string_view s);</li>
-                                    <li>Green_On_Blue(std::string_view s);</li>
-                                    <li>Green_On_Magenta(std::string_view s);</li>
-                                    <li>Green_On_Cyan(std::string_view s);</li>
-                                    <li>Green_On_White(std::string_view s);</li>
-                                    <li>Green_On_Grey(std::string_view s);</li>
-                                    <li>Green_On_Bright_Red(std::string_view s);</li>
-                                    <li>Green_On_Bright_Green(std::string_view s);</li>
-                                    <li>Green_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Green_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Green_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Green_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Green_On_Bright_White(std::string_view s);</li>
-                                    <li>Yellow_On_Black(std::string_view s);</li>
-                                    <li>Yellow_On_Red(std::string_view s);</li>
-                                    <li>Yellow_On_Green(std::string_view s);</li>
-                                    <li>Yellow_On_Yellow(std::string_view s);</li>
-                                    <li>Yellow_On_Blue(std::string_view s);</li>
-                                    <li>Yellow_On_Magenta(std::string_view s);</li>
-                                    <li>Yellow_On_Cyan(std::string_view s);</li>
-                                    <li>Yellow_On_White(std::string_view s);</li>
-                                    <li>Yellow_On_Grey(std::string_view s);</li>
-                                    <li>Yellow_On_Bright_Red(std::string_view s);</li>
-                                    <li>Yellow_On_Bright_Green(std::string_view s);</li>
-                                    <li>Yellow_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Yellow_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Yellow_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Yellow_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Yellow_On_Bright_White(std::string_view s);</li>
-                                    <li>Blue_On_Black(std::string_view s);</li>
-                                    <li>Blue_On_Red(std::string_view s);</li>
-                                    <li>Blue_On_Green(std::string_view s);</li>
-                                    <li>Blue_On_Yellow(std::string_view s);</li>
-                                    <li>Blue_On_Blue(std::string_view s);</li>
-                                    <li>Blue_On_Magenta(std::string_view s);</li>
-                                    <li>Blue_On_Cyan(std::string_view s);</li>
-                                    <li>Blue_On_White(std::string_view s);</li>
-                                    <li>Blue_On_Grey(std::string_view s);</li>
-                                    <li>Blue_On_Bright_Red(std::string_view s);</li>
-                                    <li>Blue_On_Bright_Green(std::string_view s);</li>
-                                    <li>Blue_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Blue_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Blue_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Blue_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Blue_On_Bright_White(std::string_view s);</li>
-                                    <li>Magenta_On_Black(std::string_view s);</li>
-                                    <li>Magenta_On_Red(std::string_view s);</li>
-                                    <li>Magenta_On_Green(std::string_view s);</li>
-                                    <li>Magenta_On_Yellow(std::string_view s);</li>
-                                    <li>Magenta_On_Blue(std::string_view s);</li>
-                                    <li>Magenta_On_Magenta(std::string_view s);</li>
-                                    <li>Magenta_On_Cyan(std::string_view s);</li>
-                                    <li>Magenta_On_White(std::string_view s);</li>
-                                    <li>Magenta_On_Grey(std::string_view s);</li>
-                                    <li>Magenta_On_Bright_Red(std::string_view s);</li>
-                                    <li>Magenta_On_Bright_Green(std::string_view s);</li>
-                                    <li>Magenta_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Magenta_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Magenta_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Magenta_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Magenta_On_Bright_White(std::string_view s);</li>
-                                    <li>Cyan_On_Black(std::string_view s);</li>
-                                    <li>Cyan_On_Red(std::string_view s);</li>
-                                    <li>Cyan_On_Green(std::string_view s);</li>
-                                    <li>Cyan_On_Yellow(std::string_view s);</li>
-                                    <li>Cyan_On_Blue(std::string_view s);</li>
-                                    <li>Cyan_On_Magenta(std::string_view s);</li>
-                                    <li>Cyan_On_Cyan(std::string_view s);</li>
-                                    <li>Cyan_On_White(std::string_view s);</li>
-                                    <li>Cyan_On_Grey(std::string_view s);</li>
-                                    <li>Cyan_On_Bright_Red(std::string_view s);</li>
-                                    <li>Cyan_On_Bright_Green(std::string_view s);</li>
-                                    <li>Cyan_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Cyan_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Cyan_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Cyan_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Cyan_On_Bright_White(std::string_view s);</li>
-                                    <li>White_On_Black(std::string_view s);</li>
-                                    <li>White_On_Red(std::string_view s);</li>
-                                    <li>White_On_Green(std::string_view s);</li>
-                                    <li>White_On_Yellow(std::string_view s);</li>
-                                    <li>White_On_Blue(std::string_view s);</li>
-                                    <li>White_On_Magenta(std::string_view s);</li>
-                                    <li>White_On_Cyan(std::string_view s);</li>
-                                    <li>White_On_White(std::string_view s);</li>
-                                    <li>White_On_Grey(std::string_view s);</li>
-                                    <li>White_On_Bright_Red(std::string_view s);</li>
-                                    <li>White_On_Bright_Green(std::string_view s);</li>
-                                    <li>White_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>White_On_Bright_Blue(std::string_view s);</li>
-                                    <li>White_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>White_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>White_On_Bright_White(std::string_view s);</li>
-                                    <li>Grey(std::string_view s);</li>
-                                    <li>Bright_Red(std::string_view s);</li>
-                                    <li>Bright_Green(std::string_view s);</li>
-                                    <li>Bright_Yellow(std::string_view s);</li>
-                                    <li>Bright_Blue(std::string_view s);</li>
-                                    <li>Bright_Magenta(std::string_view s);</li>
-                                    <li>Bright_Cyan(std::string_view s);</li>
-                                    <li>Bright_White(std::string_view s);</li>
-                                    <li>On_Grey(std::string_view s);</li>
-                                    <li>On_Bright_Red(std::string_view s);</li>
-                                    <li>On_Bright_Green(std::string_view s);</li>
-                                    <li>On_Bright_Yellow(std::string_view s);</li>
-                                    <li>On_Bright_Blue(std::string_view s);</li>
-                                    <li>On_Bright_Magenta(std::string_view s);</li>
-                                    <li>On_Bright_Cyan(std::string_view s);</li>
-                                    <li>On_Bright_White(std::string_view s);</li>
-                                    <li>Grey_On_Black(std::string_view s);</li>
-                                    <li>Grey_On_Red(std::string_view s);</li>
-                                    <li>Grey_On_Green(std::string_view s);</li>
-                                    <li>Grey_On_Yellow(std::string_view s);</li>
-                                    <li>Grey_On_Blue(std::string_view s);</li>
-                                    <li>Grey_On_Magenta(std::string_view s);</li>
-                                    <li>Grey_On_Cyan(std::string_view s);</li>
-                                    <li>Grey_On_White(std::string_view s);</li>
-                                    <li>Grey_On_Grey(std::string_view s);</li>
-                                    <li>Grey_On_Bright_Red(std::string_view s);</li>
-                                    <li>Grey_On_Bright_Green(std::string_view s);</li>
-                                    <li>Grey_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Grey_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Grey_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Grey_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Grey_On_Bright_White(std::string_view s);</li>
-                                    <li>Bright_Red_On_Black(std::string_view s);</li>
-                                    <li>Bright_Red_On_Red(std::string_view s);</li>
-                                    <li>Bright_Red_On_Green(std::string_view s);</li>
-                                    <li>Bright_Red_On_Yellow(std::string_view s);</li>
-                                    <li>Bright_Red_On_Blue(std::string_view s);</li>
-                                    <li>Bright_Red_On_Magenta(std::string_view s);</li>
-                                    <li>Bright_Red_On_Cyan(std::string_view s);</li>
-                                    <li>Bright_Red_On_White(std::string_view s);</li>
-                                    <li>Bright_Red_On_Grey(std::string_view s);</li>
-                                    <li>Bright_Red_On_Bright_Red(std::string_view s);</li>
-                                    <li>Bright_Red_On_Bright_Green(std::string_view s);</li>
-                                    <li>Bright_Red_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Bright_Red_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Bright_Red_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Bright_Red_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Bright_Red_On_Bright_White(std::string_view s);</li>
-                                    <li>Bright_Green_On_Black(std::string_view s);</li>
-                                    <li>Bright_Green_On_Red(std::string_view s);</li>
-                                    <li>Bright_Green_On_Green(std::string_view s);</li>
-                                    <li>Bright_Green_On_Yellow(std::string_view s);</li>
-                                    <li>Bright_Green_On_Blue(std::string_view s);</li>
-                                    <li>Bright_Green_On_Magenta(std::string_view s);</li>
-                                    <li>Bright_Green_On_Cyan(std::string_view s);</li>
-                                    <li>Bright_Green_On_White(std::string_view s);</li>
-                                    <li>Bright_Green_On_Grey(std::string_view s);</li>
-                                    <li>Bright_Green_On_Bright_Red(std::string_view s);</li>
-                                    <li>Bright_Green_On_Bright_Green(std::string_view s);</li>
-                                    <li>Bright_Green_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Bright_Green_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Bright_Green_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Bright_Green_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Bright_Green_On_Bright_White(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Black(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Red(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Green(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Yellow(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Blue(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Magenta(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Cyan(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_White(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Grey(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Bright_Red(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Bright_Green(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Bright_Yellow_On_Bright_White(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Black(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Red(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Green(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Yellow(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Blue(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Magenta(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Cyan(std::string_view s);</li>
-                                    <li>Bright_Blue_On_White(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Grey(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Bright_Red(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Bright_Green(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Bright_Blue_On_Bright_White(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Black(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Red(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Green(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Yellow(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Blue(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Magenta(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Cyan(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_White(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Grey(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Bright_Red(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Bright_Green(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Bright_Magenta_On_Bright_White(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Black(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Red(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Green(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Yellow(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Blue(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Magenta(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Cyan(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_White(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Grey(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Bright_Red(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Bright_Green(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Bright_Cyan_On_Bright_White(std::string_view s);</li>
-                                    <li>Bright_White_On_Black(std::string_view s);</li>
-                                    <li>Bright_White_On_Red(std::string_view s);</li>
-                                    <li>Bright_White_On_Green(std::string_view s);</li>
-                                    <li>Bright_White_On_Yellow(std::string_view s);</li>
-                                    <li>Bright_White_On_Blue(std::string_view s);</li>
-                                    <li>Bright_White_On_Magenta(std::string_view s);</li>
-                                    <li>Bright_White_On_Cyan(std::string_view s);</li>
-                                    <li>Bright_White_On_White(std::string_view s);</li>
-                                    <li>Bright_White_On_Grey(std::string_view s);</li>
-                                    <li>Bright_White_On_Bright_Red(std::string_view s);</li>
-                                    <li>Bright_White_On_Bright_Green(std::string_view s);</li>
-                                    <li>Bright_White_On_Bright_Yellow(std::string_view s);</li>
-                                    <li>Bright_White_On_Bright_Blue(std::string_view s);</li>
-                                    <li>Bright_White_On_Bright_Magenta(std::string_view s);</li>
-                                    <li>Bright_White_On_Bright_Cyan(std::string_view s);</li>
-                                    <li>Bright_White_On_Bright_White(std::string_view s);</li>
+                                    <li>Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Black_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Red_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Green_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Yellow_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Blue_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Magenta_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Cyan_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>White_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Grey_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Red_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Green_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Yellow_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Blue_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Magenta_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_Cyan_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Black(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Grey(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Bright_Red(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Bright_Green(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Bright_Yellow(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Bright_Blue(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Bright_Magenta(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Bright_Cyan(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
+                                    <li>Bright_White_On_Bright_White(<span style="color: rgb(131, 209, 171);">std::string_view s </span>);</li>
                                 </ul>
                     </li>
             </div>

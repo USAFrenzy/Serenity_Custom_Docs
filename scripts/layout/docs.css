@@ -1,3 +1,9 @@
+/* Override common.css */
+.dropdown:hover .dropdown-content{
+    display: none;
+}
+
+
 .namespace_link {
     display: none;
     justify-content: center;

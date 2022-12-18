@@ -74,3 +74,13 @@ function ToggleTriangle(tri) {
     triangle.style.display = 'block';
   }
 }
+
+function ToggleContent(content, index){
+  const cont = document.getElementsByClassName(content);
+  let item = cont[index];
+  if (content.style.display === 'block') {
+    content.style.display = 'none';
+  } else {
+    content.style.display = 'block';
+  }
+}
