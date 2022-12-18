@@ -1,5 +1,5 @@
 /* Override common.css */
-.dropdown:hover .dropdown-content{
+.dropdown:hover .dropdown-content {
     display: none;
 }
 
@@ -242,6 +242,11 @@
         font-size: 100%;
     }
 
+    .doc_button {
+        height: fit-content;
+        margin-top: 10px;
+    }
+
     .doc_table_head {
         font-size: 110%;
     }
@@ -271,6 +276,8 @@
         margin-left: 0%;
         margin-right: 0%;
     }
+
+
 
     .doc_table_body {
         font-size: 100%;
