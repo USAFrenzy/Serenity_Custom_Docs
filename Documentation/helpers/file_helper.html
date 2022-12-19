@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <script type="text/javascript" src="../../scripts/code_syntax/sh_main.js"></script>
+    <script type="text/javascript" src="../../scripts/code_syntax/lang/sh_cpp.js"></script>
+    <script type="text/javascript" src="../../scripts/layout/layout.js"></script>
+    <script type="text/javascript" src="../../scripts/layout/docs.js"></script>
+    <link rel="stylesheet" href="../../scripts/layout/common.css">
+    <link rel="stylesheet" href="../../scripts/layout/docs.css">
+</head>
+
+<body onload="sh_highlightDocument();">
+    <section id="Top"></section>
+    <div class="outerBorder">
+        <div id="doc_tree" class="side_doc_tree">
+            <a href="javascript:void(0)" class="close_doc_tree" onclick="CloseDocTree()">&times;</a>
+            <div class="dropdown" onmouseleave="CollapseAllLinks()">
+                <a class="side_doc_link" href="../documentation_landing.html" onmouseenter="CollapseAllLinks()">Doc Home
+                    Page</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
+                <a class="namespace_link" href="../namespaces/targets.html">targets</a>
+                <a class="namespace_link" href="../namespaces/se_colors.html">se_colors</a>
+                <a class="namespace_link" href="../namespaces/msg_details.html">msg_details</a>
+                <a class="namespace_link" href="../namespaces/helpers.html">helpers</a>
+                <a class="namespace_link" href="../namespaces/globals.html">globals</a>
+                <a class="namespace_link" href="../namespaces/serenity_luts.html">SERENITY_LUTS</a>
+                <a class="namespace_link" href="../namespaces/custom_flags.html">custom_flags</a>
+                <a class="namespace_link" href="../namespaces/custom_flag_error.html">CustomFlagError</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleClassLinks()">Classes</a>
+                <a class="classes_link" href="../serenity_classes/flush_policy.html">Flush_Policy</a>
+                <a class="classes_link" href="../msg_details/message_formatter.html">Message_Formatter</a>
+                <a class="classes_link" href="../msg_details/message_info.html">Message_Info</a>
+                <a class="classes_link" href="../msg_details/zone_thread.html">ZoneThread</a>
+                <a class="classes_link" href="../msg_details/message_time.html">Message_Time</a>
+                <a class="classes_link" href="../targets/ConsoleTarget.html">ConsoleTarget</a>
+                <a class="classes_link" href="../targets/FileTarget.html">FileTarget</a>
+                <a class="classes_link" href="../targets/RotatingTarget.html">RotatingTarget</a>
+                <a class="classes_link" href="../serenity_classes/rotate_settings.html">RotateSettings</a>
+                <a class="classes_link" href="../targets/TargetBase.html">TargetBase</a>
+                <a class="classes_link" href="../helpers/file_helper.html">FileHelper</a>
+                <a class="classes_link" href="">FileCache</a>
+                <a class="classes_link" href="../helpers/base_target_helper.html">BaseTargetHelper</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_source_loc">Format_Source_Loc</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_thread_id">Format_Thread_ID</a>
+                <a class="classes_link"
+                    href="../customflagerror/custom_error_handler.html#format_error">format_error</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleStructLinks()">Structs</a>
+                <a class="structs_link"
+                    href="../helpers/formatter_specializations.html#logger_lvl">CustomFormatter&lt;LoggerLevel&gt;</a>
+                <a class="structs_link"
+                    href="../helpers/formatter_specializations.html#std_tm">CustomFormatter&lt;std::tm&gt;</a>
+                <a class="structs_link" href="serenity_classes/periodic_settings.html">PeriodicSettings</a>
+                <a class="structs_link" href="serenity_classes/rotate_limits.html">RotateLimits</a>
+                <a class="structs_link" href="targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
+                <a class="structs_link" href="../helpers/background_thread.html">BackgroundThread</a>
+                <a class="structs_link" href="../helpers/msg_with_loc.html">MsgWithLoc</a>
+                <a class="structs_link" href="customflagerror/custom_error_handler.html">custom_error_handler</a>
+            </div>
+        </div>
+        <div class="sticky_content" style="background-color: #045147;" onclick="menu_active(this)">
+            <div class="mobile_search-bar">
+                <form action="placeholder">
+                    <input type="text" class="mobile_searchBox" placeholder="Enter Search Term Here">
+                    <input type="image" class="mobile_search_button"
+                        src="../../Resources/search_icon_clipart.png"></input>
+                </form>
+            </div>
+            <div class="hamburger_menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="nav_menu">
+                    <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
+                    <a class="nav_link" href="../../index.html">Home</a>
+                    <a class="nav_link" href="../../Building/building_landing.html">Building</a>
+                    <a class="nav_link" href="../../Examples/examples_landing.html">Examples</a>
+                    <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                    <a class="nav_link" href="#Top"> Go To Top </a>
+                </div>
+            </div>
+        </div>
+        <div class="sticky_content">
+            <div class="docLinks">
+                <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
+                <a class="docLink" href="../../index.html">Home</a>
+                <a class="docLink" href="../../Building/building_landing.html">Building</a>
+                <a class="docLink" href="../../Examples/examples_landing.html">Examples</a>
+                <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                <div class="docLink">
+                    <form action="placeholder">
+                        <input type="text" class="desktop_searchBox" placeholder="Enter Search Term Here">
+                        <input type="image" class="desktop_search_button"
+                            src="../../Resources/search_icon_clipart.png"></input>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="mainHeaders">
+            <h1 align="center" style="color:#A8C077;"><strong>FileHelper</strong>
+                <br><span style="text-align: center; color: #A8C077; font-size: 45%;"><em>- Found In File:
+                        FileHelper.h</em></span></strong>
+            </h1>
+            </h1>
+        </div>
+        <br><br><br>
+        <div id="main-body">
+            <br>
+            <div class="center_text">
+                This class aids Serenity's targets in file related operations.
+                <br><br>
+                This includes things such as:
+                <br>
+                <div class="lists">
+                    <ul>
+                        <li>Opening and closing the file</li>
+                        <li>Writing to the buffer</li>
+                        <li>Setting the file buffer size</li>
+                        <li>Flushing the buffer to the file</li>
+                        <li>Controlling the background flush thread</li>
+                        <li>Renaming the log file</li>
+                    </ul>
+                </div>
+                    <br>
+                    This class is composed from the
+                    following classes:
+                    <div class="lists">
+                    <ul>
+                        <li><a href="../helpers/file_cache.html">FileCache</a></li>
+                        <li><a href="../helpers/base_target_helper.html">BaseTargetHelper</a></li>
+                        <li><a href="../helpers/background_thread.html">BackgroundThread</a></li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div class="codeBlock">
+                <pre class="sh_cpp"
+                    style="justify-content: center;  background-color: #A8C077; padding-left: 2%; padding-right: 2%;">
+<br>
+class FileHelper
+{
+  public:
+    explicit FileHelper(const std::string_view fpath);
+    FileHelper(FileHelper&)            = delete;
+    FileHelper& operator=(FileHelper&) = delete;
+    ~FileHelper()                      = default;
+
+    bool OpenFile(bool truncate = false);
+    void WriteToFile(size_t writeLimit = max_size_size_t, bool truncateRest = false);
+    void Flush();
+    bool CloseFile(bool onRotation = false);
+    std::vector&lt;char&gt;& FileBuffer();
+    size_t FileBufferSize();
+    void SetBufferCapacity(size_t value);
+    void InitializeFilePath(std::string_view fileName = "");
+    virtual bool RenameFile(utf_utils::InputSource newFileName);
+    void BackgroundFlushThread(std::stop_token stopToken);
+    void StopBackgroundThread();
+    void StartBackgroundThread();
+    void PauseBackgroundThread();
+    void ResumeBackgroundThread();
+    void SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);
+    const std::unique_ptr&lt;FileCache&gt;& FileCacheHelper() const;
+    const std::unique_ptr&lt;BackgroundThread&gt;& BackgoundThreadInfo() const;
+
+  private:
+    void OpenImpl(bool truncate);
+    void WriteImpl();
+    void WriteImpl(size_t writeLimit, bool truncateRest = false);
+    void FlushImpl();
+    void CloseImpl();
+
+  private:
+    int retryAttempt;
+    bool fileOpen;
+    int file;
+    std::vector&lt;char&gt; buffer;
+    std::mutex fileHelperMutex;
+    std::unique_ptr&lt;FileCache&gt; fileCache;
+    std::shared_ptr&lt;BaseTargetHelper&gt; targetHelper;
+    std::unique_ptr&lt;BackgroundThread&gt; flushWorker;
+};
+<br>
+</pre>
+            </div>
+            <br>
+            <div class="subHeaders"> More Information About Class FileHelper </div>
+            <br><br>
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th class="doc_table_head">explicit FileHelper(const std::string_view fpath);</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            bool OpenFile(bool truncate = false);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void WriteToFile(size_t writeLimit = max_size_size_t, bool truncateRest = false);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">void Flush();</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            bool CloseFile(bool onRotation = false);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            std::vector&lt;char&gt;& FileBuffer();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            size_t FileBufferSize();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void SetBufferCapacity(size_t value);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void InitializeFilePath(std::string_view fileName = "");
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            virtual bool RenameFile(utf_utils::InputSource newFileName);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void BackgroundFlushThread(std::stop_token stopToken);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void StopBackgroundThread();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void StartBackgroundThread();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void PauseBackgroundThread();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void ResumeBackgroundThread();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            const std::unique_ptr&lt;FileCache&gt;& FileCacheHelper() const;
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            const std::unique_ptr&lt;BackgroundThread&gt;& BackgoundThreadInfo() const;
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            private: void OpenImpl(bool truncate);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            private: void WriteImpl();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            private: void WriteImpl(size_t writeLimit, bool truncateRest = false);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            private: void FlushImpl();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            private: void CloseImpl();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <hr />
+        </div>
+        <br><br>
+    </div>
+</body>
+
+</html>
