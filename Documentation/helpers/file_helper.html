@@ -118,7 +118,6 @@
                 This class aids Serenity's targets in file related operations.
                 <br><br>
                 This includes things such as:
-                <br>
                 <div class="lists">
                     <ul>
                         <li>Opening and closing the file</li>
@@ -129,10 +128,8 @@
                         <li>Renaming the log file</li>
                     </ul>
                 </div>
-                    <br>
-                    This class is composed from the
-                    following classes:
-                    <div class="lists">
+                This class is composed from the following classes:
+                <div class="lists">
                     <ul>
                         <li><a href="../helpers/file_cache.html">FileCache</a></li>
                         <li><a href="../helpers/base_target_helper.html">BaseTargetHelper</a></li>
@@ -201,7 +198,50 @@ class FileHelper
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This is the only constructor available for this class.
+                            <br><br>
+                            This class constructor:
+                            <ul>
+                                <li>Instantiates a smart pointer to <a class="doc_table_link"
+                                        href="../helpers/file_cache.html">FileCache</a> </li>
+                                <li>Instantiates a smart pointer to <a class="doc_table_link"
+                                        href="../helpers/base_target_helper.html">BaseTargetHelper</a> </li>
+                                <li>Instantiates a smart pointer to <a class="doc_table_link"
+                                        href="../helpers/background_thread.html">BackgroundThread</a> </li>
+                                <li>Initially reserves the file buffer size to the platform's page size
+                                    <ul>
+                                        <li>x86-32: 2MB</li>
+                                        <li>x86-64: 4MB</li>
+                                        <li>default: DEFAULT_BUFFER_SIZE (this is set to 64KB)</li>
+                                        <li>NOTE: This size can be changed via the `<span
+                                                style="color: rgb(125, 45, 45);">void SetBufferCapacity(size_t
+                                                value)</span>` function</li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+                            It takes a string_view as a file path
+                            to cache and passes this path to the member variable `<span
+                                style="color: rgb(125, 45, 45);">fileCache</span>`, which will break up the path into
+                            pieces to store. This is how the FileHelper class will refer to the file for open/close
+                            operations, renaming the file, etc.
+                            <br><br>
+                            The member variable `<span style="color: rgb(125, 45, 45);">targetHelper</span>` is what is
+                            used to set the flush policy as well as what determines whether or not multi-threading
+                            support is enabled or disabled. This class is merely a link-step for the targets that use
+                            FileHelper in their composition and the values/handles are synced from the target side by
+                            calling
+                            this class's function `<span style="color: rgb(125, 45, 45);">void
+                                SyncTargetHelpers(std::shared_ptr<BaseTargetHelper>& syncToHelper)</span>`. This allows
+                            the target itself to control multi-thread support and flush policy while this class uses
+                            those options for any background thread operations that take place.
+                            <br><br>
+                            The member variable `<span style="color: rgb(125, 45, 45);">flushWorker</span>` is what is
+                            used for thread cooperation between the logging thread(s) and the background flushing thread
+                            when multi-thread support is enabled and/or when the flush policy is set to an interval
+                            based flush option. The relevant thread-related functions in this class use this smart
+                            pointer as well as `<span style="color: rgb(125, 45, 45);">targetHelper</span>` to minimize
+                            thread contention while logs are being written..
                         </th>
                     </tr>
                     <tr>
