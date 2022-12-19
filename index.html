@@ -203,9 +203,9 @@
             <div class="codeBlock">
                 <pre class="sh_cpp">
 
- 1.) explicit FileTarget(std::string_view fileName, bool replaceIfExists = false);  
- 2.) explicit FileTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false); 
- 3.) explicit FileTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false); 
+ 1.) explicit FileTarget(std::string_view fileName, bool replaceIfExists = false);
+ 2.) explicit FileTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false);
+ 3.) explicit FileTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false);
                     </pre>
             </div>
 
@@ -301,9 +301,9 @@
             <div class="codeBlock">
                 <pre class="sh_cpp">
 
- 1.) explicit RotatingTarget(); 
- 2.) explicit RotatingTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false); 
- 3.) explicit RotatingTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false); 
+ 1.) explicit RotatingTarget();
+ 2.) explicit RotatingTarget(std::string_view name, std::string_view filePath, bool replaceIfExists = false);
+ 3.) explicit RotatingTarget(std::string_view name, std::string_view formatPattern, std::string_view filePath, bool replaceIfExists = false);
                     </pre>
             </div>
             <div class="lists">
@@ -390,9 +390,9 @@
             <div class="codeBlock">
                 <pre class="sh_cpp">
 
- 1.) ConsoleTarget(); 
- 2.) explicit ConsoleTarget(std::string_view name ); 
- 3.) explicit ConsoleTarget(std::string_view name, std::string_view msgPattern ); 
+ 1.) ConsoleTarget();
+ 2.) explicit ConsoleTarget(std::string_view name );
+ 3.) explicit ConsoleTarget(std::string_view name, std::string_view msgPattern );
                     </pre>
             </div>
             <div class="lists">
@@ -478,13 +478,13 @@
                 <pre class="sh_cpp">
 
       #include &lt;serenity/Color/Color.h&gt;
-      
+
       namespace color = serenity::se_colors::bright_colors;
       namespace target = serenity::targets;
       // Create the console target with default format pattern and user-defined name
-      target::ConsoleTarget example("Example_Logger"); 
+      target::ConsoleTarget example("Example_Logger");
       // Set the message level to any ansi-supported code (using helper header here)
-      example.SetMsgColor(LoggerLevel::trace, color::foreground::grey); 
+      example.SetMsgColor(LoggerLevel::trace, color::foreground::grey);
                     </pre>
             </div>
             <div class="lists">
@@ -677,12 +677,12 @@
             <div class="codeBlock">
                 <pre class="sh_cpp" style="text-align: center;">
 
-  template &lt;typename... Args&gt; void Trace(MsgWithLoc formatString, Args&&... args); 
- template &lt;typename... Args&gt; void Info(MsgWithLoc formatString, Args&&... args); 
-  template &lt;typename... Args&gt; void Debug(MsgWithLoc formatString, Args&&... args); 
- template &lt;typename... Args&gt; void Warn(MsgWithLoc formatString, Args&&... args); 
-  template &lt;typename... Args&gt; void Error(MsgWithLoc formatString, Args&&... args); 
-  template &lt;typename... Args&gt; void Fatal(MsgWithLoc formatString, Args&&... args); 
+  template &lt;typename... Args&gt; void Trace(MsgWithLoc formatString, Args&&... args);
+ template &lt;typename... Args&gt; void Info(MsgWithLoc formatString, Args&&... args);
+  template &lt;typename... Args&gt; void Debug(MsgWithLoc formatString, Args&&... args);
+ template &lt;typename... Args&gt; void Warn(MsgWithLoc formatString, Args&&... args);
+  template &lt;typename... Args&gt; void Error(MsgWithLoc formatString, Args&&... args);
+  template &lt;typename... Args&gt; void Fatal(MsgWithLoc formatString, Args&&... args);
                 </pre>
             </div>
             <p> Where the format string is your message to log. The loggers use the active backend formatter to
@@ -698,11 +698,11 @@
             <div class="codeBlock">
                 <pre class="sh_cpp">
 
- #include &lt;serenity/Targets/FileTarget.h&gt; 
+ #include &lt;serenity/Targets/FileTarget.h&gt;
 
- using namespace serenity::targets; 
- FileTarget basicFileLogger("My_File_Logger", "[%L] %c [%N]: %+", "Sandbox/Logs/My_Log.txt", true); 
- basicFileLogger.Trace("This is how {0} log message might look with an integer formatted to hex: [{1:X}]", "a simple", 42); 
+ using namespace serenity::targets;
+ FileTarget basicFileLogger("My_File_Logger", "[%L] %c [%N]: %+", "Sandbox/Logs/My_Log.txt", true);
+ basicFileLogger.Trace("This is how {0} log message might look with an integer formatted to hex: [{1:X}]", "a simple", 42);
                 </pre>
             </div>
             <div class="lists">
@@ -730,7 +730,7 @@
             <div class="codeBlock">
                 <pre class="sh_cpp">
 
-[Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY [My_File_Logger]: Log_Message + Platform_Line_Ending  
+[Long_Logger_Level] ddd mmm dd HH:MM:SS YYYY [My_File_Logger]: Log_Message + Platform_Line_Ending
                                             </pre>
             </div>
             <div class="center_text">
@@ -739,7 +739,7 @@
             <div class="codeBlock">
                 <pre class="sh_cpp">
 
-[Info] Mon Nov 28 20:35:32 2022 [My_File_Logger]: This is how a simple log message might look with an integer formatted to hex: [0X2A] \r\n  
+[Info] Mon Nov 28 20:35:32 2022 [My_File_Logger]: This is how a simple log message might look with an integer formatted to hex: [0X2A] \r\n
                                 </pre>
             </div>
             <div class="center_text">

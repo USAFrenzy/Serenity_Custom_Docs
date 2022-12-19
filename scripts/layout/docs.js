@@ -50,37 +50,3 @@ function CollapseAllLinks() {
     div[i].style.display = 'none';
   }
 }
-
-function RotateTriangle(tri) {
-  const triangles = document.getElementsByClassName('right-facing-arrow');
-  triangles[tri].style.transform = "rotate(90deg)";
-  const div = document.getElementsByClassName('dropdown-content');
-  div[tri].style.display = 'block';
-}
-
-function ResetTriangle(tri) {
-  const triangles = document.getElementsByClassName('right-facing-arrow');
-  triangles[tri].style.transform = "rotate(360deg)";
-  const div = document.getElementsByClassName('dropdown-content');
-  div[tri].style.display = 'none';
-}
-
-function ToggleTriangle(tri) {
-  const triangles = document.getElementsByClassName('right-facing-arrow');
-  let triangle = triangles[tri];
-  if (triangle.style.display === 'block') {
-    triangle.style.display = 'none';
-  } else {
-    triangle.style.display = 'block';
-  }
-}
-
-function ToggleContent(content, index){
-  const cont = document.getElementsByClassName(content);
-  let item = cont[index];
-  if (content.style.display === 'block') {
-    content.style.display = 'none';
-  } else {
-    content.style.display = 'block';
-  }
-}
