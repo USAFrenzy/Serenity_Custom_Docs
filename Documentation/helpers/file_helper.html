@@ -254,7 +254,44 @@ class FileHelper
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function opens the file that was cached from the constructor.
+                            <li>Parameter `<span style="color: rgb(125, 45, 45);">truncate</span>` is used to control
+                                whether or not the file is truncated on open if it already exists on disk</li>
+                            <ul>
+                                <li>If multi-thread support is enabled, this function will : </li>
+                                <ul>
+                                    <li>Lock this class's mutex `<span
+                                            style="color: rgb(125, 45, 45);">fileHelperMutex</span>` </li>
+                                    <li>Call <span style="color: rgb(125, 45, 45);">PauseBackgroundThread()</span> -
+                                        this call does nothing if a background flush
+                                        thread isn't active</li>
+                                    <li>Call <span style="color: rgb(125, 45, 45);">OpenImpl(truncate)</span> - the
+                                        actual file open implementation</li>
+                                    <li>Call <span style="color: rgb(125, 45, 45);">ResumeBackgroundThread()</span> -
+                                        this call does nothing if a background flush
+                                        thread isn't active</li>
+                                    <li>returns true on success and false on failure
+                                        <ul>
+                                            <li>NOTE: <span style="color:rgb(125,45,45);">OpenImpl()</span> throws
+                                                std::system_error on failure, this function catches the error and issues
+                                                a warning instead while returning false</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <li>Otherwise, if multi-thread support is disabled, this function will effectively:
+                                    <ul>
+                                        <li>Call <span style="color: rgb(125, 45, 45);">OpenImpl(truncate)</span> - the
+                                            actual file open implementation</li>
+                                        <li>returns true on success and false on failure
+                                            <ul>
+                                                <li>NOTE: <span style="color:rgb(125,45,45);">OpenImpl()</span> throws
+                                                    std::system_error on failure, this function catches the error and
+                                                    issues a warning instead while returning false</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
