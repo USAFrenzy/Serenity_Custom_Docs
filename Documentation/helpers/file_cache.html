@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <script type="text/javascript" src="../../scripts/code_syntax/sh_main.js"></script>
+    <script type="text/javascript" src="../../scripts/code_syntax/lang/sh_cpp.js"></script>
+    <script type="text/javascript" src="../../scripts/layout/layout.js"></script>
+    <script type="text/javascript" src="../../scripts/layout/docs.js"></script>
+    <link rel="stylesheet" href="../../scripts/layout/common.css">
+    <link rel="stylesheet" href="../../scripts/layout/docs.css">
+</head>
+
+<body onload="sh_highlightDocument();">
+    <section id="Top"></section>
+    <div class="outerBorder">
+        <div id="doc_tree" class="side_doc_tree">
+            <a href="javascript:void(0)" class="close_doc_tree" onclick="CloseDocTree()">&times;</a>
+            <div class="dropdown" onmouseleave="CollapseAllLinks()">
+                <a class="side_doc_link" href="../documentation_landing.html" onmouseenter="CollapseAllLinks()">Doc Home
+                    Page</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleNSLinks()">Namespaces</a>
+                <a class="namespace_link" href="../namespaces/targets.html">targets</a>
+                <a class="namespace_link" href="../namespaces/se_colors.html">se_colors</a>
+                <a class="namespace_link" href="../namespaces/msg_details.html">msg_details</a>
+                <a class="namespace_link" href="../namespaces/helpers.html">helpers</a>
+                <a class="namespace_link" href="../namespaces/globals.html">globals</a>
+                <a class="namespace_link" href="../namespaces/serenity_luts.html">SERENITY_LUTS</a>
+                <a class="namespace_link" href="../namespaces/custom_flags.html">custom_flags</a>
+                <a class="namespace_link" href="../namespaces/custom_flag_error.html">CustomFlagError</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleClassLinks()">Classes</a>
+                <a class="classes_link" href="../serenity_classes/flush_policy.html">Flush_Policy</a>
+                <a class="classes_link" href="../msg_details/message_formatter.html">Message_Formatter</a>
+                <a class="classes_link" href="../msg_details/message_info.html">Message_Info</a>
+                <a class="classes_link" href="../msg_details/zone_thread.html">ZoneThread</a>
+                <a class="classes_link" href="../msg_details/message_time.html">Message_Time</a>
+                <a class="classes_link" href="../targets/ConsoleTarget.html">ConsoleTarget</a>
+                <a class="classes_link" href="../targets/FileTarget.html">FileTarget</a>
+                <a class="classes_link" href="../targets/RotatingTarget.html">RotatingTarget</a>
+                <a class="classes_link" href="../serenity_classes/rotate_settings.html">RotateSettings</a>
+                <a class="classes_link" href="../targets/TargetBase.html">TargetBase</a>
+                <a class="classes_link" href="../helpers/file_helper.html">FileHelper</a>
+                <a class="classes_link" href="">FileCache</a>
+                <a class="classes_link" href="../helpers/base_target_helper.html">BaseTargetHelper</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_source_loc">Format_Source_Loc</a>
+                <a class="classes_link" href="../msg_details/custom_flags.html#format_thread_id">Format_Thread_ID</a>
+                <a class="classes_link"
+                    href="../customflagerror/custom_error_handler.html#format_error">format_error</a>
+                <br><br>
+                <a class="side_doc_link" href="#" onmouseenter="ToggleStructLinks()">Structs</a>
+                <a class="structs_link"
+                    href="../helpers/formatter_specializations.html#logger_lvl">CustomFormatter&lt;LoggerLevel&gt;</a>
+                <a class="structs_link"
+                    href="../helpers/formatter_specializations.html#std_tm">CustomFormatter&lt;std::tm&gt;</a>
+                <a class="structs_link" href="serenity_classes/periodic_settings.html">PeriodicSettings</a>
+                <a class="structs_link" href="serenity_classes/rotate_limits.html">RotateLimits</a>
+                <a class="structs_link" href="targets/RotatingDaylightCache.html">RotatingDaylightCache</a>
+                <a class="structs_link" href="../helpers/background_thread.html">BackgroundThread</a>
+                <a class="structs_link" href="../helpers/msg_with_loc.html">MsgWithLoc</a>
+                <a class="structs_link" href="customflagerror/custom_error_handler.html">custom_error_handler</a>
+            </div>
+        </div>
+        <div class="sticky_content" style="background-color: #045147;" onclick="menu_active(this)">
+            <div class="mobile_search-bar">
+                <form action="placeholder">
+                    <input type="text" class="mobile_searchBox" placeholder="Enter Search Term Here">
+                    <input type="image" class="mobile_search_button"
+                        src="../../Resources/search_icon_clipart.png"></input>
+                </form>
+            </div>
+            <div class="hamburger_menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="nav_menu">
+                    <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
+                    <a class="nav_link" href="../../index.html">Home</a>
+                    <a class="nav_link" href="../../Building/building_landing.html">Building</a>
+                    <a class="nav_link" href="../../Examples/examples_landing.html">Examples</a>
+                    <a class="nav_link" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                    <a class="nav_link" href="#Top"> Go To Top </a>
+                </div>
+            </div>
+        </div>
+        <div class="sticky_content">
+            <div class="docLinks">
+                <button class="doc_button" onclick="OpenDocTree()"> Documentation Tree </button>
+                <a class="docLink" href="../../index.html">Home</a>
+                <a class="docLink" href="../../Building/building_landing.html">Building</a>
+                <a class="docLink" href="../../Examples/examples_landing.html">Examples</a>
+                <a class="docLink" href="https://github.com/USAFrenzy/Serenity_Logger">Source</a>
+                <div class="docLink">
+                    <form action="placeholder">
+                        <input type="text" class="desktop_searchBox" placeholder="Enter Search Term Here">
+                        <input type="image" class="desktop_search_button"
+                            src="../../Resources/search_icon_clipart.png"></input>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="mainHeaders">
+            <h1 align="center" style="color:#A8C077;"><strong>FileCache</strong>
+                <br><span
+                style="text-align: center; color: #A8C077; font-size: 45%;"><em>- Found In File:
+                    FileHelper.h</em></span></strong></h1>
+            </h1>
+        </div>
+        <br><br><br>
+        <div id="main-body">
+            <br>
+            <div class="center_text">
+                This class aids in caching the current log file, including its absolute path, directory, file
+                name, and file extension.
+            </div>
+            <br>
+            <div class="codeBlock">
+                <pre class="sh_cpp"
+                    style="justify-content: center;  background-color: #A8C077; padding-left: 2%; padding-right: 2%;">
+<br>
+class FileCache
+{
+  public:
+    FileCache(std::string_view path);
+    FileCache(FileCache&)            = delete;
+    FileCache& operator=(FileCache&) = delete;
+    ~FileCache()                     = default;
+    void CacheFile(std::string_view path, bool ignoreExtInFileName = false);
+    std::filesystem::path FilePath() const;
+    std::filesystem::path DirPath() const;
+    std::string DirName() const;
+    std::string FileName() const;
+    std::string Extenstion() const;
+
+    // Helper Functions
+    void SetFilePath(const std::filesystem::path& newPath);
+    void SetFileDir(const std::string& newDir);
+    void SetFileName(const std::string& newName);
+    void SetExtension(const std::string& newExt);
+
+  protected:
+    std::filesystem::path filePath;
+    std::string fileDir;
+    std::string fileName;
+    std::string extension;
+    std::filesystem::path dirPath;
+};
+<br>
+</pre>
+            </div>
+            <br>
+            <div class="subHeaders"> More Information About Class FileCache </div>
+            <br><br>
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th class="doc_table_head">FileCache(std::string_view path);</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            This is the only constructor available for this class. It passes the `<span
+                                style="color: rgb(125, 45, 45);">path</span>` parameter into <span
+                                style="color: rgb(125, 45, 45);">CacheFile()</span> for caching with the default value
+                            of `<span style="color: rgb(125, 45, 45);">ignoreExtInFileName</span>`.
+                            <br><br>
+                            Essentially calling: <span style="color: rgb(125, 45, 45);">CacheFile(path, false);</span>
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void CacheFile(std::string_view path, bool ignoreExtInFileName = false);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            This function is called in the FileCache constructor and does the following:
+                            <div class="lists">
+                                <ul>
+                                    <li>If `<span style="color: rgb(125, 45, 45);">ignoreExtInFileName</span>` is set to
+                                        true
+                                        <ul>
+                                            <li>Then the member variable `<span
+                                                    style="color: rgb(125, 45, 45);">extension</span>` will be an empty
+                                                string</li>
+                                            <li>Otherwise, it will set the member variable `<span
+                                                    style="color: rgb(125, 45, 45);">extension</span>` as described
+                                                below</li>
+                                        </ul>
+                                    </li>
+                                    <br>
+                                    <li>If the `<span style="color:rgb(125, 45, 45);">path</span>` variable provided is
+                                        not an absolute path
+                                        <ul>
+                                            <li>Sets the `<span style="color:rgb(125, 45, 45);">dirPath</span>` member
+                                                variable as the currently process's path + "Logs"</li>
+                                            <li>Sets the `<span style="color:rgb(125, 45, 45);">fileDir</span>` to
+                                                "Logs"</li>
+                                            <li>Sets the `<span style="color:rgb(125, 45, 45);">filePath</span>` member
+                                                variable to `<span style="color:rgb(125, 45, 45);">dirPath</span>` +
+                                                `<span style="color:rgb(125, 45, 45);">path</span>`</li>
+                                            <li>Sets the `<span style="color:rgb(125, 45, 45);">fileName</span>` member
+                                                variable to `<span style="color:rgb(125, 45, 45);">filePath</span>`'s
+                                                stem data</li>
+                                            <li>Sets the extension to `<span
+                                                    style="color:rgb(125, 45, 45);">fileNames</span>' extension - if
+                                                none is present, sets it to an empty string</li>
+                                        </ul>
+                                    </li>
+                                    <br>
+                                    <li>Otherwise, if the `<span style="color:rgb(125, 45, 45);">path</span>` variable
+                                        provided is an absolute path
+                                        <ul>
+                                            <li>Sets the `<span style="color:rgb(125, 45, 45);">filePath</span>` member
+                                                variable to `<span style="color:rgb(125, 45, 45);">path</span>`</li>
+                                            <li>Sets the `<span style="color:rgb(125, 45, 45);">dirPath</span>` member
+                                                variable to `<span style="color:rgb(125, 45, 45);">path</span>' minus
+                                                the file name</li>
+                                            <li>Sets the `<span style="color:rgb(125, 45, 45);">fileDir</span>` to
+                                                "dirPath"'s stem data</li>
+                                            <li>Sets the `<span style="color:rgb(125, 45, 45);">fileName</span>` member
+                                                variable to `<span style="color:rgb(125, 45, 45);">path</span>`'s file
+                                                name</li>
+                                            <li>Sets the extension to `<span
+                                                    style="color:rgb(125, 45, 45);">fileNames</span>' extension - if
+                                                none is present, sets it to an empty string</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            std::filesystem::path FilePath() const;
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">std::filesystem::path DirPath() const;</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            std::string DirName() const;
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            std::string FileName() const;
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            std::string Extenstion() const;
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void SetFilePath(const std::filesystem::path& newPath);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void SetFileDir(const std::string& newDir);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void SetFileName(const std::string& newName);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">
+                            void SetExtension(const std::string& newExt);
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <hr />
+        </div>
+        <br><br>
+    </div>
+</body>
+
+</html>
