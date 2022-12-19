@@ -8,6 +8,7 @@
     <title>Documentation</title>
     <script type="text/javascript" src="../../scripts/code_syntax/sh_main.js"></script>
     <script type="text/javascript" src="../../scripts/code_syntax/lang/sh_cpp.js"></script>
+    <link rel="stylesheet" href="../../scripts/code_syntax/css/sh_nedit.css">
     <script type="text/javascript" src="../../scripts/layout/layout.js"></script>
     <script type="text/javascript" src="../../scripts/layout/docs.js"></script>
     <link rel="stylesheet" href="../../scripts/layout/common.css">
@@ -105,7 +106,11 @@
         </div>
         <br><br>
         <div class="mainHeaders">
-            <h1 align="center" style="color:#A8C077;"><strong>BaseTargetHelper (TargetHelper.h)</strong></h1>
+            <h1 align="center" style="color:#A8C077;"><strong>BaseTargetHelper</strong>
+                <br>
+                <span style="text-align: center; color: #A8C077; font-size: 45%;"><em>- Found In File:
+                    TargetHelper.h</em></span></strong>
+            </h1>
         </div>
         <br><br><br>
         <div id="main-body">
@@ -117,28 +122,27 @@
             </div>
             <br>
             <div class="codeBlock">
-                <pre class="sh_cpp"
-                    style="justify-content: center;  background-color: #A8C077; padding-left: 2%; padding-right: 2%;">
+                <pre class="sh_cpp">
 <br>
-class BaseTargetHelper
-{
-  public:
-    explicit BaseTargetHelper();
-    BaseTargetHelper(BaseTargetHelper&) = delete;
-    BaseTargetHelper& operator=(BaseTargetHelper&);
-    ~BaseTargetHelper() = default;
+   class BaseTargetHelper
+   {
+     public:
+       explicit BaseTargetHelper();
+       BaseTargetHelper(BaseTargetHelper&) = delete;
+       BaseTargetHelper& operator=(BaseTargetHelper&);
+       ~BaseTargetHelper() = default;
 
-    void EnableMultiThreadingSupport(bool enableMultiThreading = true);
-    bool isMTSupportEnabled();
-    void SetFlushPolicy(const Flush_Policy& fPolicy);
-    const std::unique_ptr<Flush_Policy>& Policy() const;
+       void EnableMultiThreadingSupport(bool enableMultiThreading = true);
+       bool isMTSupportEnabled();
+       void SetFlushPolicy(const Flush_Policy& fPolicy);
+       const std::unique_ptr&lt;Flush_Policy&gt;& Policy() const;
 
-  private:
-    bool multiThreadSupport;
+     private:
+       bool multiThreadSupport;
 
-  protected:
-    std::unique_ptr<Flush_Policy> policy;
-};
+     protected:
+       std::unique_ptr&lt;Flush_Policy&gt; policy;
+   };
 <br>
 </pre>
             </div>
@@ -198,8 +202,10 @@ class BaseTargetHelper
                             is enabled.
                             <div class="lists">
                                 <ul>
-                                    <li>Set `enableMultiThreading=false` to disable support </li>
-                                    <li>Set `enableMultiThreading=true` to enable support</li>
+                                    <li>Set `<span style="color: rgb(125, 45, 45);">enableMultiThreading</span>=<span
+                                            style="color: rgb(45, 60, 125);">false</span>` to disable support </li>
+                                    <li>Set `<span style="color: rgb(125, 45, 45);">enableMultiThreading</span>=<span
+                                            style="color: rgb(45,60,125);">true</span>` to enable support</li>
                                 </ul>
                             </div>
                         </th>
@@ -212,12 +218,16 @@ class BaseTargetHelper
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            Simply returns true or false based on the current state of multi-threading support.
+                            Simply returns `<span style="color: rgb(45, 60, 125);">true</span>` or `<span
+                                style="color: rgb(45, 60, 125);">false</span>` based on the current state of
+                            multi-threading support.
                             <br>
                             <div class="lists">
                                 <ul>
-                                    <li>Returns true if multi-threading support is enabled.</li>
-                                    <li>Returns false if multi-threading support is disabled.</li>
+                                    <li>Returns `<span style="color: rgb(45, 60, 125);">true</span>` if multi-threading
+                                        support is enabled.</li>
+                                    <li>Returns `<span style="color: rgb(45, 60, 125);">false</span>` if multi-threading
+                                        support is disabled.</li>
                                 </ul>
                             </div>
                         </th>
@@ -234,7 +244,9 @@ class BaseTargetHelper
                         <th class="doc_table_body">
                             This function takes a reference to a <a class="doc_table_link"
                                 href="../serenity_classes/flush_policy.html">Flush_Policy</a> class object as its
-                            parameter. Flush_Policy is thread-safe and covers the following options:
+                            parameter.
+                            <br><br>
+                            Flush_Policy covers the following options:
                             <div class="lists">
                                 <ul>
                                     <li>A <a class="doc_table_link"

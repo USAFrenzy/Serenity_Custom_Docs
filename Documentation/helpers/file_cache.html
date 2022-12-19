@@ -8,6 +8,7 @@
     <title>Documentation</title>
     <script type="text/javascript" src="../../scripts/code_syntax/sh_main.js"></script>
     <script type="text/javascript" src="../../scripts/code_syntax/lang/sh_cpp.js"></script>
+    <link rel="stylesheet" href="../../scripts/code_syntax/css/sh_nedit.css">
     <script type="text/javascript" src="../../scripts/layout/layout.js"></script>
     <script type="text/javascript" src="../../scripts/layout/docs.js"></script>
     <link rel="stylesheet" href="../../scripts/layout/common.css">
@@ -120,36 +121,35 @@
             </div>
             <br>
             <div class="codeBlock">
-                <pre class="sh_cpp"
-                    style="justify-content: center;  background-color: #A8C077; padding-left: 2%; padding-right: 2%;">
+                <pre class="sh_cpp">
 <br>
-class FileCache
-{
-  public:
-    FileCache(std::string_view path);
-    FileCache(FileCache&)            = delete;
-    FileCache& operator=(FileCache&) = delete;
-    ~FileCache()                     = default;
-    void CacheFile(std::string_view path, bool ignoreExtInFileName = false);
-    std::filesystem::path FilePath() const;
-    std::filesystem::path DirPath() const;
-    std::string DirName() const;
-    std::string FileName() const;
-    std::string Extenstion() const;
+   class FileCache
+   {
+     public:
+       FileCache(std::string_view path);
+       FileCache(FileCache&)            = delete;
+       FileCache& operator=(FileCache&) = delete;
+       ~FileCache()                     = default;
+       void CacheFile(std::string_view path, bool ignoreExtInFileName = false);
+       std::filesystem::path FilePath() const;
+       std::filesystem::path DirPath() const;
+       std::string DirName() const;
+       std::string FileName() const;
+       std::string Extenstion() const;
 
-    // Helper Functions
-    void SetFilePath(const std::filesystem::path& newPath);
-    void SetFileDir(const std::string& newDir);
-    void SetFileName(const std::string& newName);
-    void SetExtension(const std::string& newExt);
+       // Helper Functions
+       void SetFilePath(const std::filesystem::path& newPath);
+       void SetFileDir(const std::string& newDir);
+       void SetFileName(const std::string& newName);
+       void SetExtension(const std::string& newExt);
 
-  protected:
-    std::filesystem::path filePath;
-    std::string fileDir;
-    std::string fileName;
-    std::string extension;
-    std::filesystem::path dirPath;
-};
+     protected:
+       std::filesystem::path filePath;
+       std::string fileDir;
+       std::string fileName;
+       std::string extension;
+       std::filesystem::path dirPath;
+   };
 <br>
 </pre>
             </div>
@@ -163,8 +163,11 @@ class FileCache
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            This is the only constructor available for this class. It passes the `<span
-                                style="color: rgb(125, 45, 45);">path</span>` parameter into <span
+                            This is the only constructor available for this class.
+                            <li>Parameter `<span style="color: rgb(125, 45, 45);">path</span>` is the path to the file,
+                                whether absolute or relative to the currently running process's directory.</li>
+                            <br>
+                            It passes the `<span style="color: rgb(125, 45, 45);">path</span>` parameter into <span
                                 style="color: rgb(125, 45, 45);">CacheFile()</span> for caching with the default value
                             of `<span style="color: rgb(125, 45, 45);">ignoreExtInFileName</span>`.
                             <br><br>
@@ -182,7 +185,14 @@ class FileCache
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            This function is called in the FileCache constructor and does the following:
+                            This function is called in the FileCache constructor.
+                            <li>Parameter `<span style="color: rgb(125, 45, 45);">path</span>` is the path to the file,
+                                whether absolute or relative to the currently running process's directory.</li>
+                            <li>Parameter `<span style="color: rgb(125, 45, 45);">ignoreExtInFileName</span>` controls
+                                whether or not we care about the extension of the file
+                            </li>
+                            <br>
+                            This function does the following:
                             <div class="lists">
                                 <ul>
                                     <li>If `<span style="color: rgb(125, 45, 45);">ignoreExtInFileName</span>` is set to

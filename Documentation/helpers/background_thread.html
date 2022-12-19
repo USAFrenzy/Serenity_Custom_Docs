@@ -8,6 +8,7 @@
     <title>Documentation</title>
     <script type="text/javascript" src="../../scripts/code_syntax/sh_main.js"></script>
     <script type="text/javascript" src="../../scripts/code_syntax/lang/sh_cpp.js"></script>
+    <link rel="stylesheet" href="../../scripts/code_syntax/css/sh_nedit.css">
     <script type="text/javascript" src="../../scripts/layout/layout.js"></script>
     <script type="text/javascript" src="../../scripts/layout/docs.js"></script>
     <link rel="stylesheet" href="../../scripts/layout/common.css">
@@ -105,7 +106,11 @@
         </div>
         <br><br>
         <div class="mainHeaders">
-            <h1 align="center" style="color:#A8C077;"><strong>BackgroundThread (FileHelper.h) </strong></h1>
+            <h1 align="center" style="color:#A8C077;"><strong>BackgroundThread</strong>
+                <br>
+                <span style="text-align: center; color: #A8C077; font-size: 45%;"><em>- Found In File:
+                    FileHelper.h</em></span></strong>
+            </h1>
         </div>
         <br><br><br>
         <div id="main-body">
@@ -117,19 +122,18 @@
             </div>
             <br>
             <div class="codeBlock">
-                <pre class="sh_cpp"
-                    style="justify-content: center; margin-left: auto; margin-right: auto; background-color: #A8C077; width: fit-content; padding-left: 2%; padding-right: 2%;">
+                <pre class="sh_cpp">
 <br>
-struct BackgroundThread
-{
-	std::jthread flushThread;
-	std::stop_token interruptThread {};
-	std::atomic<bool> cleanUpThreads { false };
-	std::atomic<bool> flushThreadEnabled { false };
-	std::atomic<bool> flushComplete { true };
-	std::atomic<bool> threadWriting { false };
-	std::atomic<bool> pauseThread { false };
-};
+   struct BackgroundThread
+   {
+   	   std::jthread flushThread;
+   	   std::stop_token interruptThread {};
+   	   std::atomic&lt;bool&gt; cleanUpThreads {false };
+   	   std::atomic&lt;bool&gt; flushThreadEnabled {false };
+   	   std::atomic&lt;bool&gt; flushComplete {true };
+   	   std::atomic&lt;bool&gt; threadWriting {false };
+   	   std::atomic&lt;bool&gt; pauseThread {false };
+   };
 <br>
 </pre>
             </div>
@@ -145,16 +149,14 @@ struct BackgroundThread
                     <tr>
                         <th class="doc_table_body">
                             This thread object handles background flushing of contents to the file and is the same
-                            thread
-                            that the other variables in this struct are primarily referencing in Serenity for
-                            communication
-                            between the logging thread(s) and the actual flushing of those logs to the file(s).
+                            thread that the other variables in this struct are primarily referencing in Serenity for
+                            communication between the logging thread(s) and the actual flushing of those logs to the
+                            file(s).
                         </th>
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::stop_token interruptThread
-                        </th>
+                        <th class="doc_table_head"> std::stop_token interruptThread</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -166,8 +168,8 @@ struct BackgroundThread
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::atomic&lt;bool&gt;
-                                cleanUpThreads</th>
+                        <th class="doc_table_head"> std::atomic&lt;<span
+                                style="color: rgb(45, 60, 125);">bool</span>&gt; cleanUpThreads</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -178,19 +180,20 @@ struct BackgroundThread
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::atomic&lt;bool&gt;
-                                flushThreadEnabled</th>
+                        <th class="doc_table_head"> std::atomic&lt;<span
+                                style="color: rgb(45, 60, 125);">bool</span>&gt; flushThreadEnabled</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            This atomic variable is set to `true` when the background flushing thread is instantiated
-                            and is used in checks from the file logging thread(s) when writing to the file buffer.
+                            This atomic variable is set to `<span style="color: rgb(45, 60, 125);">true</span>` when the
+                            background flushing thread is instantiated and is used in checks from the file logging
+                            thread(s) when writing to the file buffer.
                         </th>
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::atomic&lt;bool&gt;
-                                flushComplete</th>
+                        <th class="doc_table_head"> std::atomic&lt;<span
+                                style="color: rgb(45, 60, 125);">bool</span>&gt; flushComplete</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -201,8 +204,8 @@ struct BackgroundThread
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::atomic&lt;bool&gt;
-                                threadWriting</th>
+                        <th class="doc_table_head"> std::atomic&lt;<span
+                                style="color: rgb(45, 60, 125);">bool</span>&gt; threadWriting</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -214,8 +217,8 @@ struct BackgroundThread
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::atomic&lt;bool&gt;
-                                pauseThread</th>
+                        <th class="doc_table_head"> std::atomic&lt;<span
+                                style="color: rgb(45, 60, 125);">bool</span>&gt; pauseThread</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -234,7 +237,8 @@ struct BackgroundThread
                                         <ul>
                                             <li>
                                                 In this case, the thread will be put to sleep indefinitely or until the
-                                                logger is destroyed by setting this atomic to `true` and bypassing flush
+                                                logger is destroyed by setting this atomic to `<span
+                                                    style="color: rgb(45, 60, 125);">true</span>` and bypassing flush
                                                 operations.
                                             </li>
                                         </ul>
@@ -247,10 +251,12 @@ struct BackgroundThread
                                                 In this case, this thread will effectively be put to sleep until a Fatal
                                                 log message has been written. This scenario sets this atomic to `true`
                                                 and then immediately wakes up and flushes the file buffer to disk by
-                                                setting this atomic to `false` once the condition (a fatal message) has
-                                                been met. Then, once all contents have been flushed, this atomic will be
-                                                reset back to `true`; pausing the background thread from executing
-                                                again.
+                                                setting this atomic to `<span
+                                                    style="color: rgb(45, 60, 125);">false</span>` once the condition (a
+                                                fatal message) has been met. Then, once all contents have been flushed,
+                                                this atomic will be reset back to `<span
+                                                    style="color: rgb(45, 60, 125);">true</span>`; pausing the
+                                                background thread from executing again.
                                             </li>
                                         </ul>
                                     </li>
