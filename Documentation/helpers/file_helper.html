@@ -140,9 +140,19 @@
             </div>
             <br>
             <div class="codeBlock">
-                <pre class="sh_cpp"
->
-<br>
+                <pre class="sh_cpp">
+
+   constexpr size_t max_size_size_t { (size_t)-1 };
+
+   constexpr size_t pageSize =
+   #if defined(_WIN32) && not defined(_WIN64)
+     static_cast&lt;size_t&gt;(2 * MB);
+   #elif defined _WIN64
+     static_cast&lt;size_t&gt;(4 * MB);
+   #else
+     static_cast&lt;size_t&gt;(DEFAULT_BUFFER_SIZE);
+   #endif    // _WIN32 && !_WIN64
+
    class FileHelper
    {
      public:
@@ -295,7 +305,42 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is what's in charge of writing the log messages from the file buffer to disk.
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">writeLimit</span>` is used to control
+                                how many bytes are written</li>
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">truncateRest</span>` is used to
+                                control whether or not the rest of the buffer is ignored and erased after <span
+                                    style="color: rgb(125, 45, 45);">writeLimit</span> bytes have been written to the
+                                file. </li>
+                            <ul>
+                                <li>If <span style="color: rgb(125, 45, 45);">writeLimit</span> is equal to <span
+                                        style="color: rgb(125, 45, 45);">max_size_size_t</span>:
+                                    <ul>
+                                        <li>
+                                            Calls <span style="color: rgb(125, 45, 45);">WriteImpl()</span>
+                                            <br>
+                                            - effectively writes the whole buffer to disk and clears the buffer
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Otherwise if <span style="color: rgb(125, 45, 45);">writeLimit</span> is less than
+                                    <span style="color: rgb(125, 45, 45);">max_size_size_t</span>:
+                                    <ul>
+                                        <li>
+                                            Calls <span style="color: rgb(125, 45, 45);">WriteImpl(writeLimit,
+                                                truncateRest)</span>
+                                            <br>
+                                            - writes out the number of bytes specified by <span
+                                                style="color: rgb(125, 45, 45);">writeLimit</span> and
+                                            erases the rest dependant on whether or not <span
+                                                style="color: rgb(125, 45, 45);">truncateRest</span> = <span
+                                                style="color:rgb(45, 60, 125);">true</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
