@@ -285,6 +285,7 @@
                                         thread isn't active</li>
                                     <li>returns true on success and false on failure</li>
                                 </ul>
+                                <br>
                                 <li>Otherwise, if multi-thread support is disabled, this function will effectively:
                                     <ul>
                                         <li>Call <span style="color: rgb(125, 45, 45);">OpenImpl(truncate)</span> - the
@@ -325,6 +326,7 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <br>
                                 <li>Otherwise if <span style="color: rgb(125, 45, 45);">writeLimit</span> is less than
                                     <span style="color: rgb(125, 45, 45);">max_size_size_t</span>:
                                     <ul>
@@ -351,7 +353,31 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is in charge of flushing the file buffer to the disk.
+                            <br>
+                            <ul>
+                                <li>This function will:
+                                    <ul>
+                                        <li>Check if the background flush thread is active</li>
+                                        <li>
+                                            If the thread is active, this function will:
+                                            <ul>
+                                                <li>Notify the thread that a manual flush is being called from the
+                                                    logger thread</li>
+                                                <li>Lock the FileHelper mutex</li>
+                                                <li>Call <span style="color: rgb(125, 45, 45);">FlushImpl()</span></li>
+                                                <li>Unlock The Mutex</li>
+                                                <li>Notify the background thread that the manual flush is done</li>
+                                            </ul>
+                                        </li>
+                                        <li>Otherwise, this function will simply call <span
+                                                style="color: rgb(125, 45, 45);">FlushImpl()</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            </ul>
+                            </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
@@ -364,6 +390,57 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
+                            This function is in control of closing the file that was cached.
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">onRotation</span>` is used to control
+                                whether the buffer is flushed to disk before close or not.
+                            <li style="margin-left: 2%;">
+                                As the name implies, this is mostly just used for the RotatingTarget and is why
+                                this parameter's default value is false.
+                            </li>
+                            </li>
+                            <ul>
+                                <li>
+                                    If multi-thread support is enabled, this function will:
+                                    <ul>
+                                        <li>Lock FileHelper's mutex</li>
+                                        <li>
+                                            Call <span style="color: rgb(125, 45, 45);">PauseBackgroundThread()</span> -
+                                            this call does nothing if a background flush
+                                            thread isn't active
+                                        </li>
+                                        <li>If <span style="color: rgb(125, 45, 45);">onRotation</span>=<span
+                                                style="color:rgb(45, 60, 125);">false</span>, calls <span
+                                                style="color: rgb(125, 45, 45);">Flush()</span>
+                                        </li>
+                                        <li>Call <span style="color: rgb(125, 45, 45);">CloseImpl()</span></li>
+                                        <li>return <span style="color:rgb(45, 60, 125);">true</span> if the file was
+                                            successfully closed and <span style="color:rgb(45, 60, 125);">false</span>
+                                            if it wasn't
+                                        </li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li>
+                                    Otherwise, this function will:
+                                    <ul>
+                                        <li>
+                                            Call <span style="color: rgb(125, 45, 45);">PauseBackgroundThread()</span> -
+                                            this call does nothing if a background flush
+                                            thread isn't active
+                                        </li>
+                                        <li>If <span style="color: rgb(125, 45, 45);">onRotation</span>=<span
+                                                style="color:rgb(45, 60, 125);">false</span>, calls <span
+                                                style="color: rgb(125, 45, 45);">Flush()</span>
+                                        </li>
+                                        <li>Call <span style="color: rgb(125, 45, 45);">CloseImpl()</span></li>
+                                        <li>return <span style="color:rgb(45, 60, 125);">true</span> if the file was
+                                            successfully closed and <span style="color:rgb(45, 60, 125);">false</span>
+                                            if it wasn't
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                             <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
                         </th>
                     </tr>
@@ -377,7 +454,7 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function simply returns a reference to the file buffer being used.
                         </th>
                     </tr>
                     <tr>
@@ -390,7 +467,7 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function returns the file buffer's current size.
                         </th>
                     </tr>
                     <tr>
@@ -403,7 +480,20 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is used to set the file buffer's capacity.
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">value</span>` is used to set the new
+                                size of the file buffer.
+                            </li>
+                            <ul>
+                                <li>NOTE: The default sizes for the file buffer are listed below:
+                                    <ul>
+                                        <li>x86-32: 2MB</li>
+                                        <li>x86-64: 4MB</li>
+                                        <li>Everything else: DEFAULT_BUFFER_SIZE (this is set to 64KB)</li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>

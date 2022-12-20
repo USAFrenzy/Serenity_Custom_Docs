@@ -647,7 +647,8 @@ td {
 
 	/* separated form above so as to only affect the font_size */
 	.lists,
-	.tables {
+	.tables,
+	.nav_link {
 		font-size: 85%;
 	}
 

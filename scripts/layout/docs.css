@@ -176,6 +176,8 @@
     color: #036184;
 }
 
+
+
 @media screen and (max-height: 650px) {
     .side_doc_tree {
         padding-top: 15px;
@@ -189,7 +191,90 @@
     }
 }
 
+/* Larger desktop screen window */
+@media screen and (min-width:1000px) {
+
+    .tables {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .lists {
+        margin-left: 13%;
+        margin-right: 13%;
+    }
+
+    .doc_details {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .doc_table_body {
+        font-size: 105%;
+    }
+
+    .doc_table_head {
+        font-size: 115%;
+    }
+}
+
+/* Roughly Full-sized desktop window */
+@media screen and (min-width:769px) and (max-width:1000px) {
+    .tables {
+        margin-left: 3.5%;
+        margin-right: 3.5%;
+    }
+
+    .lists {
+        margin-left: 9%;
+        margin-right: 9%;
+    }
+
+    .doc_details {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    .doc_table_body {
+        font-size: 100%;
+    }
+
+    .doc_button {
+        height: fit-content;
+        margin-top: 10px;
+    }
+
+    .doc_table_head {
+        font-size: 110%;
+    }
+}
+
+/* Half-sized desktop window */
 @media screen and (max-width:768px) {
+
+    .tables {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .lists {
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+
+    .doc_details {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .doc_table_body {
+        font-size: 100%;
+    }
+
+    .doc_table_head {
+        font-size: 105%;
+    }
+
     .doc_button {
         display: block;
         background-color: rgb(4, 81, 71);
@@ -222,78 +307,13 @@
     }
 }
 
-/* Larger desktop screen window */
-@media screen and (min-width:1000px) {
-    .lists {
-        margin-left: 13%;
-        margin-right: 13%;
-    }
-
-    .doc_details {
-        margin-left: 25%;
-        margin-right: 25%;
-    }
-
-    .doc_table_body {
-        font-size: 105%;
-    }
-
-    .doc_table_head {
-        font-size: 115%;
-    }
-}
-
-/* Roughly Full-sized desktop window */
-@media screen and (min-width:769px) and (max-width:1000px) {
-
-    .lists {
-        margin-left: 9%;
-        margin-right: 9%;
-    }
-
-    .doc_details {
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-
-    .doc_table_body {
-        font-size: 100%;
-    }
-
-    .doc_button {
-        height: fit-content;
-        margin-top: 10px;
-    }
-
-    .doc_table_head {
-        font-size: 110%;
-    }
-}
-
-/* Half-sized desktop window */
-@media screen and (max-width:768px) {
-
-    .lists {
-        margin-left: 7%;
-        margin-right: 7%;
-    }
-
-    .doc_details {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-
-    .doc_table_body {
-        font-size: 100%;
-    }
-
-    .doc_table_head {
-        font-size: 105%;
-    }
-}
-
 /* quarter-sized desktop window */
 @media screen and (max-width:600px) {
+
+    .tables {
+        margin-left: 1.5%;
+        margin-right: 1.5%;
+    }
 
     .lists {
         margin-left: 0%;
@@ -316,6 +336,11 @@
 
 /* Mobile screens */
 @media screen and (max-width:480px) {
+
+    .tables {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
 
     .lists {
         margin-left: 0%;
