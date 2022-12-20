@@ -362,10 +362,10 @@
                                         style="color: rgb(125, 45, 45);">max_size_size_t</span>:
                                     <ul>
                                         <li>
-                                            Calls <span style="color: rgb(125, 45, 45);">FlushImpl()</span>
+                                            Calls <span style="color: rgb(125, 45, 45);">WriteImpl()</span>
                                             <br>
-                                            - effectively writes the whole buffer to disk in page sized chunks and
-                                            clears the buffer
+                                            - effectively only writes the file buffer to disk if the file buffer's size
+                                            is greater than or equal to the page size
                                         </li>
                                     </ul>
                                 </li>
@@ -911,6 +911,43 @@
                     <tr>
                         <th class="doc_table_break"><br><br></th>
                     </tr>
+
+
+                    <tr>
+                        <th class="doc_table_head">
+                            private: void WriteImpl();
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
+                            is the implementation block that writes bytes to disk.
+                            <li>
+                                This function is used to effectively only write to disk when it's efficient to do so as
+                                to avoid the overhead of constant write calls.
+                            </li>
+                            <li>
+                                To bypass this behavior and manually write to disk, please refer to the function, <span
+                                    style="color: rgb(125, 45, 45);">Flush()</span>
+                            </li>
+                            <ul>
+                                <li>This function will :
+                                    <ul>
+                                        <li>Do nothing and return if the file buffer's size is less than the page size
+                                        </li>
+                                        <li>Write one page sized chunk from the file buffer to disk</li>
+                                        <li>Erase the same page sized chunk from the file buffer</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+
+
+
                     <tr>
                         <th class="doc_table_head">
                             private: void WriteImpl(size_t writeLimit, bool truncateRest = false);
