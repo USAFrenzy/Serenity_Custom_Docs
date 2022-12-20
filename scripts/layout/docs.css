@@ -3,7 +3,6 @@
     display: none;
 }
 
-
 .namespace_link {
     display: none;
     justify-content: center;
@@ -111,6 +110,15 @@
 .contents:hover {
     background-color: #A8C077;
     color: #036b5d;
+}
+
+.doc_table_div_header {
+    text-align: center;
+    font-size: large;
+}
+
+.indent {
+    margin-left: 4.5%;
 }
 
 .doc_table_head {
@@ -311,6 +319,7 @@
 @media screen and (max-width:600px) {
 
     .tables {
+        font-size: 80%;
         margin-left: 1.5%;
         margin-right: 1.5%;
     }
@@ -338,6 +347,7 @@
 @media screen and (max-width:480px) {
 
     .tables {
+        font-size: 80%;
         margin-left: 0%;
         margin-right: 0%;
     }

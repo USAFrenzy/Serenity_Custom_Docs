@@ -139,73 +139,215 @@
                 </div>
             </div>
             <br>
-            <div class="codeBlock">
-                <pre class="sh_cpp">
+            <table class="tables" style="justify-content: center; margin-left: auto; margin-right: auto;">
+                <tr>
+                    <th class="doc_table_div_header">Namespace Constexpr Globals</th>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#max_size_size_t">constexpr size_t max_size_size_t</a>
+                        <br>
+                        <div class="indent">
+                            This constexpr variable is set to the max size that type <span
+                                style="color: rgb(125, 45, 45);">size_t</span> can store and is simply used in checks in
+                            <span style="color: rgb(125, 45, 45);">WriteToFile()</span>
+                        </div>
+                    </td>
 
-   constexpr size_t max_size_size_t { (size_t)-1 };
-
-   constexpr size_t pageSize =
-   #if defined(_WIN32) && not defined(_WIN64)
-     static_cast&lt;size_t&gt;(2 * MB);
-   #elif defined _WIN64
-     static_cast&lt;size_t&gt;(4 * MB);
-   #else
-     static_cast&lt;size_t&gt;(DEFAULT_BUFFER_SIZE);
-   #endif    // _WIN32 && !_WIN64
-
-   class FileHelper
-   {
-     public:
-       explicit FileHelper(const std::string_view fpath);
-       FileHelper(FileHelper&)            = delete;
-       FileHelper& operator=(FileHelper&) = delete;
-       ~FileHelper()                      = default;
-
-       bool OpenFile(bool truncate = false);
-       void WriteToFile(size_t writeLimit = max_size_size_t, bool truncateRest = false);
-       void Flush();
-       bool CloseFile(bool onRotation = false);
-       std::vector&lt;char&gt;& FileBuffer();
-       size_t FileBufferSize();
-       void SetBufferCapacity(size_t value);
-       void InitializeFilePath(std::string_view fileName = "");
-       virtual bool RenameFile(utf_utils::InputSource newFileName);
-       void BackgroundFlushThread(std::stop_token stopToken);
-       void StopBackgroundThread();
-       void StartBackgroundThread();
-       void PauseBackgroundThread();
-       void ResumeBackgroundThread();
-       void SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);
-       const std::unique_ptr&lt;FileCache&gt;& FileCacheHelper() const;
-       const std::unique_ptr&lt;BackgroundThread&gt;& BackgoundThreadInfo() const;
-
-     private:
-       void OpenImpl(bool truncate);
-       void WriteImpl();
-       void WriteImpl(size_t writeLimit, bool truncateRest = false);
-       void FlushImpl();
-       void CloseImpl();
-
-     private:
-       int retryAttempt;
-       bool fileOpen;
-       int file;
-       std::vector&lt;char&gt; buffer;
-       std::mutex fileHelperMutex;
-       std::unique_ptr&lt;FileCache&gt; fileCache;
-       std::shared_ptr&lt;BaseTargetHelper&gt; targetHelper;
-       std::unique_ptr&lt;BackgroundThread&gt; flushWorker;
-   };
-<br>
-</pre>
-            </div>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#page_size">constexpr size_t pageSize</a>
+                        <div class="indent">
+                            This constexpr variable is used in initially reserving the file buffer size and is used in
+                            writes to disk for chunking operations.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header">Public Functions</th>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#constructor">explicit FileHelper(const std::string_view
+                            fpath);</a>
+                        <div class="indent">
+                            This is the only constructor available for this class.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#open">bool OpenFile(bool truncate = false);</a>
+                        <div class="indent"> This function opens the file that was cached from the constructor.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#write">void WriteToFile(size_t writeLimit = max_size_size_t,
+                            bool truncateRest = false);</a>
+                        <div class="indent">
+                            This function is what's in charge of writing the log messages from the file buffer to disk.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#flush">void Flush();</a>
+                        <div class="indent"> This function is in charge of flushing the file buffer to the disk.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#close">bool CloseFile(bool onRotation = false);</a>
+                        <div class="indent">This function is in control of closing the file that was cached. </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#buff_ref">std::vector&lt;char&gt;& FileBuffer();</a>
+                        <div class="indent">This function simply returns a reference to the file buffer being used.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#file_buff_size">size_t FileBufferSize();</a>
+                        <div class="indent"> This function returns the file buffer's current size.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#set_buff_cap">void SetBufferCapacity(size_t value);</a>
+                        <div class="indent">This function is used to set the file buffer's capacity. </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#init_filepath">void InitializeFilePath(std::string_view
+                            fileName = "");</a>
+                        <div class="indent">
+                            This function is mainly used in the default constructors of the in-house targets, as well as
+                            the constructors that don't take in a file path, but do take a file name as a parameter.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#rename">virtual bool RenameFile(utf_utils::InputSource
+                            newFileName);</a>
+                        <div class="indent">
+                            This virtual function is in charge of renaming the log file. This function is made virtual
+                            so that the targets may override the default behavior of this function if desired. </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#bg_thread">void BackgroundFlushThread(std::stop_token
+                            stopToken);</a>
+                        <div class="indent">
+                            This function is the workload of the background thread in charge of flushing the file
+                            buffer to disk after some set interval has elapsed.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#stop_bg_thread">void StopBackgroundThread();</a>
+                        <div class="indent">
+                            This function is in charge of stopping the background thread in charge of flushing the file
+                            buffer to disk.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#start_bg_thread">void StartBackgroundThread();</a>
+                        <div class="indent">
+                            This function is in charge of starting the background thread in charge of flushing the file
+                            buffer to disk.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#pause_bg_thread">void PauseBackgroundThread();</a>
+                        <div class="indent">
+                            This function temporarily pauses the background thread in charge of flushing until it's
+                            notified that it can resume again.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#resume_bg_thread">void ResumeBackgroundThread();</a>
+                        <div class="indent"> This function resumes the background thread in charge of flushing.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#sync">void
+                            SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);</a>
+                        <div class="indent">
+                            This function simply points the member variable <span
+                                style="color: rgb(125, 45, 45);">targetHelper</span> to `<span
+                                style="color: rgb(125, 45, 45);">syncToHelper</span>` in order for this class to utilize
+                            the logging target's settings.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#cache_ref">const std::unique_ptr&lt;FileCache&gt;&
+                            FileCacheHelper() const;</a>
+                        <div class="indent">
+                            This function simply returns a const reference to the smart pointer member variable <span
+                                style="color: rgb(125, 45, 45);">fileCache</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#thread_ref">const std::unique_ptr&lt;BackgroundThread&gt;&
+                            BackgoundThreadInfo() const;</a>
+                        <div class="indent">
+                            This function simply returns a const reference to the smart pointer member variable <span
+                                style="color: rgb(125, 45, 45);">flushWorker</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header">Private Functions</th>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#open_impl">void OpenImpl(bool truncate);</a>
+                        <div class="indent">
+                            This function is called in <span style="color: rgb(125, 45, 45);">OpenFile()</span>.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#write_impl_one">void WriteImpl();</a>
+                        <div class="indent">
+                            This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
+                            is the implementation block that writes bytes to disk.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#write_impl_two">void WriteImpl(size_t writeLimit,
+                            bool truncateRest = false);</a>
+                        <div class="indent">
+                            This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
+                            is the implementation block that writes bytes to disk.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#flush_impl">void FlushImpl();</a>
+                        <div class="indent">
+                            This function is called in <span style="color: rgb(125, 45, 45);">Flush()</span> and is in
+                            charge of flushing the entire file buffer to disk in an efficient manner
+                            using page size chunks to write.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a class="doc_table_link" href="#close_impl">void CloseImpl();</a>
+                        <div class="indent">
+                            This function is in charge of the actual file close logic and is called from <span
+                                style="color: rgb(125, 45, 45);">CloseFile()</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
             <br>
             <div class="subHeaders"> More Information About Class FileHelper </div>
             <br><br>
             <div class="tables">
                 <table>
                     <tr>
-                        <th class="doc_table_head">constexpr size_t max_size_size_t </th>
+                        <th id="max_size_size_t" class="doc_table_head">constexpr size_t max_size_size_t </th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -216,7 +358,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="page_size" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">constexpr size_t pageSize</th>
@@ -237,7 +379,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="constructor" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">explicit FileHelper(const std::string_view fpath);</th>
@@ -300,7 +442,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="open" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -339,7 +481,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="write" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -389,7 +531,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="flush" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">void Flush();</th>
@@ -424,7 +566,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="close" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -487,7 +629,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="buff_ref" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -501,7 +643,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="file_buff_size" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -515,7 +657,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="set_buff_cap" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -541,7 +683,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="init_filepath" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -579,7 +721,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="rename" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -619,7 +761,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="bg_thread" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -679,7 +821,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="stop_bg_thread" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -721,7 +863,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="start_bg_thread" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -758,7 +900,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="pause_bg_thread" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -784,7 +926,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="resume_bg_thread" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -812,7 +954,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="sync" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -835,7 +977,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="cache_ref" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -850,7 +992,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="thread_ref" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -865,7 +1007,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="open_impl" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -909,7 +1051,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="write_impl_one" class="doc_table_break"><br><br></th>
                     </tr>
 
 
@@ -943,11 +1085,8 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="write_impl_two" class="doc_table_break"><br><br></th>
                     </tr>
-
-
-
                     <tr>
                         <th class="doc_table_head">
                             private: void WriteImpl(size_t writeLimit, bool truncateRest = false);
@@ -988,7 +1127,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="flush_impl" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -1021,7 +1160,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="doc_table_break"><br><br></th>
+                        <th id="close_impl" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
                         <th class="doc_table_head">
@@ -1056,6 +1195,72 @@
                         </th>
                     </tr>
                 </table>
+            </div>
+            <br><br>
+            <div class="center_text">
+                This class is found under the namespace <span
+                    style="color:rgb(58, 230, 215);">serenity::target::helpers</span>
+                in file <span style="color:rgb(58, 230, 215);">FileHelper.h</span>
+            </div>
+            <div class="codeBlock">
+                <pre id="src_file" class="sh_cpp">
+
+   constexpr size_t max_size_size_t { (size_t)-1 };
+
+   constexpr size_t pageSize =
+   #if defined(_WIN32) && not defined(_WIN64)
+     static_cast&lt;size_t&gt;(2 * MB);
+   #elif defined _WIN64
+     static_cast&lt;size_t&gt;(4 * MB);
+   #else
+     static_cast&lt;size_t&gt;(DEFAULT_BUFFER_SIZE);
+   #endif    // _WIN32 && !_WIN64
+
+   class FileHelper
+   {
+     public:
+       explicit FileHelper(const std::string_view fpath);
+       FileHelper(FileHelper&)            = delete;
+       FileHelper& operator=(FileHelper&) = delete;
+       ~FileHelper()                      = default;
+
+       bool OpenFile(bool truncate = false);
+       void WriteToFile(size_t writeLimit = max_size_size_t, bool truncateRest = false);
+       void Flush();
+       bool CloseFile(bool onRotation = false);
+       std::vector&lt;char&gt;& FileBuffer();
+       size_t FileBufferSize();
+       void SetBufferCapacity(size_t value);
+       void InitializeFilePath(std::string_view fileName = "");
+       virtual bool RenameFile(utf_utils::InputSource newFileName);
+       void BackgroundFlushThread(std::stop_token stopToken);
+       void StopBackgroundThread();
+       void StartBackgroundThread();
+       void PauseBackgroundThread();
+       void ResumeBackgroundThread();
+       void SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);
+       const std::unique_ptr&lt;FileCache&gt;& FileCacheHelper() const;
+       const std::unique_ptr&lt;BackgroundThread&gt;& BackgoundThreadInfo() const;
+
+     private:
+       void OpenImpl(bool truncate);
+       void WriteImpl();
+       void WriteImpl(size_t writeLimit, bool truncateRest = false);
+       void FlushImpl();
+       void CloseImpl();
+
+     private:
+       int retryAttempt;
+       bool fileOpen;
+       int file;
+       std::vector&lt;char&gt; buffer;
+       std::mutex fileHelperMutex;
+       std::unique_ptr&lt;FileCache&gt; fileCache;
+       std::shared_ptr&lt;BaseTargetHelper&gt; targetHelper;
+       std::unique_ptr&lt;BackgroundThread&gt; flushWorker;
+   };
+<br>
+</pre>
             </div>
             <br>
             <hr />
