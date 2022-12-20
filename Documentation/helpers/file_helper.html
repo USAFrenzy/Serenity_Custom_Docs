@@ -506,7 +506,32 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is mainly used in the default constructors of the in-house targets, as well as
+                            the constructors that don't take in a file path, but do take a file name as a parameter.
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">fileName</span>` is used to set the
+                                name of the log file.
+                            </li>
+                            <br>
+                            This function will:
+                            <ul>
+                                <li>
+                                    Initialize the file path to the currently running process's directory + "<span
+                                        style="color: #1d717a;">Logs</span>" + `<span
+                                        style="color: rgb(125, 45, 45);">fileName</span>`
+                                </li>
+                                <li>
+                                    If parameter `<span style="color: rgb(125, 45, 45);">fileName</span>` is empty:
+                                    <ul>
+                                        <li>The log file will be named "<span
+                                                style="color: #1d717a;">Generic_Log.txt</span>"</li>
+                                        <li>Otherwise the log file will be named `<span
+                                                style="color: rgb(125, 45, 45);">fileName</span>`</li>
+                                    </ul>
+                                </li>
+                                <li>Call `<span style="color: rgb(125, 45, 45);">CacheFile()</span>` to store the
+                                    relevant segments of the file path</li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
@@ -519,7 +544,34 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This virtual function is in charge of renaming the log file. This function is made virtual
+                            so that the targets may override the default behavior of this function if desired. An
+                            example of this is in <a class="doc_table_link"
+                                href="../targets/RotatingTarget.html">RotateTarget's</a> <span
+                                style="color: rgb(125, 45, 45);">`RenameFile()`</span> override.
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">newFileName</span>` is used to set the
+                                new name of the log file.
+                            </li>
+                            <br>
+                            This function's default behavior will:
+                            <ul>
+                                <li>Close the file if the file is open</li>
+                                <li>Retrieve the current file path</li>
+                                <li>Try to rename the file</li>
+                                <li>Sets the new file path with the newly named file</li>
+                                <li>Opens the file</li>
+                                <li>This function returns <span style="color:rgb(45, 60, 125);">true</span> if the below
+                                    conditions are met:
+                                    <ul>
+                                        <li>The file was successfully closed</li>
+                                        <li>The file was successfully renamed</li>
+                                        <li>The file was successfully re-opened</li>
+                                    </ul>
+                                </li>
+                                <li>Otherwise, this function returns <span style="color:rgb(45, 60, 125);">false</span>
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
@@ -532,7 +584,53 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is the workload of the background thread in charge of flushing the file
+                            buffer to disk after some set interval has elapsed.
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">stopToken</span>` is used from the
+                                logger thread as a signal for gracefully terminating this worker thread.
+                            </li>
+                            <ul>
+                                <li>
+                                    This function simply:
+                                    <ul>
+                                        <li>
+                                            Iterates in a while loop until the atomic <span
+                                                style="color: rgb(125, 45, 45);">cleanUpThreads</span>=<span
+                                                style="color:rgb(45, 60, 125);">true</span>
+                                        </li>
+                                        <li>While the atomic <span
+                                                style="color: rgb(125, 45, 45);">cleanUpThreads</span>=<span
+                                                style="color:rgb(45, 60, 125);">false</span>, this function:
+                                            <ul>
+                                                <li>Checks if a request for stopping the workload has been issued
+                                                    <ul>
+                                                        <li>If not, continues</li>
+                                                        <li>If so, returns from this function, joining the background
+                                                            thread</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    Checks if a request to temporarily pause the thread has been issued
+                                                    <ul>
+                                                        <li>If not, calls <span
+                                                                style="color: rgb(125, 45, 45);">Flush()</span> </li>
+                                                        <li>If so, first waits for the logger thread to notify when this
+                                                            thread can continue, then calls <span
+                                                                style="color: rgb(125, 45, 45);">Flush()</span> </li>
+                                                    </ul>
+                                                <li>This thread is then put to sleep for the interval specified by the
+                                                    flush policy before the next iteration continues.</li>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            </li>
+                            </ul>
+                            Both the <span style="color: rgb(125, 45, 45);">stop_token</span> used in this function and
+                            the atomic <span style="color: rgb(125, 45, 45);">cleanUpThreads</span> are located in <a
+                                class="doc_table_link" href="../helpers/background_thread.html">BackgroundThread</a>
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -545,7 +643,36 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is in charge of stopping the background thread in charge of flushing the file
+                            buffer to disk.
+                            <br><br>
+                            This function will:
+                            <ul>
+                                <li>If the background thread isn't active, does nothing and returns</li>
+                                <li>Request the background thread to stop</li>
+                                <li>Set the atomic <span style="color: rgb(125, 45, 45);">cleanUpThreads</span> to <span
+                                        style="color:rgb(45, 60, 125);">true</span>
+                                </li>
+                                <li>Notify the background thread that <span
+                                        style="color: rgb(125, 45, 45);">cleanUpThreads</span> has been changed
+                                </li>
+                                <li>Join the background thread</li>
+                                <li>Set the flush policy to never
+                                    <ul>
+                                        <li>
+                                            this is to stop a thread instantiation occurring when the targets check the
+                                            flush policy on the next log call
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Set the atomic <span style="color: rgb(125, 45, 45);">flushThreadEnabled</span> to
+                                    <span style="color:rgb(45, 60, 125);">false</span>
+                                </li>
+                            </ul>
+                            Both the atomic <span style="color: rgb(125, 45, 45);">cleanUpThreads</span> and the atomic
+                            <span style="color: rgb(125, 45, 45);">flushThreadEnabled</span> are located in <a
+                                class="doc_table_link" href="../helpers/background_thread.html">BackgroundThread</a>
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
