@@ -205,6 +205,41 @@
             <div class="tables">
                 <table>
                     <tr>
+                        <th class="doc_table_head">constexpr size_t max_size_size_t </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            This constexpr variable is set to the max size that type <span
+                                style="color: rgb(125, 45, 45);">size_t</span> can store and is simply used in checks in
+                            <span style="color: rgb(125, 45, 45);">WriteToFile()</span>
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_head">constexpr size_t pageSize</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            This constexpr variable is used in initially reserving the file buffer size and is used in
+                            writes to disk for chunking operations.
+                            <ul>
+                                <li>This variable is set to:
+                                    <ul>
+                                        <li>x86-32: 2MB</li>
+                                        <li>x86-64: 4MB</li>
+                                        <li>default: DEFAULT_BUFFER_SIZE (this is set to 64KB)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
                         <th class="doc_table_head">explicit FileHelper(const std::string_view fpath);</th>
                     </tr>
                     <tr>
@@ -212,7 +247,7 @@
                             This is the only constructor available for this class.
                             <li>Parameter `<span style="color: rgb(125, 45, 45);">fpath</span>` is the path to the file,
                                 whether absolute or relative to the currently running process's directory.</li>
-                            <br><br>
+                            <br>
                             This class constructor:
                             <ul>
                                 <li>Instantiates a smart pointer to <a class="doc_table_link"
@@ -239,7 +274,7 @@
 
                                 </li>
                             </ul>
-                            It takes a string_view as a file path
+                            This function takes a <span style="color: rgb(125,45,45);">string_view</span> as a file path
                             to cache and passes this path to the member variable `<span
                                 style="color: rgb(125, 45, 45);">fileCache</span>`, which will break up the path into
                             pieces to store. This is how the FileHelper class will refer to the file for open/close
@@ -327,9 +362,10 @@
                                         style="color: rgb(125, 45, 45);">max_size_size_t</span>:
                                     <ul>
                                         <li>
-                                            Calls <span style="color: rgb(125, 45, 45);">WriteImpl()</span>
+                                            Calls <span style="color: rgb(125, 45, 45);">FlushImpl()</span>
                                             <br>
-                                            - effectively writes the whole buffer to disk and clears the buffer
+                                            - effectively writes the whole buffer to disk in page sized chunks and
+                                            clears the buffer
                                         </li>
                                     </ul>
                                 </li>
@@ -855,25 +891,21 @@
                                             this will truncate the file on open
                                         </li>
                                         <li>
-                                            Returns <span style="color:rgb(45, 60, 125);">true</span> on successful
-                                            open, returns <span style="color:rgb(45, 60, 125);">false</span> otherwise.
+                                            Sets the member variable <span
+                                                style="color: rgb(125, 45, 45);">fileOpen</span> to:
+                                            <ul>
+                                                <li>
+                                                    <span style="color:rgb(45, 60, 125);">true</span> on successful
+                                                    open
+                                                </li>
+                                                <li>
+                                                    <span style="color:rgb(45, 60, 125);">false</span> otherwise.
+                                                </li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="doc_table_break"><br><br></th>
-                    </tr>
-                    <tr>
-                        <th class="doc_table_head">
-                            private: void WriteImpl();
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
                         </th>
                     </tr>
                     <tr>
@@ -886,7 +918,36 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
+                            is the implementation block that writes bytes to disk.
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">writeLimit</span>` is used to control
+                                how many bytes are written</li>
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">truncateRest</span>` is used to
+                                control whether or not the rest of the buffer is ignored and erased after <span
+                                    style="color: rgb(125, 45, 45);">writeLimit</span> bytes have been written to the
+                                file.
+                            </li>
+                            <ul>
+                                <li>
+                                    This function will:
+                                    <ul>
+                                        <li>Do nothing and return if the file buffer size is less than the <span
+                                                style="color: rgb(125, 45, 45);">writeLimit</span> bytes specified</li>
+                                        <li>Write the specified number of bytes from the file buffer to disk</li>
+                                        <li>Erase the specified number of bytes from the file buffer after writing them
+                                            to disk
+                                            <ul>
+                                                <li>If <span style="color: rgb(125, 45, 45);">truncateRest</span> =
+                                                    <span style="color:rgb(45, 60, 125);">true</span>, this will clear
+                                                    the entire buffer after the write instead
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
@@ -899,7 +960,27 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is called in <span style="color: rgb(125, 45, 45);">Flush()</span> and is in
+                            charge of flushing the entire file buffer to disk in an efficient manner
+                            using page size chunks to write.
+                            <ul>
+                                <li>If the file buffer size is greater than the page size, this function will:
+                                    <ul>
+                                        <li>Calculate how many chunks the file buffer needs to be broken up into</li>
+                                        <li>In a loop, write out the number of chunks to disk, erasing them from the
+                                            buffer afterwards</li>
+                                        <li>Writes out the remaining bytes left over that didn't fit the chunk size
+                                            earlier before clearing the buffer
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Otherwise, if the file buffer size is less than the page size, this function will:
+                                    <ul>
+                                        <li>Simply write the whole file buffer contents to disk in one chunk</li>
+                                        <li>Clear the file buffer</li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
@@ -912,7 +993,29 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is in charge of the actual file close logic and is called from <span
+                                style="color: rgb(125, 45, 45);">CloseFile()</span>
+                            <ul>
+                                <li>This function will:
+                                    <ul>
+                                        <li>Do nothing and return if the file is already closed</li>
+                                        <li>Close the file</li>
+                                        <li> Sets the member variable <span
+                                                style="color: rgb(125, 45, 45);">fileOpen</span> to:
+                                            <ul>
+                                                <li>
+                                                    <span style="color:rgb(45, 60, 125);">false</span> on successful
+                                                    close
+                                                </li>
+                                                <li>
+                                                    <span style="color:rgb(45, 60, 125);">true</span> otherwise to
+                                                    indicate file close was unsuccessful.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                 </table>
