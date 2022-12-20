@@ -216,11 +216,17 @@
                             This class constructor:
                             <ul>
                                 <li>Instantiates a smart pointer to <a class="doc_table_link"
-                                        href="../helpers/file_cache.html">FileCache</a> </li>
+                                        href="../helpers/file_cache.html">FileCache</a>
+                                    stored in member variable <span style="color: rgb(125,45,45);">fileCache</span>
+                                </li>
                                 <li>Instantiates a smart pointer to <a class="doc_table_link"
-                                        href="../helpers/base_target_helper.html">BaseTargetHelper</a> </li>
+                                        href="../helpers/base_target_helper.html">BaseTargetHelper</a>
+                                    stored in member variable <span style="color: rgb(125,45,45);">targetHelper</span>
+                                </li>
                                 <li>Instantiates a smart pointer to <a class="doc_table_link"
-                                        href="../helpers/background_thread.html">BackgroundThread</a> </li>
+                                        href="../helpers/background_thread.html">BackgroundThread</a>
+                                    stored in member variable <span style="color: rgb(125,45,45);">flushWorker</span>
+                                </li>
                                 <li>Initially reserves the file buffer size to the platform's page size
                                     <ul>
                                         <li>x86-32: 2MB</li>
@@ -255,6 +261,7 @@
                             based flush option. The relevant thread-related functions in this class use this smart
                             pointer as well as `<span style="color: rgb(125, 45, 45);">targetHelper</span>` to minimize
                             thread contention while logs are being written..
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -441,7 +448,6 @@
                                     </ul>
                                 </li>
                             </ul>
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
                         </th>
                     </tr>
                     <tr>
@@ -455,6 +461,7 @@
                     <tr>
                         <th class="doc_table_body">
                             This function simply returns a reference to the file buffer being used.
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -468,6 +475,7 @@
                     <tr>
                         <th class="doc_table_body">
                             This function returns the file buffer's current size.
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -628,8 +636,9 @@
                             </li>
                             </ul>
                             Both the <span style="color: rgb(125, 45, 45);">stop_token</span> used in this function and
-                            the atomic <span style="color: rgb(125, 45, 45);">cleanUpThreads</span> are located in <a
-                                class="doc_table_link" href="../helpers/background_thread.html">BackgroundThread</a>
+                            the atomic <span style="color: rgb(125, 45, 45);">cleanUpThreads</span> are located in the
+                            struct <a class="doc_table_link"
+                                href="../helpers/background_thread.html">BackgroundThread</a>
                             <br><br>
                         </th>
                     </tr>
@@ -670,8 +679,8 @@
                                 </li>
                             </ul>
                             Both the atomic <span style="color: rgb(125, 45, 45);">cleanUpThreads</span> and the atomic
-                            <span style="color: rgb(125, 45, 45);">flushThreadEnabled</span> are located in <a
-                                class="doc_table_link" href="../helpers/background_thread.html">BackgroundThread</a>
+                            <span style="color: rgb(125, 45, 45);">flushThreadEnabled</span> are located in the struct
+                            <a class="doc_table_link" href="../helpers/background_thread.html">BackgroundThread</a>
                             <br><br>
                         </th>
                     </tr>
@@ -685,7 +694,31 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is in charge of starting the background thread in charge of flushing the file
+                            buffer to disk.
+                            <br><br>
+                            This function will:
+                            <ul>
+                                <li>If the background thread is already active, does nothing and returns</li>
+                                <li>Sets the flush policy to <span
+                                        style="color: rgb(125, 45, 45);">FlushSetting::periodically</span>
+                                    <ul>
+                                        <li>This is to ensure that the flush thread isn't wasting time and resources
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Set the atomic <span style="color: rgb(125, 45, 45);">cleanUpThreads</span> to <span
+                                        style="color:rgb(45, 60, 125);">false</span> if not already
+                                </li>
+                                <li>Initializes and kicks off the background thread in charge of flushing</li>
+                                <li>Set the atomic <span style="color: rgb(125, 45, 45);">flushThreadEnabled</span> to
+                                    <span style="color:rgb(45, 60, 125);">true</span>
+                                </li>
+                            </ul>
+                            Both the atomic <span style="color: rgb(125, 45, 45);">cleanUpThreads</span> and the atomic
+                            <span style="color: rgb(125, 45, 45);">flushThreadEnabled</span> are located in the struct
+                            <a class="doc_table_link" href="../helpers/background_thread.html">BackgroundThread</a>
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -698,7 +731,20 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function temporarily pauses the background thread in charge of flushing until it's
+                            notified that it can resume again.
+                            <br><br>
+                            <li>This function sets the atomic <span style="color: rgb(125, 45, 45);">pauseThread</span>
+                                to <span style="color:rgb(45, 60, 125);">true</span> and then notifies the background
+                                thread of this change
+                            </li>
+                            <li>This essentially puts the thread into indefinite sleep until the atomic changes again
+                            </li>
+                            <br>
+                            The atomic <span style="color: rgb(125, 45, 45);">pauseThread</span> is located in the
+                            struct <a class="doc_table_link"
+                                href="../helpers/background_thread.html">BackgroundThread</a>
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -711,7 +757,22 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function resumes the background thread in charge of flushing.
+                            <br><br>
+                            <li>This function sets the atomic <span style="color: rgb(125, 45, 45);">pauseThread</span>
+                                to <span style="color:rgb(45, 60, 125);">false</span> and then notifies the background
+                                thread of this change
+                            </li>
+                            <li style="margin-left: 2%;">This essentially resumes the flush loop in <span
+                                    style="color: rgb(125, 45, 45);">BackgroundThread()</span></li>
+                            <li>This function does nothing if</li>
+                            <li style="margin-left:2%;">The background thread was never launched</li>
+                            <li style="margin-left:2%;">The background thread was never paused</li>
+                            <br>
+                            The atomic <span style="color: rgb(125, 45, 45);">pauseThread</span> is located in the
+                            struct <a class="doc_table_link"
+                                href="../helpers/background_thread.html">BackgroundThread</a>
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -724,7 +785,17 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function simply points the member variable <span
+                                style="color: rgb(125, 45, 45);">targetHelper</span> to `<span
+                                style="color: rgb(125, 45, 45);">syncToHelper</span>` in order for this class to utilize
+                            the logging target's settings.
+                            <li>
+                                Parameter `<span style="color: rgb(125, 45, 45);">syncToHelper</span>` is a shared_ptr
+                                to a <a class="doc_table_link"
+                                    href="../helpers/base_target_helper.html">BaseTargetHelper</a> object from the
+                                target logger.
+                            </li>
+                            <br>
                         </th>
                     </tr>
                     <tr>
@@ -737,7 +808,9 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function simply returns a const reference to the smart pointer member variable <span
+                                style="color: rgb(125, 45, 45);">fileCache</span>
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -750,7 +823,9 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function simply returns a const reference to the smart pointer member variable <span
+                                style="color: rgb(125, 45, 45);">flushWorker</span>
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -763,7 +838,29 @@
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <div class="center_text" style="color:black;">PLACE-HOLDER TEXT</div>
+                            This function is called in <span style="color: rgb(125, 45, 45);">OpenFile()</span>.
+                            <ul>
+                                <li>
+                                    This function will:
+                                    <ul>
+                                        <li>Retrieve the cached file path</li>
+                                        <li>Create the appropriate directories if they aren't present</li>
+                                        <li>
+                                            If the file itself doesn't already exist, this function will create the file
+                                        </li>
+                                        <li>Open the file</li>
+                                        <li style="margin-left:2%;">
+                                            If <span style="color: rgb(125, 45, 45);">truncate</span> is set to <span
+                                                style="color:rgb(45, 60, 125);">true</span>,
+                                            this will truncate the file on open
+                                        </li>
+                                        <li>
+                                            Returns <span style="color:rgb(45, 60, 125);">true</span> on successful
+                                            open, returns <span style="color:rgb(45, 60, 125);">false</span> otherwise.
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
