@@ -106,7 +106,7 @@
         </div>
         <br><br>
         <div class="mainHeaders">
-            <h1 align="center" style="color:#A8C077;"><strong>FileHelper</strong>
+            <h1 align="center" style="color:#A8C077; font-size: 250%;"><strong>FileHelper</strong>
                 <br><span style="text-align: center; color: #A8C077; font-size: 45%;"><em>- Found In File:
                         FileHelper.h</em></span></strong>
             </h1>
@@ -115,24 +115,16 @@
         <br><br><br>
         <div id="main-body">
             <br>
-            <div class="center_text">
+            <div class="center_text" style="text-align:center; font-size:large;">
                 This class aids Serenity's targets in file related operations.
+                This includes things such as: opening and closing the file, writing to the buffer, setting the file
+                buffer size, flushing the buffer to the file, controlling the background flush thread, and renaming the
+                log file.
                 <br><br>
-                This includes things such as:
-                <div class="lists">
-                    <ul>
-                        <li>Opening and closing the file</li>
-                        <li>Writing to the buffer</li>
-                        <li>Setting the file buffer size</li>
-                        <li>Flushing the buffer to the file</li>
-                        <li>Controlling the background flush thread</li>
-                        <li>Renaming the log file</li>
-                    </ul>
-                </div>
                 This class is composed from the following classes:
                 <div class="lists">
                     <ul>
-                        <li><a href="../helpers/file_cache.html">FileCache</a></li>
+                        <li style="margin-top: -13px;"><a href="../helpers/file_cache.html">FileCache</a></li>
                         <li><a href="../helpers/base_target_helper.html">BaseTargetHelper</a></li>
                         <li><a href="../helpers/background_thread.html">BackgroundThread</a></li>
                     </ul>
@@ -144,133 +136,191 @@
                     <th class="doc_table_div_header">Namespace Constexpr Globals</th>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#max_size_size_t">constexpr size_t max_size_size_t</a>
+                    <td> constexpr size_t <span class="offset_3">
+                            <a class="doc_table_link" href="#max_size_size_t">max_size_size_t</a>
+                        </span>
                         <br>
-                        <div class="indent">
+                        <div class="offset_1" >
                             This constexpr variable is set to the max size that type <span
                                 style="color: rgb(125, 45, 45);">size_t</span> can store and is simply used in checks in
                             <span style="color: rgb(125, 45, 45);">WriteToFile()</span>
                         </div>
                     </td>
-
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#page_size">constexpr size_t pageSize</a>
-                        <div class="indent">
+                    <td>constexpr size_t<span class="offset_3">
+                            <a class="doc_table_link" href="#page_size">pageSize</a>
+                        </span>
+                        <div class="offset_1" >
                             This constexpr variable is used in initially reserving the file buffer size and is used in
                             writes to disk for chunking operations.
                         </div>
                     </td>
                 </tr>
+                <th style="border: transparent;"><br></th>
                 <tr>
                     <th class="doc_table_div_header">Public Functions</th>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#constructor">explicit FileHelper(const std::string_view
-                            fpath);</a>
-                        <div class="indent">
+                    <td>explicit<span class="offset_2">
+                            <a class="doc_table_link" href="#constructor">
+                                FileHelper(const std::string_view fpath);
+                            </a>
+                        </span>
+                        <div class="double_indent">
                             This is the only constructor available for this class.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#open">bool OpenFile(bool truncate = false);</a>
-                        <div class="indent"> This function opens the file that was cached from the constructor.</div>
+                    <td> bool <span class="indent">
+                            <a class="doc_table_link" href="#open">
+                                OpenFile(bool truncate);
+                            </a>
+                        </span>
+                        <div class="double_indent"> This function opens the file that was cached from the constructor.
+                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#write">void WriteToFile(size_t writeLimit = max_size_size_t,
-                            bool truncateRest = false);</a>
-                        <div class="indent">
+                    <td> void <span class="indent">
+                            <a class="doc_table_link" href="#write">
+                                WriteToFile(size_t writeLimit, bool truncateRest);
+                            </a>
+                        </span>
+                        <div class="double_indent">
                             This function is what's in charge of writing the log messages from the file buffer to disk.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#flush">void Flush();</a>
-                        <div class="indent"> This function is in charge of flushing the file buffer to the disk.</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td> <a class="doc_table_link" href="#close">bool CloseFile(bool onRotation = false);</a>
-                        <div class="indent">This function is in control of closing the file that was cached. </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td> <a class="doc_table_link" href="#buff_ref">std::vector&lt;char&gt;& FileBuffer();</a>
-                        <div class="indent">This function simply returns a reference to the file buffer being used.
+                    <td>void
+                        <span class="indent">
+                            <a class="doc_table_link" href="#flush">Flush();</a>
+                        </span>
+                        <div class="double_indent"> This function is in charge of flushing the file buffer to the disk.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#file_buff_size">size_t FileBufferSize();</a>
-                        <div class="indent"> This function returns the file buffer's current size.</div>
+                    <td> bool
+                        <span class="indent">
+                            <a class="doc_table_link" href="#close">CloseFile(bool onRotation);</a>
+                        </span>
+                        <div class="double_indent">This function is in control of closing the file that was cached.
+                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#set_buff_cap">void SetBufferCapacity(size_t value);</a>
-                        <div class="indent">This function is used to set the file buffer's capacity. </div>
+                    <td>
+                        std::vector&lt;char&gt;&
+                        <span class="indent" style="margin-left:1%">
+                            <a class="doc_table_link" href="#buff_ref">FileBuffer();</a>
+                        </span>
+                        <div class="double_indent">This function simply returns a reference to the file buffer being
+                            used.
+                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#init_filepath">void InitializeFilePath(std::string_view
-                            fileName = "");</a>
-                        <div class="indent">
+                    <td>
+                        size_t
+                        <span class="indent">
+                        <a class="doc_table_link" href="#file_buff_size">FileBufferSize();</a>
+                        </span>
+                        <div class="double_indent"> This function returns the file buffer's current size.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        void
+                        <span class="indent">
+                        <a class="doc_table_link" href="#set_buff_cap">SetBufferCapacity(size_t value);</a>
+                        </span>
+                        <div class="double_indent">This function is used to set the file buffer's capacity. </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        void
+                        <span class="indent">
+                        <a class="doc_table_link" href="#init_filepath">InitializeFilePath(std::string_view fileName);</a>
+                        </span>
+                        <div class="double_indent">
                             This function is mainly used in the default constructors of the in-house targets, as well as
                             the constructors that don't take in a file path, but do take a file name as a parameter.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#rename">virtual bool RenameFile(utf_utils::InputSource
-                            newFileName);</a>
-                        <div class="indent">
+                    <td>virtual bool
+                        <span class="indent">
+                        <a class="doc_table_link" href="#rename">RenameFile(utf_utils::InputSource newFileName);</a>
+                        </span>
+                        <div class="double_indent">
                             This virtual function is in charge of renaming the log file. This function is made virtual
                             so that the targets may override the default behavior of this function if desired. </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#bg_thread">void BackgroundFlushThread(std::stop_token
-                            stopToken);</a>
-                        <div class="indent">
+                    <td> void
+                        <span class="indent">
+                        <a class="doc_table_link" href="#bg_thread">BackgroundFlushThread(std::stop_token stopToken);</a>
+                        </span>
+                        <div class="double_indent">
                             This function is the workload of the background thread in charge of flushing the file
                             buffer to disk after some set interval has elapsed.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#stop_bg_thread">void StopBackgroundThread();</a>
-                        <div class="indent">
+                    <td> void
+                        <span class="indent">
+                        <a class="doc_table_link" href="#stop_bg_thread">StopBackgroundThread();</a>
+                        </span>
+                        <div class="double_indent">
                             This function is in charge of stopping the background thread in charge of flushing the file
                             buffer to disk.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#start_bg_thread">void StartBackgroundThread();</a>
-                        <div class="indent">
+                    <td> void
+                        <span class="indent">
+                        <a class="doc_table_link" href="#start_bg_thread">StartBackgroundThread();</a>
+                        </span>
+                        <div class="double_indent">
                             This function is in charge of starting the background thread in charge of flushing the file
                             buffer to disk.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#pause_bg_thread">void PauseBackgroundThread();</a>
-                        <div class="indent">
+                    <td> void
+                        <span class="indent">
+                        <a class="doc_table_link" href="#pause_bg_thread">PauseBackgroundThread();</a>
+                        </span>
+                        <div class="double_indent">
                             This function temporarily pauses the background thread in charge of flushing until it's
                             notified that it can resume again.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#resume_bg_thread">void ResumeBackgroundThread();</a>
-                        <div class="indent"> This function resumes the background thread in charge of flushing.</div>
+                    <td> void
+                        <span class="indent">
+                        <a class="doc_table_link" href="#resume_bg_thread">ResumeBackgroundThread();</a>
+                        </span>
+                        <div class="double_indent"> This function resumes the background thread in charge of flushing.
+                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#sync">void
-                            SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);</a>
-                        <div class="indent">
+                    <td> void
+                        <span class="indent">
+                            <a class="doc_table_link" href="#sync">SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);</a>
+                        </span>
+                            <div class="double_indent">
                             This function simply points the member variable <span
                                 style="color: rgb(125, 45, 45);">targetHelper</span> to `<span
                                 style="color: rgb(125, 45, 45);">syncToHelper</span>` in order for this class to utilize
@@ -279,53 +329,69 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#cache_ref">const std::unique_ptr&lt;FileCache&gt;&
-                            FileCacheHelper() const;</a>
-                        <div class="indent">
+                    <td> const std::unique_ptr&lt;FileCache&gt;&
+                        <span class="indent">
+                        <a class="doc_table_link" href="#cache_ref">FileCacheHelper() const;</a>
+                        </span>
+                        <div class="double_indent">
                             This function simply returns a const reference to the smart pointer member variable <span
                                 style="color: rgb(125, 45, 45);">fileCache</span>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#thread_ref">const std::unique_ptr&lt;BackgroundThread&gt;&
-                            BackgoundThreadInfo() const;</a>
-                        <div class="indent">
+                    <td> const std::unique_ptr&lt;BackgroundThread&gt;&
+                        <span class="indent">
+                        <a class="doc_table_link" href="#thread_ref">BackgoundThreadInfo() const;</a>
+                        </span>
+                        <div class="double_indent">
                             This function simply returns a const reference to the smart pointer member variable <span
                                 style="color: rgb(125, 45, 45);">flushWorker</span>
                         </div>
                     </td>
                 </tr>
+                <th style="border: transparent;"><br></th>
                 <tr>
                     <th class="doc_table_div_header">Private Functions</th>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#open_impl">void OpenImpl(bool truncate);</a>
-                        <div class="indent">
+                    <td> void
+                        <span class="indent">
+                        <a class="doc_table_link" href="#open_impl">OpenImpl(bool truncate);</a>
+                        </span>
+                        <div class="double_indent">
                             This function is called in <span style="color: rgb(125, 45, 45);">OpenFile()</span>.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#write_impl_one">void WriteImpl();</a>
-                        <div class="indent">
+                    <td> void
+                        <span class="indent">
+                        <a class="doc_table_link" href="#write_impl_one">WriteImpl();</a>
+                        </span>
+                        <div class="double_indent">
                             This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
                             is the implementation block that writes bytes to disk.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#write_impl_two">void WriteImpl(size_t writeLimit,
-                            bool truncateRest = false);</a>
-                        <div class="indent">
+                    <td>void
+                        <span class="indent">
+                         <a class="doc_table_link" href="#write_impl_two">WriteImpl(size_t writeLimit, bool truncateRest);</a>
+                        </span>
+                        <div class="double_indent">
                             This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
                             is the implementation block that writes bytes to disk.
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#flush_impl">void FlushImpl();</a>
-                        <div class="indent">
+                    <td>void
+                        <span class="indent">
+                         <a class="doc_table_link" href="#flush_impl">FlushImpl();</a>
+                        </span>
+                        <div class="double_indent">
                             This function is called in <span style="color: rgb(125, 45, 45);">Flush()</span> and is in
                             charge of flushing the entire file buffer to disk in an efficient manner
                             using page size chunks to write.
@@ -333,8 +399,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <a class="doc_table_link" href="#close_impl">void CloseImpl();</a>
-                        <div class="indent">
+                    <td>void
+                        <span class="indent">
+                         <a class="doc_table_link" href="#close_impl">CloseImpl();</a>
+                        </span>
+                        <div class="double_indent">
                             This function is in charge of the actual file close logic and is called from <span
                                 style="color: rgb(125, 45, 45);">CloseFile()</span>
                         </div>
