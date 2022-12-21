@@ -112,6 +112,18 @@
     color: #036b5d;
 }
 
+
+.doc_table{
+    display:flex;
+    justify-content: center;
+	text-align: center;
+	background-color: #A8C077;
+	color: #022d0d;
+	margin-left: auto;
+	margin-right: auto;
+    overflow-x: auto;
+}
+
 .doc_table_div_header {
     background-color: #acbf85;
     color: #01675a;
@@ -120,11 +132,22 @@
 }
 
 .indent {
-    margin-left: 9%;
+    margin-left: 2%;
 }
 
-.double_indent {
-    margin-left: 15%;
+.doc_table_contents_keyword {
+    color: rgb(25, 0, 189);
+    font-size: 75%;
+    margin-right: 2%;
+    column-span: 2;
+    text-align: right;
+    padding-right: 1%;
+}
+
+.doc_table_contents_body{
+    padding-left: 1%;
+    column-span: 2;
+    text-align: left;
 }
 
 .doc_table_head {
@@ -183,6 +206,8 @@
     margin-right: 30%;
 }
 
+
+
 @media screen and (max-height: 650px) {
     .side_doc_tree {
         padding-top: 15px;
@@ -196,26 +221,22 @@
     }
 }
 
- /* MUCH Larger Screen (taking into account my 27" curved monitor on this one) */
+/* MUCH Larger Screen (taking into account my 27" curved monitor on this one) */
 @media screen and (min-width:2133px) {
-    .double_indent,
-    .offset_1 {
-        margin-left: 14%;
+    .tables, .doc_table {
+        margin-left: 5%;
+        margin-right: 5%;
     }
-
-    .offset_2 {
-        margin-left: 7.5%;
-    }
-
-    .offset_3 {
-        margin-left: 2.5%;
+    .doc_table{
+        padding-left: 0%;
+        padding-right: 0%;
     }
 }
 
 /* Larger desktop screen window */
-@media screen and (max-width:2132px)  {
+@media screen and (max-width:2132px) {
 
-    .tables {
+    .tables, .doc_table {
         margin-left: 5%;
         margin-right: 5%;
     }
@@ -237,32 +258,20 @@
     .doc_table_head {
         font-size: 115%;
     }
-
-    .indent {
-        margin-left: 13.7%;
-    }
-
-    .double_indent,
-    .offset_1 {
-        margin-left: 20.5%;
-    }
-
-    .offset_2 {
-        margin-left: 12%;
-    }
-
-    .offset_3 {
-        margin-left: 3%;
-    }
 }
 
 
 
 /* Roughly Full-sized desktop window */
 @media screen and (min-width:769px) and (max-width:1000px) {
-    .tables {
+    .tables, .doc_table {
         margin-left: 3.5%;
         margin-right: 3.5%;
+    }
+
+    .doc_table{
+        font-size: 85%;
+        padding-left: 5%;
     }
 
     .lists {
@@ -287,32 +296,20 @@
     .doc_table_head {
         font-size: 110%;
     }
-
-    .indent {
-        margin-left: 19%;
-    }
-
-    .double_indent,
-    .offset_1 {
-        margin-left: 25.5%;
-    }
-
-    .offset_2 {
-        margin-left: 15.5%;
-    }
-
-    .offset_3 {
-        margin-left: 3%;
-    }
 }
 
 /* Half-sized desktop window */
 @media screen and (max-width:768px) {
 
-    .tables {
+    .tables, .doc_table {
         margin-left: 2%;
         margin-right: 2%;
     }
+
+    .doc_table {
+        padding-left: 8%;
+		font-size: 85%;
+	}
 
     .lists {
         margin-left: 7%;
@@ -363,31 +360,20 @@
         font-size: 95%;
     }
 
-    .indent {
-        margin-left: 17.5%;
-    }
-
-    .double_indent,
-    .offset_1 {
-        margin-left: 23%;
-    }
-
-    .offset_2 {
-        margin-left: 14.5%;
-    }
-
-    .offset_3 {
-        margin-left: 2.5%;
-    }
 }
 
 /* quarter-sized desktop window */
 @media screen and (max-width:600px) {
 
-    .tables {
+    .tables, .doc_table {
         font-size: 80%;
         margin-left: 1.5%;
         margin-right: 1.5%;
+    }
+
+    .doc_table{
+        font-size: 85%;
+        padding-left:25%;
     }
 
     .lists {
@@ -408,31 +394,19 @@
         font-size: 98%;
     }
 
-    .offset_1,
-    .double_indent {
-        margin-left: 27.5%;
-    }
-
-    .offset_2 {
-        margin-left: 15%;
-    }
-
-    .offset_3 {
-        margin-left: 3.5%;
-    }
-
-    .indent {
-        margin-left: 18.8%;
-    }
 }
 
 /* Mobile screens */
 @media screen and (max-width:480px) {
 
-    .tables {
+    .tables, .doc_table {
         font-size: 80%;
         margin-left: 0%;
         margin-right: 0%;
+    }
+    .doc_table{
+        font-size: 80%;
+        padding-left:28%;
     }
 
     .lists {
@@ -453,20 +427,4 @@
         font-size: 98%;
     }
 
-    .offset_1,
-    .double_indent {
-        margin-left: 27.5%;
-    }
-
-    .offset_2 {
-        margin-left: 15%;
-    }
-
-    .offset_3 {
-        margin-left: 3.5%;
-    }
-
-    .indent {
-        margin-left: 18.8%;
-    }
 }

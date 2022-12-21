@@ -122,292 +122,302 @@
                 log file.
                 <br><br>
                 This class is composed from the following classes:
-                <div class="lists">
+                <div class="lists"  style="margin-top: -13px;">
                     <ul>
-                        <li style="margin-top: -13px;"><a href="../helpers/file_cache.html">FileCache</a></li>
+                        <li><a href="../helpers/file_cache.html">FileCache</a></li>
                         <li><a href="../helpers/base_target_helper.html">BaseTargetHelper</a></li>
                         <li><a href="../helpers/background_thread.html">BackgroundThread</a></li>
                     </ul>
                 </div>
             </div>
-            <br>
-            <table class="tables" style="justify-content: center; margin-left: auto; margin-right: auto;">
+            <table class="doc_table">
                 <tr>
-                    <th class="doc_table_div_header">Namespace Constexpr Globals</th>
+                    <th class="doc_table_div_header" colspan="6">Namespace Constexpr Globals</th>
                 </tr>
                 <tr>
-                    <td> constexpr size_t <span class="offset_3">
-                            <a class="doc_table_link" href="#max_size_size_t">max_size_size_t</a>
-                        </span>
+                    <th class="doc_table_contents_keyword">constexpr size_t</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">max_size_size_t</a>
                         <br>
-                        <div class="offset_1" >
-                            This constexpr variable is set to the max size that type <span
-                                style="color: rgb(125, 45, 45);">size_t</span> can store and is simply used in checks in
-                            <span style="color: rgb(125, 45, 45);">WriteToFile()</span>
+                        <div class="indent">
+                        This constexpr variable is set to the max size that type <span
+                            style="color: rgb(125, 45, 45);">size_t</span> can store and is simply used in checks in
+                        <span style="color: rgb(125, 45, 45);">WriteToFile()</span>
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td>constexpr size_t<span class="offset_3">
-                            <a class="doc_table_link" href="#page_size">pageSize</a>
-                        </span>
-                        <div class="offset_1" >
-                            This constexpr variable is used in initially reserving the file buffer size and is used in
-                            writes to disk for chunking operations.
+                    <th class="doc_table_contents_keyword">constexpr size_t</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#page_size">pageSize</a>
+                        <br>
+                        <div class="indent">
+                        This constexpr variable is used in initially reserving the file buffer size and is used in
+                        writes to disk for chunking operations.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <th style="border: transparent;"><br></th>
                 <tr>
-                    <th class="doc_table_div_header">Public Functions</th>
+                    <th class="doc_table_div_header" colspan="6">Public Functions</th>
                 </tr>
                 <tr>
-                    <td>explicit<span class="offset_2">
-                            <a class="doc_table_link" href="#constructor">
-                                FileHelper(const std::string_view fpath);
-                            </a>
-                        </span>
-                        <div class="double_indent">
-                            This is the only constructor available for this class.
+                    <th class="doc_table_contents_keyword">explicit</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#constructor">
+                            FileHelper(const std::string_view fpath);
+                        </a>
+                        <br>
+                        <div class="indent">
+                        This is the only constructor available for this class.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td> bool <span class="indent">
-                            <a class="doc_table_link" href="#open">
-                                OpenFile(bool truncate);
-                            </a>
-                        </span>
-                        <div class="double_indent"> This function opens the file that was cached from the constructor.
+                    <th class="doc_table_contents_keyword"> bool </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#open">
+                            OpenFile(bool truncate);
+                        </a>
+                        <br>
+                        <div class="indent">
+                        This function opens the file that was cached from the constructor.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td> void <span class="indent">
-                            <a class="doc_table_link" href="#write">
-                                WriteToFile(size_t writeLimit, bool truncateRest);
-                            </a>
-                        </span>
-                        <div class="double_indent">
-                            This function is what's in charge of writing the log messages from the file buffer to disk.
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#write">
+                            WriteToFile(size_t writeLimit, bool truncateRest);
+                        </a>
+                        <br>
+                        <div class="indent">
+                        This function is what's in charge of writing the log messages from the file buffer to disk.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td>void
-                        <span class="indent">
-                            <a class="doc_table_link" href="#flush">Flush();</a>
-                        </span>
-                        <div class="double_indent"> This function is in charge of flushing the file buffer to the disk.
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#flush">Flush();</a>
+                        <br>
+                        <div class="indent">
+                        This function is in charge of flushing the file buffer to the disk.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td> bool
-                        <span class="indent">
-                            <a class="doc_table_link" href="#close">CloseFile(bool onRotation);</a>
-                        </span>
-                        <div class="double_indent">This function is in control of closing the file that was cached.
+                    <th class="doc_table_contents_keyword"> bool </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#close">CloseFile(bool onRotation);</a>
+                        </br>
+                        <div class="indent">
+                        This function is in control of closing the file that was cached.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td>
-                        std::vector&lt;char&gt;&
-                        <span class="indent" style="margin-left:1%">
-                            <a class="doc_table_link" href="#buff_ref">FileBuffer();</a>
-                        </span>
-                        <div class="double_indent">This function simply returns a reference to the file buffer being
-                            used.
-                        </div>
-                    </td>
+                    <th class="doc_table_contents_keyword">std::vector&lt;char&gt;&</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#buff_ref">FileBuffer();</a>
+                        <br>
+                         <div class="indent">
+                        This function simply returns a reference to the file buffer being used.
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td>
-                        size_t
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> size_t </th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#file_buff_size">FileBufferSize();</a>
-                        </span>
-                        <div class="double_indent"> This function returns the file buffer's current size.</div>
-                    </td>
+                        </br>
+                         <div class="indent">
+                        This function returns the file buffer's current size.
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td>
-                        void
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#set_buff_cap">SetBufferCapacity(size_t value);</a>
-                        </span>
-                        <div class="double_indent">This function is used to set the file buffer's capacity. </div>
-                    </td>
+                        </br>
+                         <div class="indent">
+                        This function is used to set the file buffer's capacity.
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td>
-                        void
-                        <span class="indent">
-                        <a class="doc_table_link" href="#init_filepath">InitializeFilePath(std::string_view fileName);</a>
-                        </span>
-                        <div class="double_indent">
-                            This function is mainly used in the default constructors of the in-house targets, as well as
-                            the constructors that don't take in a file path, but do take a file name as a parameter.
-                        </div>
-                    </td>
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#init_filepath">InitializeFilePath(std::string_view
+                            fileName);</a>
+                        </br>
+                         <div class="indent">
+                        This function is mainly used in the default constructors of the in-house targets, as well as
+                        the constructors that don't take in a file path, but do take a file name as a parameter.
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td>virtual bool
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> virtual bool </th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#rename">RenameFile(utf_utils::InputSource newFileName);</a>
-                        </span>
-                        <div class="double_indent">
-                            This virtual function is in charge of renaming the log file. This function is made virtual
-                            so that the targets may override the default behavior of this function if desired. </div>
-                    </td>
+                        </br>
+                         <div class="indent">
+                        This virtual function is in charge of renaming the log file. This function is made virtual
+                        so that the targets may override the default behavior of this function if desired.
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td> void
-                        <span class="indent">
-                        <a class="doc_table_link" href="#bg_thread">BackgroundFlushThread(std::stop_token stopToken);</a>
-                        </span>
-                        <div class="double_indent">
-                            This function is the workload of the background thread in charge of flushing the file
-                            buffer to disk after some set interval has elapsed.
-                        </div>
-                    </td>
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#bg_thread">BackgroundFlushThread(std::stop_token
+                            stopToken);</a>
+                        </br>
+                         <div class="indent">
+                        This function is the workload of the background thread in charge of flushing the file
+                        buffer to disk after some set interval has elapsed.
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td> void
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#stop_bg_thread">StopBackgroundThread();</a>
-                        </span>
-                        <div class="double_indent">
-                            This function is in charge of stopping the background thread in charge of flushing the file
-                            buffer to disk.
-                        </div>
-                    </td>
+                        </br>
+                         <div class="indent">
+                        This function is in charge of stopping the background thread in charge of flushing the file
+                        buffer to disk.
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td> void
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#start_bg_thread">StartBackgroundThread();</a>
-                        </span>
-                        <div class="double_indent">
-                            This function is in charge of starting the background thread in charge of flushing the file
-                            buffer to disk.
-                        </div>
-                    </td>
+                        </br>
+                         <div class="indent">
+                        This function is in charge of starting the background thread in charge of flushing the file
+                        buffer to disk.
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td> void
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#pause_bg_thread">PauseBackgroundThread();</a>
-                        </span>
-                        <div class="double_indent">
-                            This function temporarily pauses the background thread in charge of flushing until it's
-                            notified that it can resume again.
-                        </div>
-                    </td>
+                        </br>
+                         <div class="indent">
+                        This function temporarily pauses the background thread in charge of flushing until it's
+                        notified that it can resume again.
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td> void
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#resume_bg_thread">ResumeBackgroundThread();</a>
-                        </span>
-                        <div class="double_indent"> This function resumes the background thread in charge of flushing.
-                        </div>
-                    </td>
+                        </br>
+                    </th>
                 </tr>
                 <tr>
-                    <td> void
-                        <span class="indent">
-                            <a class="doc_table_link" href="#sync">SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);</a>
-                        </span>
-                            <div class="double_indent">
-                            This function simply points the member variable <span
-                                style="color: rgb(125, 45, 45);">targetHelper</span> to `<span
-                                style="color: rgb(125, 45, 45);">syncToHelper</span>` in order for this class to utilize
-                            the logging target's settings.
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link"
+                            href="#sync">SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;&
+                            syncToHelper);</a>
+                        </br>
+                        <div class="indent">
+                        This function simply points the member variable <span
+                            style="color: rgb(125, 45, 45);">targetHelper</span> to `<span
+                            style="color: rgb(125, 45, 45);">syncToHelper</span>` in order for this class to utilize the
+                        logging target's settings.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td> const std::unique_ptr&lt;FileCache&gt;&
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> const std::unique_ptr&lt;FileCache&gt;&</th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#cache_ref">FileCacheHelper() const;</a>
-                        </span>
-                        <div class="double_indent">
-                            This function simply returns a const reference to the smart pointer member variable <span
-                                style="color: rgb(125, 45, 45);">fileCache</span>
-                        </div>
-                    </td>
+                        <br>
+                         <div class="indent">
+                        This function simply returns a const reference to the smart pointer member variable <span
+                            style="color: rgb(125, 45, 45);">fileCache</span>
+                         </div>
+                    </th>
                 </tr>
                 <tr>
-                    <td> const std::unique_ptr&lt;BackgroundThread&gt;&
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> const std::unique_ptr&lt;BackgroundThread&gt;&</th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#thread_ref">BackgoundThreadInfo() const;</a>
-                        </span>
-                        <div class="double_indent">
-                            This function simply returns a const reference to the smart pointer member variable <span
-                                style="color: rgb(125, 45, 45);">flushWorker</span>
-                        </div>
-                    </td>
+                        </br>
+                         <div class="indent">
+                        This function simply returns a const reference to the smart pointer member variable <span
+                            style="color: rgb(125, 45, 45);">flushWorker</span>
+                         </div>
+                    </th>
                 </tr>
                 <th style="border: transparent;"><br></th>
                 <tr>
-                    <th class="doc_table_div_header">Private Functions</th>
+                    <th class="doc_table_div_header" colspan="6">Private Functions</th>
                 </tr>
                 <tr>
-                    <td> void
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#open_impl">OpenImpl(bool truncate);</a>
-                        </span>
-                        <div class="double_indent">
-                            This function is called in <span style="color: rgb(125, 45, 45);">OpenFile()</span>.
+                        </br>
+                        <div class="indent">
+                        This function is called in <span style="color: rgb(125, 45, 45);">OpenFile()</span>.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td> void
-                        <span class="indent">
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#write_impl_one">WriteImpl();</a>
-                        </span>
-                        <div class="double_indent">
-                            This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
-                            is the implementation block that writes bytes to disk.
+                        </br>
+                        <div class="indent">
+                        This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
+                        is the implementation block that writes bytes to disk.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td>void
-                        <span class="indent">
-                         <a class="doc_table_link" href="#write_impl_two">WriteImpl(size_t writeLimit, bool truncateRest);</a>
-                        </span>
-                        <div class="double_indent">
-                            This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
-                            is the implementation block that writes bytes to disk.
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#write_impl_two">WriteImpl(size_t writeLimit, bool
+                            truncateRest);</a>
+                        </br>
+                        <div class="indent">
+                        This function is called in <span style="color: rgb(125, 45, 45);">WriteToFile()</span> and
+                        is the implementation block that writes bytes to disk.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td>void
-                        <span class="indent">
-                         <a class="doc_table_link" href="#flush_impl">FlushImpl();</a>
-                        </span>
-                        <div class="double_indent">
-                            This function is called in <span style="color: rgb(125, 45, 45);">Flush()</span> and is in
-                            charge of flushing the entire file buffer to disk in an efficient manner
-                            using page size chunks to write.
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#flush_impl">FlushImpl();</a>
+                        </br>
+                        <div class="indent">
+                        This function is called in <span style="color: rgb(125, 45, 45);">Flush()</span> and is in
+                        charge of flushing the entire file buffer to disk in an efficient manner
+                        using page size chunks to write.
                         </div>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
-                    <td>void
-                        <span class="indent">
-                         <a class="doc_table_link" href="#close_impl">CloseImpl();</a>
-                        </span>
-                        <div class="double_indent">
-                            This function is in charge of the actual file close logic and is called from <span
-                                style="color: rgb(125, 45, 45);">CloseFile()</span>
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#close_impl">CloseImpl();</a>
+                        </br>
+                        <div class="indent">
+                        This function is in charge of the actual file close logic and is called from <span
+                            style="color: rgb(125, 45, 45);">CloseFile()</span>
                         </div>
-                    </td>
+                    </th>
                 </tr>
             </table>
             <br>
