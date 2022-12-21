@@ -206,7 +206,9 @@
     margin-right: 30%;
 }
 
-
+pre.sh_sourceCode .sh_function {
+    color: rgb(0, 92, 74);
+}
 
 @media screen and (max-height: 650px) {
     .side_doc_tree {
