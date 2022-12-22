@@ -229,6 +229,7 @@ pre.sh_sourceCode .sh_function {
         margin-left: 5%;
         margin-right: 5%;
     }
+
     .doc_table{
         padding-left: 0%;
         padding-right: 0%;
@@ -273,7 +274,6 @@ pre.sh_sourceCode .sh_function {
 
     .doc_table{
         font-size: 85%;
-        padding-left: 5%;
     }
 
     .lists {
@@ -309,7 +309,6 @@ pre.sh_sourceCode .sh_function {
     }
 
     .doc_table {
-        padding-left: 8%;
 		font-size: 85%;
 	}
 

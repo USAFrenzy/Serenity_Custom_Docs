@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <html lang="en">
     <meta charset="utf-8">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="../../scripts/layout/common.css">
     <link rel="stylesheet" href="../../scripts/layout/docs.css">
 </head>
+
 <body onload="sh_highlightDocument();">
     <section id="Top"></section>
     <div class="outerBorder">
@@ -141,60 +143,55 @@
                     <div class="codeBlock">
                         <pre id="src_file" class="sh_cpp">
 
-               constexpr size_t max_size_size_t { (size_t)-1 };
-
-               constexpr size_t pageSize =
-               #if defined(_WIN32) && not defined(_WIN64)
-                 static_cast&lt;size_t&gt;(2 * MB);
-               #elif defined _WIN64
-                 static_cast&lt;size_t&gt;(4 * MB);
-               #else
-                 static_cast&lt;size_t&gt;(DEFAULT_BUFFER_SIZE);
-               #endif    // _WIN32 && !_WIN64
-
-               class FileHelper
-               {
-                 public:
-                   explicit FileHelper(const std::string_view fpath);
-                   FileHelper(FileHelper&)            = delete;
-                   FileHelper& operator=(FileHelper&) = delete;
-                   ~FileHelper()                      = default;
-
-                   bool OpenFile(bool truncate = false);
-                   void WriteToFile(size_t writeLimit = max_size_size_t, bool truncateRest = false);
-                   void Flush();
-                   bool CloseFile(bool onRotation = false);
-                   std::vector&lt;char&gt;& FileBuffer();
-                   size_t FileBufferSize();
-                   void SetBufferCapacity(size_t value);
-                   void InitializeFilePath(std::string_view fileName = "");
-                   virtual bool RenameFile(utf_utils::InputSource newFileName);
-                   void BackgroundFlushThread(std::stop_token stopToken);
-                   void StopBackgroundThread();
-                   void StartBackgroundThread();
-                   void PauseBackgroundThread();
-                   void ResumeBackgroundThread();
-                   void SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);
-                   const std::unique_ptr&lt;FileCache&gt;& FileCacheHelper() const;
-                   const std::unique_ptr&lt;BackgroundThread&gt;& BackgoundThreadInfo() const;
-
-                 private:
-                   void OpenImpl(bool truncate);
-                   void WriteImpl();
-                   void WriteImpl(size_t writeLimit, bool truncateRest = false);
-                   void FlushImpl();
-                   void CloseImpl();
-
-                 private:
-                   int retryAttempt;
-                   bool fileOpen;
-                   int file;
-                   std::vector&lt;char&gt; buffer;
-                   std::mutex fileHelperMutex;
-                   std::unique_ptr&lt;FileCache&gt; fileCache;
-                   std::shared_ptr&lt;BaseTargetHelper&gt; targetHelper;
-                   std::unique_ptr&lt;BackgroundThread&gt; flushWorker;
-               };
+   constexpr size_t max_size_size_t { (size_t)-1 };
+   constexpr size_t pageSize =
+   #if defined(_WIN32) && not defined(_WIN64)
+     static_cast&lt;size_t&gt;(2 * MB);
+   #elif defined _WIN64
+     static_cast&lt;size_t&gt;(4 * MB);
+   #else
+     static_cast&lt;size_t&gt;(DEFAULT_BUFFER_SIZE);
+   #endif    // _WIN32 && !_WIN64
+   class FileHelper
+   {
+     public:
+       explicit FileHelper(const std::string_view fpath);
+       FileHelper(FileHelper&)            = delete;
+       FileHelper& operator=(FileHelper&) = delete;
+       ~FileHelper()                      = default;
+       bool OpenFile(bool truncate = false);
+       void WriteToFile(size_t writeLimit = max_size_size_t, bool truncateRest = false);
+       void Flush();
+       bool CloseFile(bool onRotation = false);
+       std::vector&lt;char&gt;& FileBuffer();
+       size_t FileBufferSize();
+       void SetBufferCapacity(size_t value);
+       void InitializeFilePath(std::string_view fileName = "");
+       virtual bool RenameFile(utf_utils::InputSource newFileName);
+       void BackgroundFlushThread(std::stop_token stopToken);
+       void StopBackgroundThread();
+       void StartBackgroundThread();
+       void PauseBackgroundThread();
+       void ResumeBackgroundThread();
+       void SyncTargetHelpers(std::shared_ptr&lt;BaseTargetHelper&gt;& syncToHelper);
+       const std::unique_ptr&lt;FileCache&gt;& FileCacheHelper() const;
+       const std::unique_ptr&lt;BackgroundThread&gt;& BackgoundThreadInfo() const;
+     private:
+       void OpenImpl(bool truncate);
+       void WriteImpl();
+       void WriteImpl(size_t writeLimit, bool truncateRest = false);
+       void FlushImpl();
+       void CloseImpl();
+     private:
+       int retryAttempt;
+       bool fileOpen;
+       int file;
+       std::vector&lt;char&gt; buffer;
+       std::mutex fileHelperMutex;
+       std::unique_ptr&lt;FileCache&gt; fileCache;
+       std::shared_ptr&lt;BaseTargetHelper&gt; targetHelper;
+       std::unique_ptr&lt;BackgroundThread&gt; flushWorker;
+   };
             <br>
             </pre>
                     </div>
@@ -1353,4 +1350,5 @@
         <br><br>
     </div>
 </body>
+
 </html>

@@ -109,7 +109,7 @@
             <h1 align="center" style="color:#A8C077;"><strong>BackgroundThread</strong>
                 <br>
                 <span style="text-align: center; color: #A8C077; font-size: 45%;"><em>- Found In File:
-                    FileHelper.h</em></span></strong>
+                        FileHelper.h</em></span></strong>
             </h1>
         </div>
         <br><br><br>
@@ -121,8 +121,19 @@
                 contention for the file based targets when multi-threading support is enabled.
             </div>
             <br>
-            <div class="codeBlock">
-                <pre class="sh_cpp">
+
+            <div class="center_text">
+                <details>
+                    <summary>
+                        Click here for a file snippet:
+                        <br><br>
+                    </summary>
+                    This struct is found under the namespace <span
+                        style="color:rgb(58, 230, 215);">serenity::target::helpers</span> in file <span
+                        style="color:rgb(58, 230, 215);">FileHelper.h</span>
+                    <br>
+                    <div class="codeBlock">
+                        <pre class="sh_cpp">
 <br>
    struct BackgroundThread
    {
@@ -136,15 +147,112 @@
    };
 <br>
 </pre>
+                    </div>
+                    <br>
+                </details>
             </div>
-            <br>
+
+            <style>
+                @media screen and (max-width:600px) {
+                    .doc_table {
+                        padding-left: 0%;
+                    }
+                }
+
+                @media screen and (max-width:480px) {
+                    .doc_table {
+                        padding-left: 0%;
+                    }
+                }
+            </style>
+            <table class="doc_table" style="margin-left: 10%; margin-right: 10%;">
+                <tr>
+                    <th class="doc_table_div_header" colspan="6">Member Variables</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">std::jthread </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#flush_thread">flushThread</a>
+                        <br>
+                        <div class="indent">
+                            This thread object is used by Serenity for background flushing independent of the logging
+                            thread(s).
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::stop_token </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#stop_token">interruptThread</a>
+                        <br>
+                        <div class="indent">
+                            This stop token object is used, as the name implies, to interrupt the background flushing
+                            thread as well as effectively terminates the flushing thread gracefully.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::atomic&lt;bool&gt; </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#clean_thread">cleanUpThreads</a>
+                        <br>
+                        <div class="indent">
+                            This atomic variable is used to initiate, check, and notify the background flushing thread
+                            when the main thread requests this thread to be destroyed.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::atomic&lt;bool&gt; </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#thread_enabled">flushThreadEnabled</a>
+                        <br>
+                        <div class="indent">
+                            This atomic variable is used in checks from the file logging thread(s) when writing to the
+                            file buffer.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::atomic&lt;bool&gt; </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#thread_flush">flushComplete</a>
+                        <br>
+                        <div class="indent">
+                            This atomic variable is used to notify the file logging thread(s) when a flush operation has
+                            been completed.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::atomic&lt;bool&gt; </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#thread_write">threadWriting</a>
+                        <br>
+                        <div class="indent">
+                            This atomic variable is used to notify the background flushing thread when a logging
+                            operation has been completed.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::atomic&lt;bool&gt; </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#pause_thread">pauseThread</a>
+                        <br>
+                        <div class="indent">
+                            This atomic variable is used to notify the background flushing thread to temporarily halt
+                            any flushing operations without destroying the thread itself.
+                        </div>
+                    </th>
+                </tr>
+            </table>
             <div class="subHeaders"> More Information About BackgroundThread </div>
             <br><br>
-
             <div class="tables">
                 <table>
                     <tr>
-                        <th class="doc_table_head">std::jthread flushThread</th>
+                        <th id="flush_thread" class="doc_table_head">std::jthread flushThread</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -156,7 +264,7 @@
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::stop_token interruptThread</th>
+                        <th id="stop_token" class="doc_table_head"> std::stop_token interruptThread</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -168,7 +276,7 @@
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::atomic&lt;<span
+                        <th id="clean_thread" class="doc_table_head"> std::atomic&lt;<span
                                 style="color: rgb(45, 60, 125);">bool</span>&gt; cleanUpThreads</th>
                     </tr>
                     <tr>
@@ -178,7 +286,7 @@
                             stop_token `interruptThread` during logger destruction.
                         </th>
                     </tr>
-                    <th class="doc_table_break"><br><br></th>
+                    <th id="thread_enabled" class="doc_table_break"><br><br></th>
                     <tr>
                         <th class="doc_table_head"> std::atomic&lt;<span
                                 style="color: rgb(45, 60, 125);">bool</span>&gt; flushThreadEnabled</th>
@@ -192,7 +300,7 @@
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::atomic&lt;<span
+                        <th id="thread_flush" class="doc_table_head"> std::atomic&lt;<span
                                 style="color: rgb(45, 60, 125);">bool</span>&gt; flushComplete</th>
                     </tr>
                     <tr>
@@ -204,7 +312,7 @@
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::atomic&lt;<span
+                        <th id="thread_write" class="doc_table_head"> std::atomic&lt;<span
                                 style="color: rgb(45, 60, 125);">bool</span>&gt; threadWriting</th>
                     </tr>
                     <tr>
@@ -217,7 +325,7 @@
                     </tr>
                     <th class="doc_table_break"><br><br></th>
                     <tr>
-                        <th class="doc_table_head"> std::atomic&lt;<span
+                        <th id="pause_thread" class="doc_table_head"> std::atomic&lt;<span
                                 style="color: rgb(45, 60, 125);">bool</span>&gt; pauseThread</th>
                     </tr>
                     <tr>
