@@ -109,7 +109,7 @@
             <h1 align="center" style="color:#A8C077;"><strong>BaseTargetHelper</strong>
                 <br>
                 <span style="text-align: center; color: #A8C077; font-size: 45%;"><em>- Found In File:
-                    TargetHelper.h</em></span></strong>
+                        TargetHelper.h</em></span></strong>
             </h1>
         </div>
         <br><br><br>
@@ -121,32 +121,120 @@
                 targets.
             </div>
             <br>
-            <div class="codeBlock">
-                <pre class="sh_cpp">
+
+            <div class="center_text">
+                <details>
+                    <summary>
+                        Click here for a file snippet:
+                        <br><br>
+                    </summary>
+                    This struct is found under the namespace <span
+                        style="color:rgb(58, 230, 215);">serenity::target::helpers</span> in file <span
+                        style="color:rgb(58, 230, 215);">TargetHelper.h</span>
+                    <br>
+                    <div class="codeBlock">
+                        <pre class="sh_cpp">
 <br>
-   class BaseTargetHelper
-   {
-     public:
-       explicit BaseTargetHelper();
-       BaseTargetHelper(BaseTargetHelper&) = delete;
-       BaseTargetHelper& operator=(BaseTargetHelper&);
-       ~BaseTargetHelper() = default;
+class BaseTargetHelper
+{
+  public:
+    explicit BaseTargetHelper();
+    BaseTargetHelper(BaseTargetHelper&) = delete;
+    BaseTargetHelper& operator=(BaseTargetHelper&);
+    ~BaseTargetHelper() = default;
 
-       void EnableMultiThreadingSupport(bool enableMultiThreading = true);
-       bool isMTSupportEnabled();
-       void SetFlushPolicy(const Flush_Policy& fPolicy);
-       const std::unique_ptr&lt;Flush_Policy&gt;& Policy() const;
+    void EnableMultiThreadingSupport(bool enableMultiThreading = true);
+    bool isMTSupportEnabled();
+    void SetFlushPolicy(const Flush_Policy& fPolicy);
+    const std::unique_ptr&lt;Flush_Policy&gt;& Policy() const;
 
-     private:
-       bool multiThreadSupport;
+  private:
+    bool multiThreadSupport;
 
-     protected:
-       std::unique_ptr&lt;Flush_Policy&gt; policy;
-   };
+  protected:
+    std::unique_ptr&lt;Flush_Policy&gt; policy;
+};
 <br>
 </pre>
+                    </div>
+                    <br>
+                </details>
             </div>
             <br>
+
+            <table class="doc_table" style="margin-left: 10%; margin-right: 10%;">
+                <tr>
+                    <th class="doc_table_div_header" colspan="6">Public Functions</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">explicit </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#constructor">BaseTargetHelper();</a>
+                        <br>
+                        <div class="indent">
+                            This is the only constructor available for this class.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">BaseTargetHelper&</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#constructor">operator=(BaseTargetHelper&);</a>
+                        <br>
+                        <div class="indent">
+                            This copy operator copies the multi-threading support option and the flush policy currently
+                            in place.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#enable_mt">EnableMultiThreadingSupport(bool
+                            enableMultiThreading=true);</a>
+                        <br>
+                        <div class="indent">
+                            This function uses a boolean value to simply toggle whether or not multi-threading support
+                            is enabled.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> bool </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#is_mt">isMTSupportEnabled();</a>
+                        <br>
+                        <div class="indent">
+                            Simply returns `<span style="color: rgb(45, 60, 125);">true</span>` or `<span
+                                style="color: rgb(45, 60, 125);">false</span>` based on the current state of
+                            multi-threading support.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#set_policy">SetFlushPolicy(const Flush_Policy&
+                            fPolicy);</a>
+                        <br>
+                        <div class="indent">
+                            This functions is responsible for setting the flush policy used and covers the flush mode,
+                            flush type, and flushing values.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> const std::unique_ptr&lt;Flush_Policy&gt;& </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#policy">Policy() const;</a>
+                        <br>
+                        <div class="indent">
+                            This function simply returns a const pointer to the policy currently in place.
+                        </div>
+                    </th>
+                </tr>
+            </table>
+
             <div class="subHeaders"> More Information About BaseTargetHelper </div>
             <br><br>
             <div class="tables">
@@ -178,7 +266,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="constructor" class="doc_table_head">
                             BaseTargetHelper&operator=(BaseTargetHelper&);
                         </th>
                     </tr>
@@ -192,7 +280,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="enable_mt" class="doc_table_head">
                             void EnableMultiThreadingSupport(bool enableMultiThreading =true);
                         </th>
                     </tr>
@@ -214,7 +302,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">bool isMTSupportEnabled();</th>
+                        <th id="is_mt" class="doc_table_head">bool isMTSupportEnabled();</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -236,7 +324,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="set_policy" class="doc_table_head">
                             void SetFlushPolicy(const Flush_Policy& fPolicy);
                         </th>
                     </tr>
@@ -321,7 +409,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="policy" class="doc_table_head">
                             const std::unique_ptr&lt;Flush_Policy&gt;&Policy() const;
                         </th>
                     </tr>
