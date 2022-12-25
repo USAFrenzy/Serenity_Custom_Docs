@@ -120,46 +120,189 @@
                 name, and file extension.
             </div>
             <br>
-            <div class="codeBlock">
-                <pre class="sh_cpp">
+
+
+            <div class="center_text">
+                <details>
+                    <summary>
+                        Click here for a file snippet:
+                        <br><br>
+                    </summary>
+                    This struct is found under the namespace <span
+                        style="color:rgb(58, 230, 215);">serenity::target::helpers</span> in file <span
+                        style="color:rgb(58, 230, 215);">FileHelper.h</span>
+                    <br>
+                    <div class="codeBlock">
+                        <pre class="sh_cpp">
 <br>
-   class FileCache
-   {
-     public:
-       FileCache(std::string_view path);
-       FileCache(FileCache&)            = delete;
-       FileCache& operator=(FileCache&) = delete;
-       ~FileCache()                     = default;
-       void CacheFile(std::string_view path, bool ignoreExtInFileName = false);
-       std::filesystem::path FilePath() const;
-       std::filesystem::path DirPath() const;
-       std::string DirName() const;
-       std::string FileName() const;
-       std::string Extenstion() const;
+class FileCache
+{
+  public:
+    FileCache(std::string_view path);
+    FileCache(FileCache&)            = delete;
+    FileCache& operator=(FileCache&) = delete;
+    ~FileCache()                     = default;
+    void CacheFile(std::string_view path, bool ignoreExtInFileName = false);
+    std::filesystem::path FilePath() const;
+    std::filesystem::path DirPath() const;
+    std::string DirName() const;
+    std::string FileName() const;
+    std::string Extenstion() const;
 
-       // Helper Functions
-       void SetFilePath(const std::filesystem::path& newPath);
-       void SetFileDir(const std::string& newDir);
-       void SetFileName(const std::string& newName);
-       void SetExtension(const std::string& newExt);
+    // Helper Functions
+    void SetFilePath(const std::filesystem::path& newPath);
+    void SetFileDir(const std::string& newDir);
+    void SetFileName(const std::string& newName);
+    void SetExtension(const std::string& newExt);
 
-     protected:
-       std::filesystem::path filePath;
-       std::string fileDir;
-       std::string fileName;
-       std::string extension;
-       std::filesystem::path dirPath;
-   };
+  protected:
+    std::filesystem::path filePath;
+    std::string fileDir;
+    std::string fileName;
+    std::string extension;
+    std::filesystem::path dirPath;
+};
 <br>
 </pre>
+                    </div>
+                    <br>
+                </details>
             </div>
+            <br>
+            <table class="doc_table" style="margin-left: 10%; margin-right: 10%;">
+                <tr>
+                    <th class="doc_table_div_header" colspan="6">Public Functions</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"></th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#constructor">FileCache(std::string_view path);</a>
+                        <br>
+                        <div class="indent">
+                            This is the only constructor available for this class.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">void</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#cache_file">CacheFile(std::string_view path, bool
+                            ignoreExtInFileName=false);</a>
+                        <br>
+                        <div class="indent">
+                            This function is called in the FileCache constructor and is used to break the path up into
+                            parts to store.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">std::filesystem::path</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#file_path">FilePath() const</a>
+                        <br>
+                        <div class="indent">
+                            This function returns the file path that was cached as a std::filesystem::path object.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::filesystem::path </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#dir_path">DirPath() const;</a>
+                        <br>
+                        <div class="indent">
+                            This function returns the log directory path that was cached as a std::filesystem::path
+                            object.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::string </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#dir_name">DirName() const;</a>
+                        <br>
+                        <div class="indent">
+                            This function returns the log directory name that was cached as a std::string object.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::string </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#file_name">FileName() const;</a>
+                        <br>
+                        <div class="indent">
+                            This function returns the file name that was cached as a std::string object.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> std::string </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#extension">Extenstion() const;</a>
+                        <br>
+                        <div class="indent">
+                            This function returns the extension format that was cached as a std::string object.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#set_path">SetFilePath(const std::filesystem::path&
+                            newPath);</a>
+                        <br>
+                        <div class="indent">
+                            This is a helper function that simply sets the member variable `<span
+                                style="color:rgb(125, 45, 45);">filePath</span>` to what `<span
+                                style="color:rgb(125, 45, 45);">newPath</span>` is without changing anything else.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#set_dir">SetFileDir(const std::string& newDir);</a>
+                        <br>
+                        <div class="indent">
+                            This is a helper function that simply sets the member variable `<span
+                                style="color:rgb(125, 45, 45);">fileDir</span>` to what `<span
+                                style="color:rgb(125, 45, 45);">newDir</span>` is without changing anything else..
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#set_name">SetFileName(const std::string& newName);</a>
+                        <br>
+                        <div class="indent">
+                            This is a helper function that simply sets the member variable `<span
+                                style="color:rgb(125, 45, 45);">fileName</span>` to what `<span
+                                style="color:rgb(125, 45, 45);">newName</span>` is without changing anything else.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"> void </th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#set_ext">SetExtension(const std::string& newExt);</a>
+                        <br>
+                        <div class="indent">
+                            This is a helper function that simply sets the member variable `<span
+                                style="color:rgb(125, 45, 45);">extension</span>` to what `<span
+                                style="color:rgb(125, 45, 45);">newExt</span>` is without changing anything else.
+                        </div>
+                    </th>
+                </tr>
+            </table>
             <br>
             <div class="subHeaders"> More Information About Class FileCache </div>
             <br><br>
             <div class="tables">
                 <table>
                     <tr>
-                        <th class="doc_table_head">FileCache(std::string_view path);</th>
+                        <th id="constructor" class="doc_table_head">FileCache(std::string_view path);</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -179,7 +322,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="cache_file" class="doc_table_head">
                             void CacheFile(std::string_view path, bool ignoreExtInFileName = false);
                         </th>
                     </tr>
@@ -252,7 +395,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="file_path" class="doc_table_head">
                             std::filesystem::path FilePath() const;
                         </th>
                     </tr>
@@ -265,7 +408,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">std::filesystem::path DirPath() const;</th>
+                        <th id="dir_path" class="doc_table_head">std::filesystem::path DirPath() const;</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -276,7 +419,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="dir_name" class="doc_table_head">
                             std::string DirName() const;
                         </th>
                     </tr>
@@ -289,7 +432,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="file_name" class="doc_table_head">
                             std::string FileName() const;
                         </th>
                     </tr>
@@ -302,7 +445,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="extension" class="doc_table_head">
                             std::string Extenstion() const;
                         </th>
                     </tr>
@@ -315,7 +458,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="set_path" class="doc_table_head">
                             void SetFilePath(const std::filesystem::path& newPath);
                         </th>
                     </tr>
@@ -330,7 +473,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="set_dir" class="doc_table_head">
                             void SetFileDir(const std::string& newDir);
                         </th>
                     </tr>
@@ -345,7 +488,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="set_name" class="doc_table_head">
                             void SetFileName(const std::string& newName);
                         </th>
                     </tr>
@@ -360,7 +503,7 @@
                         <th class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th class="doc_table_head">
+                        <th id="set_ext" class="doc_table_head">
                             void SetExtension(const std::string& newExt);
                         </th>
                     </tr>
