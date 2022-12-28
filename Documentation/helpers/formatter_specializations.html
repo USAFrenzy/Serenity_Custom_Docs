@@ -12,6 +12,7 @@
     <script type="text/javascript" src="../../scripts/layout/docs.js"></script>
     <link rel="stylesheet" href="../../scripts/layout/common.css">
     <link rel="stylesheet" href="../../scripts/layout/docs.css">
+    <link rel="stylesheet" href="../../scripts/code_syntax/css/sh_nedit.css">
 </head>
 
 <body onload="sh_highlightDocument();">
@@ -47,8 +48,8 @@
                 <a class="classes_link" href="../helpers/file_helper.html">FileHelper</a>
                 <a class="classes_link" href="../helpers/file_cache.html">FileCache</a>
                 <a class="classes_link" href="../helpers/base_target_helper.html">BaseTargetHelper</a>
-                <a class="classes_link" href="../msg_details/custom_flags.html#format_source_loc">Format_Source_Loc</a>
-                <a class="classes_link" href="../msg_details/custom_flags.html#format_thread_id">Format_Thread_ID</a>
+                <a class="classes_link" href="">Format_Source_Loc</a>
+                <a class="classes_link" href="">Format_Thread_ID</a>
                 <a class="classes_link"
                     href="../customflagerror/custom_error_handler.html#format_error">format_error</a>
                 <br><br>
@@ -116,9 +117,26 @@
         </div>
         <br><br>
         <div class="mainHeaders">
-            <h1 align="center" style="color:#A8C077; font-size: 250%;"><strong>Custom Formatters</strong>
-                <br><span style="text-align: center; color: #A8C077; font-size: 45%;"><em>- Found In File:
-                        Common.h</em></span></strong>
+            <h1 align="center" style="color:#A8C077; font-size: 250%;"><strong>Custom Formatter Specializations And Flag Formatting Helpers</strong>
+                <br>
+                <span style="text-align: center; color: #A8C077; font-size: 45%;">
+                    <em>
+                        <div class="lists">
+                            <ul>
+                                <li>
+                                    - Found In Files:
+                                    <ul>
+                                        <li>Common.h - Format_Source_Loc And Format_Thread_ID</li>
+                                        <li>argfmt_backend.h  - ArgFormatter specializations</li>
+                                        <li>stdfmt_backend.h - &lt;format&gt; specializations</li>
+                                        <li>fmtlib_backend.h - fmtlib specializations</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </em>
+                </span>
+                </strong>
             </h1>
         </div>
         <br><br><br>
@@ -176,123 +194,123 @@
                     <div class="codeBlock">
                         <pre id="src_file" class="sh_cpp">
 
-                            inline static constexpr size_t SOURCE_BUFF_SIZE { 6 };
+   inline static constexpr size_t SOURCE_BUFF_SIZE { 6 };
 
-                            // Not All Functions Can Be Made `constexpr` due to the usage of `std::memset()` and `std::to_chars()`
-                            class Format_Source_Loc
-                            {
-                              public:
-                                explicit Format_Source_Loc(const std::source_location& src, const source_flag& flag)
-                                    : srcLocation(src), buff(std::array&lt;char, SOURCE_BUFF_SIZE&gt; {}), spec(flag), result(std::string {}) { }
-                                Format_Source_Loc(const Format_Source_Loc&)            = delete;
-                                Format_Source_Loc& operator=(const Format_Source_Loc&) = delete;
-                                ~Format_Source_Loc()                                   = default;
+   // Not All Functions Can Be Made `constexpr` due to the usage of `std::memset()` and `std::to_chars()`
+   class Format_Source_Loc
+   {
+     public:
+       explicit Format_Source_Loc(const std::source_location& src, const source_flag& flag)
+           : srcLocation(src), buff(std::array&lt;char, SOURCE_BUFF_SIZE&gt; {}), spec(flag), result(std::string {}) { }
+       Format_Source_Loc(const Format_Source_Loc&)            = delete;
+       Format_Source_Loc& operator=(const Format_Source_Loc&) = delete;
+       ~Format_Source_Loc()                                   = default;
 
-                                void FormatAll() {
-                                    auto data { buff.data() };
-                                    result.append("[ ").append(std::move(std::filesystem::path { srcLocation.file_name() }.filename().string())).append("(");
-                                    std::memset(data, 0, SOURCE_BUFF_SIZE);
-                                    result.append(data, std::to_chars(data, data + SOURCE_BUFF_SIZE, srcLocation.line()).ptr - data).append(":");
-                                    std::memset(data, 0, SOURCE_BUFF_SIZE);
-                                    result.append(data, std::to_chars(data, data + SOURCE_BUFF_SIZE, srcLocation.column()).ptr - data).append(") ");
-                                    result.append(srcLocation.function_name()).append(" ]");
-                                }
+       void FormatAll() {
+           auto data { buff.data() };
+           result.append("[ ").append(std::move(std::filesystem::path { srcLocation.file_name() }.filename().string())).append("(");
+           std::memset(data, 0, SOURCE_BUFF_SIZE);
+           result.append(data, std::to_chars(data, data + SOURCE_BUFF_SIZE, srcLocation.line()).ptr - data).append(":");
+           std::memset(data, 0, SOURCE_BUFF_SIZE);
+           result.append(data, std::to_chars(data, data + SOURCE_BUFF_SIZE, srcLocation.column()).ptr - data).append(") ");
+           result.append(srcLocation.function_name()).append(" ]");
+       }
 
-                                void FormatLine() {
-                                    auto data { buff.data() };
-                                    std::memset(data, 0, SOURCE_BUFF_SIZE);
-                                    result.append(data, std::to_chars(data, data + SOURCE_BUFF_SIZE, srcLocation.line()).ptr - data);
-                                }
+       void FormatLine() {
+           auto data { buff.data() };
+           std::memset(data, 0, SOURCE_BUFF_SIZE);
+           result.append(data, std::to_chars(data, data + SOURCE_BUFF_SIZE, srcLocation.line()).ptr - data);
+       }
 
-                                void FormatColumn() {
-                                    auto data { buff.data() };
-                                    std::memset(data, 0, SOURCE_BUFF_SIZE);
-                                    result.append(data, std::to_chars(data, data + SOURCE_BUFF_SIZE, srcLocation.column()).ptr - data);
-                                }
+       void FormatColumn() {
+           auto data { buff.data() };
+           std::memset(data, 0, SOURCE_BUFF_SIZE);
+           result.append(data, std::to_chars(data, data + SOURCE_BUFF_SIZE, srcLocation.column()).ptr - data);
+       }
 
-                                void FormatFile() {
-                                    result.append(std::move(std::filesystem::path { srcLocation.file_name() }.filename().string()));
-                                }
+       void FormatFile() {
+           result.append(std::move(std::filesystem::path { srcLocation.file_name() }.filename().string()));
+       }
 
-                                inline constexpr void FormatFunction() {
-                                    result.append(srcLocation.function_name());
-                                }
+       inline constexpr void FormatFunction() {
+           result.append(srcLocation.function_name());
+       }
 
-                                std::string FormatUserPattern() {
-                                    using enum source_flag;
-                                    result.clear();
-                                    switch( static_cast<int>(spec) ) {
-                                            case 1: FormatLine(); break;
-                                            case 2: FormatColumn(); break;
-                                            case 3:
-                                                FormatLine();
-                                                result.append(":");
-                                                FormatColumn();
-                                                break;
-                                            case 4: FormatFile(); break;
-                                            case 5:
-                                                FormatFile();
-                                                result.append(" ");
-                                                FormatLine();
-                                                break;
-                                            case 7:
-                                                FormatFile();
-                                                result.append("(");
-                                                FormatLine();
-                                                result.append(":");
-                                                FormatColumn();
-                                                result.append(")");
-                                                break;
-                                            case 8: FormatFunction(); break;
-                                            case 9:
-                                                FormatFunction();
-                                                result.append(" ");
-                                                FormatLine();
-                                                break;
-                                            case 11:
-                                                FormatFunction();
-                                                result.append(": (");
-                                                FormatLine();
-                                                result.append(":");
-                                                FormatColumn();
-                                                result.append(")");
-                                                break;
-                                            case 12:
-                                                FormatFile();
-                                                result.append(" ");
-                                                FormatFunction();
-                                                break;
-                                            default: FormatAll(); break;
-                                        }
-                                    return result;
-                                }
+       std::string FormatUserPattern() {
+           using enum source_flag;
+           result.clear();
+           switch( static_cast<int>(spec) ) {
+                   case 1: FormatLine(); break;
+                   case 2: FormatColumn(); break;
+                   case 3:
+                       FormatLine();
+                       result.append(":");
+                       FormatColumn();
+                       break;
+                   case 4: FormatFile(); break;
+                   case 5:
+                       FormatFile();
+                       result.append(" ");
+                       FormatLine();
+                       break;
+                   case 7:
+                       FormatFile();
+                       result.append("(");
+                       FormatLine();
+                       result.append(":");
+                       FormatColumn();
+                       result.append(")");
+                       break;
+                   case 8: FormatFunction(); break;
+                   case 9:
+                       FormatFunction();
+                       result.append(" ");
+                       FormatLine();
+                       break;
+                   case 11:
+                       FormatFunction();
+                       result.append(": (");
+                       FormatLine();
+                       result.append(":");
+                       FormatColumn();
+                       result.append(")");
+                       break;
+                   case 12:
+                       FormatFile();
+                       result.append(" ");
+                       FormatFunction();
+                       break;
+                   default: FormatAll(); break;
+               }
+           return result;
+       }
 
-                              private:
-                                const std::source_location& srcLocation;
-                                std::array&lt;char, SOURCE_BUFF_SIZE&gt; buff;
-                                const source_flag& spec;
-                                std::string result;
-                            };
+     private:
+       const std::source_location& srcLocation;
+       std::array&lt;char, SOURCE_BUFF_SIZE&gt; buff;
+       const source_flag& spec;
+       std::string result;
+   };
 
-                            inline static constexpr size_t defaultThreadIdLength = 10;    // Precision argument dictates the length of the hashed id returned (0-10)
-                            inline static constexpr size_t THREAD_BUFF_SIZE = 64;
-                            class Format_Thread_ID
-                            {
-                                public:
-                                explicit Format_Thread_ID(const std::thread::id& id): thread(id) { }
-                                Format_Thread_ID(const Format_Thread_ID&)            = delete;
-                                Format_Thread_ID& operator=(const Format_Thread_ID&) = delete;
-                                ~Format_Thread_ID()                                   = default;
+   inline static constexpr size_t defaultThreadIdLength = 10;    // Precision argument dictates the length of the hashed id returned (0-10)
+   inline static constexpr size_t THREAD_BUFF_SIZE = 64;
+   class Format_Thread_ID
+   {
+       public:
+       explicit Format_Thread_ID(const std::thread::id& id): thread(id) { }
+       Format_Thread_ID(const Format_Thread_ID&)            = delete;
+       Format_Thread_ID& operator=(const Format_Thread_ID&) = delete;
+       ~Format_Thread_ID()                                   = default;
 
-                                std::string FormatUserPattern(size_t precision) {
-                                    std::array&lt;char, THREAD_BUFF_SIZE&gt; buf {};
-                                    std::to_chars(buf.data(), buf.data() + THREAD_BUFF_SIZE, std::hash&lt;std::thread::id&gt;()(thread));
-                                    return std::string(buf.data(), buf.data() + ((precision != 0) ? precision : defaultThreadIdLength));
-                                }
+       std::string FormatUserPattern(size_t precision) {
+           std::array&lt;char, THREAD_BUFF_SIZE&gt; buf {};
+           std::to_chars(buf.data(), buf.data() + THREAD_BUFF_SIZE, std::hash&lt;std::thread::id&gt;()(thread));
+           return std::string(buf.data(), buf.data() + ((precision != 0) ? precision : defaultThreadIdLength));
+       }
 
-                              private:
-                                const std::thread::id& thread;
-                            };
+     private:
+       const std::thread::id& thread;
+   };
             <br>
             </pre>
                     </div>
@@ -521,7 +539,8 @@
                     </th>
                 </tr>
                 <tr>
-                    <th class="doc_table_div_header" colspan="6">serenity::LoggerLevel Formatter Specialization Public Functions
+                    <th class="doc_table_div_header" colspan="6">serenity::LoggerLevel Formatter Specialization Public
+                        Functions
                     </th>
                 </tr>
                 <tr>
@@ -539,7 +558,8 @@
                     </th>
                 </tr>
                 <tr>
-                    <th class="doc_table_contents_keyword">template&lt;&gt; template&lt;class resultCtx&gt; constexpr void</th>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; template&lt;class resultCtx&gt; constexpr
+                        void</th>
                     <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#max_size_size_t">Format(const serenity::LoggerLevel& lvl,
                             resultCtx& ctx) const;</a>
@@ -554,7 +574,8 @@
                         Formatter Specializations</th>
                 </tr>
                 <tr>
-                    <th class="doc_table_contents_keyword">template&lt;&gt; constexpr std::format_parse_context::const_iterator</th>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; constexpr
+                        std::format_parse_context::const_iterator</th>
                     <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#max_size_size_t">parse(std::format_parse_context parse);</a>
                         <br>
@@ -564,7 +585,8 @@
                     </th>
                 </tr>
                 <tr>
-                    <th class="doc_table_contents_keyword">template&lt;&gt; std::back_insert_iterator&lt;std::Fmt_buffer&lt;char&gt;&gt;</th>
+                    <th class="doc_table_contents_keyword">template&lt;&gt;
+                        std::back_insert_iterator&lt;std::Fmt_buffer&lt;char&gt;&gt;</th>
                     <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#max_size_size_t">format(const serenity::LoggerLevel& lvl,
                             std::format_context& ctx) const;</a>
@@ -617,7 +639,8 @@
                         Formatter Specializations</th>
                 </tr>
                 <tr>
-                    <th class="doc_table_contents_keyword">template&lt;&gt; constexpr std::format_parse_context::const_iterator</th>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; constexpr
+                        std::format_parse_context::const_iterator</th>
                     <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#max_size_size_t">parse(std::format_parse_context& parse);</a>
                         <br>
@@ -627,7 +650,8 @@
                     </th>
                 </tr>
                 <tr>
-                    <th class="doc_table_contents_keyword">template&lt;&gt; std::back_insert_iterator&lt;std::Fmt_buffer&lt;char&gt;&gt;</th>
+                    <th class="doc_table_contents_keyword">template&lt;&gt;
+                        std::back_insert_iterator&lt;std::Fmt_buffer&lt;char&gt;&gt;</th>
                     <th class="doc_table_contents_body">
                         <a class="doc_table_link" href="#max_size_size_t">format(const std::tm& tmStruct,
                             std::format_context& ctx) const;</a>
