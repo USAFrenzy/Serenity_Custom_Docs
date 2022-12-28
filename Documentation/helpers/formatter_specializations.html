@@ -125,7 +125,8 @@
         <div id="main-body">
             <br>
             <div class="center_text" style="text-align:center; font-size:large;">
-                This page covers the formatting template specializations used in Serenity for the formatter backends.
+                This page covers the formatting template specializations used in Serenity for the formatter backends as
+                well as the helper classes that aid in formatting the source location info and thread hash identifier.
                 <br><br>
                 This includes formatter specializations for:
                 <div class="lists" style="margin-top: -15px;">
@@ -134,13 +135,38 @@
                         <li>std::tm</li>
                     </ul>
                 </div>
+                This also includes the helper classes:
+                <div class="lists" style="margin-top: -15px;">
+                    <ul>
+                        <li>Format_Source_Loc</li>
+                        <li>Format_Thread_ID</li>
+                    </ul>
+                </div>
+                <br>
+                <div class="mainHeaders" style="text-align: left;">
+                    <div class="subHeaders" style="border: none;">
+                        NOTE:
+                    </div>
+                    <ul>
+                        <li>ArgFormatter natively supports std::tm formatting for the specified use case of sub-second
+                            precision as well as the default behavior of strftime flag formatting
+                        </li>
+                        <br>
+                        <li>While fmtlib provides native formatting of std::tm as well, a
+                            work-around had to be made for adding sub-second precision support used in Serenity
+                        </li>
+                        <br>
+                        <li> &lt;format&gt; has no built-in support for std::tm by default as it uses std::chrono times
+                            instead, so a work-around needed to be made for this case as well.
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-
+            <br><br>
             <div class="center_text">
                 <details>
                     <summary>
-                        Click here for a file snippet:
+                        Click here for a file snippet of the helper classes:
                         <br><br>
                     </summary>
                     These classes are both found under the namespace <span
@@ -157,7 +183,7 @@
                             {
                               public:
                                 explicit Format_Source_Loc(const std::source_location& src, const source_flag& flag)
-                                    : srcLocation(src), buff(std::array<char, SOURCE_BUFF_SIZE> {}), spec(flag), result(std::string {}) { }
+                                    : srcLocation(src), buff(std::array&lt;char, SOURCE_BUFF_SIZE&gt; {}), spec(flag), result(std::string {}) { }
                                 Format_Source_Loc(const Format_Source_Loc&)            = delete;
                                 Format_Source_Loc& operator=(const Format_Source_Loc&) = delete;
                                 ~Format_Source_Loc()                                   = default;
@@ -180,8 +206,8 @@
 
                                 void FormatColumn() {
                                     auto data { buff.data() };
-                                    std::memset(data, 0, 6);
-                                    result.append(data, std::to_chars(data, data + 6, srcLocation.column()).ptr - data);
+                                    std::memset(data, 0, SOURCE_BUFF_SIZE);
+                                    result.append(data, std::to_chars(data, data + SOURCE_BUFF_SIZE, srcLocation.column()).ptr - data);
                                 }
 
                                 void FormatFile() {
@@ -243,19 +269,24 @@
 
                               private:
                                 const std::source_location& srcLocation;
-                                std::array<char, SOURCE_BUFF_SIZE> buff;
+                                std::array&lt;char, SOURCE_BUFF_SIZE&gt; buff;
                                 const source_flag& spec;
                                 std::string result;
                             };
 
                             inline static constexpr size_t defaultThreadIdLength = 10;    // Precision argument dictates the length of the hashed id returned (0-10)
-                            struct Format_Thread_ID
+                            inline static constexpr size_t THREAD_BUFF_SIZE = 64;
+                            class Format_Thread_ID
                             {
-                                Format_Thread_ID(const std::thread::id& id): thread(id) { }
+                                public:
+                                explicit Format_Thread_ID(const std::thread::id& id): thread(id) { }
+                                Format_Thread_ID(const Format_Thread_ID&)            = delete;
+                                Format_Thread_ID& operator=(const Format_Thread_ID&) = delete;
+                                ~Format_Thread_ID()                                   = default;
 
                                 std::string FormatUserPattern(size_t precision) {
-                                    std::array<char, 64> buf {};
-                                    std::to_chars(buf.data(), buf.data() + buf.size(), std::hash<std::thread::id>()(thread));
+                                    std::array&lt;char, THREAD_BUFF_SIZE&gt; buf {};
+                                    std::to_chars(buf.data(), buf.data() + THREAD_BUFF_SIZE, std::hash&lt;std::thread::id&gt;()(thread));
                                     return std::string(buf.data(), buf.data() + ((precision != 0) ? precision : defaultThreadIdLength));
                                 }
 
@@ -274,129 +305,363 @@
                     <th class="doc_table_div_header" colspan="6">Format_Source_Loc Public Functions</th>
                 </tr>
                 <tr>
-                <th class="doc_table_contents_keyword">explicit</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">Format_Source_Loc(const std::source_location& src, const source_flag& flag);</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword"></th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">~Format_Source_Loc()=default;</a>
-                    <br>
-                    <div class="indent">
-                      Default Destructor.
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword">inline static constexpr size_t</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">SOURCE_BUFF_SIZE;</a>
-                    <br>
-                    <div class="indent">
-                      Default Destructor.
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword">void</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">FormatAll();</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword">void</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">FormatLine();</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword">void</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">FormatColumn();</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword">void</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">FormatFile()</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword">inline constexpr void</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">FormatFunction();</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword">std::string</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">FormatUserPattern()</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
-            <tr><th class="doc_table_break" colspan="6"><br><br></th></tr>
-            <tr>
-                <th class="doc_table_div_header" colspan="6">Format_Thread_ID Public Functions</th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword"></th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">Format_Thread_ID(const std::thread::id& id);</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword">inline static constexpr size_t</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">defaultThreadIdLength;</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th class="doc_table_contents_keyword">std::string</th>
-                <th class="doc_table_contents_body">
-                    <a class="doc_table_link" href="#max_size_size_t">FormatUserPattern(size_t precision);</a>
-                    <br>
-                    <div class="indent">
-                      [PLACE_HOLDER_TEXT]
-                    </div>
-                </th>
-            </tr>
+                    <th class="doc_table_contents_keyword">explicit</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">Format_Source_Loc(const std::source_location&
+                            src, const source_flag& flag);</a>
+                        <br>
+                        <div class="indent">
+                            This is the only constructor for this class.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"></th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">~Format_Source_Loc()=default;</a>
+                        <br>
+                        <div class="indent">
+                            Default Destructor.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">inline static constexpr size_t</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">SOURCE_BUFF_SIZE;</a>
+                        <br>
+                        <div class="indent">
+                            This constexpr variable is used to keep consistency with the buffers used in calls to
+                            std::to_chars().
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">void</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">FormatAll();</a>
+                        <br>
+                        <div class="indent">
+                            This function formats the source file name, source line, source column, and source function
+                            into the member variable <span style="color: rgb(125, 45, 45);">result</span>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">void</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">FormatLine();</a>
+                        <br>
+                        <div class="indent">
+                            This function formats the source line into the member variable <span
+                                style="color: rgb(125, 45, 45);">result</span>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">void</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">FormatColumn();</a>
+                        <br>
+                        <div class="indent">
+                            This function formats the source column into the member variable <span
+                                style="color: rgb(125, 45, 45);">result</span>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">void</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">FormatFile()</a>
+                        <br>
+                        <div class="indent">
+                            This function formats the source file name into the member variable <span
+                                style="color: rgb(125, 45, 45);">result</span>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">inline constexpr void</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">FormatFunction();</a>
+                        <br>
+                        <div class="indent">
+                            This function formats the source function into the member variable <span
+                                style="color: rgb(125, 45, 45);">result</span>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">std::string</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">FormatUserPattern()</a>
+                        <br>
+                        <div class="indent">
+                            This function formats the source location info stored from the constructor call based on the
+                            source flag taken in from the same call and returns a string containing the formatted
+                            result. The default behavior is to call <span
+                                style="color: rgb(125, 45, 45);">FormatAll()</span>, however, this can be changed by
+                            adding modifiers in the user pattern after "<span
+                                style="color: rgb(125, 45, 45);">%s:</span>"
+
+
+
+                            <br><br>
+                            <span style="font-size: 200%; color: brown;">Not sure why I filled all this out here -> this
+                                will go into the "More Info" section
+                                later...</span>
+                            <br>
+                            <ul>
+                                <li>This function will do the following based on the flags set:
+                                    <ul>
+                                        <li>Format source file, line, column, and function</li>
+                                        <li>Format source file, line, and column</li>
+                                        <li>Format source function, line, and column</li>
+                                        <li>Format source file and function</li>
+                                        <li>Format source file and line</li>
+                                        <li>Format source function and line</li>
+                                        <li>Format source line and column</li>
+                                        <li>Format source line</li>
+                                        <li>Format source column</li>
+                                        <li>Format source function</li>
+                                        <li>Format source file</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    The flag is set based on the following found in the user pattern provided on target
+                                    creation:
+                                    <ul>
+                                        <li>The base flag "<span style="color: rgb(125, 45, 45);">%s</span>"</li>
+                                        <li> Followed by any combination of the below modifiers (requires "<span
+                                                style="color: rgb(125, 45, 45);">%s:</span>" before any modifiers):
+                                            <ul>
+                                                <li>"<span style="color: rgb(125, 45, 45);">a</span>" - calls <span
+                                                        style="color: rgb(125, 45, 45);">FormatAll();</span></li>
+                                                <li>"<span style="color: rgb(125, 45, 45);">f</span>" - calls <span
+                                                        style="color: rgb(125, 45, 45);">FormatFile();</span></li>
+                                                <li>"<span style="color: rgb(125, 45, 45);">l</span>" - calls <span
+                                                        style="color: rgb(125, 45, 45);">FormatLine();</span></li>
+                                                <li>"<span style="color: rgb(125, 45, 45);">c</span>" - calls <span
+                                                        style="color: rgb(125, 45, 45);">FormatColumn();</span></li>
+                                                <li>"<span style="color: rgb(125, 45, 45);">F</span>" - calls
+                                                    <span style="color: rgb(125, 45, 45);">FormatFunction();</span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>If no modifiers are present, then this is the same as calling "<span
+                                                style="color: rgb(125, 45, 45);">%s:a</span>"</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header" colspan="6">Format_Thread_ID Public Functions</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">explicit</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">Format_Thread_ID(const std::thread::id&
+                            id);</a>
+                        <br>
+                        <div class="indent">
+                            This is the only constructor for this class.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword"></th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">~Format_Thread_ID() = default;</a>
+                        <br>
+                        <div class="indent">
+                            Default Destructor.
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">inline static constexpr size_t</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">THREAD_BUFF_SIZE;</a>
+                        <br>
+                        <div class="indent">
+                            This constexpr variable is used to keep consistency with the buffer instantiation for
+                            std::to_chars().
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">inline static constexpr size_t</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">defaultThreadIdLength;</a>
+                        <br>
+                        <div class="indent">
+                            This constexpr variable is used to set the default length of the hashed identifier for the
+                            thread.
+                            <li>This value is set to 10</li>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">std::string</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">FormatUserPattern(size_t precision);</a>
+                        <br>
+                        <div class="indent">
+                            This function formats the thread identifier that was stored from the constructor call by
+                            hashing the thread and returning a string representation of the identifier. The length of
+                            the identifier is <span style="color: rgb(125, 45, 45);">defaultThreadIdLength</span> digits
+                            long by default. This can be changed by adding a modifier flag to the
+                            user pattern after "<span style="color: rgb(125, 45, 45);">%t:</span>"
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header" colspan="6">serenity::LoggerLevel Formatter Specialization Public Functions
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header" style="background-color: #A8C077;" colspan="6">ArgFormatter
+                        Formatter Specializations</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; constexpr void</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">Parse(std::string_view parse);</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; template&lt;class resultCtx&gt; constexpr void</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">Format(const serenity::LoggerLevel& lvl,
+                            resultCtx& ctx) const;</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header" style="background-color: #A8C077;" colspan="6">&lt;format&gt;
+                        Formatter Specializations</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; constexpr std::format_parse_context::const_iterator</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">parse(std::format_parse_context parse);</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; std::back_insert_iterator&lt;std::Fmt_buffer&lt;char&gt;&gt;</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">format(const serenity::LoggerLevel& lvl,
+                            std::format_context& ctx) const;</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header" style="background-color: #A8C077;" colspan="6">fmtlib Formatter
+                        Specializations</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; constexpr const char *</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">parse(fmt::format_parse_context& parse);</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; inline fmt::v9::appender</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">format(serenity::LoggerLevel& lvl,
+                            fmt::format_context& ctx) const;</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header" colspan="6">std::tm Formatter Specialization Public Functions</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">macro</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">FMT_BUFF_SIZE 128</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header" style="background-color: #A8C077;" colspan="6">&lt;format&gt;
+                        Formatter Specializations</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; constexpr std::format_parse_context::const_iterator</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">parse(std::format_parse_context& parse);</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; std::back_insert_iterator&lt;std::Fmt_buffer&lt;char&gt;&gt;</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">format(const std::tm& tmStruct,
+                            std::format_context& ctx) const;</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_div_header" style="background-color: #A8C077;" colspan="6">fmtlib Formatter
+                        Specializations</th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; constexpr const char *</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">parse(fmt::format_parse_context& parse);</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="doc_table_contents_keyword">template&lt;&gt; inline fmt::v9::appender</th>
+                    <th class="doc_table_contents_body">
+                        <a class="doc_table_link" href="#max_size_size_t">format(const std::tm& tmStruct,
+                            fmt::format_context& ctx) const;</a>
+                        <br>
+                        <div class="indent">
+                            [Place_Holder_Text]
+                        </div>
+                    </th>
+                </tr>
             </table>
             <br><br>
 
