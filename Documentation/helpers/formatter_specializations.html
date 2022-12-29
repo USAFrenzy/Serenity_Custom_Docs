@@ -68,7 +68,8 @@
             <div class="mobile_search-bar">
                 <form action="placeholder">
                     <input type="text" class="mobile_searchBox" placeholder="Enter Search Term Here">
-                    <input type="image" class="mobile_search_button" src="../../Resources/search_icon_clipart.png"></input>
+                    <input type="image" class="mobile_search_button"
+                        src="../../Resources/search_icon_clipart.png"></input>
                 </form>
             </div>
             <div class="hamburger_menu">
@@ -117,7 +118,8 @@
         </div>
         <br><br>
         <div class="mainHeaders">
-            <h1 align="center" style="color:#A8C077; font-size: 250%;"><strong>Custom Formatter Specializations And Flag Formatting Helpers</strong>
+            <h1 align="center" style="color:#A8C077; font-size: 250%;"><strong>Custom Formatter Specializations And Flag
+                    Formatting Helpers</strong>
                 <br>
                 <span style="text-align: center; color: #A8C077; font-size: 45%;">
                     <em>
@@ -127,7 +129,7 @@
                                     - Found In Files:
                                     <ul>
                                         <li>Common.h - Format_Source_Loc And Format_Thread_ID</li>
-                                        <li>argfmt_backend.h  - ArgFormatter specializations</li>
+                                        <li>argfmt_backend.h - ArgFormatter specializations</li>
                                         <li>stdfmt_backend.h - &lt;format&gt; specializations</li>
                                         <li>fmtlib_backend.h - fmtlib specializations</li>
                                     </ul>
@@ -553,7 +555,48 @@
                         <a class="doc_table_link" href="#max_size_size_t">Parse(std::string_view parse);</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function simply parses the portion of the user pattern that deals with the message log
+                            level representation.
+
+                            <br><br>
+                            <span style="font-size: 200%; color: brown;">Not sure why I filled all this out here -> this
+                                will go into the "More Info" section
+                                later...</span>
+                            <br>
+                            Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
+                            being parsed for the serenity::LoggerLevel specific flags.
+                            <ul>
+                                <li>This function will parse the user defined pattern portion that deals with the
+                                    serenity::LoggerLevel flag</li>
+                                <li>When this function encounters modifier "<span
+                                        style="color: rgb(125, 45, 45);">L</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the long level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>When this function encounters modifier "<span
+                                        style="color: rgb(125, 45, 45);">l</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the short level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>Otherwise, this function will issue a warning on the following:
+                                    <ul>
+                                        <li>Missing closing bracket</li>
+                                        <li>Modifier token with no modifier flag present</li>
+                                    </ul>
+                                </li>
+                                <li>If no modifying flags are present, then the state will be set to <span
+                                        style="color: rgb(125, 45, 45);">LevelView::Invalid</span>
+                                    <ul>
+                                        <li>This results in the string "<span
+                                                style="color: rgb(125, 45, 45);">INVALID_LEVEL</span>" being formatted
+                                            into your container</li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </th>
                 </tr>
@@ -580,7 +623,48 @@
                         <a class="doc_table_link" href="#max_size_size_t">parse(std::format_parse_context parse);</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function simply parses the portion of the user pattern that deals with the message log
+                            level representation.
+
+                            <br><br>
+                            <span style="font-size: 200%; color: brown;">Not sure why I filled all this out here -> this
+                                will go into the "More Info" section
+                                later...</span>
+                            <br>
+                            Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
+                            being parsed for the serenity::LoggerLevel specific flags.
+                            <ul>
+                                <li>This function will parse the user defined pattern portion that deals with the
+                                    serenity::LoggerLevel flag</li>
+                                <li>When this function encounters modifier "<span
+                                        style="color: rgb(125, 45, 45);">L</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the long level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>When this function encounters modifier "<span
+                                        style="color: rgb(125, 45, 45);">l</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the short level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>Otherwise, this function will issue a warning on the following:
+                                    <ul>
+                                        <li>Missing closing bracket</li>
+                                        <li>Modifier token with no modifier flag present</li>
+                                    </ul>
+                                </li>
+                                <li>If no modifying flags are present, then the state will be set to <span
+                                        style="color: rgb(125, 45, 45);">LevelView::Invalid</span>
+                                    <ul>
+                                        <li>This results in the string "<span
+                                                style="color: rgb(125, 45, 45);">INVALID_LEVEL</span>" being formatted
+                                            into your container</li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </th>
                 </tr>
@@ -606,7 +690,48 @@
                         <a class="doc_table_link" href="#max_size_size_t">parse(fmt::format_parse_context& parse);</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function simply parses the portion of the user pattern that deals with the message log
+                            level representation.
+
+                            <br><br>
+                            <span style="font-size: 200%; color: brown;">Not sure why I filled all this out here -> this
+                                will go into the "More Info" section
+                                later...</span>
+                            <br>
+                            Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
+                            being parsed for the serenity::LoggerLevel specific flags.
+                            <ul>
+                                <li>This function will parse the user defined pattern portion that deals with the
+                                    serenity::LoggerLevel flag</li>
+                                <li>When this function encounters modifier "<span
+                                        style="color: rgb(125, 45, 45);">L</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the long level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>When this function encounters modifier "<span
+                                        style="color: rgb(125, 45, 45);">l</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the short level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>Otherwise, this function will issue a warning on the following:
+                                    <ul>
+                                        <li>Missing closing bracket</li>
+                                        <li>Modifier token with no modifier flag present</li>
+                                    </ul>
+                                </li>
+                                <li>If no modifying flags are present, then the state will be set to <span
+                                        style="color: rgb(125, 45, 45);">LevelView::Invalid</span>
+                                    <ul>
+                                        <li>This results in the string "<span
+                                                style="color: rgb(125, 45, 45);">INVALID_LEVEL</span>" being formatted
+                                            into your container</li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </th>
                 </tr>
