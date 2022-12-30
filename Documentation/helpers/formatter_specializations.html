@@ -423,59 +423,6 @@
                                 style="color: rgb(125, 45, 45);">FormatAll()</span>, however, this can be changed by
                             adding modifiers in the user pattern after "<span
                                 style="color: rgb(125, 45, 45);">%s:</span>"
-
-
-
-                            <br><br>
-                            <span style="font-size: 200%; color: brown;">Not sure why I filled all this out here -> this
-                                will go into the "More Info" section
-                                later...</span>
-                            <br>
-                            <ul>
-                                <li>This function will do the following based on the flags set:
-                                    <ul>
-                                        <li>Format source file, line, column, and function</li>
-                                        <li>Format source file, line, and column</li>
-                                        <li>Format source function, line, and column</li>
-                                        <li>Format source file and function</li>
-                                        <li>Format source file and line</li>
-                                        <li>Format source function and line</li>
-                                        <li>Format source line and column</li>
-                                        <li>Format source line</li>
-                                        <li>Format source column</li>
-                                        <li>Format source function</li>
-                                        <li>Format source file</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
-                                    The flag is set based on the following found in the user pattern provided on target
-                                    creation:
-                                    <ul>
-                                        <li>The base flag "<span style="color: rgb(125, 45, 45);">%s</span>"</li>
-                                        <li> Followed by any combination of the below modifiers (requires "<span
-                                                style="color: rgb(125, 45, 45);">%s:</span>" before any modifiers):
-                                            <ul>
-                                                <li>"<span style="color: rgb(125, 45, 45);">a</span>" - calls <span
-                                                        style="color: rgb(125, 45, 45);">FormatAll();</span></li>
-                                                <li>"<span style="color: rgb(125, 45, 45);">f</span>" - calls <span
-                                                        style="color: rgb(125, 45, 45);">FormatFile();</span></li>
-                                                <li>"<span style="color: rgb(125, 45, 45);">l</span>" - calls <span
-                                                        style="color: rgb(125, 45, 45);">FormatLine();</span></li>
-                                                <li>"<span style="color: rgb(125, 45, 45);">c</span>" - calls <span
-                                                        style="color: rgb(125, 45, 45);">FormatColumn();</span></li>
-                                                <li>"<span style="color: rgb(125, 45, 45);">F</span>" - calls
-                                                    <span style="color: rgb(125, 45, 45);">FormatFunction();</span>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>If no modifiers are present, then this is the same as calling "<span
-                                                style="color: rgb(125, 45, 45);">%s:a</span>"</li>
-                                    </ul>
-                                </li>
-                            </ul>
-
                         </div>
                     </th>
                 </tr>
@@ -557,46 +504,6 @@
                         <div class="indent">
                             This function simply parses the portion of the user pattern that deals with the message log
                             level representation.
-
-                            <br><br>
-                            <span style="font-size: 200%; color: brown;">Not sure why I filled all this out here -> this
-                                will go into the "More Info" section
-                                later...</span>
-                            <br>
-                            Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
-                            being parsed for the serenity::LoggerLevel specific flags.
-                            <ul>
-                                <li>This function will parse the user defined pattern portion that deals with the
-                                    serenity::LoggerLevel flag</li>
-                                <li>When this function encounters modifier "<span
-                                        style="color: rgb(125, 45, 45);">L</span>"
-                                    <ul>
-                                        <li>This function will set the method of formatting to be the long level
-                                            representation</li>
-                                    </ul>
-                                </li>
-                                <li>When this function encounters modifier "<span
-                                        style="color: rgb(125, 45, 45);">l</span>"
-                                    <ul>
-                                        <li>This function will set the method of formatting to be the short level
-                                            representation</li>
-                                    </ul>
-                                </li>
-                                <li>Otherwise, this function will issue a warning on the following:
-                                    <ul>
-                                        <li>Missing closing bracket</li>
-                                        <li>Modifier token with no modifier flag present</li>
-                                    </ul>
-                                </li>
-                                <li>If no modifying flags are present, then the state will be set to <span
-                                        style="color: rgb(125, 45, 45);">LevelView::Invalid</span>
-                                    <ul>
-                                        <li>This results in the string "<span
-                                                style="color: rgb(125, 45, 45);">INVALID_LEVEL</span>" being formatted
-                                            into your container</li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                     </th>
                 </tr>
@@ -608,7 +515,8 @@
                             resultCtx& ctx) const;</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function will format the result of the parsed substitution block by mapping the
+                            LoggerLevel value to it's string representation.
                         </div>
                     </th>
                 </tr>
@@ -625,46 +533,6 @@
                         <div class="indent">
                             This function simply parses the portion of the user pattern that deals with the message log
                             level representation.
-
-                            <br><br>
-                            <span style="font-size: 200%; color: brown;">Not sure why I filled all this out here -> this
-                                will go into the "More Info" section
-                                later...</span>
-                            <br>
-                            Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
-                            being parsed for the serenity::LoggerLevel specific flags.
-                            <ul>
-                                <li>This function will parse the user defined pattern portion that deals with the
-                                    serenity::LoggerLevel flag</li>
-                                <li>When this function encounters modifier "<span
-                                        style="color: rgb(125, 45, 45);">L</span>"
-                                    <ul>
-                                        <li>This function will set the method of formatting to be the long level
-                                            representation</li>
-                                    </ul>
-                                </li>
-                                <li>When this function encounters modifier "<span
-                                        style="color: rgb(125, 45, 45);">l</span>"
-                                    <ul>
-                                        <li>This function will set the method of formatting to be the short level
-                                            representation</li>
-                                    </ul>
-                                </li>
-                                <li>Otherwise, this function will issue a warning on the following:
-                                    <ul>
-                                        <li>Missing closing bracket</li>
-                                        <li>Modifier token with no modifier flag present</li>
-                                    </ul>
-                                </li>
-                                <li>If no modifying flags are present, then the state will be set to <span
-                                        style="color: rgb(125, 45, 45);">LevelView::Invalid</span>
-                                    <ul>
-                                        <li>This results in the string "<span
-                                                style="color: rgb(125, 45, 45);">INVALID_LEVEL</span>" being formatted
-                                            into your container</li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                     </th>
                 </tr>
@@ -676,7 +544,8 @@
                             std::format_context& ctx) const;</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function will format the result of the parsed substitution block by mapping the
+                            LoggerLevel value to it's string representation.
                         </div>
                     </th>
                 </tr>
@@ -692,46 +561,6 @@
                         <div class="indent">
                             This function simply parses the portion of the user pattern that deals with the message log
                             level representation.
-
-                            <br><br>
-                            <span style="font-size: 200%; color: brown;">Not sure why I filled all this out here -> this
-                                will go into the "More Info" section
-                                later...</span>
-                            <br>
-                            Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
-                            being parsed for the serenity::LoggerLevel specific flags.
-                            <ul>
-                                <li>This function will parse the user defined pattern portion that deals with the
-                                    serenity::LoggerLevel flag</li>
-                                <li>When this function encounters modifier "<span
-                                        style="color: rgb(125, 45, 45);">L</span>"
-                                    <ul>
-                                        <li>This function will set the method of formatting to be the long level
-                                            representation</li>
-                                    </ul>
-                                </li>
-                                <li>When this function encounters modifier "<span
-                                        style="color: rgb(125, 45, 45);">l</span>"
-                                    <ul>
-                                        <li>This function will set the method of formatting to be the short level
-                                            representation</li>
-                                    </ul>
-                                </li>
-                                <li>Otherwise, this function will issue a warning on the following:
-                                    <ul>
-                                        <li>Missing closing bracket</li>
-                                        <li>Modifier token with no modifier flag present</li>
-                                    </ul>
-                                </li>
-                                <li>If no modifying flags are present, then the state will be set to <span
-                                        style="color: rgb(125, 45, 45);">LevelView::Invalid</span>
-                                    <ul>
-                                        <li>This results in the string "<span
-                                                style="color: rgb(125, 45, 45);">INVALID_LEVEL</span>" being formatted
-                                            into your container</li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                     </th>
                 </tr>
@@ -742,7 +571,8 @@
                             fmt::format_context& ctx) const;</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function will format the result of the parsed substitution block by mapping the
+                            LoggerLevel value to it's string representation.
                         </div>
                     </th>
                 </tr>
@@ -755,7 +585,7 @@
                         <a class="doc_table_link" href="#max_size_size_t">FMT_BUFF_SIZE 128</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This macro is used to set the format buffer size for the time related formatting.
                         </div>
                     </th>
                 </tr>
@@ -770,7 +600,9 @@
                         <a class="doc_table_link" href="#max_size_size_t">parse(std::format_parse_context& parse);</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function simply parses the substitution blocks that correspond to time related flags.
+                            This function specialization will accumulate the flags found for one efficient formatting
+                            call.
                         </div>
                     </th>
                 </tr>
@@ -782,7 +614,11 @@
                             std::format_context& ctx) const;</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function specialization will format the accumulated time flags found in the parse
+                            portion and format them into the underlying container. If sub-second precision was found in
+                            parsing, this function makes three formatting calls; one for flags up to the sub-second
+                            portion, the actual sub-second portion, and then anything that was let remaining after the
+                            sub-second portion.
                         </div>
                     </th>
                 </tr>
@@ -796,7 +632,9 @@
                         <a class="doc_table_link" href="#max_size_size_t">parse(fmt::format_parse_context& parse);</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function simply parses the substitution blocks that correspond to time related flags.
+                            This function specialization will accumulate the flags found for one efficient formatting
+                            call.
                         </div>
                     </th>
                 </tr>
@@ -807,7 +645,11 @@
                             fmt::format_context& ctx) const;</a>
                         <br>
                         <div class="indent">
-                            [Place_Holder_Text]
+                            This function specialization will format the accumulated time flags found in the parse
+                            portion and format them into the underlying container. If sub-second precision was found in
+                            parsing, this function makes three formatting calls; one for flags up to the sub-second
+                            portion, the actual sub-second portion, and then anything that was let remaining after the
+                            sub-second portion.
                         </div>
                     </th>
                 </tr>
@@ -815,247 +657,477 @@
             <br><br>
 
 
+            <br>
+            <div class="subHeaders"> More Information About Class FileHelper </div>
+            <br><br>
+            <div class="tables">
+                <table>
 
-
-
-            <section id="logger_lvl"></section>
-            <div class="subHeaders"> LoggerLevel </div>
-            <p style="text-align: center;">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                facilisis.
-                <br><br>
-                Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                fringilla vulputate.
-                <br><br>
-                Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                Suspendisse potenti.
-                <br><br>
-                Duis lacinia enim vitae ex suscipit, eget commodo lectus hendrerit. Phasellus condimentum suscipit
-                felis a vulputate. Praesent convallis a diam bibendum blandit. Nullam consectetur diam vitae odio
-                rutrum efficitur. Duis quis odio bibendum, ullamcorper arcu vel, maximus libero. Curabitur sit amet
-                massa justo. Quisque ornare mauris sit amet nibh tincidunt mattis.
-                <br><br>
-                Donec imperdiet feugiat auctor. Curabitur risus turpis, pellentesque sed elit vitae,
-                aliquet sagittis nisl. Curabitur tristique ipsum ut dictum auctor. Ut venenatis felis quis risus
-                aliquet ornare. Suspendisse pharetra maximus lorem eu luctus. Sed tincidunt nisl neque, vel
-                tristique turpis imperdiet at. Nulla lacinia ligula eu placerat semper. Pellentesque laoreet commodo
-                lorem eu pretium. Proin ac nulla id mi eleifend scelerisque. Phasellus elementum dapibu
-                <br><br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                facilisis.
-                <br><br>
-                Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                fringilla vulputate.
-                <br><br>
-                Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                Suspendisse potenti.
-                <br> <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                facilisis.
-                <br><br>
-                Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                fringilla vulputate.
-                <br><br>
-                Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                Suspendisse potenti.
-                <br><br>
-                Duis lacinia enim vitae ex suscipit, eget commodo lectus hendrerit. Phasellus condimentum suscipit
-                felis a vulputate. Praesent convallis a diam bibendum blandit. Nullam consectetur diam vitae odio
-                rutrum efficitur. Duis quis odio bibendum, ullamcorper arcu vel, maximus libero. Curabitur sit amet
-                massa justo. Quisque ornare mauris sit amet nibh tincidunt mattis.
-                <br><br>
-                Donec imperdiet feugiat auctor. Curabitur risus turpis, pellentesque sed elit vitae,
-                aliquet sagittis nisl. Curabitur tristique ipsum ut dictum auctor. Ut venenatis felis quis risus
-                aliquet ornare. Suspendisse pharetra maximus lorem eu luctus. Sed tincidunt nisl neque, vel
-                tristique turpis imperdiet at. Nulla lacinia ligula eu placerat semper. Pellentesque laoreet commodo
-                lorem eu pretium. Proin ac nulla id mi eleifend scelerisque. Phasellus elementum dapibu
-                <br><br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                facilisis.
-                <br><br>
-                Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                fringilla vulputate.
-                <br><br>
-                Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                Suspendisse potenti.
-            </p>
-
-            <section id="std_tm"></section>
-            <div class="subHeaders"> std::tm </div>
-            <p style="text-align: center;">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                facilisis.
-                <br><br>
-                Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                fringilla vulputate.
-                <br><br>
-                Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                Suspendisse potenti.
-                <br><br>
-                Duis lacinia enim vitae ex suscipit, eget commodo lectus hendrerit. Phasellus condimentum suscipit
-                felis a vulputate. Praesent convallis a diam bibendum blandit. Nullam consectetur diam vitae odio
-                rutrum efficitur. Duis quis odio bibendum, ullamcorper arcu vel, maximus libero. Curabitur sit amet
-                massa justo. Quisque ornare mauris sit amet nibh tincidunt mattis.
-                <br><br>
-                Donec imperdiet feugiat auctor. Curabitur risus turpis, pellentesque sed elit vitae,
-                aliquet sagittis nisl. Curabitur tristique ipsum ut dictum auctor. Ut venenatis felis quis risus
-                aliquet ornare. Suspendisse pharetra maximus lorem eu luctus. Sed tincidunt nisl neque, vel
-                tristique turpis imperdiet at. Nulla lacinia ligula eu placerat semper. Pellentesque laoreet commodo
-                lorem eu pretium. Proin ac nulla id mi eleifend scelerisque. Phasellus elementum dapibu
-                <br><br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                facilisis.
-                <br><br>
-                Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                fringilla vulputate.
-                <br><br>
-                Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                Suspendisse potenti.
-                <br> <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                facilisis.
-                <br><br>
-                Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                fringilla vulputate.
-                <br><br>
-                Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                Suspendisse potenti.
-                <br><br>
-                Duis lacinia enim vitae ex suscipit, eget commodo lectus hendrerit. Phasellus condimentum suscipit
-                felis a vulputate. Praesent convallis a diam bibendum blandit. Nullam consectetur diam vitae odio
-                rutrum efficitur. Duis quis odio bibendum, ullamcorper arcu vel, maximus libero. Curabitur sit amet
-                massa justo. Quisque ornare mauris sit amet nibh tincidunt mattis.
-                <br><br>
-                Donec imperdiet feugiat auctor. Curabitur risus turpis, pellentesque sed elit vitae,
-                aliquet sagittis nisl. Curabitur tristique ipsum ut dictum auctor. Ut venenatis felis quis risus
-                aliquet ornare. Suspendisse pharetra maximus lorem eu luctus. Sed tincidunt nisl neque, vel
-                tristique turpis imperdiet at. Nulla lacinia ligula eu placerat semper. Pellentesque laoreet commodo
-                lorem eu pretium. Proin ac nulla id mi eleifend scelerisque. Phasellus elementum dapibu
-                <br><br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu sapien et ornare. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat lorem nec convallis
-                pellentesque. Vestibulum pellentesque sapien eget dictum elementum. Maecenas sodales ullamcorper
-                tortor, eu sagittis quam tincidunt vel. Phasellus vulputate dolor ut augue ultrices ullamcorper.
-                Maecenas varius venenatis volutpat. Duis sit amet posuere massa. Etiam convallis condimentum leo a
-                facilisis.
-                <br><br>
-                Phasellus condimentum orci ut mi tincidunt iaculis. Vestibulum quis nibh a erat placerat porta quis
-                sed nisl. Suspendisse eu erat sit amet elit sagittis aliquam. Vestibulum sit amet sapien vel metus
-                congue rhoncus. Cras sit amet condimentum erat. Aliquam sollicitudin sem ipsum, eget semper urna
-                finibus id. Etiam pretium, nisl quis pellentesque tristique, lorem enim auctor ex, vel imperdiet
-                libero arcu molestie leo. In tempor ultricies nibh, iaculis tincidunt odio condimentum in. In
-                accumsan ultricies sem a eleifend. Donec lobortis sagittis ullamcorper. Proin fermentum sem vel mi
-                fringilla vulputate.
-                <br><br>
-                Maecenas faucibus ornare lorem id hendrerit. Etiam luctus est non odio imperdiet egestas. Donec
-                rutrum sem velit, in posuere nisi lacinia et. Etiam efficitur venenatis ex, ac rhoncus mi dignissim
-                ut. Nulla maximus, sem posuere vulputate laoreet, lectus ante eleifend neque, a vulputate augue dui
-                ac magna. Nam blandit ipsum quam, sit amet laoreet leo faucibus ut. Phasellus nec vulputate enim.
-                Integer maximus ligula metus, sed vestibulum massa rutrum eu. Suspendisse sit amet leo mauris. Donec
-                lobortis ante convallis mauris tempor ornare. Morbi vitae sollicitudin metus, et mollis eros.
-                Suspendisse potenti.
-            </p>
-            <hr />
+                    <tr>
+                        <th id="constructor" class="doc_table_head">explicit Format_Source_Loc(const
+                            std::source_location& src, const source_flag& flag);</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            This is the only constructor for this class.
+                            <li>Parameter <span style="color: rgb(125, 45, 45);">src</span> holds the source location
+                                collected at the log call site via the implicit capture using the <a
+                                    class="doc_table_link" href="../helpers/msg_with_loc.html">MsgWithLoc</a> struct
+                            </li>
+                            <li>Parameter <span style="color: rgb(125, 45, 45);">flag</span> holds the formatting
+                                modifier flags which controls how the <span style="color: rgb(125, 45, 45);">src</span>
+                                parameter is formatted. This enum is set when internally storing the user pattern when
+                                the function
+                                <span style="color: rgb(125, 45, 45);">SetPattern()</span> is called.
+                            </li>
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">std::string FormatUserPattern();</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            This function formats the source location info stored from the constructor call based on the
+                            source flag taken in from the same call and returns a string containing the formatted
+                            result. The default behavior is to call <span
+                                style="color: rgb(125, 45, 45);">FormatAll()</span>, however, this can be changed by
+                            adding modifiers in the user pattern after "<span
+                                style="color: rgb(125, 45, 45);">%s:</span>"
+                            <ul>
+                                <li>This function will do the following based on the flags set:
+                                    <ul>
+                                        <li>Format source file, line, column, and function</li>
+                                        <li>Format source file, line, and column</li>
+                                        <li>Format source function, line, and column</li>
+                                        <li>Format source file and function</li>
+                                        <li>Format source file and line</li>
+                                        <li>Format source function and line</li>
+                                        <li>Format source line and column</li>
+                                        <li>Format source line</li>
+                                        <li>Format source column</li>
+                                        <li>Format source function</li>
+                                        <li>Format source file</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    The flag is set based on the following found in the user pattern provided on target
+                                    creation:
+                                    <ul>
+                                        <li>The base flag "<span style="color: rgb(125, 45, 45);">%s</span>"</li>
+                                        <li> Followed by any combination of the below modifiers (requires "<span
+                                                style="color: rgb(125, 45, 45);">%s:</span>" before any modifiers):
+                                            <ul>
+                                                <li>"<span style="color: rgb(125, 45, 45);">a</span>" - calls <span
+                                                        style="color: rgb(125, 45, 45);">FormatAll();</span></li>
+                                                <li>"<span style="color: rgb(125, 45, 45);">f</span>" - calls <span
+                                                        style="color: rgb(125, 45, 45);">FormatFile();</span></li>
+                                                <li>"<span style="color: rgb(125, 45, 45);">l</span>" - calls <span
+                                                        style="color: rgb(125, 45, 45);">FormatLine();</span></li>
+                                                <li>"<span style="color: rgb(125, 45, 45);">c</span>" - calls <span
+                                                        style="color: rgb(125, 45, 45);">FormatColumn();</span></li>
+                                                <li>"<span style="color: rgb(125, 45, 45);">F</span>" - calls
+                                                    <span style="color: rgb(125, 45, 45);">FormatFunction();</span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>If no modifiers are present, then this is the same as calling "<span
+                                                style="color: rgb(125, 45, 45);">%s:a</span>"</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">template&lt;&gt; constexpr void Parse(std::string_view parse);</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                        This function simply parses the portion of the user pattern that deals with the message log
+                            level representation.
+                           <li> Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
+                            being parsed for the serenity::LoggerLevel specific flags.</li>
+                            
+                            <ul>
+                                <li>This function will parse the user defined pattern portion that deals with the
+                                    serenity::LoggerLevel flag</li>
+                                <li>When this function encounters "<span style="color: rgb(125, 45, 45);">L</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the long level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>When this function encounters "<span style="color: rgb(125, 45, 45);">l</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the short level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>Otherwise, this function will issue a warning on the following:
+                                    <ul>
+                                        <li>Missing closing bracket</li>
+                                        <li>Modifier token with no flag present - meaning a "%" was found without a
+                                            corresponding flag </li>
+                                    </ul>
+                                </li>
+                                <li>If no modifying flags are present, then the state will be set to <span
+                                        style="color: rgb(125, 45, 45);">LevelView::Invalid</span>
+                                    <ul>
+                                        <li>This results in the string "<span
+                                                style="color: rgb(125, 45, 45);">INVALID_LEVEL</span>" being formatted
+                                            into your container</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">template&lt;&gt; constexpr std::format_parse_context::const_iterator parse(std::format_parse_context& parse);</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                        This function simply parses the portion of the user pattern that deals with the message log
+                            level representation.
+                           <li> Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
+                            being parsed for the serenity::LoggerLevel specific flags.</li>
+                            
+                            <ul>
+                                <li>This function will parse the user defined pattern portion that deals with the
+                                    serenity::LoggerLevel flag</li>
+                                <li>When this function encounters "<span style="color: rgb(125, 45, 45);">L</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the long level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>When this function encounters "<span style="color: rgb(125, 45, 45);">l</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the short level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>Otherwise, this function will issue a warning on the following:
+                                    <ul>
+                                        <li>Missing closing bracket</li>
+                                        <li>Modifier token with no flag present - meaning a "%" was found without a
+                                            corresponding flag </li>
+                                    </ul>
+                                </li>
+                                <li>If no modifying flags are present, then the state will be set to <span
+                                        style="color: rgb(125, 45, 45);">LevelView::Invalid</span>
+                                    <ul>
+                                        <li>This results in the string "<span
+                                                style="color: rgb(125, 45, 45);">INVALID_LEVEL</span>" being formatted
+                                            into your container</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">template&lt;&gt; constexpr const char * parse(fmt::format_parse_context& parse);</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                        This function simply parses the portion of the user pattern that deals with the message log
+                            level representation.
+                           <li> Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
+                            being parsed for the serenity::LoggerLevel specific flags.</li>
+                            
+                            <ul>
+                                <li>This function will parse the user defined pattern portion that deals with the
+                                    serenity::LoggerLevel flag</li>
+                                <li>When this function encounters "<span style="color: rgb(125, 45, 45);">L</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the long level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>When this function encounters "<span style="color: rgb(125, 45, 45);">l</span>"
+                                    <ul>
+                                        <li>This function will set the method of formatting to be the short level
+                                            representation</li>
+                                    </ul>
+                                </li>
+                                <li>Otherwise, this function will issue a warning on the following:
+                                    <ul>
+                                        <li>Missing closing bracket</li>
+                                        <li>Modifier token with no flag present - meaning a "%" was found without a
+                                            corresponding flag </li>
+                                    </ul>
+                                </li>
+                                <li>If no modifying flags are present, then the state will be set to <span
+                                        style="color: rgb(125, 45, 45);">LevelView::Invalid</span>
+                                    <ul>
+                                        <li>This results in the string "<span
+                                                style="color: rgb(125, 45, 45);">INVALID_LEVEL</span>" being formatted
+                                            into your container</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            [PLACE_HOLDER_TEXT]
+                            <br><br>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
         </div>
+        <hr />
         <br><br>
+    </div>
     </div>
 </body>
 
