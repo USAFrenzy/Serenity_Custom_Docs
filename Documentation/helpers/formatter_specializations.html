@@ -392,7 +392,7 @@
                 <tr>
                     <th class="doc_table_contents_keyword">void</th>
                     <th class="doc_table_contents_body">
-                        <a class="doc_table_link" href="#max_size_size_t">FormatFile()</a>
+                        <a class="doc_table_link" href="#max_size_size_t">FormatFile();</a>
                         <br>
                         <div class="indent">
                             This function formats the source file name into the member variable <span
@@ -680,6 +680,18 @@
                                 the function
                                 <span style="color: rgb(125, 45, 45);">SetPattern()</span> is called.
                             </li>
+                            <br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_break"><br><br></th>
+                    </tr>
+                    <tr>
+                        <th id="" class="doc_table_head">~Format_Source_Loc();</th>
+                    </tr>
+                    <tr>
+                        <th class="doc_table_body">
+                            Default Destructor.
                             <br><br>
                         </th>
                     </tr>
@@ -687,11 +699,13 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">inline static constexpr size_t SOURCE_BUFF_SIZE;</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
+                            This constexpr variable is used to keep consistency with the buffers used in calls to
+                            std::to_chars() and is set to "<span style="color: rgb(125, 45, 45);">6</span>", which
+                            should be adequate for even the largest of files.
                             <br><br>
                         </th>
                     </tr>
@@ -699,72 +713,127 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">void FormatAll();</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
-                            <br><br>
+                            This function formats the source file name, source line, source column, and source function
+                            into the member variable <span style="color: rgb(125, 45, 45);">result</span>.
+                            <ul>
+                                <li>
+                                    This function uses <span
+                                        style="color: rgb(125, 45, 45);">std::source_location</span>'s:
+                                    <ul>
+                                        <li><span style="color: rgb(125, 45, 45);">file_name()</span> function</li>
+                                        <li><span style="color: rgb(125, 45, 45);">line()</span> function</li>
+                                        <li><span style="color: rgb(125, 45, 45);">column()</span> function</li>
+                                        <li><span style="color: rgb(125, 45, 45);">function_name()</span> function</li>
+                                    </ul>
+                                <li>For the <span style="color: rgb(125, 45, 45);">line()</span> and <span
+                                        style="color: rgb(125, 45, 45);">column()</span> functions:
+                                    <ul>
+                                        <li><span style="color: rgb(125, 45, 45);">std::to_chars()</span> is used to
+                                            convert these values into their string counterparts</li>
+                                    </ul>
+                                </li>
+                                </li>
+                                <li>
+                                    The output of the formatted source location will be:
+                                    <ul>
+                                        <li>
+                                            <span style="color: rgb(125, 45, 45);">
+                                                [ File_Name (Line:Column) Function_Name ]
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">void FormatLine();</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
-                            <br><br>
+                            This function formats the source line into the member variable <span
+                                style="color: rgb(125, 45, 45);">result</span>.
+                            <ul>
+                                <li>
+                                    This function uses <span
+                                        style="color: rgb(125, 45, 45);">std::source_location</span>'s
+                                    <span style="color: rgb(125, 45, 45);">line()</span> function
+                                </li>
+                                <li>
+                                    <span style="color: rgb(125, 45, 45);">std::to_chars()</span> is used to
+                                    convert the <span style="color: rgb(125, 45, 45);">line()</span> result into its
+                                    string counterpart.
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">void FormatColumn();</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
-                            <br><br>
+                            This function formats the source column into the member variable <span
+                            style="color: rgb(125, 45, 45);">result</span>.
+                            <ul>
+                                <li>
+                                    This function uses <span
+                                        style="color: rgb(125, 45, 45);">std::source_location</span>'s
+                                    <span style="color: rgb(125, 45, 45);">column()</span> function
+                                </li>
+                                <li>
+                                    <span style="color: rgb(125, 45, 45);">std::to_chars()</span> is used to
+                                    convert the <span style="color: rgb(125, 45, 45);">column()</span> result into its
+                                    string counterpart.
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">void FormatFile();</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
-                            <br><br>
+                            This function formats the source file name into the member variable <span
+                                style="color: rgb(125, 45, 45);">result</span>.
+                                <ul>
+                                    <li>
+                                        This function uses <span
+                                            style="color: rgb(125, 45, 45);">std::source_location</span>'s
+                                        <span style="color: rgb(125, 45, 45);">file_name()</span> function.
+                                    </li>
+                                </ul>
                         </th>
                     </tr>
                     <tr>
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">inline constexpr void FormatFunction();</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
-                            <br><br>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th id="" class="doc_table_break"><br><br></th>
-                    </tr>
-                    <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
-                    </tr>
-                    <tr>
-                        <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
-                            <br><br>
+                            This function formats the source function name into the member variable <span
+                            style="color: rgb(125, 45, 45);">result</span>.
+                            <ul>
+                                <li>
+                                    This function uses <span
+                                        style="color: rgb(125, 45, 45);">std::source_location</span>'s
+                                    <span style="color: rgb(125, 45, 45);">function_name()</span> function.
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
@@ -891,15 +960,17 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">template&lt;&gt; constexpr void Parse(std::string_view parse);</th>
+                        <th id="" class="doc_table_head">template&lt;&gt; constexpr void Parse(std::string_view parse);
+                        </th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                        This function simply parses the portion of the user pattern that deals with the message log
+                            This function simply parses the portion of the user pattern that deals with the message log
                             level representation.
-                           <li> Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
-                            being parsed for the serenity::LoggerLevel specific flags.</li>
-                            
+                            <li> Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution
+                                context
+                                being parsed for the serenity::LoggerLevel specific flags.</li>
+
                             <ul>
                                 <li>This function will parse the user defined pattern portion that deals with the
                                     serenity::LoggerLevel flag</li>
@@ -949,15 +1020,17 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">template&lt;&gt; constexpr std::format_parse_context::const_iterator parse(std::format_parse_context& parse);</th>
+                        <th id="" class="doc_table_head">template&lt;&gt; constexpr
+                            std::format_parse_context::const_iterator parse(std::format_parse_context& parse);</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                        This function simply parses the portion of the user pattern that deals with the message log
+                            This function simply parses the portion of the user pattern that deals with the message log
                             level representation.
-                           <li> Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
-                            being parsed for the serenity::LoggerLevel specific flags.</li>
-                            
+                            <li> Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution
+                                context
+                                being parsed for the serenity::LoggerLevel specific flags.</li>
+
                             <ul>
                                 <li>This function will parse the user defined pattern portion that deals with the
                                     serenity::LoggerLevel flag</li>
@@ -1007,15 +1080,17 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">template&lt;&gt; constexpr const char * parse(fmt::format_parse_context& parse);</th>
+                        <th id="" class="doc_table_head">template&lt;&gt; constexpr const char *
+                            parse(fmt::format_parse_context& parse);</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                        This function simply parses the portion of the user pattern that deals with the message log
+                            This function simply parses the portion of the user pattern that deals with the message log
                             level representation.
-                           <li> Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution context
-                            being parsed for the serenity::LoggerLevel specific flags.</li>
-                            
+                            <li> Parameter <span style="color:rgb(125, 45, 45);" ;>parse</span> is the substitution
+                                context
+                                being parsed for the serenity::LoggerLevel specific flags.</li>
+
                             <ul>
                                 <li>This function will parse the user defined pattern portion that deals with the
                                     serenity::LoggerLevel flag</li>
