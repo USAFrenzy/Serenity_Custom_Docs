@@ -35,21 +35,12 @@ function Search(pattern) {
 
 // This function should display, in a dropdown box below the search box, the
 // search results returned from the search query itself
-function DisplaySearchResults(pattern) {
-    // Not going to lie, not sure if this does what I think it does... need to test it
-    const results = Search(pattern);
-    const resultsName = results.map(data, data.item);
-    document.getElementById('search_results').innerHTML.replace(resultsName.map(
-        data => {
-            const { namespace, name } = data;
-        }
-    ));
+function DisplaySearchResults() {
 
 }
 
 // This function should redirect the user to the page indicated in the 'page_name'
 // field of the search result returned from the search query
-function GoToMatchedSearchPage(foundItem) {
-    // redirect somehow to foundItem's page link
-    const pageName = foundItem.map(data => { const { page_name } = data });
+function GoToMatchedSearchPage() {
+
 }
