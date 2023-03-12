@@ -783,7 +783,7 @@
                     <tr>
                         <th class="doc_table_body">
                             This function formats the source column into the member variable <span
-                            style="color: rgb(125, 45, 45);">result</span>.
+                                style="color: rgb(125, 45, 45);">result</span>.
                             <ul>
                                 <li>
                                     This function uses <span
@@ -808,13 +808,13 @@
                         <th class="doc_table_body">
                             This function formats the source file name into the member variable <span
                                 style="color: rgb(125, 45, 45);">result</span>.
-                                <ul>
-                                    <li>
-                                        This function uses <span
-                                            style="color: rgb(125, 45, 45);">std::source_location</span>'s
-                                        <span style="color: rgb(125, 45, 45);">file_name()</span> function.
-                                    </li>
-                                </ul>
+                            <ul>
+                                <li>
+                                    This function uses <span
+                                        style="color: rgb(125, 45, 45);">std::source_location</span>'s
+                                    <span style="color: rgb(125, 45, 45);">file_name()</span> function.
+                                </li>
+                            </ul>
                         </th>
                     </tr>
                     <tr>
@@ -826,7 +826,7 @@
                     <tr>
                         <th class="doc_table_body">
                             This function formats the source function name into the member variable <span
-                            style="color: rgb(125, 45, 45);">result</span>.
+                                style="color: rgb(125, 45, 45);">result</span>.
                             <ul>
                                 <li>
                                     This function uses <span
@@ -840,7 +840,7 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">std::string FormatUserPattern();</th>
+                        <th id="" class="doc_table_head">std::string Format_Source_Loc::FormatUserPattern();</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
@@ -900,11 +900,12 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">inline static constexpr size_t defaultThreadIdLength = 10</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
+                            This value is used internally to limit the default length of the hashed ID used when
+                            formatting the thread ID.
                             <br><br>
                         </th>
                     </tr>
@@ -912,11 +913,12 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">inline static constexpr size_t THREAD_BUFF_SIZE = 64</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
+                            This value is used internally to ensure the hashed thread ID can be adequately stored before
+                            being returned the calling function.
                             <br><br>
                         </th>
                     </tr>
@@ -924,11 +926,14 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">Format_Thread_ID(const std::thread::id& id): thread(id) { }
+                        </th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
+                            The default constructor used when formatting the thread ID. This constructor takes in a
+                            std::thread::id object and stores it in order to format it later on when
+                            Format_Thread_ID::FormatUserPattern() is called.
                             <br><br>
                         </th>
                     </tr>
@@ -936,11 +941,11 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">~Format_Thread_ID() </th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
+                            This class uses a default destructor.
                             <br><br>
                         </th>
                     </tr>
@@ -948,11 +953,16 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head">std::string Format_Thread_ID::FormatUserPattern(size_t
+                            precision)</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
+                            This function takes in a thread precision spec that is found in the user defined pattern of
+                            the thread ID flag. If no modifier is present, the thread ID length defaults to the "<span
+                                style="color: rgb(125, 45, 45);">defaultThreadIdLength</span>" value of '<span
+                                style="color: rgb(125, 45, 45);">10</span>'. This function will hash the thread ID into
+                            a function local buffer before returning its string representation to the calling function.
                             <br><br>
                         </th>
                     </tr>
