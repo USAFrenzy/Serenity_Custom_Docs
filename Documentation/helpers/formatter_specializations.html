@@ -1017,40 +1017,58 @@
                     <tr>
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
+                    <!--For the logger level formatting functions, still need to explain what the parameters are here -->
                     <tr>
                         <th id="" class="doc_table_head">template&lt;typename resultCtx&gt; constexpr auto Format(const
                             serenity::LoggerLevel& lvl, resultCtx& ctx) const</th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            <!--Finish Out Writing The Content Of The Table Here For The Other Logging Levels-->
                             This function is in charge of the actual formatting that occurs for the logging level when
                             logging a message if using the custom native formatting backend, "ArgFormatter".
                             <br><br>
                             This function will do the following:
-                            <ul>
-                                <li>
-                                    For the short form representation of the logger levels, this function formats the following directly into the container:
+                            <ul class="lists">
+                                <li style="padding-right:5%;">
+                                    For the short form representation of the logger levels, this function formats the
+                                    following directly into the container:
                                     <ul>
                                         <table>
                                             <tr>
                                                 <th>LoggerLevel</th>
                                                 <th>Output</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Info</th>
+                                                <th>I</th>
                                             </tr>
                                             <tr>
                                                 <th>Trace</th>
                                                 <th>T</th>
                                             </tr>
                                             <tr>
+                                                <th>Debug</th>
+                                                <th>D</th>
+                                            </tr>
+                                            <tr>
                                                 <th>Warning</th>
                                                 <th>W</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Error</th>
+                                                <th>E</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Fatal</th>
+                                                <th>F</th>
                                             </tr>
                                         </table>
                                     </ul>
 
                                 </li>
-                                <br>
-                                <li>For the long form representation of the logger levels, this function formats the following directly into the container:
+                                <br><br>
+                                <li>For the long form representation of the logger levels, this function formats the
+                                    following directly into the container:
                                     <ul>
                                         <table>
                                             <tr>
@@ -1058,17 +1076,35 @@
                                                 <th>Output</th>
                                             </tr>
                                             <tr>
+                                                <th>Info</th>
+                                                <th>Info</th>
+                                            </tr>
+                                            <tr>
                                                 <th>Trace</th>
                                                 <th>Trace</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Debug</th>
+                                                <th>Debug</th>
                                             </tr>
                                             <tr>
                                                 <th>Warning</th>
                                                 <th>Warn</th>
                                             </tr>
+                                            <tr>
+                                                <th>Error</th>
+                                                <th>Error</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Fatal</th>
+                                                <th>Fatal</th>
+                                            </tr>
                                         </table>
                                     </ul>
                                 </li>
                             </ul>
+                            NOTE: In the case that the logger level provided is not a known or valid level, then the formatted output of this function will be the string "INVALID_LEVEL"
+                            <br><br>
                         </th>
                     </tr>
                     <tr>
@@ -1123,11 +1159,91 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head">[PLACE_HOLDER_TEXT]</th>
+                        <th id="" class="doc_table_head"> template &lt;&gt; inline fmt::v9::appender fmt::v9::formatter&lt;serenity::LoggerLevel&gt;::format(serenity::LoggerLevel& lvl, fmt::format_context& ctx) const </th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
-                            [PLACE_HOLDER_TEXT]
+                            This function is in charge of the actual formatting that occurs for the logging level when
+                            logging a message if using the "fmtlib" backend option.
+                            <br><br>
+                            This function will do the following:
+                            <ul class="lists">
+                                <li style="padding-right:5%;">
+                                    For the short form representation of the logger levels, this function formats the
+                                    following directly into the container:
+                                    <ul>
+                                        <table>
+                                            <tr>
+                                                <th>LoggerLevel</th>
+                                                <th>Output</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Info</th>
+                                                <th>I</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Trace</th>
+                                                <th>T</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Debug</th>
+                                                <th>D</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Warning</th>
+                                                <th>W</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Error</th>
+                                                <th>E</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Fatal</th>
+                                                <th>F</th>
+                                            </tr>
+                                        </table>
+                                    </ul>
+
+                                </li>
+                                <br><br>
+                                <li>For the long form representation of the logger levels, this function formats the
+                                    following directly into the container:
+                                    <ul>
+                                        <table>
+                                            <tr>
+                                                <th>LoggerLevel</th>
+                                                <th>Output</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Info</th>
+                                                <th>Info</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Trace</th>
+                                                <th>Trace</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Debug</th>
+                                                <th>Debug</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Warning</th>
+                                                <th>Warn</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Error</th>
+                                                <th>Error</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Fatal</th>
+                                                <th>Fatal</th>
+                                            </tr>
+                                        </table>
+                                    </ul>
+                                </li>
+                            </ul>
+                            NOTE: In the case that the logger level provided is not a known or valid level, then the formatted output of this function will be the string "INVALID_LEVEL"
+                            <br><br>
                             <br><br>
                         </th>
                     </tr>
