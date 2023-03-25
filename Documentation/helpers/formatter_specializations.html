@@ -1017,7 +1017,6 @@
                     <tr>
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
-                    <!--For the logger level formatting functions, still need to explain what the parameters are here -->
                     <tr>
                         <th id="" class="doc_table_head">template&lt;typename resultCtx&gt; constexpr auto Format(const
                             serenity::LoggerLevel& lvl, resultCtx& ctx) const</th>
@@ -1026,7 +1025,26 @@
                         <th class="doc_table_body">
                             This function is in charge of the actual formatting that occurs for the logging level when
                             logging a message if using the custom native formatting backend, "ArgFormatter".
-                            <br><br>
+                            <br>
+                            <ul>
+                                <li> Parameters:
+                                    <ul>
+                                        <li>
+                                            <span style="color: rgb(125, 45, 45); text-decoration: underline;">lvl</span> -
+                                                    While the loggers use <span style="color: rgb(125, 45, 45);">LoggerLevel</span> to determine
+                                                    whether or not a certain message is actually logged,
+                                                    parameter "<span style="color: rgb(125, 45, 45);">lvl</span>" is the message level in this
+                                                    case and not the logger's level threshold.
+                                        </li>
+                                        <li>
+                                            <span style="color: rgb(125, 45, 45); text-decoration: underline">ctx</span>  -
+                                                    Parameter "<span style="color: rgb(125, 45, 45);">ctx</span>" is the container that the
+                                                    formatted output string will be written to.
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
                             This function will do the following:
                             <ul class="lists">
                                 <li style="padding-right:5%;">
@@ -1103,7 +1121,8 @@
                                     </ul>
                                 </li>
                             </ul>
-                            NOTE: In the case that the logger level provided is not a known or valid level, then the formatted output of this function will be the string "INVALID_LEVEL"
+                            <span style="color: rgb(91, 0, 0); text-decoration: underline; font-size: 150%; font-weight: bold;"> NOTE:</span> In the case that the logger level provided is not a known or valid level, then the
+                            formatted output of this function will be the string "INVALID_LEVEL"
                             <br><br>
                         </th>
                     </tr>
@@ -1159,13 +1178,34 @@
                         <th id="" class="doc_table_break"><br><br></th>
                     </tr>
                     <tr>
-                        <th id="" class="doc_table_head"> template &lt;&gt; inline fmt::v9::appender fmt::v9::formatter&lt;serenity::LoggerLevel&gt;::format(serenity::LoggerLevel& lvl, fmt::format_context& ctx) const </th>
+                        <th id="" class="doc_table_head"> template &lt;&gt; inline fmt::v9::appender
+                            fmt::v9::formatter&lt;serenity::LoggerLevel&gt;::format(serenity::LoggerLevel& lvl,
+                            fmt::format_context& ctx) const </th>
                     </tr>
                     <tr>
                         <th class="doc_table_body">
                             This function is in charge of the actual formatting that occurs for the logging level when
                             logging a message if using the "fmtlib" backend option.
-                            <br><br>
+                            <br>
+                            <ul>
+                                <li> Parameters:
+                                    <ul>
+                                        <li>
+                                            <span style="color: rgb(125, 45, 45); text-decoration: underline;">lvl</span> -
+                                                    While the loggers use <span style="color: rgb(125, 45, 45);">LoggerLevel</span> to determine
+                                                    whether or not a certain message is actually logged,
+                                                    parameter "<span style="color: rgb(125, 45, 45);">lvl</span>" is the message level in this
+                                                    case and not the logger's level threshold.
+                                        </li>
+                                        <li>
+                                            <span style="color: rgb(125, 45, 45); text-decoration: underline">ctx</span>  -
+                                                    Parameter "<span style="color: rgb(125, 45, 45);">ctx</span>" is the container that the
+                                                    formatted output string will be written to.
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
                             This function will do the following:
                             <ul class="lists">
                                 <li style="padding-right:5%;">
@@ -1242,8 +1282,8 @@
                                     </ul>
                                 </li>
                             </ul>
-                            NOTE: In the case that the logger level provided is not a known or valid level, then the formatted output of this function will be the string "INVALID_LEVEL"
-                            <br><br>
+                            <span style="color: rgb(91, 0, 0); text-decoration: underline; font-size: 150%; font-weight: bold;"> NOTE:</span> In the case that the logger level provided is not a known or valid level, then the
+                            formatted output of this function will be the string "INVALID_LEVEL"
                             <br><br>
                         </th>
                     </tr>
